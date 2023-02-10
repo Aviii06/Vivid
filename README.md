@@ -1,4 +1,6 @@
 # Vivid
+<img width="1080" alt="Screenshot 2023-02-03 at 4 12 49 PM" src="https://user-images.githubusercontent.com/45993519/218171952-624d8dda-5c49-4fe4-942f-301deaa502f4.png">
+
 A renderer providing a user friendly interface for rendering 2D and 3D on OpenGL.
 
 
