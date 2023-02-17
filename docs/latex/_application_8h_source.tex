@@ -1,0 +1,46 @@
+\hypertarget{_application_8h_source}{}\doxysection{Application.\+h}
+\label{_application_8h_source}\index{src/Editor/Application.h@{src/Editor/Application.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_application_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_application_8h_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}common/Types.h"{}}}
+\DoxyCodeLine{\Hypertarget{_application_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}Window.h"{}}}
+\DoxyCodeLine{\Hypertarget{_application_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{_application_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}confs/DynamicExportingMacros.h"{}}}
+\DoxyCodeLine{\Hypertarget{_application_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}Editor/RenderingInterface.h"{}}}
+\DoxyCodeLine{\Hypertarget{_application_8h_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_application_8h_source_l00008}\mbox{\hyperlink{class_application}{00008}}\ \textcolor{keyword}{class\ }VIVAPI\ \mbox{\hyperlink{class_application}{Application}}}
+\DoxyCodeLine{\Hypertarget{_application_8h_source_l00009}00009\ \{}
+\DoxyCodeLine{\Hypertarget{_application_8h_source_l00010}00010\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_application_8h_source_l00011}00011\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_application}{Application}}*\ s\_Instance;}
+\DoxyCodeLine{\Hypertarget{_application_8h_source_l00012}00012\ \ \ \ \ \textcolor{keywordtype}{int}\ m\_Width,\ m\_Height;}
+\DoxyCodeLine{\Hypertarget{_application_8h_source_l00013}00013\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ m\_Title;}
+\DoxyCodeLine{\Hypertarget{_application_8h_source_l00014}00014\ \ \ \ \ \mbox{\hyperlink{class_application}{Application}}();}
+\DoxyCodeLine{\Hypertarget{_application_8h_source_l00015}00015\ \ \ \ \ \mbox{\hyperlink{class_application}{Application}}(\textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ title);}
+\DoxyCodeLine{\Hypertarget{_application_8h_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{_application_8h_source_l00017}00017\ \ \ \ \ Ptr<Window>\ m\_Window;}
+\DoxyCodeLine{\Hypertarget{_application_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{_application_8h_source_l00019}00019\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_application_8h_source_l00020}00020\ \ \ \ \ \textcolor{keywordtype}{bool}\ IsRunning();}
+\DoxyCodeLine{\Hypertarget{_application_8h_source_l00021}00021\ \ \ \ \ \textcolor{keywordtype}{void}\ Run();}
+\DoxyCodeLine{\Hypertarget{_application_8h_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{_application_8h_source_l00023}00023\ \ \ \ \ \textcolor{comment}{//\ TODO:\ Fix\ this\ semantically}}
+\DoxyCodeLine{\Hypertarget{_application_8h_source_l00024}00024\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_application}{Application}}*\ GetInstance(\textcolor{keywordtype}{int}\ width\ =\ 1920,\ \textcolor{keywordtype}{int}\ height\ =\ 1080,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ title\ =\ \textcolor{stringliteral}{"{}Newton"{}})}
+\DoxyCodeLine{\Hypertarget{_application_8h_source_l00025}00025\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_application_8h_source_l00026}00026\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (s\_Instance\ ==\ NULL)}
+\DoxyCodeLine{\Hypertarget{_application_8h_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ s\_Instance\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_application}{Application}}(width,\ height,\ title);}
+\DoxyCodeLine{\Hypertarget{_application_8h_source_l00028}00028\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ s\_Instance;}
+\DoxyCodeLine{\Hypertarget{_application_8h_source_l00029}00029\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_application_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{_application_8h_source_l00031}00031\ \ \ \ \ \mbox{\hyperlink{class_window}{Window}}\&\ GetWindow()\ \{\ \textcolor{keywordflow}{return}\ *m\_Window;\ \}}
+\DoxyCodeLine{\Hypertarget{_application_8h_source_l00032}00032\ \ \ \ \ \textcolor{keywordtype}{void}\ Terminate();}
+\DoxyCodeLine{\Hypertarget{_application_8h_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{_application_8h_source_l00034}00034\ \ \ \ \ \textcolor{keywordtype}{void}\ SetRenderingInterface(\mbox{\hyperlink{class_rendering_interface}{RenderingInterface}}*\ renderingInterface)\ \{\ m\_Window-\/>SetRenderingInterface(renderingInterface);\ \}}
+\DoxyCodeLine{\Hypertarget{_application_8h_source_l00035}00035\ \};}
+\DoxyCodeLine{\Hypertarget{_application_8h_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{_application_8h_source_l00037}00037\ \textcolor{keyword}{namespace\ }Vivid}
+\DoxyCodeLine{\Hypertarget{_application_8h_source_l00038}00038\ \{}
+\DoxyCodeLine{\Hypertarget{_application_8h_source_l00039}00039\ \ \ \ \ \mbox{\hyperlink{class_application}{Application}}*\ CreateApplication();}
+\DoxyCodeLine{\Hypertarget{_application_8h_source_l00040}00040\ \}}
+
+\end{DoxyCode}

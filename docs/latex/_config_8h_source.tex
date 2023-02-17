@@ -1,0 +1,47 @@
+\hypertarget{_config_8h_source}{}\doxysection{Config.\+h}
+\label{_config_8h_source}\index{src/confs/Config.h@{src/confs/Config.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_config_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_config_8h_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_config_8h_source_l00003}00003\ \textcolor{preprocessor}{\#define\ OPENGL\_CONFS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_config_8h_source_l00004}00004\ \textcolor{preprocessor}{\ \ \ \ glEnable(GL\_DEPTH\_TEST);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_config_8h_source_l00005}00005\ \textcolor{preprocessor}{\ \ \ \ if\ (glewInit()\ !=\ GLEW\_OK)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_config_8h_source_l00006}00006\ \textcolor{preprocessor}{\ \ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_config_8h_source_l00007}00007\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ std::cout\ <<\ "{}GLEW\ failed\ to\ initialize!"{}}\ <<\ std::endl;\ \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{_config_8h_source_l00008}00008\ \ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{_config_8h_source_l00009}00009\ \ \ \ \ GLCall(glEnable(GL\_BLEND));\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{_config_8h_source_l00010}00010\ \ \ \ \ GLCall(glBlendFunc(GL\_SRC\_ALPHA,\ GL\_ONE\_MINUS\_SRC\_ALPHA));\ \ \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{_config_8h_source_l00011}00011\ \ \ \ \ GLCall(glBlendFuncSeparate(GL\_SRC\_ALPHA,\ GL\_ONE\_MINUS\_SRC\_ALPHA,\ GL\_ONE,\ GL\_ONE));}
+\DoxyCodeLine{\Hypertarget{_config_8h_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{_config_8h_source_l00013}00013\ \textcolor{preprocessor}{\#define\ OPENGL\_2D\_CONFS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_config_8h_source_l00014}00014\ \textcolor{preprocessor}{\ \ \ \ glDisable(GL\_DEPTH\_TEST);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_config_8h_source_l00015}00015\ \textcolor{preprocessor}{\ \ \ \ if\ (glewInit()\ !=\ GLEW\_OK)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_config_8h_source_l00016}00016\ \textcolor{preprocessor}{\ \ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_config_8h_source_l00017}00017\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ std::cout\ <<\ "{}GLEW\ failed\ to\ initialize!"{}}\ <<\ std::endl;\ \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{_config_8h_source_l00018}00018\ \ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{_config_8h_source_l00019}00019\ \ \ \ \ GLCall(glEnable(GL\_BLEND));\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{_config_8h_source_l00020}00020\ \ \ \ \ GLCall(glBlendFunc(GL\_SRC\_ALPHA,\ GL\_ONE\_MINUS\_SRC\_ALPHA));\ \ \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{_config_8h_source_l00021}00021\ \ \ \ \ GLCall(glBlendFuncSeparate(GL\_SRC\_ALPHA,\ GL\_ONE\_MINUS\_SRC\_ALPHA,\ GL\_ONE,\ GL\_ONE));}
+\DoxyCodeLine{\Hypertarget{_config_8h_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{_config_8h_source_l00023}00023\ \textcolor{preprocessor}{\#if\ defined(IMGUI\_IMPL\_OPENGL\_ES2)}}
+\DoxyCodeLine{\Hypertarget{_config_8h_source_l00024}00024\ \textcolor{preprocessor}{\#define\ IMGUI\_CONFS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_config_8h_source_l00025}00025\ \textcolor{preprocessor}{\ \ \ \ const\ char*\ glsl\_version\ =\ "{}\#version\ 100"{}};\ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{_config_8h_source_l00026}00026\ \ \ \ \ glfwWindowHint(GLFW\_CONTEXT\_VERSION\_MAJOR,\ 2);\ \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{_config_8h_source_l00027}00027\ \ \ \ \ glfwWindowHint(GLFW\_CONTEXT\_VERSION\_MINOR,\ 0);\ \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{_config_8h_source_l00028}00028\ \ \ \ \ glfwWindowHint(GLFW\_CLIENT\_API,\ GLFW\_OPENGL\_ES\_API);}
+\DoxyCodeLine{\Hypertarget{_config_8h_source_l00029}00029\ \textcolor{preprocessor}{\#elif\ defined(\_\_APPLE\_\_)}}
+\DoxyCodeLine{\Hypertarget{_config_8h_source_l00030}00030\ \textcolor{preprocessor}{\#define\ IMGUI\_CONFS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_config_8h_source_l00031}00031\ \textcolor{preprocessor}{\ \ \ \ const\ char*\ glsl\_version\ =\ "{}\#version\ 150"{}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{_config_8h_source_l00032}00032\ \ \ \ \ glfwWindowHint(GLFW\_CONTEXT\_VERSION\_MAJOR,\ 3);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{_config_8h_source_l00033}00033\ \ \ \ \ glfwWindowHint(GLFW\_CONTEXT\_VERSION\_MINOR,\ 2);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{_config_8h_source_l00034}00034\ \ \ \ \ glfwWindowHint(GLFW\_OPENGL\_PROFILE,\ GLFW\_OPENGL\_CORE\_PROFILE);\ \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{_config_8h_source_l00035}00035\ \ \ \ \ glfwWindowHint(GLFW\_OPENGL\_FORWARD\_COMPAT,\ GL\_TRUE);}
+\DoxyCodeLine{\Hypertarget{_config_8h_source_l00036}00036\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{_config_8h_source_l00037}00037\ \textcolor{preprocessor}{\#define\ IMGUI\_CONFS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{_config_8h_source_l00038}00038\ \textcolor{preprocessor}{\ \ \ \ const\ char*\ glsl\_version\ =\ "{}\#version\ 130"{}};\ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{_config_8h_source_l00039}00039\ \ \ \ \ glfwWindowHint(GLFW\_CONTEXT\_VERSION\_MAJOR,\ 3);\ \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{_config_8h_source_l00040}00040\ \ \ \ \ glfwWindowHint(GLFW\_CONTEXT\_VERSION\_MINOR,\ 0);}
+\DoxyCodeLine{\Hypertarget{_config_8h_source_l00041}00041\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

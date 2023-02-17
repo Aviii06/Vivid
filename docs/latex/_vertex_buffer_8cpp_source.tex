@@ -1,0 +1,38 @@
+\hypertarget{_vertex_buffer_8cpp_source}{}\doxysection{Vertex\+Buffer.\+cpp}
+\label{_vertex_buffer_8cpp_source}\index{src/renderer/VertexBuffer.cpp@{src/renderer/VertexBuffer.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_vertex_buffer_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}VertexBuffer.h"{}}}
+\DoxyCodeLine{\Hypertarget{_vertex_buffer_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}Renderer.h"{}}}
+\DoxyCodeLine{\Hypertarget{_vertex_buffer_8cpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{_vertex_buffer_8cpp_source_l00004}00004\ \textcolor{keyword}{namespace\ }Vivid}
+\DoxyCodeLine{\Hypertarget{_vertex_buffer_8cpp_source_l00005}00005\ \{}
+\DoxyCodeLine{\Hypertarget{_vertex_buffer_8cpp_source_l00006}00006\ \ \ \ \ VertexBuffer::VertexBuffer(std::vector<Vertex>\&\ vertices)}
+\DoxyCodeLine{\Hypertarget{_vertex_buffer_8cpp_source_l00007}00007\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_vertex_buffer_8cpp_source_l00008}00008\ \ \ \ \ \ \ \ \ GLCall(glGenBuffers(1,\ \&m\_RendererID));\ \textcolor{comment}{//\ creating\ a\ buffer}}
+\DoxyCodeLine{\Hypertarget{_vertex_buffer_8cpp_source_l00009}00009\ \ \ \ \ \ \ \ \ GLCall(glBindBuffer(GL\_ARRAY\_BUFFER,\ m\_RendererID));\ \textcolor{comment}{//\ binding\ the\ buffer}}
+\DoxyCodeLine{\Hypertarget{_vertex_buffer_8cpp_source_l00010}00010\ \ \ \ \ \ \ \ \ GLCall(glBufferData(GL\_ARRAY\_BUFFER,\ vertices.size()\ *\ \textcolor{keyword}{sizeof}(Vertex),\ vertices.data(),\ GL\_DYNAMIC\_DRAW));}
+\DoxyCodeLine{\Hypertarget{_vertex_buffer_8cpp_source_l00011}00011\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vertex_buffer_8cpp_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{_vertex_buffer_8cpp_source_l00013}00013\ \ \ \ \ VertexBuffer::\string~VertexBuffer()}
+\DoxyCodeLine{\Hypertarget{_vertex_buffer_8cpp_source_l00014}00014\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_vertex_buffer_8cpp_source_l00015}00015\ \ \ \ \ \ \ \ \ GLCall(glDeleteBuffers(1,\ \&m\_RendererID));}
+\DoxyCodeLine{\Hypertarget{_vertex_buffer_8cpp_source_l00016}00016\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vertex_buffer_8cpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{_vertex_buffer_8cpp_source_l00018}00018\ \ \ \ \ \textcolor{keywordtype}{void}\ VertexBuffer::Bind()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_vertex_buffer_8cpp_source_l00019}00019\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{_vertex_buffer_8cpp_source_l00020}00020\ \ \ \ \ \ \ \ \ GLCall(glBindBuffer(GL\_ARRAY\_BUFFER,\ m\_RendererID));}
+\DoxyCodeLine{\Hypertarget{_vertex_buffer_8cpp_source_l00021}00021\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vertex_buffer_8cpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{_vertex_buffer_8cpp_source_l00023}00023\ \ \ \ \ \textcolor{keywordtype}{void}\ VertexBuffer::Unbind()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_vertex_buffer_8cpp_source_l00024}00024\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{_vertex_buffer_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ GLCall(glBindBuffer(GL\_ARRAY\_BUFFER,\ 0));}
+\DoxyCodeLine{\Hypertarget{_vertex_buffer_8cpp_source_l00026}00026\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vertex_buffer_8cpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{_vertex_buffer_8cpp_source_l00028}00028\ \ \ \ \ Ref<VertexBuffer>\ VertexBuffer::Create(std::vector<Vertex>\&\ vertices)}
+\DoxyCodeLine{\Hypertarget{_vertex_buffer_8cpp_source_l00029}00029\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_vertex_buffer_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ MakeRef<VertexBuffer>(vertices);}
+\DoxyCodeLine{\Hypertarget{_vertex_buffer_8cpp_source_l00031}00031\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_vertex_buffer_8cpp_source_l00032}00032\ \}}
+
+\end{DoxyCode}
