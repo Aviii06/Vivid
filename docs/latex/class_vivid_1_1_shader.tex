@@ -1,0 +1,160 @@
+\hypertarget{class_vivid_1_1_shader}{}\doxysection{Vivid\+::Shader Class Reference}
+\label{class_vivid_1_1_shader}\index{Vivid::Shader@{Vivid::Shader}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_vivid_1_1_shader_afe8d5d34e1947176e27b7d51ca4619fa}{Shader}} (const std\+::string \&filepath\+Vertex\+Shader, const std\+::string \&filepath\+Pixel\+Shader)
+\item 
+void \mbox{\hyperlink{class_vivid_1_1_shader_ab46fe2f9b40d5f486f0b11a33093be13}{Bind}} () const
+\item 
+void \mbox{\hyperlink{class_vivid_1_1_shader_a0f73b427e2876c334f8447455bd51d48}{Unbind}} () const
+\item 
+void \mbox{\hyperlink{class_vivid_1_1_shader_a402a7f35e8d009aea05284aa90538ff7}{Set\+Uniform4f}} (const std\+::string \&name, float f0, float f1, float f2, float f3)
+\item 
+void \mbox{\hyperlink{class_vivid_1_1_shader_acb1e6c5edefbffa38e07065a5b41653f}{Set\+Uniform4f}} (const std\+::string \&name, const glm\+::vec4 \&matrix)
+\item 
+\mbox{\Hypertarget{class_vivid_1_1_shader_a03d3a5a2c7869cbd4bcf0f62ba98accc}\label{class_vivid_1_1_shader_a03d3a5a2c7869cbd4bcf0f62ba98accc}} 
+void {\bfseries Set\+Uniform3f} (const std\+::string \&name, float f0, float f1, float f2)
+\item 
+void \mbox{\hyperlink{class_vivid_1_1_shader_acb978bb35d9061dfe382ed71328bced8}{Set\+Uniform3f}} (const std\+::string \&name, \mbox{\hyperlink{struct_vec3}{Vec3}} \&value)
+\item 
+void \mbox{\hyperlink{class_vivid_1_1_shader_aadec7c0c99ed47775eb1effa1821c130}{Set\+Uniform1f}} (const std\+::string \&name, float value)
+\item 
+void \mbox{\hyperlink{class_vivid_1_1_shader_aa8818cff6448023ee167123a646e93d1}{Set\+Uniform1i}} (const std\+::string \&name, int value)
+\item 
+void \mbox{\hyperlink{class_vivid_1_1_shader_a4660548b38e1c16d2b18085b376793ae}{Set\+Uniform\+Mat4f}} (const std\+::string \&name, const glm\+::mat4 \&matrix)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static Ref$<$ \mbox{\hyperlink{class_vivid_1_1_shader}{Shader}} $>$ \mbox{\hyperlink{class_vivid_1_1_shader_ae604e0660e837bc8d02a60d4df96e0f2}{Create}} (const std\+::string \&filepath\+Vertex\+Shader, const std\+::string \&filepath\+Pixel\+Shader)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_shader_8h_source_l00016}{16}} of file \mbox{\hyperlink{_shader_8h_source}{Shader.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_vivid_1_1_shader_afe8d5d34e1947176e27b7d51ca4619fa}\label{class_vivid_1_1_shader_afe8d5d34e1947176e27b7d51ca4619fa}} 
+\index{Vivid::Shader@{Vivid::Shader}!Shader@{Shader}}
+\index{Shader@{Shader}!Vivid::Shader@{Vivid::Shader}}
+\doxysubsubsection{\texorpdfstring{Shader()}{Shader()}}
+{\footnotesize\ttfamily Vivid\+::\+Shader\+::\+Shader (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filepath\+Vertex\+Shader,  }\item[{const std\+::string \&}]{filepath\+Pixel\+Shader }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_shader_8cpp_source_l00011}{11}} of file \mbox{\hyperlink{_shader_8cpp_source}{Shader.\+cpp}}.
+
+\mbox{\Hypertarget{class_vivid_1_1_shader_af76d7956086b63723a3dff37e4e649f7}\label{class_vivid_1_1_shader_af76d7956086b63723a3dff37e4e649f7}} 
+\index{Vivid::Shader@{Vivid::Shader}!````~Shader@{$\sim$Shader}}
+\index{````~Shader@{$\sim$Shader}!Vivid::Shader@{Vivid::Shader}}
+\doxysubsubsection{\texorpdfstring{$\sim$Shader()}{~Shader()}}
+{\footnotesize\ttfamily Vivid\+::\+Shader\+::$\sim$\+Shader (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_shader_8cpp_source_l00023}{23}} of file \mbox{\hyperlink{_shader_8cpp_source}{Shader.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_vivid_1_1_shader_ab46fe2f9b40d5f486f0b11a33093be13}\label{class_vivid_1_1_shader_ab46fe2f9b40d5f486f0b11a33093be13}} 
+\index{Vivid::Shader@{Vivid::Shader}!Bind@{Bind}}
+\index{Bind@{Bind}!Vivid::Shader@{Vivid::Shader}}
+\doxysubsubsection{\texorpdfstring{Bind()}{Bind()}}
+{\footnotesize\ttfamily void Vivid\+::\+Shader\+::\+Bind (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{_shader_8cpp_source_l00028}{28}} of file \mbox{\hyperlink{_shader_8cpp_source}{Shader.\+cpp}}.
+
+\mbox{\Hypertarget{class_vivid_1_1_shader_ae604e0660e837bc8d02a60d4df96e0f2}\label{class_vivid_1_1_shader_ae604e0660e837bc8d02a60d4df96e0f2}} 
+\index{Vivid::Shader@{Vivid::Shader}!Create@{Create}}
+\index{Create@{Create}!Vivid::Shader@{Vivid::Shader}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily Ref$<$ \mbox{\hyperlink{class_vivid_1_1_shader}{Shader}} $>$ Vivid\+::\+Shader\+::\+Create (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filepath\+Vertex\+Shader,  }\item[{const std\+::string \&}]{filepath\+Pixel\+Shader }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_shader_8cpp_source_l00172}{172}} of file \mbox{\hyperlink{_shader_8cpp_source}{Shader.\+cpp}}.
+
+\mbox{\Hypertarget{class_vivid_1_1_shader_aadec7c0c99ed47775eb1effa1821c130}\label{class_vivid_1_1_shader_aadec7c0c99ed47775eb1effa1821c130}} 
+\index{Vivid::Shader@{Vivid::Shader}!SetUniform1f@{SetUniform1f}}
+\index{SetUniform1f@{SetUniform1f}!Vivid::Shader@{Vivid::Shader}}
+\doxysubsubsection{\texorpdfstring{SetUniform1f()}{SetUniform1f()}}
+{\footnotesize\ttfamily void Vivid\+::\+Shader\+::\+Set\+Uniform1f (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{float}]{value }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_shader_8cpp_source_l00057}{57}} of file \mbox{\hyperlink{_shader_8cpp_source}{Shader.\+cpp}}.
+
+\mbox{\Hypertarget{class_vivid_1_1_shader_aa8818cff6448023ee167123a646e93d1}\label{class_vivid_1_1_shader_aa8818cff6448023ee167123a646e93d1}} 
+\index{Vivid::Shader@{Vivid::Shader}!SetUniform1i@{SetUniform1i}}
+\index{SetUniform1i@{SetUniform1i}!Vivid::Shader@{Vivid::Shader}}
+\doxysubsubsection{\texorpdfstring{SetUniform1i()}{SetUniform1i()}}
+{\footnotesize\ttfamily void Vivid\+::\+Shader\+::\+Set\+Uniform1i (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{int}]{value }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_shader_8cpp_source_l00052}{52}} of file \mbox{\hyperlink{_shader_8cpp_source}{Shader.\+cpp}}.
+
+\mbox{\Hypertarget{class_vivid_1_1_shader_acb978bb35d9061dfe382ed71328bced8}\label{class_vivid_1_1_shader_acb978bb35d9061dfe382ed71328bced8}} 
+\index{Vivid::Shader@{Vivid::Shader}!SetUniform3f@{SetUniform3f}}
+\index{SetUniform3f@{SetUniform3f}!Vivid::Shader@{Vivid::Shader}}
+\doxysubsubsection{\texorpdfstring{SetUniform3f()}{SetUniform3f()}}
+{\footnotesize\ttfamily void Vivid\+::\+Shader\+::\+Set\+Uniform3f (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{\mbox{\hyperlink{struct_vec3}{Vec3}} \&}]{value }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_shader_8cpp_source_l00062}{62}} of file \mbox{\hyperlink{_shader_8cpp_source}{Shader.\+cpp}}.
+
+\mbox{\Hypertarget{class_vivid_1_1_shader_acb1e6c5edefbffa38e07065a5b41653f}\label{class_vivid_1_1_shader_acb1e6c5edefbffa38e07065a5b41653f}} 
+\index{Vivid::Shader@{Vivid::Shader}!SetUniform4f@{SetUniform4f}}
+\index{SetUniform4f@{SetUniform4f}!Vivid::Shader@{Vivid::Shader}}
+\doxysubsubsection{\texorpdfstring{SetUniform4f()}{SetUniform4f()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Vivid\+::\+Shader\+::\+Set\+Uniform4f (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{const glm\+::vec4 \&}]{matrix }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_shader_8cpp_source_l00072}{72}} of file \mbox{\hyperlink{_shader_8cpp_source}{Shader.\+cpp}}.
+
+\mbox{\Hypertarget{class_vivid_1_1_shader_a402a7f35e8d009aea05284aa90538ff7}\label{class_vivid_1_1_shader_a402a7f35e8d009aea05284aa90538ff7}} 
+\index{Vivid::Shader@{Vivid::Shader}!SetUniform4f@{SetUniform4f}}
+\index{SetUniform4f@{SetUniform4f}!Vivid::Shader@{Vivid::Shader}}
+\doxysubsubsection{\texorpdfstring{SetUniform4f()}{SetUniform4f()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Vivid\+::\+Shader\+::\+Set\+Uniform4f (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{float}]{f0,  }\item[{float}]{f1,  }\item[{float}]{f2,  }\item[{float}]{f3 }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_shader_8cpp_source_l00067}{67}} of file \mbox{\hyperlink{_shader_8cpp_source}{Shader.\+cpp}}.
+
+\mbox{\Hypertarget{class_vivid_1_1_shader_a4660548b38e1c16d2b18085b376793ae}\label{class_vivid_1_1_shader_a4660548b38e1c16d2b18085b376793ae}} 
+\index{Vivid::Shader@{Vivid::Shader}!SetUniformMat4f@{SetUniformMat4f}}
+\index{SetUniformMat4f@{SetUniformMat4f}!Vivid::Shader@{Vivid::Shader}}
+\doxysubsubsection{\texorpdfstring{SetUniformMat4f()}{SetUniformMat4f()}}
+{\footnotesize\ttfamily void Vivid\+::\+Shader\+::\+Set\+Uniform\+Mat4f (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{const glm\+::mat4 \&}]{matrix }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_shader_8cpp_source_l00077}{77}} of file \mbox{\hyperlink{_shader_8cpp_source}{Shader.\+cpp}}.
+
+\mbox{\Hypertarget{class_vivid_1_1_shader_a0f73b427e2876c334f8447455bd51d48}\label{class_vivid_1_1_shader_a0f73b427e2876c334f8447455bd51d48}} 
+\index{Vivid::Shader@{Vivid::Shader}!Unbind@{Unbind}}
+\index{Unbind@{Unbind}!Vivid::Shader@{Vivid::Shader}}
+\doxysubsubsection{\texorpdfstring{Unbind()}{Unbind()}}
+{\footnotesize\ttfamily void Vivid\+::\+Shader\+::\+Unbind (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{_shader_8cpp_source_l00033}{33}} of file \mbox{\hyperlink{_shader_8cpp_source}{Shader.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/renderer/Shader.\+h\item 
+src/renderer/Shader.\+cpp\end{DoxyCompactItemize}

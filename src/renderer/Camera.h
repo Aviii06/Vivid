@@ -13,6 +13,8 @@ namespace Vivid
 		RIGHT = 4
 	};
 
+	/// It is a singleton class
+	/// It is used to create a camera
 	class Camera
 	{
 	private:

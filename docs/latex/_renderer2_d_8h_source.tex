@@ -1,0 +1,56 @@
+\hypertarget{_renderer2_d_8h_source}{}\doxysection{Renderer2\+D.\+h}
+\label{_renderer2_d_8h_source}\index{src/renderer/Renderer2D.h@{src/renderer/Renderer2D.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_renderer2_d_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_renderer2_d_8h_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}common/Types.h"{}}}
+\DoxyCodeLine{\Hypertarget{_renderer2_d_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}utils/Error.h"{}}}
+\DoxyCodeLine{\Hypertarget{_renderer2_d_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}renderer/Renderer.h"{}}}
+\DoxyCodeLine{\Hypertarget{_renderer2_d_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}renderer/Mesh.h"{}}}
+\DoxyCodeLine{\Hypertarget{_renderer2_d_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}renderer/Camera.h"{}}}
+\DoxyCodeLine{\Hypertarget{_renderer2_d_8h_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_renderer2_d_8h_source_l00008}00008\ \textcolor{keyword}{namespace\ }Vivid}
+\DoxyCodeLine{\Hypertarget{_renderer2_d_8h_source_l00009}00009\ \{}
+\DoxyCodeLine{\Hypertarget{_renderer2_d_8h_source_l00010}\mbox{\hyperlink{struct_vivid_1_1_storage}{00010}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_vivid_1_1_storage}{Storage}}}
+\DoxyCodeLine{\Hypertarget{_renderer2_d_8h_source_l00011}00011\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_renderer2_d_8h_source_l00012}00012\ \ \ \ \ \ \ \ \ Ref<VertexArray>\ vao;}
+\DoxyCodeLine{\Hypertarget{_renderer2_d_8h_source_l00013}00013\ \ \ \ \ \ \ \ \ Ref<Shader>\ quadShader;}
+\DoxyCodeLine{\Hypertarget{_renderer2_d_8h_source_l00014}00014\ \ \ \ \ \ \ \ \ Ref<Shader>\ lineShader;}
+\DoxyCodeLine{\Hypertarget{_renderer2_d_8h_source_l00015}00015\ \ \ \ \ \ \ \ \ Ref<Shader>\ ellipseShader;}
+\DoxyCodeLine{\Hypertarget{_renderer2_d_8h_source_l00016}00016\ \ \ \ \ \ \ \ \ Vector<Vertex>\ quadVertices;}
+\DoxyCodeLine{\Hypertarget{_renderer2_d_8h_source_l00017}00017\ \ \ \ \ \ \ \ \ Vector<unsigned\ int>\ quadIndices;}
+\DoxyCodeLine{\Hypertarget{_renderer2_d_8h_source_l00018}00018\ \ \ \ \ \ \ \ \ Vector<Vertex>\ ellipseVertices;}
+\DoxyCodeLine{\Hypertarget{_renderer2_d_8h_source_l00019}00019\ \ \ \ \ \ \ \ \ Vector<unsigned\ int>\ ellipseIndices;}
+\DoxyCodeLine{\Hypertarget{_renderer2_d_8h_source_l00020}00020\ \ \ \ \ \ \ \ \ Vector<Vertex>\ lineVertices;}
+\DoxyCodeLine{\Hypertarget{_renderer2_d_8h_source_l00021}00021\ \ \ \ \ \ \ \ \ Vector<unsigned\ int>\ lineIndices;}
+\DoxyCodeLine{\Hypertarget{_renderer2_d_8h_source_l00022}00022\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_renderer2_d_8h_source_l00023}\mbox{\hyperlink{class_vivid_1_1_renderer2_d}{00023}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_vivid_1_1_renderer2_d}{Renderer2D}}}
+\DoxyCodeLine{\Hypertarget{_renderer2_d_8h_source_l00024}00024\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_renderer2_d_8h_source_l00025}00025\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_renderer2_d_8h_source_l00026}00026\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{struct_vivid_1_1_storage}{Storage}}\ s\_Storage;}
+\DoxyCodeLine{\Hypertarget{_renderer2_d_8h_source_l00027}00027\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_vivid_1_1_renderer2_d}{Renderer2D}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{_renderer2_d_8h_source_l00028}00028\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_vivid_1_1_renderer2_d}{\string~Renderer2D}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{_renderer2_d_8h_source_l00029}00029\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ drawQuad(\mbox{\hyperlink{struct_vec2}{Vec2}}\ vertex1,\ \mbox{\hyperlink{struct_vec2}{Vec2}}\ vertex2,\ \mbox{\hyperlink{struct_vec2}{Vec2}}\ vertex3,\ \mbox{\hyperlink{struct_vec2}{Vec2}}\ vertex4,\ \mbox{\hyperlink{struct_vec3}{Vec3}}\ color);}
+\DoxyCodeLine{\Hypertarget{_renderer2_d_8h_source_l00030}00030\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ drawQuad(\textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y,\ \textcolor{keywordtype}{float}\ width,\ \textcolor{keywordtype}{float}\ height,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_vec3}{Vec3}}\&\ color);}
+\DoxyCodeLine{\Hypertarget{_renderer2_d_8h_source_l00031}00031\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ drawEllipse(\mbox{\hyperlink{struct_vec2}{Vec2}}\ center,\ \textcolor{keywordtype}{float}\ radiusX,\ \textcolor{keywordtype}{float}\ radiusY,\ \mbox{\hyperlink{struct_vec3}{Vec3}}\ color);}
+\DoxyCodeLine{\Hypertarget{_renderer2_d_8h_source_l00032}00032\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ drawLine(\mbox{\hyperlink{struct_vec2}{Vec2}}\ vertex1,\ \mbox{\hyperlink{struct_vec2}{Vec2}}\ vertex2,\ \mbox{\hyperlink{struct_vec2}{Vec2}}\ vertex3,\ \mbox{\hyperlink{struct_vec2}{Vec2}}\ vertex4,\ \mbox{\hyperlink{struct_vec3}{Vec3}}\ color);}
+\DoxyCodeLine{\Hypertarget{_renderer2_d_8h_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{_renderer2_d_8h_source_l00034}00034\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_renderer2_d_8h_source_l00035}00035\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ Init();}
+\DoxyCodeLine{\Hypertarget{_renderer2_d_8h_source_l00036}00036\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ Shutdown();}
+\DoxyCodeLine{\Hypertarget{_renderer2_d_8h_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{_renderer2_d_8h_source_l00038}00038\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ BeginScene();}
+\DoxyCodeLine{\Hypertarget{_renderer2_d_8h_source_l00039}00039\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ EndScene();}
+\DoxyCodeLine{\Hypertarget{_renderer2_d_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{_renderer2_d_8h_source_l00041}00041\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ DrawQuad(\textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y,\ \textcolor{keywordtype}{float}\ width,\ \textcolor{keywordtype}{float}\ height,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_vec3}{Vec3}}\&\ color);}
+\DoxyCodeLine{\Hypertarget{_renderer2_d_8h_source_l00042}00042\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ DrawQuad(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_vec2}{Vec2}}\&\ vertex1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_vec2}{Vec2}}\&\ vertex2,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_vec2}{Vec2}}\&\ vertex3,}
+\DoxyCodeLine{\Hypertarget{_renderer2_d_8h_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_vec2}{Vec2}}\&\ vertex4,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_vec3}{Vec3}}\&\ color);}
+\DoxyCodeLine{\Hypertarget{_renderer2_d_8h_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{_renderer2_d_8h_source_l00045}00045\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ DrawLine(\mbox{\hyperlink{struct_vec2}{Vec2}}\ start,\ \mbox{\hyperlink{struct_vec2}{Vec2}}\ end,\ \textcolor{keywordtype}{float}\ thickness,\ \mbox{\hyperlink{struct_vec3}{Vec3}}\ color);}
+\DoxyCodeLine{\Hypertarget{_renderer2_d_8h_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{_renderer2_d_8h_source_l00047}00047\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ DrawEllipse(\mbox{\hyperlink{struct_vec2}{Vec2}}\ center,\ \textcolor{keywordtype}{float}\ radiusX,\ \textcolor{keywordtype}{float}\ radiusY,\ \mbox{\hyperlink{struct_vec3}{Vec3}}\ color);}
+\DoxyCodeLine{\Hypertarget{_renderer2_d_8h_source_l00048}00048\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ DrawCircle(\mbox{\hyperlink{struct_vec2}{Vec2}}\ center,\ \textcolor{keywordtype}{float}\ radius,\ \mbox{\hyperlink{struct_vec3}{Vec3}}\ color);}
+\DoxyCodeLine{\Hypertarget{_renderer2_d_8h_source_l00049}00049\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_renderer2_d_8h_source_l00050}00050\ \}}
+
+\end{DoxyCode}
