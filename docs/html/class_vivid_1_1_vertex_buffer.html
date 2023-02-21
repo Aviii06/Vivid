@@ -102,8 +102,8 @@ $(document).ready(function(){initNavTree('class_vivid_1_1_vertex_buffer.html',''
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a0d71c0b90ce6f5a32f063d0bff01491d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vivid_1_1_vertex_buffer.html#a0d71c0b90ce6f5a32f063d0bff01491d">VertexBuffer</a> (std::vector&lt; <a class="el" href="struct_vivid_1_1_vertex.html">Vertex</a> &gt; &amp;vertices)</td></tr>
 <tr class="separator:a0d71c0b90ce6f5a32f063d0bff01491d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a16361b658fb39092e5f38781782e4b0e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vivid_1_1_vertex_buffer.html#a16361b658fb39092e5f38781782e4b0e">Bind</a> () const</td></tr>
-<tr class="separator:a16361b658fb39092e5f38781782e4b0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03bf9ad03fb1808bc7d874b6d36862e7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vivid_1_1_vertex_buffer.html#a03bf9ad03fb1808bc7d874b6d36862e7">Bind</a> (const std::vector&lt; <a class="el" href="struct_vivid_1_1_vertex.html">Vertex</a> &gt; &amp;vertices) const</td></tr>
+<tr class="separator:a03bf9ad03fb1808bc7d874b6d36862e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a33adc8a616d036af13b3a82c0f771d15"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vivid_1_1_vertex_buffer.html#a33adc8a616d036af13b3a82c0f771d15">Unbind</a> () const</td></tr>
 <tr class="separator:a33adc8a616d036af13b3a82c0f771d15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -114,7 +114,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_vertex_buffer_8h_source.html#l00017">17</a> of file <a class="el" href="_vertex_buffer_8h_source.html">VertexBuffer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vertex_buffer_8h_source.html#l00018">18</a> of file <a class="el" href="_vertex_buffer_8h_source.html">VertexBuffer.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a0d71c0b90ce6f5a32f063d0bff01491d" name="a0d71c0b90ce6f5a32f063d0bff01491d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0d71c0b90ce6f5a32f063d0bff01491d">&#9670;&#160;</a></span>VertexBuffer()</h2>
@@ -132,7 +132,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vertex_buffer_8cpp_source.html#l00006">6</a> of file <a class="el" href="_vertex_buffer_8cpp_source.html">VertexBuffer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vertex_buffer_8cpp_source.html#l00007">7</a> of file <a class="el" href="_vertex_buffer_8cpp_source.html">VertexBuffer.cpp</a>.</p>
 
 </div>
 </div>
@@ -151,13 +151,13 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vertex_buffer_8cpp_source.html#l00013">13</a> of file <a class="el" href="_vertex_buffer_8cpp_source.html">VertexBuffer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vertex_buffer_8cpp_source.html#l00014">14</a> of file <a class="el" href="_vertex_buffer_8cpp_source.html">VertexBuffer.cpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a16361b658fb39092e5f38781782e4b0e" name="a16361b658fb39092e5f38781782e4b0e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a16361b658fb39092e5f38781782e4b0e">&#9670;&#160;</a></span>Bind()</h2>
+<a id="a03bf9ad03fb1808bc7d874b6d36862e7" name="a03bf9ad03fb1808bc7d874b6d36862e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03bf9ad03fb1808bc7d874b6d36862e7">&#9670;&#160;</a></span>Bind()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -165,13 +165,14 @@ Static Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void Vivid::VertexBuffer::Bind </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="struct_vivid_1_1_vertex.html">Vertex</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>vertices</em></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vertex_buffer_8cpp_source.html#l00018">18</a> of file <a class="el" href="_vertex_buffer_8cpp_source.html">VertexBuffer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vertex_buffer_8cpp_source.html#l00019">19</a> of file <a class="el" href="_vertex_buffer_8cpp_source.html">VertexBuffer.cpp</a>.</p>
 
 </div>
 </div>
@@ -199,7 +200,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vertex_buffer_8cpp_source.html#l00028">28</a> of file <a class="el" href="_vertex_buffer_8cpp_source.html">VertexBuffer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vertex_buffer_8cpp_source.html#l00031">31</a> of file <a class="el" href="_vertex_buffer_8cpp_source.html">VertexBuffer.cpp</a>.</p>
 
 </div>
 </div>
@@ -218,7 +219,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vertex_buffer_8cpp_source.html#l00023">23</a> of file <a class="el" href="_vertex_buffer_8cpp_source.html">VertexBuffer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vertex_buffer_8cpp_source.html#l00026">26</a> of file <a class="el" href="_vertex_buffer_8cpp_source.html">VertexBuffer.cpp</a>.</p>
 
 </div>
 </div>

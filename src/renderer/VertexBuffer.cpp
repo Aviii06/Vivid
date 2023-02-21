@@ -1,7 +1,6 @@
 #include "VertexBuffer.h"
 #include "Renderer.h"
 
-
 namespace Vivid
 {
 	VertexBuffer::VertexBuffer(std::vector<Vertex>& vertices)
@@ -20,7 +19,6 @@ namespace Vivid
 	{
 		GLCall(glBindBuffer(GL_ARRAY_BUFFER, m_RendererID));
 		GLCall(glBufferSubData(GL_ARRAY_BUFFER, 0, vertices.size() * sizeof(Vertex), vertices.data()));
-
 	}
 
 	void VertexBuffer::Unbind() const

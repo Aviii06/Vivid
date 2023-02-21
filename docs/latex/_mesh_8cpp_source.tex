@@ -217,9 +217,9 @@
 \DoxyCodeLine{\Hypertarget{_mesh_8cpp_source_l00213}00213\ \ \ \ \ \ \ \ \ m\_Shader-\/>Bind();}
 \DoxyCodeLine{\Hypertarget{_mesh_8cpp_source_l00214}00214\ }
 \DoxyCodeLine{\Hypertarget{_mesh_8cpp_source_l00215}00215\ \ \ \ \ \ \ \ \ VertexBuffer\ vbo(m\_Vertices);}
-\DoxyCodeLine{\Hypertarget{_mesh_8cpp_source_l00216}00216\ \ \ \ \ \ \ \ \ vbo.Bind();}
+\DoxyCodeLine{\Hypertarget{_mesh_8cpp_source_l00216}00216\ \ \ \ \ \ \ \ \ vbo.Bind(m\_Vertices);}
 \DoxyCodeLine{\Hypertarget{_mesh_8cpp_source_l00217}00217\ }
-\DoxyCodeLine{\Hypertarget{_mesh_8cpp_source_l00218}00218\ \ \ \ \ \ \ \ \ m\_Vao-\/>AddVertexBuffer(vbo,\ m\_Layout);}
+\DoxyCodeLine{\Hypertarget{_mesh_8cpp_source_l00218}00218\ \ \ \ \ \ \ \ \ m\_Vao-\/>AddVertexBuffer(vbo,\ m\_Layout,\ m\_Vertices);}
 \DoxyCodeLine{\Hypertarget{_mesh_8cpp_source_l00219}00219\ \ \ \ \ \ \ \ \ m\_Vao-\/>AddIndexBuffer(*m\_Ebo);}
 \DoxyCodeLine{\Hypertarget{_mesh_8cpp_source_l00220}00220\ }
 \DoxyCodeLine{\Hypertarget{_mesh_8cpp_source_l00221}00221\ \ \ \ \ \ \ \ \ Camera*\ camera\ =\ Camera::GetInstance();}

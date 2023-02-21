@@ -107,10 +107,10 @@ $(document).ready(function(){initNavTree('_vertex_array_8cpp_source.html',''); i
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    {</div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    }</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keywordtype">void</span> VertexArray::AddVertexBuffer(<span class="keyword">const</span> VertexBuffer&amp; vb, <span class="keyword">const</span> VertexBufferLayout&amp; layout)</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keywordtype">void</span> VertexArray::AddVertexBuffer(<span class="keyword">const</span> VertexBuffer&amp; vb, <span class="keyword">const</span> VertexBufferLayout&amp; layout, <span class="keyword">const</span> Vector&lt;Vertex&gt;&amp; vertices)</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    {</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        Bind();</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        vb.Bind();</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        vb.Bind(vertices);</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        <span class="keyword">const</span> Vector&lt;VertexBufferElement&gt; elements = layout.GetElements();</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> offset = 0;</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; elements.size(); i++)</div>

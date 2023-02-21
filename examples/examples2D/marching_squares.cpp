@@ -13,7 +13,7 @@ bool g_RenderQuad;
 double Time;
 
 float g_Thickness = 0.8f;
-float* g_Color = new float[3]{ 0.0f, 0.0f, 0.0f};
+float* g_Color = new float[3] { 0.0f, 0.0f, 0.0f };
 
 Vector<Vector<double>> val1, val2, val3, val4;
 
@@ -76,7 +76,7 @@ void noise(double x, double y, double z, double& value)
 	value = val * 0.5 + 0.5;
 }
 
-void GetNoiseVec(int x, int y,double time, Vector<Vector<double>>& vec)
+void GetNoiseVec(int x, int y, double time, Vector<Vector<double>>& vec)
 {
 	for (int i = -1000 / g_Dim; i <= 1000 / g_Dim; i++)
 	{
@@ -105,7 +105,6 @@ int GetState(const double& a, const double& b, const double& c, const double& d)
 class ExampleInterface : public RenderingInterface
 {
 private:
-
 public:
 	void Setup() override
 	{
@@ -134,10 +133,10 @@ public:
 	{
 		Vivid::Renderer2D::BeginScene();
 
-//		GetNoiseVec(0, 0, Time, std::ref(val1));
-//		GetNoiseVec(1, 0, Time, std::ref(val2));
-//		GetNoiseVec(1, 1, Time, std::ref(val3));
-//		GetNoiseVec(0, 1, Time, std::ref(val4));
+		//		GetNoiseVec(0, 0, Time, std::ref(val1));
+		//		GetNoiseVec(1, 0, Time, std::ref(val2));
+		//		GetNoiseVec(1, 1, Time, std::ref(val3));
+		//		GetNoiseVec(0, 1, Time, std::ref(val4));
 
 		std::thread t1(GetNoiseVec, 0, 0, Time, std::ref(val1));
 		std::thread t2(GetNoiseVec, 1, 0, Time, std::ref(val2));
