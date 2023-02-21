@@ -104,6 +104,7 @@ struct Vec2
 	{
 	}
 	Vec2 operator*(float scalar) { return Vec2(x * scalar, y * scalar); }
+	Vec2 operator*(double scalar) { return Vec2(x * scalar, y * scalar); }
 	Vec2 operator+(Vec2 other) { return Vec2(x + other.x, y + other.y); }
 	Vec2 operator-(Vec2 other) { return Vec2(x - other.x, y - other.y); }
 

@@ -17,7 +17,7 @@ namespace Vivid
 
 		static Ref<VertexArray> Create();
 
-		void AddVertexBuffer(const VertexBuffer& vb, const VertexBufferLayout& layout);
+		void AddVertexBuffer(const VertexBuffer& vb, const VertexBufferLayout& layout, const Vector<Vertex>& vertices);
 		void AddIndexBuffer(const IndexBuffer& ib);
 
 		void Bind() const;

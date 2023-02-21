@@ -213,9 +213,9 @@ namespace Vivid
 		m_Shader->Bind();
 
 		VertexBuffer vbo(m_Vertices);
-		vbo.Bind();
+		vbo.Bind(m_Vertices);
 
-		m_Vao->AddVertexBuffer(vbo, m_Layout);
+		m_Vao->AddVertexBuffer(vbo, m_Layout, m_Vertices);
 		m_Vao->AddIndexBuffer(*m_Ebo);
 
 		Camera* camera = Camera::GetInstance();

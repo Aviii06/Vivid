@@ -12,10 +12,10 @@ namespace Vivid
 	{
 	}
 
-	void VertexArray::AddVertexBuffer(const VertexBuffer& vb, const VertexBufferLayout& layout)
+	void VertexArray::AddVertexBuffer(const VertexBuffer& vb, const VertexBufferLayout& layout, const Vector<Vertex>& vertices)
 	{
 		Bind();
-		vb.Bind();
+		vb.Bind(vertices);
 		const Vector<VertexBufferElement> elements = layout.GetElements();
 		unsigned int offset = 0;
 		for (unsigned int i = 0; i < elements.size(); i++)

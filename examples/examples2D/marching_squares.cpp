@@ -3,8 +3,19 @@
 #include <cstdio>
 #include <cmath>
 #include <cstdlib>
+#include <thread>
 
 #include <math.h>
+
+int g_Dim;
+float g_DimPerlin;
+bool g_RenderQuad;
+double Time;
+
+float g_Thickness = 0.8f;
+float* g_Color = new float[3]{ 0.0f, 0.0f, 0.0f};
+
+Vector<Vector<double>> val1, val2, val3, val4;
 
 int a[256] = { 151, 160, 137, 91, 90, 15, 131, 13, 201, 95, 96, 53, 194, 233, 7, 225,
 	140, 36, 103, 30, 69, 142, 8, 99, 37, 240, 21, 10, 23, 190, 6, 148,
@@ -44,7 +55,7 @@ double grad(int hash, double x, double y, double z)
 	return ((h & 1) == 0 ? u : -u) + ((h & 2) == 0 ? v : -v);
 }
 
-double noise(double x, double y, double z)
+void noise(double x, double y, double z, double& value)
 {
 	int X = (int)floor(x) & 255,
 	    Y = (int)floor(y) & 255,
@@ -62,7 +73,23 @@ double noise(double x, double y, double z)
 	    lerp(v, lerp(u, grad(p[AA + 1], x, y, z - 1), grad(p[BA + 1], x - 1, y, z - 1)),
 	        lerp(u, grad(p[AB + 1], x, y - 1, z - 1),
 	            grad(p[BB + 1], x - 1, y - 1, z - 1))));
-	return val * 0.5 + 0.5;
+	value = val * 0.5 + 0.5;
+}
+
+void GetNoiseVec(int x, int y,double time, Vector<Vector<double>>& vec)
+{
+	for (int i = -1000 / g_Dim; i <= 1000 / g_Dim; i++)
+	{
+		Vector<double> temp;
+		temp.reserve(1000 / g_Dim * 2 + 1);
+		for (int j = -1000 / g_Dim; j <= 1000 / g_Dim; j++)
+		{
+			double v;
+			noise((i + x) * g_DimPerlin, (j + y) * g_DimPerlin, time, std::ref(v));
+			temp.push_back(std::move(v));
+		}
+		vec.emplace_back(std::move(temp));
+	}
 }
 
 int GetState(const double& a, const double& b, const double& c, const double& d)
@@ -78,8 +105,6 @@ int GetState(const double& a, const double& b, const double& c, const double& d)
 class ExampleInterface : public RenderingInterface
 {
 private:
-	int dim;
-	float dimPerlin, time;
 
 public:
 	void Setup() override
@@ -92,28 +117,15 @@ public:
 			p[256 + i] = a[i];
 		}
 
-		dim = 15;
-		dimPerlin = dim * 0.020735;
+		g_Dim = 2;
+		g_DimPerlin = g_Dim * 0.020735;
 
-		Vector<Vector<float>> val1, val2, val3, val4;
+		Time = 0;
 
-		for (int i = -1000 / dim; i <= 1000 / dim; i++)
-		{
-			Vector<float> temp1, temp2, temp3, temp4;
-			for (int j = -1000 / dim; j <= 1000 / dim; j++)
-			{
-				temp1.push_back(noise(i * dimPerlin, j * dimPerlin, 1));
-				temp2.push_back(noise((i + 1) * dimPerlin, j * dimPerlin, 1));
-				temp3.push_back(noise((i + 1) * dimPerlin, (j + 1) * dimPerlin, 1));
-				temp4.push_back(noise(i * dimPerlin, (j + 1) * dimPerlin, 1));
-			}
-			val1.push_back(temp1);
-			val2.push_back(temp2);
-			val3.push_back(temp3);
-			val4.push_back(temp4);
-		}
-
-		time = 0;
+		val1.reserve((1000 / g_Dim * 1000 / g_Dim) + 1000);
+		val2.reserve((1000 / g_Dim * 1000 / g_Dim) + 1000);
+		val3.reserve((1000 / g_Dim * 1000 / g_Dim) + 1000);
+		val4.reserve((1000 / g_Dim * 1000 / g_Dim) + 1000);
 
 		Vivid::Renderer2D::Init();
 	}
@@ -122,32 +134,51 @@ public:
 	{
 		Vivid::Renderer2D::BeginScene();
 
-		for (int i = -1000 / dim; i <= 1000 / dim; i++)
-		{
-			for (int j = -1000 / dim; j <= 1000 / dim; j++)
-			{
-				float v1 = noise(i * dimPerlin, j * dimPerlin, time);
-				float v2 = noise((i + 1) * dimPerlin, j * dimPerlin, time);
-				float v3 = noise((i + 1) * dimPerlin, (j + 1) * dimPerlin, time);
-				float v4 = noise(i * dimPerlin, (j + 1) * dimPerlin, time);
+//		GetNoiseVec(0, 0, Time, std::ref(val1));
+//		GetNoiseVec(1, 0, Time, std::ref(val2));
+//		GetNoiseVec(1, 1, Time, std::ref(val3));
+//		GetNoiseVec(0, 1, Time, std::ref(val4));
 
-				int x = i * dim;
-				int y = j * dim;
+		std::thread t1(GetNoiseVec, 0, 0, Time, std::ref(val1));
+		std::thread t2(GetNoiseVec, 1, 0, Time, std::ref(val2));
+		std::thread t3(GetNoiseVec, 1, 1, Time, std::ref(val3));
+		std::thread t4(GetNoiseVec, 0, 1, Time, std::ref(val4));
+
+		t1.join();
+		t2.join();
+		t3.join();
+		t4.join();
+
+		for (int i = -1000 / g_Dim; i <= 1000 / g_Dim; i++)
+		{
+			for (int j = -1000 / g_Dim; j <= 1000 / g_Dim; j++)
+			{
+				double v1, v2, v3, v4;
+				v1 = val1[i + 1000 / g_Dim][j + 1000 / g_Dim];
+				v2 = val2[i + 1000 / g_Dim][j + 1000 / g_Dim];
+				v3 = val3[i + 1000 / g_Dim][j + 1000 / g_Dim];
+				v4 = val4[i + 1000 / g_Dim][j + 1000 / g_Dim];
+
+				int x = i * g_Dim;
+				int y = j * g_Dim;
 
 				Vec2 x1 = Vec2(x, y);
-				Vec2 x2 = Vec2(x + dim, y);
-				Vec2 x3 = Vec2(x + dim, y + dim);
-				Vec2 x4 = Vec2(x, y + dim);
+				Vec2 x2 = Vec2(x + g_Dim, y);
+				Vec2 x3 = Vec2(x + g_Dim, y + g_Dim);
+				Vec2 x4 = Vec2(x, y + g_Dim);
 
-				Vivid::Renderer2D::DrawQuad(x1.x, x1.y, dim, dim, Vec3(v1, v1, v1));
+				if (g_RenderQuad)
+				{
+					Vivid::Renderer2D::DrawQuad(x1.x, x1.y, g_Dim, g_Dim, Vec3(v1, v1, v1));
+				}
 
-				Vec2 a = x1 + (x2 - x1) * (v1 / (v1 + v2));
-				Vec2 b = x2 + (x3 - x2) * (v2 / (v2 + v3));
-				Vec2 c = x3 + (x4 - x3) * (v3 / (v3 + v4));
-				Vec2 d = x4 + (x1 - x4) * (v4 / (v4 + v1));
+				Vec2 a = x1 + (x2 - x1) * (float)(v1 / (v1 + v2));
+				Vec2 b = x2 + (x3 - x2) * (float)(v2 / (v2 + v3));
+				Vec2 c = x3 + (x4 - x3) * (float)(v3 / (v3 + v4));
+				Vec2 d = x4 + (x1 - x4) * (float)(v4 / (v4 + v1));
 
-				Vec3 col = Vec3(1.0f, 0.0f, 0.0f);
-				float thickness = 1.0f;
+				Vec3 col = Vec3(g_Color[0], g_Color[1], g_Color[2]);
+				float thickness = g_Thickness;
 				switch (GetState(v1, v2, v3, v4))
 				{
 				case 1:
@@ -196,9 +227,14 @@ public:
 					break;
 				}
 			}
-			time += 0.00025;
 		}
 
+		Time += 0.025;
+
+		val1.clear();
+		val2.clear();
+		val3.clear();
+		val4.clear();
 		Vivid::Renderer2D::EndScene();
 	}
 
@@ -216,6 +252,12 @@ public:
 		ImGui::Text("Application average %.3f ms/frame (%.1f FPS)",
 		    1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
 
+		ImGui::SliderFloat("Thickness", &g_Thickness, 0.0f, 10.0f);
+		ImGui::SliderInt("Dimension", &g_Dim, 2.0f, 10.0f);
+		ImGui::SliderFloat("Perlin Dimension", &g_DimPerlin, 0.0f, 1.0f);
+		ImGui::Checkbox("RenderQuad", &g_RenderQuad);
+		ImGui::ColorPicker3("Color", g_Color);
+
 		ImGui::End();
 		ImGui::Render();
 		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
@@ -224,7 +266,7 @@ public:
 
 Application* Vivid::CreateApplication()
 {
-	Application* app = Application::GetInstance(1920, 1080, "Rendering2D");
+	Application* app = Application::GetInstance(1920, 1080, "Marching Squares");
 	app->SetRenderingInterface(new ExampleInterface);
 	return app;
 }
