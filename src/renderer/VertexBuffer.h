@@ -1,5 +1,6 @@
 #pragma once
 
+#define MAX_VERTICES_ALLOWED 10000000
 #include "common/Types.h"
 #include "glm/glm/glm.hpp"
 
@@ -26,7 +27,7 @@ namespace Vivid
 
 		~VertexBuffer();
 
-		void Bind() const;
+		void Bind(const std::vector<Vertex>& vertices) const;
 
 		void Unbind() const;
 	};

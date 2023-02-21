@@ -38,7 +38,7 @@
 \DoxyCodeLine{\Hypertarget{_renderer3_d_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ IndexBuffer\ ib(indices);}
 \DoxyCodeLine{\Hypertarget{_renderer3_d_8cpp_source_l00035}00035\ }
 \DoxyCodeLine{\Hypertarget{_renderer3_d_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ s\_Storage3D.vao\ =\ MakeRef<VertexArray>();}
-\DoxyCodeLine{\Hypertarget{_renderer3_d_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ s\_Storage3D.vao-\/>AddVertexBuffer(vb,\ layout);}
+\DoxyCodeLine{\Hypertarget{_renderer3_d_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ s\_Storage3D.vao-\/>AddVertexBuffer(vb,\ layout,\ s\_Storage3D.quadVertices);}
 \DoxyCodeLine{\Hypertarget{_renderer3_d_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ s\_Storage3D.vao-\/>AddIndexBuffer(ib);}
 \DoxyCodeLine{\Hypertarget{_renderer3_d_8cpp_source_l00039}00039\ }
 \DoxyCodeLine{\Hypertarget{_renderer3_d_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ s\_Storage3D.quadVertices.reserve(100000);}
@@ -68,7 +68,7 @@
 \DoxyCodeLine{\Hypertarget{_renderer3_d_8cpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ layout.AddFloat(3);}
 \DoxyCodeLine{\Hypertarget{_renderer3_d_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ layout.AddFloat(3);}
 \DoxyCodeLine{\Hypertarget{_renderer3_d_8cpp_source_l00066}00066\ }
-\DoxyCodeLine{\Hypertarget{_renderer3_d_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ s\_Storage3D.vao-\/>AddVertexBuffer(vb,\ layout);}
+\DoxyCodeLine{\Hypertarget{_renderer3_d_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ s\_Storage3D.vao-\/>AddVertexBuffer(vb,\ layout,\ s\_Storage3D.triangleVertices);}
 \DoxyCodeLine{\Hypertarget{_renderer3_d_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ s\_Storage3D.vao-\/>AddIndexBuffer(ib);}
 \DoxyCodeLine{\Hypertarget{_renderer3_d_8cpp_source_l00069}00069\ }
 \DoxyCodeLine{\Hypertarget{_renderer3_d_8cpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Draw\ call}}
@@ -90,7 +90,7 @@
 \DoxyCodeLine{\Hypertarget{_renderer3_d_8cpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ layout.AddFloat(3);}
 \DoxyCodeLine{\Hypertarget{_renderer3_d_8cpp_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ layout.AddFloat(3);}
 \DoxyCodeLine{\Hypertarget{_renderer3_d_8cpp_source_l00088}00088\ }
-\DoxyCodeLine{\Hypertarget{_renderer3_d_8cpp_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ s\_Storage3D.vao-\/>AddVertexBuffer(vb,\ layout);}
+\DoxyCodeLine{\Hypertarget{_renderer3_d_8cpp_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ s\_Storage3D.vao-\/>AddVertexBuffer(vb,\ layout,\ s\_Storage3D.quadVertices);}
 \DoxyCodeLine{\Hypertarget{_renderer3_d_8cpp_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ s\_Storage3D.vao-\/>AddIndexBuffer(ib);}
 \DoxyCodeLine{\Hypertarget{_renderer3_d_8cpp_source_l00091}00091\ }
 \DoxyCodeLine{\Hypertarget{_renderer3_d_8cpp_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Draw\ call}}

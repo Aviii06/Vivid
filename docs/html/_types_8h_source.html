@@ -199,17 +199,18 @@ $(document).ready(function(){initNavTree('_types_8h_source.html',''); initResiza
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    {</div>
 <div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    }</div>
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <a class="code hl_struct" href="struct_vec2.html">Vec2</a> operator*(<span class="keywordtype">float</span> scalar) { <span class="keywordflow">return</span> <a class="code hl_struct" href="struct_vec2.html">Vec2</a>(x * scalar, y * scalar); }</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <a class="code hl_struct" href="struct_vec2.html">Vec2</a> operator+(<a class="code hl_struct" href="struct_vec2.html">Vec2</a> other) { <span class="keywordflow">return</span> <a class="code hl_struct" href="struct_vec2.html">Vec2</a>(x + other.x, y + other.y); }</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <a class="code hl_struct" href="struct_vec2.html">Vec2</a> operator-(<a class="code hl_struct" href="struct_vec2.html">Vec2</a> other) { <span class="keywordflow">return</span> <a class="code hl_struct" href="struct_vec2.html">Vec2</a>(x - other.x, y - other.y); }</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <a class="code hl_struct" href="struct_vec2.html">Vec2</a> Perpendicular() { <span class="keywordflow">return</span> <a class="code hl_struct" href="struct_vec2.html">Vec2</a>(-y, x); }</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <a class="code hl_struct" href="struct_vec2.html">Vec2</a> Normalize()</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    {</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        <span class="keywordtype">float</span> length = std::sqrt(x * x + y * y);</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        <span class="keywordflow">return</span> <a class="code hl_struct" href="struct_vec2.html">Vec2</a>(x / length, y / length);</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    }</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>};</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <a class="code hl_struct" href="struct_vec2.html">Vec2</a> operator*(<span class="keywordtype">double</span> scalar) { <span class="keywordflow">return</span> <a class="code hl_struct" href="struct_vec2.html">Vec2</a>(x * scalar, y * scalar); }</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <a class="code hl_struct" href="struct_vec2.html">Vec2</a> operator+(<a class="code hl_struct" href="struct_vec2.html">Vec2</a> other) { <span class="keywordflow">return</span> <a class="code hl_struct" href="struct_vec2.html">Vec2</a>(x + other.x, y + other.y); }</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <a class="code hl_struct" href="struct_vec2.html">Vec2</a> operator-(<a class="code hl_struct" href="struct_vec2.html">Vec2</a> other) { <span class="keywordflow">return</span> <a class="code hl_struct" href="struct_vec2.html">Vec2</a>(x - other.x, y - other.y); }</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <a class="code hl_struct" href="struct_vec2.html">Vec2</a> Perpendicular() { <span class="keywordflow">return</span> <a class="code hl_struct" href="struct_vec2.html">Vec2</a>(-y, x); }</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <a class="code hl_struct" href="struct_vec2.html">Vec2</a> Normalize()</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    {</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        <span class="keywordtype">float</span> length = std::sqrt(x * x + y * y);</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        <span class="keywordflow">return</span> <a class="code hl_struct" href="struct_vec2.html">Vec2</a>(x / length, y / length);</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    }</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>};</div>
 <div class="ttc" id="astruct_vec2_html"><div class="ttname"><a href="struct_vec2.html">Vec2</a></div><div class="ttdef"><b>Definition:</b> <a href="_types_8h_source.html#l00093">Types.h:94</a></div></div>
 <div class="ttc" id="astruct_vec3_html"><div class="ttname"><a href="struct_vec3.html">Vec3</a></div><div class="ttdef"><b>Definition:</b> <a href="_types_8h_source.html#l00073">Types.h:74</a></div></div>
 <div class="ttc" id="astruct_vec4_html"><div class="ttname"><a href="struct_vec4.html">Vec4</a></div><div class="ttdef"><b>Definition:</b> <a href="_types_8h_source.html#l00052">Types.h:53</a></div></div>

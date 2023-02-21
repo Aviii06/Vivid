@@ -40,10 +40,15 @@ namespace Vivid
 		IndexBuffer ib(indices);
 
 		s_Storage.vao = MakeRef<VertexArray>();
-		s_Storage.vao->AddVertexBuffer(vb, layout);
+		s_Storage.vao->AddVertexBuffer(vb, layout, verts);
 		s_Storage.vao->AddIndexBuffer(ib);
 
-		s_Storage.quadVertices.reserve(100000);
+		s_Storage.quadVertices.reserve(MAX_VERTICES_ALLOWED);
+		s_Storage.quadIndices.reserve(MAX_VERTICES_ALLOWED);
+		s_Storage.ellipseVertices.reserve(MAX_VERTICES_ALLOWED);
+		s_Storage.ellipseIndices.reserve(MAX_VERTICES_ALLOWED);
+		s_Storage.lineVertices.reserve(MAX_VERTICES_ALLOWED);
+		s_Storage.lineIndices.reserve(MAX_VERTICES_ALLOWED);
 	}
 
 	void Renderer2D::Shutdown()
@@ -116,7 +121,7 @@ namespace Vivid
 			layout.AddFloat(3);
 			layout.AddFloat(3);
 
-			s_Storage.vao->AddVertexBuffer(vb, layout);
+			s_Storage.vao->AddVertexBuffer(vb, layout, s_Storage.quadVertices);
 			s_Storage.vao->AddIndexBuffer(ib);
 
 			// Draw call
@@ -138,7 +143,7 @@ namespace Vivid
 			layout.AddFloat(3);
 			layout.AddFloat(3);
 
-			s_Storage.vao->AddVertexBuffer(vb, layout);
+			s_Storage.vao->AddVertexBuffer(vb, layout, s_Storage.ellipseVertices);
 			s_Storage.vao->AddIndexBuffer(ib);
 
 			// Draw call
@@ -160,7 +165,7 @@ namespace Vivid
 			layout.AddFloat(3);
 			layout.AddFloat(3);
 
-			s_Storage.vao->AddVertexBuffer(vb, layout);
+			s_Storage.vao->AddVertexBuffer(vb, layout, s_Storage.lineVertices);
 			s_Storage.vao->AddIndexBuffer(ib);
 
 			// Draw Call

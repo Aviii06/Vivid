@@ -129,7 +129,7 @@ $(document).ready(function(){initNavTree('_renderer3_d_8cpp_source.html',''); in
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        IndexBuffer ib(indices);</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        s_Storage3D.vao = MakeRef&lt;VertexArray&gt;();</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        s_Storage3D.vao-&gt;AddVertexBuffer(vb, layout);</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        s_Storage3D.vao-&gt;AddVertexBuffer(vb, layout, s_Storage3D.quadVertices);</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        s_Storage3D.vao-&gt;AddIndexBuffer(ib);</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        s_Storage3D.quadVertices.reserve(100000);</div>
@@ -159,7 +159,7 @@ $(document).ready(function(){initNavTree('_renderer3_d_8cpp_source.html',''); in
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>            layout.AddFloat(3);</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>            layout.AddFloat(3);</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>            s_Storage3D.vao-&gt;AddVertexBuffer(vb, layout);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>            s_Storage3D.vao-&gt;AddVertexBuffer(vb, layout, s_Storage3D.triangleVertices);</div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>            s_Storage3D.vao-&gt;AddIndexBuffer(ib);</div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>            <span class="comment">// Draw call</span></div>
@@ -181,7 +181,7 @@ $(document).ready(function(){initNavTree('_renderer3_d_8cpp_source.html',''); in
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>            layout.AddFloat(3);</div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>            layout.AddFloat(3);</div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>            s_Storage3D.vao-&gt;AddVertexBuffer(vb, layout);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>            s_Storage3D.vao-&gt;AddVertexBuffer(vb, layout, s_Storage3D.quadVertices);</div>
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>            s_Storage3D.vao-&gt;AddIndexBuffer(ib);</div>
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>            <span class="comment">// Draw call</span></div>

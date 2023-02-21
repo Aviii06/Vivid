@@ -34,7 +34,7 @@ namespace Vivid
 		IndexBuffer ib(indices);
 
 		s_Storage3D.vao = MakeRef<VertexArray>();
-		s_Storage3D.vao->AddVertexBuffer(vb, layout);
+		s_Storage3D.vao->AddVertexBuffer(vb, layout, s_Storage3D.quadVertices);
 		s_Storage3D.vao->AddIndexBuffer(ib);
 
 		s_Storage3D.quadVertices.reserve(100000);
@@ -64,7 +64,7 @@ namespace Vivid
 			layout.AddFloat(3);
 			layout.AddFloat(3);
 
-			s_Storage3D.vao->AddVertexBuffer(vb, layout);
+			s_Storage3D.vao->AddVertexBuffer(vb, layout, s_Storage3D.triangleVertices);
 			s_Storage3D.vao->AddIndexBuffer(ib);
 
 			// Draw call
@@ -86,7 +86,7 @@ namespace Vivid
 			layout.AddFloat(3);
 			layout.AddFloat(3);
 
-			s_Storage3D.vao->AddVertexBuffer(vb, layout);
+			s_Storage3D.vao->AddVertexBuffer(vb, layout, s_Storage3D.quadVertices);
 			s_Storage3D.vao->AddIndexBuffer(ib);
 
 			// Draw call
