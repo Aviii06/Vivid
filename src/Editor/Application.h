@@ -14,14 +14,14 @@ private:
 	Application();
 	Application(int width, int height, const char* title);
 
-	Ptr<Window> m_Window;
+	Window* m_Window;
 
 public:
 	bool IsRunning();
 	void Run();
 
 	// TODO: Fix this semantically
-	static Application* GetInstance(int width = 1920, int height = 1080, const char* title = "Newton")
+	static Application* GetInstance(int width = 1920, int height = 1080, const char* title = "Vivid")
 	{
 		if (s_Instance == NULL)
 			s_Instance = new Application(width, height, title);

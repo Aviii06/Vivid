@@ -43,6 +43,11 @@ public:
 		ImGui::Render();
 		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 	}
+
+	void Input() override
+	{
+
+	}
 };
 
 Application* Vivid::CreateApplication()

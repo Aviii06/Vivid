@@ -13,11 +13,13 @@ private:
 	Vec2* m_PrevMousePosition;
 	RenderingInterface* m_RenderingInterface;
 
-public:
 	Window(int width, int height, const char* title);
+	static Window* s_Instance;
+
+public:
 
 	~Window() = default;
-	static Ptr<Window> Init(int width, int height, const char* title);
+	static Window* Init(int width, int height, const char* title);
 	void Clear() const;
 	void Update();
 
