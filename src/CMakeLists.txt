@@ -21,7 +21,7 @@ set(SOURCES
         ${CMAKE_CURRENT_SOURCE_DIR}/utils/Timer.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/renderer/Renderer2D.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/renderer/Renderer3D.cpp
-        )
+        editor/ui/UI.cpp renderer/FrameBuffer.cpp)
 
 set(HEADERS
         ${CMAKE_CURRENT_SOURCE_DIR}/inputs/InputHandler.h
@@ -51,7 +51,7 @@ set(HEADERS
         ${CMAKE_CURRENT_SOURCE_DIR}/renderer/Renderer2D.h
         ${CMAKE_CURRENT_SOURCE_DIR}/renderer/Renderer3D.h
         ${CMAKE_CURRENT_SOURCE_DIR}/Vivid.h
-        confs/DynamicExportingMacros.h editor/RenderingInterface.h editor/EntryPoint.h)
+        confs/DynamicExportingMacros.h editor/RenderingInterface.h editor/EntryPoint.h editor/ui/UIFlags.h editor/ui/UI.h renderer/FrameBuffer.h)
 
 add_library(Vivid SHARED ${SOURCES} ${HEADERS})
 
