@@ -8,6 +8,7 @@
 #include "imgui/imgui/backends/imgui_impl_opengl3.h"
 #include "imgui/imgui/imgui.h"
 #include "renderer/Renderer.h"
+#include "editor/ui/UI.h"
 
 InputHandler* InputHandler::s_Instance;
 Vivid::Camera* Vivid::Camera::s_Instance;
@@ -40,6 +41,7 @@ Window::Window(int width, int height, const char* title)
 	}
 
 	glfwMakeContextCurrent(m_Window);
+
 	IMGUI_CONFS
 
 	IMGUI_CHECKVERSION();
@@ -47,6 +49,7 @@ Window::Window(int width, int height, const char* title)
 	ImGui_ImplGlfw_InitForOpenGL(m_Window, true);
 	ImGui_ImplOpenGL3_Init(glsl_version);
 	ImGui::StyleColorsDark();
+	ImGui::GetIO().ConfigFlags |=  ImGuiConfigFlags_DockingEnable;
 }
 
 Window* Window::Init(int width, int height, const char* title)
@@ -66,41 +69,17 @@ void Window::SetRenderingInterface(RenderingInterface* renderingInterface)
 {
 	m_RenderingInterface = renderingInterface;
 	m_RenderingInterface->Setup();
+
+	m_FrameBuffer = new FrameBuffer(m_Width, m_Height);
 }
 
 void Window::Update()
 {
-
-	// IMGUI
-	ImGui_ImplGlfw_NewFrame();
-	ImGui_ImplOpenGL3_NewFrame();
-	ImGui::NewFrame();
-
-	ImGui::Begin("Debug");
-	//		ImGui::SliderFloat3("Translation Model 1", &translationModel1.x, -500.0f, 500.0f);
-	//	// ImGui::SliderFloat3("Translation Model 2", &translationModel2.x, -300.0f, 300.0f);
-	//	ImGui::SliderFloat3("Light Position", &lightPos.x, -500.0f, 500.0f);
-	//	if (m_RenderingInterface != nullptr)
-	//	{
-	//		m_RenderingInterface->ImGuiRender();
-	//	}
-
-	ImGui::Text("Application average %.3f ms/frame (%.1f FPS)",
-	    1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
 	if (m_RenderingInterface != nullptr)
 	{
-		//		m_RenderingInterface->ImGuiRender();
-	}
-	ImGui::End();
-	ImGui::Render();
-	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-
-	Vivid::Camera* camera = Vivid::Camera::GetInstance();
-	if (m_RenderingInterface != nullptr)
-	{
-		m_RenderingInterface->Draw();
 		m_RenderingInterface->Input();
 	}
+
 	// Handle keyboard input
 	glfwPollEvents();
 
@@ -111,4 +90,55 @@ void Window::Update()
 	glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 
 	Vivid::Renderer::Clear();
+
+	m_FrameBuffer->Bind();
+	if (m_RenderingInterface != nullptr)
+	{
+		m_RenderingInterface->Draw();
+	}
+	m_FrameBuffer->Unbind();
+
+	// IMGUI
+	ImGui_ImplGlfw_NewFrame();
+	ImGui_ImplOpenGL3_NewFrame();
+	ImGui::NewFrame();
+
+	VividUI::InitUI();
+	ImGui::Begin("Viewport");
+	{
+		ImGui::BeginChild("GameRender");
+
+		float width = ImGui::GetContentRegionAvail().x;
+		float height = ImGui::GetContentRegionAvail().y;
+
+
+//		m_FrameBuffer->RescaleFrameBuffer(width, height);
+
+		ImGui::Image(
+		    (ImTextureID)m_FrameBuffer->getFrameTexture(),
+		    ImGui::GetContentRegionAvail(),
+		    ImVec2(0, 1),
+		    ImVec2(1, 0)
+		);
+	}
+	ImGui::EndChild();
+	ImGui::End();
+
+	if (m_RenderingInterface != nullptr)
+	{
+		m_RenderingInterface->ImGuiRender();
+	}
+
+	VividUI::EndDock();
+
+	ImGui::Render();
+	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+
+
+	m_FrameBuffer->Bind();
+	Vivid::Renderer::Clear();
+
+	glClear(GL_DEPTH_BUFFER_BIT);
+	glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+	m_FrameBuffer->Unbind();
 }
