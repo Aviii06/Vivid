@@ -11,7 +11,7 @@
 #include "renderer/Texture.h"
 #include "renderer/VertexArray.h"
 #include "renderer/VertexBuffer.h"
-#include "renderer/Camera.h"
+#include "editor/Camera.h"
 #include "renderer/PointLight.h"
 #include "renderer/shapes/Quad3d.h"
 #include "renderer/Renderer2D.h"

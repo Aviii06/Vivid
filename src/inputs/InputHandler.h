@@ -2,7 +2,7 @@
 #include "common/Types.h"
 #include "GLFW/glfw3.h"
 #include <map>
-#include "renderer/Camera.h"
+#include "editor/Camera.h"
 
 // Create a class on top of GLFW input handling
 class InputHandler
@@ -24,5 +24,5 @@ public:
 	bool IsKeyPressed(int key);
 	Vec2 GetMousePosition();
 	bool IsMouseButtonPressed(int button);
-	Vivid::Camera* GetCamera();
+	Camera* GetCamera();
 };

@@ -1,5 +1,5 @@
 #include "Renderer3D.h"
-#include "Camera.h"
+#include "editor/Camera.h"
 
 namespace Vivid
 {

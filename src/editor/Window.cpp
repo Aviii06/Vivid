@@ -1,5 +1,5 @@
 #include "Window.h"
-#include "renderer/Camera.h"
+#include "Camera.h"
 #include <iostream>
 #include "confs/Config.h"
 #include "inputs/InputHandler.h"
@@ -11,7 +11,7 @@
 #include "editor/ui/UI.h"
 
 InputHandler* InputHandler::s_Instance;
-Vivid::Camera* Vivid::Camera::s_Instance;
+Camera* Camera::s_Instance;
 
 Window::Window(int width, int height, const char* title)
 {
@@ -79,6 +79,12 @@ void Window::Update()
 	{
 		m_RenderingInterface->Input();
 	}
+	// Handle left click to identify object
+//	Vec2 mousePosition = InputHandler::GetInstance()->GetMousePosition();
+//	if (InputHandler::GetInstance()->IsMouseButtonPressed(GLFW_MOUSE_BUTTON_LEFT))
+//	{
+//
+//	}
 
 	// Handle keyboard input
 	glfwPollEvents();
@@ -112,6 +118,9 @@ void Window::Update()
 		float height = ImGui::GetContentRegionAvail().y;
 
 		//		m_FrameBuffer->RescaleFrameBuffer(width, height);
+//		std::cout << width << " " << height << std::endl;
+
+		Camera::GetInstance()->SetViewportSize(width, height);
 
 		ImGui::Image(
 		    (ImTextureID)m_FrameBuffer->getFrameTexture(),

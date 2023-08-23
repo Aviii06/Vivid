@@ -3,7 +3,7 @@
 #include "utils/Error.h"
 #include "renderer/Renderer.h"
 #include "renderer/Mesh.h"
-#include "renderer/Camera.h"
+#include "editor/Camera.h"
 
 namespace Vivid
 {

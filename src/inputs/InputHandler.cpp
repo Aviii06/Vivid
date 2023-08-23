@@ -24,7 +24,7 @@ bool InputHandler::IsMouseButtonPressed(int button)
 	return state == GLFW_PRESS;
 }
 
-Vivid::Camera* InputHandler::GetCamera()
+Camera* InputHandler::GetCamera()
 {
-	return Vivid::Camera::GetInstance();
+	return Camera::GetInstance();
 }

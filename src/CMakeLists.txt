@@ -7,13 +7,13 @@ set(SOURCES
         ${CMAKE_CURRENT_SOURCE_DIR}/renderer/Texture.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/renderer/VertexArray.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/renderer/VertexBuffer.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/renderer/Camera.cpp
+        editor/Camera.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/renderer/PointLight.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/renderer/shapes/Quad3d.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/renderer/shapes/Sphere.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/editor/Window.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/editor/Application.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/renderer/Camera.cpp
+        editor/Camera.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/renderer/PointLight.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/renderer/shapes/Quad3d.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/renderer/shapes/Sphere.cpp
@@ -34,13 +34,13 @@ set(HEADERS
         ${CMAKE_CURRENT_SOURCE_DIR}/renderer/VertexArray.h
         ${CMAKE_CURRENT_SOURCE_DIR}/renderer/VertexBuffer.h
         ${CMAKE_CURRENT_SOURCE_DIR}/renderer/VertexBufferLayout.h
-        ${CMAKE_CURRENT_SOURCE_DIR}/renderer/Camera.h
+        editor/Camera.h
         ${CMAKE_CURRENT_SOURCE_DIR}/renderer/PointLight.h
         ${CMAKE_CURRENT_SOURCE_DIR}/renderer/shapes/Quad3d.h
         ${CMAKE_CURRENT_SOURCE_DIR}/renderer/shapes/Sphere.h
         ${CMAKE_CURRENT_SOURCE_DIR}/editor/Window.h
         ${CMAKE_CURRENT_SOURCE_DIR}/editor/Application.h
-        ${CMAKE_CURRENT_SOURCE_DIR}/renderer/Camera.h
+        editor/Camera.h
         ${CMAKE_CURRENT_SOURCE_DIR}/renderer/PointLight.h
         ${CMAKE_CURRENT_SOURCE_DIR}/renderer/shapes/Quad3d.h
         ${CMAKE_CURRENT_SOURCE_DIR}/renderer/shapes/Sphere.h

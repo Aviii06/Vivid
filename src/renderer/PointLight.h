@@ -13,6 +13,7 @@ namespace Vivid
 		Mesh* m_LightMesh;
 
 	public:
+		PointLight() = default;
 		PointLight(Vec3& position, Vec3 color, Mesh* lightMesh);
 		PointLight(Vec3 position, Vec3 color, Shape& shape);
 

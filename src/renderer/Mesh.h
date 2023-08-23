@@ -6,7 +6,7 @@
 #include "VertexArray.h"
 #include "VertexBuffer.h"
 #include "VertexBufferLayout.h"
-#include "Camera.h"
+#include "editor/Camera.h"
 #include "shapes/Shape.h"
 
 #include "common/Types.h"
