@@ -12,6 +12,7 @@ public:
 	void RescaleFrameBuffer(float width, float height);
 	void Bind() const;
 	void Unbind() const;
+
 private:
 	unsigned int fbo;
 	unsigned int texture;

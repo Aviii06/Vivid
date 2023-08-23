@@ -49,7 +49,7 @@ Window::Window(int width, int height, const char* title)
 	ImGui_ImplGlfw_InitForOpenGL(m_Window, true);
 	ImGui_ImplOpenGL3_Init(glsl_version);
 	ImGui::StyleColorsDark();
-	ImGui::GetIO().ConfigFlags |=  ImGuiConfigFlags_DockingEnable;
+	ImGui::GetIO().ConfigFlags |= ImGuiConfigFlags_DockingEnable;
 }
 
 Window* Window::Init(int width, int height, const char* title)
@@ -111,15 +111,13 @@ void Window::Update()
 		float width = ImGui::GetContentRegionAvail().x;
 		float height = ImGui::GetContentRegionAvail().y;
 
-
-//		m_FrameBuffer->RescaleFrameBuffer(width, height);
+		//		m_FrameBuffer->RescaleFrameBuffer(width, height);
 
 		ImGui::Image(
 		    (ImTextureID)m_FrameBuffer->getFrameTexture(),
 		    ImGui::GetContentRegionAvail(),
 		    ImVec2(0, 1),
-		    ImVec2(1, 0)
-		);
+		    ImVec2(1, 0));
 	}
 	ImGui::EndChild();
 	ImGui::End();
@@ -133,7 +131,6 @@ void Window::Update()
 
 	ImGui::Render();
 	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-
 
 	m_FrameBuffer->Bind();
 	Vivid::Renderer::Clear();

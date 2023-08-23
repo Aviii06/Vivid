@@ -3,7 +3,6 @@
 #include "UIFlags.h"
 #include <string>
 
-
 namespace VividUI
 {
 	void InitUI();
