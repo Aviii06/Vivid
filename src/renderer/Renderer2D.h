@@ -32,7 +32,7 @@ namespace Vivid
 		static void drawLine(Vec2 vertex1, Vec2 vertex2, Vec2 vertex3, Vec2 vertex4, Vec3 color);
 
 	public:
-		static void Init();
+		static void Init(int reserveVertices = 10000);
 		static void Shutdown();
 
 		static void BeginScene();

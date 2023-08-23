@@ -86,8 +86,10 @@ void GetNoiseVec(int x, int y, double time, Vector<Vector<double>>& vec)
 		{
 			double v;
 			noise((i + x) * g_DimPerlin, (j + y) * g_DimPerlin, time, std::ref(v));
+			//			temp.push_back(std::move(v));
 			temp.push_back(std::move(v));
 		}
+		//		vec.emplace_back(std::move(temp));
 		vec.emplace_back(std::move(temp));
 	}
 }
@@ -239,12 +241,6 @@ public:
 
 	void ImGuiRender() override
 	{
-		// IMGUI
-		ImGui_ImplGlfw_NewFrame();
-		ImGui_ImplOpenGL3_NewFrame();
-		ImGui::NewFrame();
-
-		ImGui::Begin("Debug");
 		//	ImGui::SliderFloat3("Translation Model 1", &translationModel1.x, -500.0f, 500.0f);
 		//	// ImGui::SliderFloat3("Translation Model 2", &translationModel2.x, -300.0f, 300.0f);
 		//	ImGui::SliderFloat3("Light Position", &lightPos.x, -500.0f, 500.0f);
@@ -256,10 +252,6 @@ public:
 		ImGui::SliderFloat("Perlin Dimension", &g_DimPerlin, 0.0f, 1.0f);
 		ImGui::Checkbox("RenderQuad", &g_RenderQuad);
 		ImGui::ColorPicker3("Color", g_Color);
-
-		ImGui::End();
-		ImGui::Render();
-		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 	}
 
 	void Input() override

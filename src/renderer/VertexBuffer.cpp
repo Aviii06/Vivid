@@ -7,7 +7,7 @@ namespace Vivid
 	{
 		GLCall(glGenBuffers(1, &m_RendererID)); // creating a buffer
 		GLCall(glBindBuffer(GL_ARRAY_BUFFER, m_RendererID)); // binding the buffer
-		GLCall(glBufferData(GL_ARRAY_BUFFER, MAX_VERTICES_ALLOWED * sizeof(Vertex), nullptr, GL_STREAM_DRAW));
+		GLCall(glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(Vertex), nullptr, GL_STREAM_DRAW));
 	}
 
 	VertexBuffer::~VertexBuffer()

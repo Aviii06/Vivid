@@ -70,22 +70,7 @@ void Window::SetRenderingInterface(RenderingInterface* renderingInterface)
 
 void Window::Update()
 {
-	Vivid::Camera* camera = Vivid::Camera::GetInstance();
-	if (m_RenderingInterface != nullptr)
-	{
-		m_RenderingInterface->Draw();
-		m_RenderingInterface->Input();
-	}
-	// Handle keyboard input
-	glfwPollEvents();
 
-	glfwMakeContextCurrent(m_Window);
-	glfwSwapBuffers(m_Window);
-
-	glClear(GL_DEPTH_BUFFER_BIT);
-	glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
-
-	Vivid::Renderer::Clear();
 	// IMGUI
 	ImGui_ImplGlfw_NewFrame();
 	ImGui_ImplOpenGL3_NewFrame();
@@ -102,7 +87,28 @@ void Window::Update()
 
 	ImGui::Text("Application average %.3f ms/frame (%.1f FPS)",
 	    1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+	if (m_RenderingInterface != nullptr)
+	{
+		//		m_RenderingInterface->ImGuiRender();
+	}
 	ImGui::End();
 	ImGui::Render();
 	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+
+	Vivid::Camera* camera = Vivid::Camera::GetInstance();
+	if (m_RenderingInterface != nullptr)
+	{
+		m_RenderingInterface->Draw();
+		m_RenderingInterface->Input();
+	}
+	// Handle keyboard input
+	glfwPollEvents();
+
+	glfwMakeContextCurrent(m_Window);
+	glfwSwapBuffers(m_Window);
+
+	glClear(GL_DEPTH_BUFFER_BIT);
+	glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+
+	Vivid::Renderer::Clear();
 }

@@ -4,7 +4,7 @@ namespace Vivid
 {
 
 	Storage Renderer2D::s_Storage;
-	void Renderer2D::Init()
+	void Renderer2D::Init(int reserveVertices)
 	{
 		// Initialize shaders
 		s_Storage.quadShader = MakeRef<Shader>("./../assets/shaders/quad.vertexShader.glsl",
@@ -43,12 +43,12 @@ namespace Vivid
 		s_Storage.vao->AddVertexBuffer(vb, layout, verts);
 		s_Storage.vao->AddIndexBuffer(ib);
 
-		s_Storage.quadVertices.reserve(MAX_VERTICES_ALLOWED);
-		s_Storage.quadIndices.reserve(MAX_VERTICES_ALLOWED);
-		s_Storage.ellipseVertices.reserve(MAX_VERTICES_ALLOWED);
-		s_Storage.ellipseIndices.reserve(MAX_VERTICES_ALLOWED);
-		s_Storage.lineVertices.reserve(MAX_VERTICES_ALLOWED);
-		s_Storage.lineIndices.reserve(MAX_VERTICES_ALLOWED);
+		s_Storage.quadVertices.reserve(reserveVertices);
+		s_Storage.quadIndices.reserve(reserveVertices);
+		s_Storage.ellipseVertices.reserve(reserveVertices);
+		s_Storage.ellipseIndices.reserve(reserveVertices);
+		s_Storage.lineVertices.reserve(reserveVertices);
+		s_Storage.lineIndices.reserve(reserveVertices);
 	}
 
 	void Renderer2D::Shutdown()
