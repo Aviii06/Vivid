@@ -17,10 +17,10 @@
 #include "renderer/Renderer2D.h"
 #include "renderer/Renderer3D.h"
 
-#include "Editor/Window.h"
-#include "Editor/Application.h"
-#include "Editor/RenderingInterface.h"
-#include "Editor/EntryPoint.h"
+#include "editor/Window.h"
+#include "editor/Application.h"
+#include "editor/RenderingInterface.h"
+#include "editor/EntryPoint.h"
 
 #include "inputs/InputHandler.h"
 
