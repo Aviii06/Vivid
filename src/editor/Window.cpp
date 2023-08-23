@@ -70,6 +70,32 @@ void Window::SetRenderingInterface(RenderingInterface* renderingInterface)
 
 void Window::Update()
 {
+
+	// IMGUI
+	ImGui_ImplGlfw_NewFrame();
+	ImGui_ImplOpenGL3_NewFrame();
+	ImGui::NewFrame();
+
+	ImGui::Begin("Debug");
+	//		ImGui::SliderFloat3("Translation Model 1", &translationModel1.x, -500.0f, 500.0f);
+	//	// ImGui::SliderFloat3("Translation Model 2", &translationModel2.x, -300.0f, 300.0f);
+	//	ImGui::SliderFloat3("Light Position", &lightPos.x, -500.0f, 500.0f);
+	//	if (m_RenderingInterface != nullptr)
+	//	{
+	//		m_RenderingInterface->ImGuiRender();
+	//	}
+
+	ImGui::Text("Application average %.3f ms/frame (%.1f FPS)",
+				1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+	if (m_RenderingInterface != nullptr)
+	{
+		//		m_RenderingInterface->ImGuiRender();
+	}
+	ImGui::End();
+	ImGui::Render();
+	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+
+
 	Vivid::Camera* camera = Vivid::Camera::GetInstance();
 	if (m_RenderingInterface != nullptr)
 	{
@@ -86,23 +112,6 @@ void Window::Update()
 	glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 
 	Vivid::Renderer::Clear();
-	// IMGUI
-	ImGui_ImplGlfw_NewFrame();
-	ImGui_ImplOpenGL3_NewFrame();
-	ImGui::NewFrame();
 
-	ImGui::Begin("Debug");
-	//		ImGui::SliderFloat3("Translation Model 1", &translationModel1.x, -500.0f, 500.0f);
-	//	// ImGui::SliderFloat3("Translation Model 2", &translationModel2.x, -300.0f, 300.0f);
-	//	ImGui::SliderFloat3("Light Position", &lightPos.x, -500.0f, 500.0f);
-	//	if (m_RenderingInterface != nullptr)
-	//	{
-	//		m_RenderingInterface->ImGuiRender();
-	//	}
 
-	ImGui::Text("Application average %.3f ms/frame (%.1f FPS)",
-	    1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
-	ImGui::End();
-	ImGui::Render();
-	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 }

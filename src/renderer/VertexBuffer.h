@@ -1,6 +1,5 @@
 #pragma once
 
-#define MAX_VERTICES_ALLOWED 10000000
 #include "common/Types.h"
 #include "glm/glm/glm.hpp"
 
