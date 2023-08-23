@@ -86,10 +86,10 @@ void GetNoiseVec(int x, int y, double time, Vector<Vector<double>>& vec)
 		{
 			double v;
 			noise((i + x) * g_DimPerlin, (j + y) * g_DimPerlin, time, std::ref(v));
-//			temp.push_back(std::move(v));
+			//			temp.push_back(std::move(v));
 			temp.push_back(std::move(v));
 		}
-//		vec.emplace_back(std::move(temp));
+		//		vec.emplace_back(std::move(temp));
 		vec.emplace_back(std::move(temp));
 	}
 }

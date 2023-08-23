@@ -86,7 +86,7 @@ void Window::Update()
 	//	}
 
 	ImGui::Text("Application average %.3f ms/frame (%.1f FPS)",
-				1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+	    1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
 	if (m_RenderingInterface != nullptr)
 	{
 		//		m_RenderingInterface->ImGuiRender();
@@ -94,7 +94,6 @@ void Window::Update()
 	ImGui::End();
 	ImGui::Render();
 	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-
 
 	Vivid::Camera* camera = Vivid::Camera::GetInstance();
 	if (m_RenderingInterface != nullptr)
@@ -112,6 +111,4 @@ void Window::Update()
 	glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 
 	Vivid::Renderer::Clear();
-
-
 }
