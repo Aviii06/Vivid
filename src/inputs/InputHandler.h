@@ -2,7 +2,7 @@
 #include "common/Types.h"
 #include "GLFW/glfw3.h"
 #include <map>
-#include "Renderer/Camera.h"
+#include "renderer/Camera.h"
 
 // Create a class on top of GLFW input handling
 class InputHandler

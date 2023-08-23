@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Editor/Application.h"
+#include "editor/Application.h"
 
 Application* Vivid::CreateApplication();
 

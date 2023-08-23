@@ -71,7 +71,7 @@ public:
 	void ImGuiRender() override
 	{
 		ImGui::Text("Application average %.3f ms/frame (%.1f FPS)",
-					1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+		    1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
 	}
 
 	void Input() override
@@ -106,7 +106,6 @@ public:
 			m_PrevMousePosition->x = mousePosition.x;
 			m_PrevMousePosition->y = mousePosition.y;
 		}
-
 	}
 };
 

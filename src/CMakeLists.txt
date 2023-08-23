@@ -11,8 +11,8 @@ set(SOURCES
         ${CMAKE_CURRENT_SOURCE_DIR}/renderer/PointLight.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/renderer/shapes/Quad3d.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/renderer/shapes/Sphere.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/Editor/Window.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/Editor/Application.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/editor/Window.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/editor/Application.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/renderer/Camera.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/renderer/PointLight.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/renderer/shapes/Quad3d.cpp
@@ -38,8 +38,8 @@ set(HEADERS
         ${CMAKE_CURRENT_SOURCE_DIR}/renderer/PointLight.h
         ${CMAKE_CURRENT_SOURCE_DIR}/renderer/shapes/Quad3d.h
         ${CMAKE_CURRENT_SOURCE_DIR}/renderer/shapes/Sphere.h
-        ${CMAKE_CURRENT_SOURCE_DIR}/Editor/Window.h
-        ${CMAKE_CURRENT_SOURCE_DIR}/Editor/Application.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/editor/Window.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/editor/Application.h
         ${CMAKE_CURRENT_SOURCE_DIR}/renderer/Camera.h
         ${CMAKE_CURRENT_SOURCE_DIR}/renderer/PointLight.h
         ${CMAKE_CURRENT_SOURCE_DIR}/renderer/shapes/Quad3d.h
@@ -51,7 +51,7 @@ set(HEADERS
         ${CMAKE_CURRENT_SOURCE_DIR}/renderer/Renderer2D.h
         ${CMAKE_CURRENT_SOURCE_DIR}/renderer/Renderer3D.h
         ${CMAKE_CURRENT_SOURCE_DIR}/Vivid.h
-        confs/DynamicExportingMacros.h Editor/RenderingInterface.h Editor/EntryPoint.h)
+        confs/DynamicExportingMacros.h editor/RenderingInterface.h editor/EntryPoint.h)
 
 add_library(Vivid SHARED ${SOURCES} ${HEADERS})
 

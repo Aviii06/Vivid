@@ -3,7 +3,7 @@
 #include "Window.h"
 #include <iostream>
 #include "confs/DynamicExportingMacros.h"
-#include "Editor/RenderingInterface.h"
+#include "editor/RenderingInterface.h"
 
 class VIVAPI Application
 {

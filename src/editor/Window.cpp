@@ -50,7 +50,8 @@ Window::Window(int width, int height, const char* title)
 }
 
 Window* Window::Init(int width, int height, const char* title)
-{ 	if (s_Instance == NULL)
+{
+	if (s_Instance == NULL)
 		s_Instance = new Window(width, height, title);
 
 	return s_Instance;
@@ -91,17 +92,16 @@ void Window::Update()
 	ImGui::NewFrame();
 
 	ImGui::Begin("Debug");
-//		ImGui::SliderFloat3("Translation Model 1", &translationModel1.x, -500.0f, 500.0f);
+	//		ImGui::SliderFloat3("Translation Model 1", &translationModel1.x, -500.0f, 500.0f);
 	//	// ImGui::SliderFloat3("Translation Model 2", &translationModel2.x, -300.0f, 300.0f);
 	//	ImGui::SliderFloat3("Light Position", &lightPos.x, -500.0f, 500.0f);
-//	if (m_RenderingInterface != nullptr)
-//	{
-//		m_RenderingInterface->ImGuiRender();
-//	}
-
+	//	if (m_RenderingInterface != nullptr)
+	//	{
+	//		m_RenderingInterface->ImGuiRender();
+	//	}
 
 	ImGui::Text("Application average %.3f ms/frame (%.1f FPS)",
-				1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+	    1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
 	ImGui::End();
 	ImGui::Render();
 	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());

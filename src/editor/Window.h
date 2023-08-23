@@ -2,7 +2,7 @@
 
 #include "common/Types.h"
 #include "utils/Error.h"
-#include "Editor/RenderingInterface.h"
+#include "editor/RenderingInterface.h"
 
 class Window
 {
@@ -17,7 +17,6 @@ private:
 	static Window* s_Instance;
 
 public:
-
 	~Window() = default;
 	static Window* Init(int width, int height, const char* title);
 	void Clear() const;

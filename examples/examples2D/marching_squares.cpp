@@ -264,7 +264,6 @@ public:
 
 	void Input() override
 	{
-
 	}
 };
 
