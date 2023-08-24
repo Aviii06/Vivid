@@ -1,6 +1,8 @@
 #pragma once
 
-#include "common/Types.h"
+#include "common/maths/Vec.h"
+#include "common/types/Types.h"
+#include "common/types/SmartPointers.h"
 #include "glm/glm/glm.hpp"
 
 namespace Vivid

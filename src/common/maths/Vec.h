@@ -1,52 +1,6 @@
 #pragma once
 
-#include <string>
-#include <vector>
-#include <memory>
 #include <cmath>
-
-// OpenGL
-#include <GL/glew.h>
-#include "GLFW/glfw3.h"
-
-template <class T>
-using Vector = std::vector<T>;
-
-// std::unique_ptr
-template <class T>
-using Ptr = std::unique_ptr<T>;
-template <class T, typename... Args>
-constexpr Ptr<T> MakePtr(Args&&... args)
-{
-	return std::make_unique<T>(std::forward<Args>(args)...);
-}
-// std::shared_ptr
-template <class T>
-using Ref = std::shared_ptr<T>;
-template <typename T, typename... Args>
-constexpr Ref<T> MakeRef(Args&&... args)
-{
-	return std::make_shared<T>(std::forward<Args>(args)...);
-}
-// std::weak_ptr
-template <class T>
-using Weak = std::weak_ptr<T>;
-
-// OPEN GL
-#define GL_BYTE 0x1400
-#define GL_UNSIGNED_BYTE 0x1401
-#define GL_SHORT 0x1402
-#define GL_UNSIGNED_SHORT 0x1403
-#define GL_INT 0x1404
-#define GL_UNSIGNED_INT 0x1405
-#define GL_FLOAT 0x1406
-#define GL_2_BYTES 0x1407
-#define GL_3_BYTES 0x1408
-#define GL_4_BYTES 0x1409
-#define GL_DOUBLE 0x140A
-
-#define GL_FALSE 0
-#define GL_TRUE 1
 
 // Structure to standardize the vertices used in the meshes
 struct Vec4

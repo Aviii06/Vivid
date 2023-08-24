@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Mesh.h"
-#include "shapes/Shape.h"
+#include "core/renderer/shapes/Shape.h"
 
 namespace Vivid
 {

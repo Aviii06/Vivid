@@ -9,5 +9,5 @@ namespace VividUI
 	void DockConfig();
 	void InitDock();
 	void Draw();
-	void EndDock();
+	void EndUI();
 };

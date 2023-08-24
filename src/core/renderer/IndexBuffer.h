@@ -1,8 +1,7 @@
 #pragma once
 
-#include "common/Types.h"
-
-#include "common/Types.h"
+#include "common/types/SmartPointers.h"
+#include "common/types/Types.h"
 
 namespace Vivid
 {

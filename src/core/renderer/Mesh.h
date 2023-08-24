@@ -7,9 +7,9 @@
 #include "VertexBuffer.h"
 #include "VertexBufferLayout.h"
 #include "editor/Camera.h"
-#include "shapes/Shape.h"
+#include "core/renderer/shapes/Shape.h"
 
-#include "common/Types.h"
+#include "common/types/SmartPointers.h"
 #include "utils/Error.h"
 
 #include <string>

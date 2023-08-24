@@ -7,7 +7,7 @@
 #include "imgui/imgui/backends/imgui_impl_glfw.h"
 #include "imgui/imgui/backends/imgui_impl_opengl3.h"
 #include "imgui/imgui/imgui.h"
-#include "renderer/Renderer.h"
+#include "core/renderer/Renderer.h"
 #include "editor/ui/UI.h"
 
 InputHandler* InputHandler::s_Instance;
@@ -71,20 +71,23 @@ void Window::SetRenderingInterface(RenderingInterface* renderingInterface)
 	m_RenderingInterface->Setup();
 
 	m_FrameBuffer = new FrameBuffer(m_Width, m_Height);
+	m_PickerFrameBuffer = new FrameBuffer(m_Width, m_Height);
 }
 
 void Window::Update()
 {
+
+	// Handle left click to identify object
+	Vec2 mousePosition = InputHandler::GetInstance()->GetMousePosition();
+	if (InputHandler::GetInstance()->IsMouseButtonPressed(GLFW_MOUSE_BUTTON_LEFT))
+	{
+	}
+
+	// Handle Custom Inputs
 	if (m_RenderingInterface != nullptr)
 	{
 		m_RenderingInterface->Input();
 	}
-	// Handle left click to identify object
-//	Vec2 mousePosition = InputHandler::GetInstance()->GetMousePosition();
-//	if (InputHandler::GetInstance()->IsMouseButtonPressed(GLFW_MOUSE_BUTTON_LEFT))
-//	{
-//
-//	}
 
 	// Handle keyboard input
 	glfwPollEvents();
@@ -97,6 +100,7 @@ void Window::Update()
 
 	Vivid::Renderer::Clear();
 
+	// Draw to a temporary framebuffer
 	m_FrameBuffer->Bind();
 	if (m_RenderingInterface != nullptr)
 	{
@@ -117,9 +121,6 @@ void Window::Update()
 		float width = ImGui::GetContentRegionAvail().x;
 		float height = ImGui::GetContentRegionAvail().y;
 
-		//		m_FrameBuffer->RescaleFrameBuffer(width, height);
-//		std::cout << width << " " << height << std::endl;
-
 		Camera::GetInstance()->SetViewportSize(width, height);
 
 		ImGui::Image(
@@ -131,12 +132,13 @@ void Window::Update()
 	ImGui::EndChild();
 	ImGui::End();
 
+	// Custom ImGui Rendering
 	if (m_RenderingInterface != nullptr)
 	{
 		m_RenderingInterface->ImGuiRender();
 	}
 
-	VividUI::EndDock();
+	VividUI::EndUI();
 
 	ImGui::Render();
 	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());

@@ -14,7 +14,7 @@ private:
 	Vivid::PointLight light;
 	Ref<Vivid::Shader> lightShader;
 
-	    public:
+public:
 	void Setup() override
 	{
 		// Can write custom opengl confs here
@@ -37,7 +37,6 @@ private:
 		// Drawing other meshes
 		Vivid::Mesh mesh1("./../assets/obj/suzanne.obj");
 		mesh1.BindShader(shader);
-
 
 		mesh1.Update(glm::translate(glm::mat4(1.0f), translationModel1));
 		shader->SetUniform3f("lightColor", lightColor);
@@ -81,7 +80,6 @@ private:
 
 		ImGui::Text("Application average %.3f ms/frame (%.1f FPS)",
 		    1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
-
 
 		ImGui::End();
 	}

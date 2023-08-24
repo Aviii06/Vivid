@@ -1,5 +1,6 @@
 #pragma once
-#include "common/Types.h"
+
+#include "common/maths/Vec.h"
 #include "GLFW/glfw3.h"
 #include <map>
 #include "editor/Camera.h"

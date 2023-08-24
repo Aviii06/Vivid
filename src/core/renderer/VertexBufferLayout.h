@@ -1,6 +1,6 @@
 #pragma once
 
-#include "common/Types.h"
+#include "common/types/OpenGLTypes.h"
 #include "utils/Error.h"
 
 namespace Vivid

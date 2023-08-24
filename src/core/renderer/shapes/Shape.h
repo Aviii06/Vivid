@@ -1,7 +1,7 @@
 #pragma once
 
-#include "../VertexBuffer.h"
-#include "../../common/Types.h"
+#include "core/renderer/VertexBuffer.h"
+#include "common/types/SmartPointers.h"
 
 namespace Vivid
 {

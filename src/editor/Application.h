@@ -1,5 +1,6 @@
 #pragma once
-#include "common/Types.h"
+#include "common/types/OpenGLTypes.h"
+#include "common/types/SmartPointers.h"
 #include "Window.h"
 #include <iostream>
 #include "confs/DynamicExportingMacros.h"

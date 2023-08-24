@@ -58,11 +58,7 @@ void VividUI::InitDock()
 	}
 }
 
-void VividUI::Draw()
-{
-}
-
-void VividUI::EndDock()
+void VividUI::EndUI()
 {
 	ImGui::End();
 }

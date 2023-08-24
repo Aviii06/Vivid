@@ -1,8 +1,8 @@
 #pragma once
 
-#include "common/Types.h"
+#include "common/types/OpenGLTypes.h"
 #include "utils/Error.h"
-#include "renderer/FrameBuffer.h"
+#include "core/renderer/FrameBuffer.h"
 #include "editor/RenderingInterface.h"
 
 class Window
@@ -14,6 +14,7 @@ private:
 	Vec2* m_PrevMousePosition;
 	RenderingInterface* m_RenderingInterface;
 	FrameBuffer* m_FrameBuffer;
+	FrameBuffer* m_PickerFrameBuffer;
 
 	Window(int width, int height, const char* title);
 	static Window* s_Instance;

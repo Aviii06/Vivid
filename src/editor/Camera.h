@@ -32,9 +32,9 @@ private:
 	int m_ViewportHeight = 720;
 
 	glm::mat4 m_ProjectionMatrix = glm::perspective(glm::radians(m_FOV),
-		m_AspectRatio, m_NearCip, m_FarClip);
+	    m_AspectRatio, m_NearCip, m_FarClip);
 	glm::mat4 m_ViewMatrix = glm::lookAt(m_Position, m_Position + m_Front,
-		glm::vec3(0.0f, 1.0f, 0.0f));
+	    glm::vec3(0.0f, 1.0f, 0.0f));
 
 	// We'll never roll the camera. https://sidvind.com/wiki/Yaw,_pitch,_roll_camera
 	float m_Yaw = 0.0f;

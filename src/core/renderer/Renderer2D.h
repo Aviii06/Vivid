@@ -1,8 +1,8 @@
 #pragma once
-#include "common/Types.h"
+#include "common/types/SmartPointers.h"
 #include "utils/Error.h"
-#include "renderer/Renderer.h"
-#include "renderer/Mesh.h"
+#include "Renderer.h"
+#include "Mesh.h"
 #include "editor/Camera.h"
 
 namespace Vivid
