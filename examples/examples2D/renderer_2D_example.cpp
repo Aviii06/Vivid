@@ -36,10 +36,6 @@ public:
 
 		ImGui::End();
 	}
-
-	void Input() override
-	{
-	}
 };
 
 Application* Vivid::CreateApplication()

@@ -1,8 +1,5 @@
 #include "Vivid.h"
 
-#include <cstdio>
-#include <cmath>
-#include <cstdlib>
 #include <thread>
 
 #include <math.h>
@@ -254,10 +251,6 @@ public:
 		ImGui::Checkbox("RenderQuad", &g_RenderQuad);
 		ImGui::ColorPicker3("Color", g_Color);
 		ImGui::End();
-	}
-
-	void Input() override
-	{
 	}
 };
 

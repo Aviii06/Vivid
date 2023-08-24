@@ -1,5 +1,5 @@
 #include "Window.h"
-#include "Camera.h"
+#include "editor/camera/EditorCamera.h"
 #include <iostream>
 #include "confs/Config.h"
 #include "inputs/InputHandler.h"
@@ -9,9 +9,7 @@
 #include "imgui/imgui/imgui.h"
 #include "core/renderer/Renderer.h"
 #include "editor/gui/DockUI.h"
-
-InputHandler* InputHandler::s_Instance;
-Camera* Camera::s_Instance;
+#include "editor/Application.h"
 
 Window::Window(int width, int height, const char* title)
 {
@@ -71,21 +69,50 @@ void Window::SetRenderingInterface(RenderingInterface* renderingInterface)
 	m_RenderingInterface->Setup();
 
 	m_FrameBuffer = new FrameBuffer(m_Width, m_Height);
-	m_PickerFrameBuffer = new FrameBuffer(m_Width, m_Height);
 }
 
 void Window::Update()
 {
-	// Handle left click to identify object
-	Vec2 mousePosition = InputHandler::GetInstance()->GetMousePosition();
-	if (InputHandler::GetInstance()->IsMouseButtonPressed(GLFW_MOUSE_BUTTON_LEFT))
-	{
-	}
 
 	// Handle Custom Inputs
 	if (m_RenderingInterface != nullptr)
 	{
-		m_RenderingInterface->Input();
+		Camera* camera = Application::GetInstance()->GetCamera();
+		// If editor camera allow to move.
+		if (camera->GetCameraType() == CameraType::EDITOR)
+		{
+			EditorCamera* editorCamera = static_cast<EditorCamera*>(camera);
+			if (InputHandler::IsKeyPressed(GLFW_KEY_W))
+			{
+				editorCamera->MoveForward();
+			}
+			if (InputHandler::IsKeyPressed(GLFW_KEY_S))
+			{
+				editorCamera->MoveBackward();
+			}
+			if (InputHandler::IsKeyPressed(GLFW_KEY_A))
+			{
+				editorCamera->MoveLeft();
+			}
+			if (InputHandler::IsKeyPressed(GLFW_KEY_D))
+			{
+				editorCamera->MoveRight();
+			}
+
+			Vec2 mousePosition = InputHandler::GetMousePosition();
+			if (InputHandler::IsMouseButtonPressed(GLFW_MOUSE_BUTTON_RIGHT))
+			{
+				editorCamera->ProcessMouseMovement(mousePosition.x - m_PrevMousePosition->x,
+				    mousePosition.y - m_PrevMousePosition->y);
+				m_PrevMousePosition->x = mousePosition.x;
+				m_PrevMousePosition->y = mousePosition.y;
+			}
+			else
+			{
+				m_PrevMousePosition->x = mousePosition.x;
+				m_PrevMousePosition->y = mousePosition.y;
+			}
+		}
 	}
 
 	// Handle keyboard input
@@ -120,7 +147,7 @@ void Window::Update()
 		float width = ImGui::GetContentRegionAvail().x;
 		float height = ImGui::GetContentRegionAvail().y;
 
-		Camera::GetInstance()->SetViewportSize(width, height);
+		Application::GetInstance()->GetCamera()->SetViewportSize(width, height);
 
 		ImGui::Image(
 		    (ImTextureID)m_FrameBuffer->getFrameTexture(),

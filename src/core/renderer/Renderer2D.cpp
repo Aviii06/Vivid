@@ -1,8 +1,8 @@
 #include "Renderer2D.h"
+#include "editor/Application.h"
 
 namespace Vivid
 {
-
 	Storage Renderer2D::s_Storage;
 	void Renderer2D::Init(int reserveVertices)
 	{
@@ -57,7 +57,7 @@ namespace Vivid
 
 	void Renderer2D::BeginScene()
 	{
-		Camera* camera = Camera::GetInstance();
+		Camera* camera = Application::GetInstance()->GetCamera();
 		camera->SetPerspective(glm::ortho(-960.0f, 960.0f, -540.0f, 540.0f, 0.1f, 100.0f));
 
 		s_Storage.quadShader->Bind();

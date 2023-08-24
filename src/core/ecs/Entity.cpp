@@ -1,4 +1,5 @@
 #include "Entity.h"
+#include "editor/Application.h"
 #define MAX_COMPONENTS 10
 
 Vivid::Entity::Entity(int id, String name)
@@ -41,7 +42,7 @@ void Vivid::Entity::drawComponents()
 {
 	for (auto& component : m_Components)
 	{
-		component->Draw();
+		component->Draw(Application::GetInstance()->GetCamera());
 	}
 }
 

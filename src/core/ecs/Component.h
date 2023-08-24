@@ -1,4 +1,5 @@
 #pragma once
+#include "editor/camera/Camera.h"
 
 namespace Vivid
 {
@@ -7,7 +8,7 @@ namespace Vivid
 	public:
 		Component() = default;
 		virtual ~Component() = default;
-		virtual void Draw() = 0;
+		virtual void Draw(Camera* camera) = 0;
 		virtual void ImGuiRender() = 0;
 	};
 }

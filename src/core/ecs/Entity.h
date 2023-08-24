@@ -3,6 +3,9 @@
 #include "common/types/SmartPointers.h"
 #include "core/ecs/Component.h"
 
+#include "editor/camera/Camera.h"
+#include "editor/camera/EditorCamera.h"
+
 namespace Vivid
 {
 	class Entity

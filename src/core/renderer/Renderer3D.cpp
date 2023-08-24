@@ -1,5 +1,6 @@
 #include "Renderer3D.h"
-#include "editor/Camera.h"
+#include "editor/camera/EditorCamera.h"
+#include "editor/Application.h"
 
 namespace Vivid
 {
@@ -43,7 +44,7 @@ namespace Vivid
 
 	void Renderer3D::BeginScene()
 	{
-		Camera* camera = Camera::GetInstance();
+		Camera* camera = Application::GetInstance()->GetCamera();
 
 		s_Storage3D.quadShader->Bind();
 		s_Storage3D.quadShader->SetUniformMat4f("u_Model", glm::mat4(1.0f));

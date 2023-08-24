@@ -14,7 +14,6 @@ private:
 	Vec2* m_PrevMousePosition;
 	RenderingInterface* m_RenderingInterface;
 	FrameBuffer* m_FrameBuffer;
-	FrameBuffer* m_PickerFrameBuffer;
 
 	Window(int width, int height, const char* title);
 	static Window* s_Instance;

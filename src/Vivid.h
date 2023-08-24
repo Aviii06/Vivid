@@ -16,20 +16,18 @@
 #include "core/renderer/Texture.h"
 #include "core/renderer/VertexArray.h"
 #include "core/renderer/VertexBuffer.h"
-#include "core/renderer/PointLight.h"
+#include "core/ecs/components/light/PointLight.h"
 #include "core/renderer/shapes/Quad3d.h"
 #include "core/renderer/Renderer2D.h"
 #include "core/renderer/Renderer3D.h"
 
-#include "editor/Camera.h"
+#include "editor/camera/Camera.h"
+#include "editor/camera/EditorCamera.h"
+#include "editor/camera/OrthoCamera.h"
 #include "editor/Window.h"
 #include "editor/Application.h"
 #include "editor/RenderingInterface.h"
 #include "editor/EntryPoint.h"
-
-#include "inputs/InputHandler.h"
-
-#include "confs/Config.h"
 
 #include "inputs/InputHandler.h"
 

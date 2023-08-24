@@ -1,16 +1,16 @@
-#include "Camera.h"
+#include "EditorCamera.h"
 
-Camera::Camera(float fov, float aspect, float near, float far)
+EditorCamera::EditorCamera(float fov, float aspect, float near, float far)
     : m_FOV(fov)
     , m_AspectRatio(aspect)
     , m_NearCip(near)
     , m_FarClip(far)
 {
-	updateProjectionMatrix();
+	m_ProjectionMatrix = glm::perspective(glm::radians(m_FOV), m_AspectRatio, m_NearCip, m_FarClip);
 }
 
 // Process keyboard input
-void Camera::ProcessKeyboard(CameraMovement direction)
+void EditorCamera::ProcessKeyboard(CameraMovement direction)
 {
 	float velocity = m_MovementSpeed;
 
@@ -34,7 +34,7 @@ void Camera::ProcessKeyboard(CameraMovement direction)
 }
 
 // Process mouse movement
-void Camera::ProcessMouseMovement(float xOffset, float yOffset, bool constrainPitch)
+void EditorCamera::ProcessMouseMovement(float xOffset, float yOffset, bool constrainPitch)
 {
 	xOffset *= m_MouseSensitivity;
 	yOffset *= m_MouseSensitivity;
@@ -56,7 +56,7 @@ void Camera::ProcessMouseMovement(float xOffset, float yOffset, bool constrainPi
 }
 
 // Process mouse scroll
-void Camera::ProcessMouseScroll(float scrollOffset)
+void EditorCamera::ProcessMouseScroll(float scrollOffset)
 {
 	if (m_ZoomSensitivity >= 1.0f && m_ZoomSensitivity <= 45.0f)
 		m_ZoomSensitivity -= scrollOffset;
@@ -69,7 +69,7 @@ void Camera::ProcessMouseScroll(float scrollOffset)
 }
 
 // Update camera vectors
-void Camera::updateCameraVectors()
+void EditorCamera::updateCameraVectors()
 {
 	// Calculate the new Front vector
 	glm::vec3 front;
@@ -82,18 +82,18 @@ void Camera::updateCameraVectors()
 	m_Right = glm::normalize(glm::cross(m_Front, glm::vec3(0.0f, 1.0f, 0.0f)));
 	m_Up = glm::normalize(glm::cross(m_Right, m_Front));
 }
-void Camera::updateProjectionMatrix()
+void EditorCamera::updateProjectionMatrix()
 {
 	m_ProjectionMatrix = glm::perspective(glm::radians(m_FOV), m_AspectRatio, m_NearCip, m_FarClip);
 }
 
 // Updates view matrix based on camera position and orientation
-void Camera::updateViewMatrix()
+void EditorCamera::updateViewMatrix()
 {
 	m_ViewMatrix = glm::lookAt(m_Position, m_Position + m_Front, m_Up);
 }
 
-void Camera::SetPerspective(float fov, float aspect, float near, float far)
+void EditorCamera::SetPerspective(float fov, float aspect, float near, float far)
 {
 	m_FOV = fov;
 	m_AspectRatio = aspect;
@@ -102,36 +102,42 @@ void Camera::SetPerspective(float fov, float aspect, float near, float far)
 	updateProjectionMatrix();
 }
 
-void Camera::SetViewportSize(int width, int height)
+void EditorCamera::SetViewportSize(int width, int height)
 {
 	m_AspectRatio = (float)width / (float)height;
 	updateProjectionMatrix();
 }
 
-void Camera::MoveForward()
+void EditorCamera::MoveForward()
 {
 	m_Position += m_Front * m_MovementSpeed;
 	updateViewMatrix();
 }
 
-void Camera::MoveBackward()
+void EditorCamera::MoveBackward()
 {
 	m_Position -= m_Front * m_MovementSpeed;
 	updateViewMatrix();
 }
 
-void Camera::MoveLeft()
+void EditorCamera::MoveLeft()
 {
 	m_Position -= m_Right * m_MovementSpeed;
 	updateViewMatrix();
 }
 
-void Camera::MoveRight()
+void EditorCamera::MoveRight()
 {
 	m_Position += m_Right * m_MovementSpeed;
 	updateViewMatrix();
 }
-void Camera::SetPerspective(glm::mat4 perspective)
+
+void EditorCamera::SetViewMatrix(glm::mat4 view)
+{
+	m_ViewMatrix = view;
+}
+
+void EditorCamera::SetPerspective(glm::mat4 perspective)
 {
 	m_ProjectionMatrix = perspective;
 }

@@ -1,22 +1,11 @@
 #pragma once
 
-#include "glm/glm/glm.hpp"
-#include "glm/gtc/matrix_transform.hpp"
+#include "Camera.h"
 
-enum class CameraMovement
-{
-	FORWARD = 1,
-	BACKWARD = 2,
-	LEFT = 3,
-	RIGHT = 4
-};
-
-/// It is a singleton class
-/// It is used to create a camera
-class Camera
+/// Editor EditorCamera has the ability to move around the scene using WASD keys and mouse in an intuitive way.
+class EditorCamera : public Camera
 {
 private:
-	static Camera* s_Instance;
 	float m_FOV = 60.0f;
 	float m_NearCip = 0.1f;
 	float m_FarClip = 5000.0f;
@@ -50,11 +39,11 @@ private:
 	void updateProjectionMatrix();
 	void updateViewMatrix();
 
-	Camera() = default;
-
-	Camera(float fov, float aspect, float near, float far);
-
 public:
+	EditorCamera() = default;
+
+	EditorCamera(float fov, float aspect, float near, float far);
+
 	void ProcessKeyboard(CameraMovement direction);
 
 	void ProcessMouseMovement(float xOffset, float yOffset, bool constrainPitch = true);
@@ -70,20 +59,15 @@ public:
 	float GetMouseSensitivity() { return m_MouseSensitivity; }
 	float GetZoom() { return m_ZoomSensitivity; }
 
-	static Camera* GetInstance()
-	{
-		if (s_Instance == nullptr)
-			s_Instance = new Camera(60.0f, 1.7778f, 0.1f, 5000.0f);
-
-		return s_Instance;
-	}
-
 	void SetPerspective(glm::mat4 perspective);
 	void SetPerspective(float fov, float aspect, float near, float far);
+	void SetViewMatrix(glm::mat4 view);
 
 	void SetViewportSize(int width, int height);
 	void MoveForward();
 	void MoveBackward();
 	void MoveLeft();
 	void MoveRight();
+
+	CameraType GetCameraType() override { return CameraType::EDITOR; }
 };

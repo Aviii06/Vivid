@@ -1,5 +1,4 @@
-#include "editor/Application.h"
-
+#include "../editor/Application.h"
 #include "InputHandler.h"
 
 bool InputHandler::IsKeyPressed(int key)
@@ -22,9 +21,4 @@ bool InputHandler::IsMouseButtonPressed(int button)
 	GLFWwindow* window = Application::GetInstance()->GetWindow().GetGLFWWindow();
 	int state = glfwGetMouseButton(window, button);
 	return state == GLFW_PRESS;
-}
-
-Camera* InputHandler::GetCamera()
-{
-	return Camera::GetInstance();
 }

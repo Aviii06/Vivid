@@ -1,17 +1,13 @@
 #include "Vivid.h"
-InputHandler* InputHandler::s_Instance;
-Camera* Camera::s_Instance;
 
 class ExampleInterface : public RenderingInterface
 {
 private:
 	Vec3 lightColor = Vec3(1.0f, 0.5f, 1.0f);
 	Vec3 lightPos = Vec3(0.0f, 0.0f, -100.0f);
-	Vec2* m_PrevMousePosition = new Vec2(0.0f, 0.0f);
 
 	glm::vec3 translationModel1 = glm::vec3(0, 50, -200);
 	Vivid::Mesh lightMesh;
-	Vivid::PointLight light;
 	Ref<Vivid::Shader> lightShader;
 	Vivid::Entity entity1;
 	Vivid::ModelComponent* modelComponent1;
@@ -31,13 +27,9 @@ public:
 		mesh1 = new Vivid::Mesh("./../assets/obj/suzanne.obj");
 		mesh1->BindShader(shader);
 
-		//		mesh1.Draw();
-
 		modelComponent1 = new Vivid::ModelComponent();
 		modelComponent1->AddMesh(mesh1);
 		entity1.AddComponent(modelComponent1);
-
-		std::cout << "hello";
 	}
 
 	void Draw() override
@@ -50,7 +42,6 @@ public:
 
 		shader->Bind();
 		mesh1->Update(glm::translate(glm::mat4(1.0f), translationModel1));
-		//		mesh1.Draw();
 		entity1.Draw();
 	}
 
@@ -65,46 +56,16 @@ public:
 
 		ImGui::End();
 	}
-
-	void Input() override
-	{
-		if (InputHandler::GetInstance()->IsKeyPressed(GLFW_KEY_W))
-		{
-			InputHandler::GetInstance()->GetCamera()->MoveForward();
-		}
-		if (InputHandler::GetInstance()->IsKeyPressed(GLFW_KEY_S))
-		{
-			InputHandler::GetInstance()->GetCamera()->MoveBackward();
-		}
-		if (InputHandler::GetInstance()->IsKeyPressed(GLFW_KEY_A))
-		{
-			InputHandler::GetInstance()->GetCamera()->MoveLeft();
-		}
-		if (InputHandler::GetInstance()->IsKeyPressed(GLFW_KEY_D))
-		{
-			InputHandler::GetInstance()->GetCamera()->MoveRight();
-		}
-
-		Vec2 mousePosition = InputHandler::GetInstance()->GetMousePosition();
-		if (InputHandler::GetInstance()->IsMouseButtonPressed(GLFW_MOUSE_BUTTON_RIGHT))
-		{
-			InputHandler::GetInstance()->GetCamera()->ProcessMouseMovement(mousePosition.x - m_PrevMousePosition->x,
-			    mousePosition.y - m_PrevMousePosition->y);
-			m_PrevMousePosition->x = mousePosition.x;
-			m_PrevMousePosition->y = mousePosition.y;
-		}
-		else
-		{
-			m_PrevMousePosition->x = mousePosition.x;
-			m_PrevMousePosition->y = mousePosition.y;
-		}
-	}
 };
 
 Application* Vivid::CreateApplication()
 {
 	Application* app = Application::GetInstance(1920, 1080, "Vivid: Suzanne Example");
+
 	app->SetRenderingInterface(new ExampleInterface);
+
+	//	OrthoCamera* orthoCamera = new OrthoCamera(0 ,1920, 0, 1080);
+	//	app->SetCamera(orthoCamera);
 	return app;
 }
 

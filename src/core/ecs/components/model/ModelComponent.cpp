@@ -19,11 +19,10 @@ void Vivid::ModelComponent::ImGuiRender()
 	ImGui::End();
 }
 
-void Vivid::ModelComponent::Draw()
+void Vivid::ModelComponent::Draw(Camera* camera)
 {
-	//	for (auto& mesh : m_Meshes)
-	//		mesh->Draw();
-	m_Meshes[0]->Draw();
+	for (auto& mesh : m_Meshes)
+		mesh->Draw(camera);
 }
 
 void Vivid::ModelComponent::AddMesh(Vivid::Mesh* mesh)

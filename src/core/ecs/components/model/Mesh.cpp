@@ -208,7 +208,7 @@ namespace Vivid
 		}
 	}
 
-	void Mesh::Draw()
+	void Mesh::Draw(Camera* camera)
 	{
 		m_Shader->Bind();
 
@@ -218,7 +218,6 @@ namespace Vivid
 		m_Vao->AddVertexBuffer(vbo, m_Layout, m_Vertices);
 		m_Vao->AddIndexBuffer(*m_Ebo);
 
-		Camera* camera = Camera::GetInstance();
 		m_Shader->SetUniformMat4f("u_Model", m_ModelMatrix);
 		m_Shader->SetUniformMat4f("u_View", camera->GetViewMatrix());
 		m_Shader->SetUniformMat4f("u_Proj", camera->GetProjectionMatrix());

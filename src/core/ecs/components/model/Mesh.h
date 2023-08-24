@@ -6,7 +6,7 @@
 #include "core/renderer/VertexArray.h"
 #include "core/renderer/VertexBuffer.h"
 #include "core/renderer/VertexBufferLayout.h"
-#include "editor/Camera.h"
+#include "editor/camera/Camera.h"
 #include "core/renderer/shapes/Shape.h"
 
 #include "common/types/SmartPointers.h"
@@ -56,6 +56,6 @@ namespace Vivid
 		void SetIndices(Vector<unsigned int> indices);
 
 		// Draws the mesh
-		void Draw();
+		void Draw(Camera* camera);
 	};
 }
