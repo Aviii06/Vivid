@@ -13,6 +13,9 @@ private:
 	Vivid::Mesh lightMesh;
 	Vivid::PointLight light;
 	Ref<Vivid::Shader> lightShader;
+	Vivid::Entity entity1;
+	Vivid::ModelComponent* modelComponent1;
+	Vivid::Mesh* mesh1;
 
 public:
 	void Setup() override
@@ -20,56 +23,35 @@ public:
 		// Can write custom opengl confs here
 		OPENGL_CONFS
 
-		Vivid::Renderer2D::Init();
-
-		// Light Info
-		Vivid::Quad3d cube(10.0f, lightColor);
-		lightMesh = Vivid::Mesh(cube);
-		light = Vivid::PointLight(lightPos, lightColor, &lightMesh);
-		lightShader = MakeRef<Vivid::Shader>("./../assets/shaders/basic.vertexShader.glsl",
-		    "./../assets/shaders/basic.pixelShader.glsl");
-		light.Draw(lightShader);
-
 		// Creating a shader
-		Ref<Vivid::Shader> shader = MakeRef<Vivid::Shader>("./../assets/shaders/phong.vertexShader.glsl",
-		    "./../assets/shaders/phong.pixelShader.glsl");
+		Ref<Vivid::Shader> shader = MakeRef<Vivid::Shader>("./../assets/shaders/basic.vertexShader.glsl",
+		    "./../assets/shaders/basic.pixelShader.glsl");
 
 		// Drawing other meshes
-		Vivid::Mesh mesh1("./../assets/obj/suzanne.obj");
-		mesh1.BindShader(shader);
+		mesh1 = new Vivid::Mesh("./../assets/obj/suzanne.obj");
+		mesh1->BindShader(shader);
 
-		mesh1.Update(glm::translate(glm::mat4(1.0f), translationModel1));
-		shader->SetUniform3f("lightColor", lightColor);
-		shader->SetUniform3f("lightPos", lightPos);
-		shader->SetUniform1f("intensity", 2.0f);
+		//		mesh1.Draw();
 
-		shader->Bind();
-		mesh1.Update(glm::translate(glm::mat4(1.0f), translationModel1));
-		mesh1.Draw();
+		modelComponent1 = new Vivid::ModelComponent();
+		modelComponent1->AddMesh(mesh1);
+		entity1.AddComponent(modelComponent1);
 
-		light.UpdateLightPosition(lightPos);
-		light.Draw(lightShader);
+		std::cout << "hello";
 	}
 
 	void Draw() override
 	{
-		Ref<Vivid::Shader> shader = MakeRef<Vivid::Shader>("./../assets/shaders/phong.vertexShader.glsl",
-		    "./../assets/shaders/phong.pixelShader.glsl");
+		Ref<Vivid::Shader> shader = MakeRef<Vivid::Shader>("./../assets/shaders/basic.vertexShader.glsl",
+		    "./../assets/shaders/basic.pixelShader.glsl");
 
 		// Drawing other meshes
-		Vivid::Mesh mesh1("./../assets/obj/suzanne.obj");
-		mesh1.BindShader(shader);
-
-		shader->SetUniform3f("lightColor", lightColor);
-		shader->SetUniform3f("lightPos", lightPos);
-		shader->SetUniform1f("intensity", 2.0f);
+		mesh1->BindShader(shader);
 
 		shader->Bind();
-		mesh1.Update(glm::translate(glm::mat4(1.0f), translationModel1));
-		mesh1.Draw();
-
-		light.UpdateLightPosition(lightPos);
-		light.Draw(lightShader);
+		mesh1->Update(glm::translate(glm::mat4(1.0f), translationModel1));
+		//		mesh1.Draw();
+		entity1.Draw();
 	}
 
 	void ImGuiRender() override

@@ -99,18 +99,18 @@ void Window::Update()
 
 	Vivid::Renderer::Clear();
 
+	ImGui_ImplGlfw_NewFrame();
+	ImGui_ImplOpenGL3_NewFrame();
+	ImGui::NewFrame();
+
 	// Draw to a temporary framebuffer
+	// Some components might be drawing within imgui context
 	m_FrameBuffer->Bind();
 	if (m_RenderingInterface != nullptr)
 	{
 		m_RenderingInterface->Draw();
 	}
 	m_FrameBuffer->Unbind();
-
-	// IMGUI
-	ImGui_ImplGlfw_NewFrame();
-	ImGui_ImplOpenGL3_NewFrame();
-	ImGui::NewFrame();
 
 	VividGUI::InitUI();
 	ImGui::Begin("Viewport");

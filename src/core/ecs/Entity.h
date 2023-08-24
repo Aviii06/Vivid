@@ -3,7 +3,8 @@
 #include "common/types/SmartPointers.h"
 #include "core/ecs/Component.h"
 
-namespace Vivid {
+namespace Vivid
+{
 	class Entity
 	{
 	private:
@@ -13,16 +14,18 @@ namespace Vivid {
 
 		void drawGUI();
 		void drawComponents();
+
 	public:
+		Entity() = default;
 		Entity(int id, String name);
 		~Entity();
 
-		void AddComponent(Ref<Component> component);
-		void RemoveComponent(Ref<Component> component);
+		void AddComponent(Component* component);
+		void RemoveComponent(Component* component);
 
 		void Draw();
 
-		template<typename T>
+		template <typename T>
 		T* GetComponent()
 		{
 			for (auto& component : m_Components)

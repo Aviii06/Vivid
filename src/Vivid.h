@@ -3,8 +3,13 @@
 #include <iostream>
 #include <sstream>
 
-#include "core/renderer/IndexBuffer.h"
 #include "core/ecs/components/model/Mesh.h"
+#include "core/ecs/components/model/ModelComponent.h"
+#include "core/ecs/components/TransformComponent.h"
+#include "core/ecs/Component.h"
+#include "core/ecs/Entity.h"
+
+#include "core/renderer/IndexBuffer.h"
 #include "core/renderer/Renderer.h"
 #include "core/renderer/Shader.h"
 #include "core/renderer/shapes/Shape.h"

@@ -1,24 +1,27 @@
 #include "Entity.h"
+#define MAX_COMPONENTS 10
 
 Vivid::Entity::Entity(int id, String name)
-: m_ID(id), m_Name(std::move(name))
+    : m_ID(id)
+    , m_Name(std::move(name))
 {
+	m_Components.reserve(MAX_COMPONENTS);
 }
 
 Vivid::Entity::~Entity()
 {
 }
 
-void Vivid::Entity::AddComponent(Ref<Vivid::Component> component)
+void Vivid::Entity::AddComponent(Vivid::Component* component)
 {
-	m_Components.push_back(component.get());
+	m_Components.push_back(component);
 }
 
-void Vivid::Entity::RemoveComponent(Ref<Vivid::Component> component)
+void Vivid::Entity::RemoveComponent(Vivid::Component* component)
 {
 	for (auto it = m_Components.begin(); it != m_Components.end(); ++it)
 	{
-		if (*it == component.get())
+		if (*it == component)
 		{
 			m_Components.erase(it);
 			break;
