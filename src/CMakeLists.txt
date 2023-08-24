@@ -1,7 +1,7 @@
 set(SOURCES
         ${CMAKE_CURRENT_SOURCE_DIR}/inputs/InputHandler.cpp
         core/renderer/IndexBuffer.cpp
-        core/renderer/Mesh.cpp
+        core/ecs/components/model/Mesh.cpp
         core/renderer/Renderer.cpp
         core/renderer/Shader.cpp
         core/renderer/Texture.cpp
@@ -21,12 +21,12 @@ set(SOURCES
         ${CMAKE_CURRENT_SOURCE_DIR}/utils/Timer.cpp
         core/renderer/Renderer2D.cpp
         core/renderer/Renderer3D.cpp
-        editor/ui/UI.cpp core/renderer/FrameBuffer.cpp core/components/TransformComponent.cpp)
+        editor/gui/DockUI.cpp core/renderer/FrameBuffer.cpp core/ecs/components/TransformComponent.cpp core/ecs/Entity.cpp)
 
 set(HEADERS
         ${CMAKE_CURRENT_SOURCE_DIR}/inputs/InputHandler.h
         core/renderer/IndexBuffer.h
-        core/renderer/Mesh.h
+        core/ecs/components/model/Mesh.h
         core/renderer/Renderer.h
         core/renderer/Shader.h
         core/renderer/shapes/Shape.h
@@ -51,7 +51,7 @@ set(HEADERS
         core/renderer/Renderer2D.h
         core/renderer/Renderer3D.h
         ${CMAKE_CURRENT_SOURCE_DIR}/Vivid.h
-        confs/DynamicExportingMacros.h editor/RenderingInterface.h editor/EntryPoint.h editor/ui/UIFlags.h editor/ui/UI.h core/renderer/FrameBuffer.h core/components/Component.h core/components/TransformComponent.h common/maths/Vec.h common/types/OpenGLTypes.h common/types/Types.h)
+        confs/DynamicExportingMacros.h editor/RenderingInterface.h editor/EntryPoint.h editor/gui/UIFlags.h editor/gui/DockUI.h core/renderer/FrameBuffer.h core/ecs/Component.h core/ecs/components/TransformComponent.h common/maths/Vec.h common/types/OpenGLTypes.h common/types/Types.h core/ecs/Entity.h)
 
 add_library(Vivid SHARED ${SOURCES} ${HEADERS})
 

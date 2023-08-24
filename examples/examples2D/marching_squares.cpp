@@ -180,53 +180,53 @@ public:
 
 				Vec3 col = Vec3(g_Color[0], g_Color[1], g_Color[2]);
 				float thickness = g_Thickness;
-				switch (GetState(v1, v2, v3, v4))
-				{
-				case 1:
-					Vivid::Renderer2D::DrawLine(c, d, thickness, col);
-					break;
-				case 2:
-					Vivid::Renderer2D::DrawLine(b, c, thickness, col);
-					break;
-				case 3:
-					Vivid::Renderer2D::DrawLine(b, d, thickness, col);
-					break;
-				case 4:
-					Vivid::Renderer2D::DrawLine(a, b, thickness, col);
-					break;
-				case 5:
-					Vivid::Renderer2D::DrawLine(a, d, thickness, col);
-					Vivid::Renderer2D::DrawLine(b, c, thickness, col);
-					break;
-				case 6:
-					Vivid::Renderer2D::DrawLine(a, c, thickness, col);
-					break;
-				case 7:
-					Vivid::Renderer2D::DrawLine(a, d, thickness, col);
-					break;
-				case 8:
-					Vivid::Renderer2D::DrawLine(d, a, thickness, col);
-					break;
-				case 9:
-					Vivid::Renderer2D::DrawLine(c, a, thickness, col);
-					break;
-				case 10:
-					Vivid::Renderer2D::DrawLine(a, b, thickness, col);
-					Vivid::Renderer2D::DrawLine(c, d, thickness, col);
-					break;
-				case 11:
-					Vivid::Renderer2D::DrawLine(a, b, thickness, col);
-					break;
-				case 12:
-					Vivid::Renderer2D::DrawLine(b, d, thickness, col);
-					break;
-				case 13:
-					Vivid::Renderer2D::DrawLine(b, c, thickness, col);
-					break;
-				case 14:
-					Vivid::Renderer2D::DrawLine(d, c, thickness, col);
-					break;
-				}
+//				switch (GetState(v1, v2, v3, v4))
+//				{
+//				case 1:
+//					Vivid::Renderer2D::DrawLine(c, d, thickness, col);
+//					break;
+//				case 2:
+//					Vivid::Renderer2D::DrawLine(b, c, thickness, col);
+//					break;
+//				case 3:
+//					Vivid::Renderer2D::DrawLine(b, d, thickness, col);
+//					break;
+//				case 4:
+//					Vivid::Renderer2D::DrawLine(a, b, thickness, col);
+//					break;
+//				case 5:
+//					Vivid::Renderer2D::DrawLine(a, d, thickness, col);
+//					Vivid::Renderer2D::DrawLine(b, c, thickness, col);
+//					break;
+//				case 6:
+//					Vivid::Renderer2D::DrawLine(a, c, thickness, col);
+//					break;
+//				case 7:
+//					Vivid::Renderer2D::DrawLine(a, d, thickness, col);
+//					break;
+//				case 8:
+//					Vivid::Renderer2D::DrawLine(d, a, thickness, col);
+//					break;
+//				case 9:
+//					Vivid::Renderer2D::DrawLine(c, a, thickness, col);
+//					break;
+//				case 10:
+//					Vivid::Renderer2D::DrawLine(a, b, thickness, col);
+//					Vivid::Renderer2D::DrawLine(c, d, thickness, col);
+//					break;
+//				case 11:
+//					Vivid::Renderer2D::DrawLine(a, b, thickness, col);
+//					break;
+//				case 12:
+//					Vivid::Renderer2D::DrawLine(b, d, thickness, col);
+//					break;
+//				case 13:
+//					Vivid::Renderer2D::DrawLine(b, c, thickness, col);
+//					break;
+//				case 14:
+//					Vivid::Renderer2D::DrawLine(d, c, thickness, col);
+//					break;
+//				}
 			}
 		}
 
@@ -241,6 +241,7 @@ public:
 
 	void ImGuiRender() override
 	{
+		ImGui::Begin("Settings");
 		//	ImGui::SliderFloat3("Translation Model 1", &translationModel1.x, -500.0f, 500.0f);
 		//	// ImGui::SliderFloat3("Translation Model 2", &translationModel2.x, -300.0f, 300.0f);
 		//	ImGui::SliderFloat3("Light Position", &lightPos.x, -500.0f, 500.0f);
@@ -252,6 +253,7 @@ public:
 		ImGui::SliderFloat("Perlin Dimension", &g_DimPerlin, 0.0f, 1.0f);
 		ImGui::Checkbox("RenderQuad", &g_RenderQuad);
 		ImGui::ColorPicker3("Color", g_Color);
+		ImGui::End();
 	}
 
 	void Input() override

@@ -3,7 +3,7 @@
 #include "imgui/imgui/backends/imgui_impl_glfw.h"
 #include "imgui/imgui/backends/imgui_impl_opengl3.h"
 
-namespace VividUI
+namespace VividGUI
 {
 	static bool opt_fullscreen = true;
 	static bool opt_padding = false;

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Mesh.h"
+#include "core/ecs/components/model/Mesh.h"
 #include "core/renderer/shapes/Shape.h"
 
 namespace Vivid

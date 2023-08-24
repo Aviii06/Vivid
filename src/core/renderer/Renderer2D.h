@@ -2,7 +2,7 @@
 #include "common/types/SmartPointers.h"
 #include "utils/Error.h"
 #include "Renderer.h"
-#include "Mesh.h"
+#include "core/ecs/components/model/Mesh.h"
 #include "editor/Camera.h"
 
 namespace Vivid

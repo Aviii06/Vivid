@@ -1,11 +1,11 @@
 #pragma once
 
-#include "IndexBuffer.h"
-#include "Renderer.h"
-#include "Texture.h"
-#include "VertexArray.h"
-#include "VertexBuffer.h"
-#include "VertexBufferLayout.h"
+#include "core/renderer/IndexBuffer.h"
+#include "core/renderer/Renderer.h"
+#include "core/renderer/Texture.h"
+#include "core/renderer/VertexArray.h"
+#include "core/renderer/VertexBuffer.h"
+#include "core/renderer/VertexBufferLayout.h"
 #include "editor/Camera.h"
 #include "core/renderer/shapes/Shape.h"
 

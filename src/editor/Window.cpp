@@ -8,7 +8,7 @@
 #include "imgui/imgui/backends/imgui_impl_opengl3.h"
 #include "imgui/imgui/imgui.h"
 #include "core/renderer/Renderer.h"
-#include "editor/ui/UI.h"
+#include "editor/gui/DockUI.h"
 
 InputHandler* InputHandler::s_Instance;
 Camera* Camera::s_Instance;
@@ -76,7 +76,6 @@ void Window::SetRenderingInterface(RenderingInterface* renderingInterface)
 
 void Window::Update()
 {
-
 	// Handle left click to identify object
 	Vec2 mousePosition = InputHandler::GetInstance()->GetMousePosition();
 	if (InputHandler::GetInstance()->IsMouseButtonPressed(GLFW_MOUSE_BUTTON_LEFT))
@@ -113,7 +112,7 @@ void Window::Update()
 	ImGui_ImplOpenGL3_NewFrame();
 	ImGui::NewFrame();
 
-	VividUI::InitUI();
+	VividGUI::InitUI();
 	ImGui::Begin("Viewport");
 	{
 		ImGui::BeginChild("GameRender");
@@ -138,7 +137,7 @@ void Window::Update()
 		m_RenderingInterface->ImGuiRender();
 	}
 
-	VividUI::EndUI();
+	VividGUI::EndUI();
 
 	ImGui::Render();
 	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());

@@ -7,8 +7,7 @@ namespace Vivid
 	public:
 		Component() = default;
 		virtual ~Component() = default;
-		virtual void OnUpdate() = 0;
-		virtual void OnRender() = 0;
-		virtual void OnImGuiRender() = 0;
+		virtual void Draw() = 0;
+		virtual void ImGuiRender() = 0;
 	};
 }

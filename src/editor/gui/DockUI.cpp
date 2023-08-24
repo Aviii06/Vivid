@@ -1,12 +1,12 @@
-#include "UI.h"
+#include "DockUI.h"
 
-void VividUI::InitUI()
+void VividGUI::InitUI()
 {
 	DockConfig();
 	InitDock();
 }
 
-void VividUI::DockConfig()
+void VividGUI::DockConfig()
 {
 	// Initialize DockSpace
 	if (opt_fullscreen)
@@ -39,7 +39,7 @@ void VividUI::DockConfig()
 		ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0.0f, 0.0f));
 }
 
-void VividUI::InitDock()
+void VividGUI::InitDock()
 {
 	ImGui::Begin("Vivid Dock", nullptr, window_flags);
 	if (!opt_padding)
@@ -58,7 +58,7 @@ void VividUI::InitDock()
 	}
 }
 
-void VividUI::EndUI()
+void VividGUI::EndUI()
 {
 	ImGui::End();
 }

@@ -3,7 +3,7 @@
 #include "UIFlags.h"
 #include <string>
 
-namespace VividUI
+namespace VividGUI
 {
 	void InitUI();
 	void DockConfig();

@@ -4,7 +4,7 @@
 #include <sstream>
 
 #include "core/renderer/IndexBuffer.h"
-#include "core/renderer/Mesh.h"
+#include "core/ecs/components/model/Mesh.h"
 #include "core/renderer/Renderer.h"
 #include "core/renderer/Shader.h"
 #include "core/renderer/shapes/Shape.h"

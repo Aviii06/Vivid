@@ -1,5 +1,5 @@
 #pragma once
-#include "core/components/Component.h"
+#include "core/ecs/Component.h"
 #include "common/maths/Vec.h"
 
 namespace Vivid
@@ -15,8 +15,6 @@ namespace Vivid
 	public:
 		TransformComponent() = default;
 		virtual ~TransformComponent() = default;
-		void OnUpdate() override;
-		void OnRender() override;
-		void OnImGuiRender() override;
+		void ImGuiRender() override;
 	};
 }
