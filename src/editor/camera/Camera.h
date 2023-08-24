@@ -11,13 +11,6 @@ enum class CameraMovement
 	RIGHT = 4
 };
 
-enum class CameraType
-{
-	EDITOR = 1,
-	ORTHOGRAPHIC = 2,
-	DEFAULT = 3
-};
-
 /// It is an abstract class that represents a camera.
 class Camera
 {
@@ -29,6 +22,4 @@ public:
 	virtual void SetViewMatrix(glm::mat4 view) = 0;
 
 	virtual void SetViewportSize(int width, int height) = 0;
-
-	virtual CameraType GetCameraType() = 0;
 };

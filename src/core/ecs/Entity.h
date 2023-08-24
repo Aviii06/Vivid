@@ -8,12 +8,14 @@
 
 namespace Vivid
 {
+	class Component;
+
 	class Entity
 	{
 	private:
 		int m_ID;
-		String m_Name;
-		Vector<Component*> m_Components;
+		String m_Name = "";
+		Vector<Vivid::Component*> m_Components;
 
 		void drawGUI();
 		void drawComponents();
@@ -23,27 +25,14 @@ namespace Vivid
 		Entity(int id, String name);
 		~Entity();
 
-		void AddComponent(Component* component);
-		void RemoveComponent(Component* component);
+		void AddComponent(Vivid::Component* component);
+		void RemoveComponent(Vivid::Component* component);
 
 		void Draw();
 
-		template <typename T>
-		T* GetComponent()
-		{
-			for (auto& component : m_Components)
-			{
-				if (typeid(*component) == typeid(T))
-				{
-					return static_cast<T*>(component);
-				}
-			}
-			return nullptr;
-		}
-
 		inline int GetID() const { return m_ID; }
 		inline String GetName() const { return m_Name; }
-		inline Vector<Component*> GetComponents() const { return m_Components; }
+		inline Vector<Vivid::Component*> GetComponents() const { return m_Components; }
 	};
 
 }

@@ -8,6 +8,8 @@
 #include "core/ecs/components/TransformComponent.h"
 #include "core/ecs/Component.h"
 #include "core/ecs/Entity.h"
+#include "core/ecs/ECS.h"
+#include "core/ecs/components/light/PointLightComponent.h"
 
 #include "core/renderer/IndexBuffer.h"
 #include "core/renderer/Renderer.h"
@@ -16,7 +18,6 @@
 #include "core/renderer/Texture.h"
 #include "core/renderer/VertexArray.h"
 #include "core/renderer/VertexBuffer.h"
-#include "core/ecs/components/light/PointLight.h"
 #include "core/renderer/shapes/Quad3d.h"
 #include "core/renderer/Renderer2D.h"
 #include "core/renderer/Renderer3D.h"

@@ -10,6 +10,7 @@
 #include "core/renderer/Renderer.h"
 #include "editor/gui/DockUI.h"
 #include "editor/Application.h"
+#include "core/ecs/ECS.h"
 
 Window::Window(int width, int height, const char* title)
 {
@@ -75,11 +76,12 @@ void Window::Update()
 {
 
 	// Handle Custom Inputs
+
+	Camera* camera = Application::GetInstance()->GetCamera();
 	if (m_RenderingInterface != nullptr)
 	{
-		Camera* camera = Application::GetInstance()->GetCamera();
 		// If editor camera allow to move.
-		if (camera->GetCameraType() == CameraType::EDITOR)
+		if (typeid(*camera) == typeid(EditorCamera))
 		{
 			EditorCamera* editorCamera = static_cast<EditorCamera*>(camera);
 			if (InputHandler::IsKeyPressed(GLFW_KEY_W))
@@ -137,9 +139,14 @@ void Window::Update()
 	{
 		m_RenderingInterface->Draw();
 	}
+
+	Vivid::ECS::Draw(camera);
 	m_FrameBuffer->Unbind();
 
 	VividGUI::InitUI();
+
+	Vivid::ECS::ImGuiRender();
+
 	ImGui::Begin("Viewport");
 	{
 		ImGui::BeginChild("GameRender");

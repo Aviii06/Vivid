@@ -68,6 +68,4 @@ public:
 	void MoveBackward();
 	void MoveLeft();
 	void MoveRight();
-
-	CameraType GetCameraType() override { return CameraType::EDITOR; }
 };

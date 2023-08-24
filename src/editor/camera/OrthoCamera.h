@@ -32,6 +32,4 @@ public:
 	void SetViewMatrix(glm::mat4 view) override;
 
 	void SetViewportSize(int width, int height) override;
-
-	CameraType GetCameraType() override { return CameraType::ORTHOGRAPHIC; };
 };
