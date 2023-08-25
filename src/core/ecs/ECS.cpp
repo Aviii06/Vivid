@@ -50,6 +50,7 @@ Vivid::Entity* Vivid::ECS::CreateEntity(String name)
 	g_Entities.push_back(entity);
 	return entity;
 }
+
 Vivid::Entity* Vivid::ECS::CreateEntity(Vivid::Entity* entity)
 {
 	g_Entities.push_back(entity);

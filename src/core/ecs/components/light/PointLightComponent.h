@@ -12,6 +12,9 @@ namespace Vivid
 	{
 	private:
 		Vec3 m_Color;
+		float m_Intensity = 1.0f;
+		Vivid::Mesh* m_Mesh;
+		Ref<Vivid::Shader> m_Shader;
 
 	public:
 		PointLightComponent() = default;
@@ -20,6 +23,7 @@ namespace Vivid
 		void ImGuiRender() override;
 
 		inline Vec3 GetColor() const { return m_Color; }
+		inline float GetIntensity() const { return m_Intensity; }
 
 		String GetComponentName() override { return "PointLight Component"; }
 	};

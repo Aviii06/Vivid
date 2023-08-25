@@ -7,6 +7,7 @@ namespace VividGUI
 	{
 	private:
 		static Vivid::Entity* m_SelectedEntity;
+
 	public:
 		static void DrawSceneUI();
 	};

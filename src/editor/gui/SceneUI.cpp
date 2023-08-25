@@ -1,7 +1,6 @@
 #include "SceneUI.h"
 #include "UIFlags.h"
 
-
 namespace VividGUI
 {
 	Vivid::Entity* VividGUI::SceneUI::m_SelectedEntity;

@@ -19,9 +19,10 @@ void Vivid::ModelComponent::ImGuiRender()
 
 void Vivid::ModelComponent::Draw(Camera* camera)
 {
+	glm::mat4 transform = m_Entity->GetComponent<Vivid::TransformComponent>()->GetTransform();
+
 	for (auto& mesh : m_Meshes)
 	{
-		glm::mat4 transform = m_Entity->GetComponent<Vivid::TransformComponent>()->GetTransform();
 		mesh->Update(transform);
 		mesh->Draw(camera);
 	}

@@ -10,7 +10,8 @@ namespace Vivid
 	private:
 		Vec3 m_Position;
 		Vec3 m_Rotation;
-		Vec3 m_Scale;
+		Vec3 m_Scale = Vec3(1.0f, 1.0f, 1.0f);
+		bool m_FixScale = false;
 		glm::mat4 m_Transform = glm::mat4(1.0f);
 
 	public:
