@@ -1,10 +1,9 @@
 #pragma once
 #include "editor/camera/Camera.h"
+#include "Entity.h"
 
 namespace Vivid
 {
-	class Entity;
-
 	class Component
 	{
 	protected:
@@ -19,5 +18,6 @@ namespace Vivid
 
 		void SetEntity(Vivid::Entity* entity) { m_Entity = entity; }
 		Vivid::Entity* GetEntity() const { return m_Entity; }
+		virtual String GetComponentName() = 0;
 	};
 }

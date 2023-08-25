@@ -21,6 +21,8 @@ namespace Vivid
 		void RemoveMesh(Vivid::Mesh* mesh);
 
 		inline Vector<Vivid::Mesh*> GetMeshes() { return m_Meshes; }
+
+		String GetComponentName() override { return "Model Component"; }
 	};
 
 }

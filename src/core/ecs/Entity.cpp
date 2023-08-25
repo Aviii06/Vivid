@@ -2,6 +2,7 @@
 #include "editor/Application.h"
 #include "imgui/imgui/imgui.h"
 
+#include "Component.h"
 #include "core/ecs/ECS.h"
 #define MAX_COMPONENTS 10
 
@@ -40,6 +41,8 @@ void Vivid::Entity::DrawGUI()
 	ImGui::Begin(name.c_str());
 	for (auto& component : m_Components)
 	{
+
+		ImGui::SeparatorText(component->GetComponentName().c_str());
 		component->ImGuiRender();
 	}
 	ImGui::End();
@@ -51,4 +54,9 @@ void Vivid::Entity::Draw(Camera* camera)
 	{
 		component->Draw(Application::GetInstance()->GetCamera());
 	}
+}
+
+const char* Vivid::Entity::GetType(Vivid::Component* component)
+{
+	return typeid(*component).name();
 }

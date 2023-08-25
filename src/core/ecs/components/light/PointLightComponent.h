@@ -20,5 +20,7 @@ namespace Vivid
 		void ImGuiRender() override;
 
 		inline Vec3 GetColor() const { return m_Color; }
+
+		String GetComponentName() override { return "PointLight Component"; }
 	};
 }

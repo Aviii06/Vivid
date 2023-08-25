@@ -8,11 +8,13 @@ namespace Vivid
 	{
 		ImGui::Text("Transform Component");
 		ImGui::Text("Position");
-		ImGui::DragFloat3("##Position", &m_Position.x, 0.1f);
+		ImGui::SliderFloat3("##Position", &m_Position.x, -500.0f, 500.0f);
 		ImGui::Text("Rotation");
-		ImGui::DragFloat3("##Rotation", &m_Rotation.x, 0.1f);
+		ImGui::SliderFloat3("##Rotation", &m_Rotation.x, -500.0f, 500.0f);
 		ImGui::Text("Scale");
-		ImGui::DragFloat3("##Scale", &m_Scale.x, 0.1f);
+		ImGui::SliderFloat3("##Scale", &m_Scale.x, -500.0f, 500.0f);
+
+		m_Transform = glm::translate(glm::mat4(1.0f), glm::vec3(m_Position.x, m_Position.y, m_Position.z));
 	}
 	void TransformComponent::Draw(Camera* camera)
 	{
