@@ -1,6 +1,6 @@
 #pragma once
 
-#include "common/Types.h"
+#include "common/types/SmartPointers.h"
 #include "utils/Error.h"
 #include "editor/RenderingInterface.h"
 

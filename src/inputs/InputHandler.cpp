@@ -1,6 +1,5 @@
+#include "../editor/Application.h"
 #include "InputHandler.h"
-#include <iostream>
-#include "editor/Application.h"
 
 bool InputHandler::IsKeyPressed(int key)
 {
@@ -22,9 +21,4 @@ bool InputHandler::IsMouseButtonPressed(int button)
 	GLFWwindow* window = Application::GetInstance()->GetWindow().GetGLFWWindow();
 	int state = glfwGetMouseButton(window, button);
 	return state == GLFW_PRESS;
-}
-
-Vivid::Camera* InputHandler::GetCamera()
-{
-	return Vivid::Camera::GetInstance();
 }

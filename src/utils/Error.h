@@ -1,6 +1,7 @@
 #pragma once
 
-#include "common/Types.h"
+#include "common/types/SmartPointers.h"
+#include "common/types/OpenGLTypes.h"
 
 #if defined(__GNUC__) || defined(__GNUG__) || defined(__clang__)
 #define ASSERT(x) \

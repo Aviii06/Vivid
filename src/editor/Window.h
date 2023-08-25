@@ -1,8 +1,8 @@
 #pragma once
 
-#include "common/Types.h"
+#include "common/types/OpenGLTypes.h"
 #include "utils/Error.h"
-#include "renderer/FrameBuffer.h"
+#include "core/renderer/FrameBuffer.h"
 #include "editor/RenderingInterface.h"
 
 class Window

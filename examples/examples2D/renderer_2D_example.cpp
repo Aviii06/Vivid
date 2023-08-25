@@ -36,15 +36,14 @@ public:
 
 		ImGui::End();
 	}
-
-	void Input() override
-	{
-	}
 };
 
 Application* Vivid::CreateApplication()
 {
 	Application* app = Application::GetInstance(1920, 1080, "Rendering2D");
+
+	OrthoCamera* orthoCamera = new OrthoCamera(0, 1920, 0, 1080);
+	app->SetCamera(orthoCamera);
 	app->SetRenderingInterface(new ExampleInterface);
 	return app;
 }

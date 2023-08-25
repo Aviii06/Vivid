@@ -1,17 +1,20 @@
 #include "Window.h"
-#include "renderer/Camera.h"
+#include "editor/camera/EditorCamera.h"
 #include <iostream>
 #include "confs/Config.h"
 #include "inputs/InputHandler.h"
+#include "core/ecs/components/light/PointLightComponent.h"
+#include "core/ecs/components/TransformComponent.h"
+#include "core/ecs/components/model/Mesh.h"
+#include "core/ecs/components/model/ModelComponent.h"
 
 #include "imgui/imgui/backends/imgui_impl_glfw.h"
 #include "imgui/imgui/backends/imgui_impl_opengl3.h"
 #include "imgui/imgui/imgui.h"
-#include "renderer/Renderer.h"
-#include "editor/ui/UI.h"
-
-InputHandler* InputHandler::s_Instance;
-Vivid::Camera* Vivid::Camera::s_Instance;
+#include "core/renderer/Renderer.h"
+#include "editor/gui/DockUI.h"
+#include "editor/Application.h"
+#include "core/ecs/ECS.h"
 
 Window::Window(int width, int height, const char* title)
 {
@@ -75,9 +78,48 @@ void Window::SetRenderingInterface(RenderingInterface* renderingInterface)
 
 void Window::Update()
 {
+
+	// Handle Custom Inputs
+
+	Camera* camera = Application::GetInstance()->GetCamera();
 	if (m_RenderingInterface != nullptr)
 	{
-		m_RenderingInterface->Input();
+		// If editor camera allow to move.
+		if (typeid(*camera) == typeid(EditorCamera))
+		{
+			// TODO: Put this in a function
+			EditorCamera* editorCamera = static_cast<EditorCamera*>(camera);
+			if (InputHandler::IsKeyPressed(GLFW_KEY_W))
+			{
+				editorCamera->MoveForward();
+			}
+			if (InputHandler::IsKeyPressed(GLFW_KEY_S))
+			{
+				editorCamera->MoveBackward();
+			}
+			if (InputHandler::IsKeyPressed(GLFW_KEY_A))
+			{
+				editorCamera->MoveLeft();
+			}
+			if (InputHandler::IsKeyPressed(GLFW_KEY_D))
+			{
+				editorCamera->MoveRight();
+			}
+
+			Vec2 mousePosition = InputHandler::GetMousePosition();
+			if (InputHandler::IsMouseButtonPressed(GLFW_MOUSE_BUTTON_RIGHT))
+			{
+				editorCamera->ProcessMouseMovement(mousePosition.x - m_PrevMousePosition->x,
+				    mousePosition.y - m_PrevMousePosition->y);
+				m_PrevMousePosition->x = mousePosition.x;
+				m_PrevMousePosition->y = mousePosition.y;
+			}
+			else
+			{
+				m_PrevMousePosition->x = mousePosition.x;
+				m_PrevMousePosition->y = mousePosition.y;
+			}
+		}
 	}
 
 	// Handle keyboard input
@@ -91,19 +133,26 @@ void Window::Update()
 
 	Vivid::Renderer::Clear();
 
+	ImGui_ImplGlfw_NewFrame();
+	ImGui_ImplOpenGL3_NewFrame();
+	ImGui::NewFrame();
+
+	// Draw to a temporary framebuffer
+	// Some components might be drawing within imgui context
 	m_FrameBuffer->Bind();
 	if (m_RenderingInterface != nullptr)
 	{
 		m_RenderingInterface->Draw();
 	}
+
+	Vivid::ECS::Draw(camera);
 	m_FrameBuffer->Unbind();
+	;
 
-	// IMGUI
-	ImGui_ImplGlfw_NewFrame();
-	ImGui_ImplOpenGL3_NewFrame();
-	ImGui::NewFrame();
+	VividGUI::InitUI();
 
-	VividUI::InitUI();
+	Vivid::ECS::ImGuiRender();
+
 	ImGui::Begin("Viewport");
 	{
 		ImGui::BeginChild("GameRender");
@@ -111,7 +160,7 @@ void Window::Update()
 		float width = ImGui::GetContentRegionAvail().x;
 		float height = ImGui::GetContentRegionAvail().y;
 
-		//		m_FrameBuffer->RescaleFrameBuffer(width, height);
+		Application::GetInstance()->GetCamera()->SetViewportSize(width, height);
 
 		ImGui::Image(
 		    (ImTextureID)m_FrameBuffer->getFrameTexture(),
@@ -122,12 +171,13 @@ void Window::Update()
 	ImGui::EndChild();
 	ImGui::End();
 
+	// Custom ImGui Rendering
 	if (m_RenderingInterface != nullptr)
 	{
 		m_RenderingInterface->ImGuiRender();
 	}
 
-	VividUI::EndDock();
+	VividGUI::EndUI();
 
 	ImGui::Render();
 	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());

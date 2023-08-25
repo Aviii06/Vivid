@@ -1,8 +1,5 @@
 #include "Vivid.h"
 
-#include <cstdio>
-#include <cmath>
-#include <cstdlib>
 #include <thread>
 
 #include <math.h>
@@ -241,6 +238,7 @@ public:
 
 	void ImGuiRender() override
 	{
+		ImGui::Begin("Settings");
 		//	ImGui::SliderFloat3("Translation Model 1", &translationModel1.x, -500.0f, 500.0f);
 		//	// ImGui::SliderFloat3("Translation Model 2", &translationModel2.x, -300.0f, 300.0f);
 		//	ImGui::SliderFloat3("Light Position", &lightPos.x, -500.0f, 500.0f);
@@ -252,16 +250,16 @@ public:
 		ImGui::SliderFloat("Perlin Dimension", &g_DimPerlin, 0.0f, 1.0f);
 		ImGui::Checkbox("RenderQuad", &g_RenderQuad);
 		ImGui::ColorPicker3("Color", g_Color);
-	}
-
-	void Input() override
-	{
+		ImGui::End();
 	}
 };
 
 Application* Vivid::CreateApplication()
 {
 	Application* app = Application::GetInstance(1920, 1080, "Marching Squares");
+
+	OrthoCamera* orthoCamera = new OrthoCamera(0, 1920, 0, 1080);
+	app->SetCamera(orthoCamera);
 	app->SetRenderingInterface(new ExampleInterface);
 	return app;
 }

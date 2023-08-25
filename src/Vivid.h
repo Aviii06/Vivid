@@ -3,28 +3,32 @@
 #include <iostream>
 #include <sstream>
 
-#include "renderer/IndexBuffer.h"
-#include "renderer/Mesh.h"
-#include "renderer/Renderer.h"
-#include "renderer/Shader.h"
-#include "renderer/shapes/Shape.h"
-#include "renderer/Texture.h"
-#include "renderer/VertexArray.h"
-#include "renderer/VertexBuffer.h"
-#include "renderer/Camera.h"
-#include "renderer/PointLight.h"
-#include "renderer/shapes/Quad3d.h"
-#include "renderer/Renderer2D.h"
-#include "renderer/Renderer3D.h"
+#include "core/ecs/components/model/Mesh.h"
+#include "core/ecs/components/model/ModelComponent.h"
+#include "core/ecs/components/TransformComponent.h"
+#include "core/ecs/Entity.h"
+#include "core/ecs/Component.h"
+#include "core/ecs/ECS.h"
+#include "core/ecs/components/light/PointLightComponent.h"
 
+#include "core/renderer/IndexBuffer.h"
+#include "core/renderer/Renderer.h"
+#include "core/renderer/Shader.h"
+#include "core/renderer/shapes/Shape.h"
+#include "core/renderer/Texture.h"
+#include "core/renderer/VertexArray.h"
+#include "core/renderer/VertexBuffer.h"
+#include "core/renderer/shapes/Quad3d.h"
+#include "core/renderer/Renderer2D.h"
+#include "core/renderer/Renderer3D.h"
+
+#include "editor/camera/Camera.h"
+#include "editor/camera/EditorCamera.h"
+#include "editor/camera/OrthoCamera.h"
 #include "editor/Window.h"
 #include "editor/Application.h"
 #include "editor/RenderingInterface.h"
 #include "editor/EntryPoint.h"
-
-#include "inputs/InputHandler.h"
-
-#include "confs/Config.h"
 
 #include "inputs/InputHandler.h"
 
