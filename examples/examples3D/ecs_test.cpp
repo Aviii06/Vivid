@@ -15,10 +15,12 @@ private:
 	Vivid::ModelComponent* modelComponent1;
 	Vivid::ModelComponent* modelComponent2;
 	Vivid::TransformComponent* transformComponent = new Vivid::TransformComponent();
+	Vivid::TransformComponent* transformComponent2 = new Vivid::TransformComponent();
 	Vivid::Mesh* mesh1;
 	Vivid::Mesh* mesh2;
 
 	Vivid::PointLightComponent* pointLightComponent;
+	Ref<Vivid::Shader> shader;
 
 public:
 	void Setup() override
@@ -26,11 +28,7 @@ public:
 		// Can write custom opengl confs here
 		OPENGL_CONFS
 
-		// Creating a shader
-
-		// Drawing other meshes
-
-		Ref<Vivid::Shader> shader = MakeRef<Vivid::Shader>("./../assets/shaders/phong.vertexShader.glsl",
+		shader = MakeRef<Vivid::Shader>("./../assets/shaders/phong.vertexShader.glsl",
 		    "./../assets/shaders/phong.pixelShader.glsl");
 
 		mesh1 = new Vivid::Mesh("./../assets/obj/suzanne.obj");
@@ -50,26 +48,18 @@ public:
 		pointLightComponent = new Vivid::PointLightComponent();
 
 		Vivid::ECS::AddComponent(modelComponent1, entity1);
+		Vivid::ECS::AddComponent(transformComponent2, entity1);
+
 		Vivid::ECS::AddComponent(modelComponent2, entity2);
 		Vivid::ECS::AddComponent(pointLightComponent, entity2);
-
 		Vivid::ECS::AddComponent(transformComponent, entity2);
 	}
 
 	void Draw() override
 	{
-		mesh1->Update(glm::translate(glm::mat4(1.0f), translationModel1));
-		mesh2->Update(glm::translate(glm::mat4(1.0f), translationModel2));
-
-		Ref<Vivid::Shader> shader = MakeRef<Vivid::Shader>("./../assets/shaders/phong.vertexShader.glsl",
-		    "./../assets/shaders/phong.pixelShader.glsl");
-
 		Vector<Vivid::PointLightComponent*> pointLights = Vivid::ECS::GetAllComponents<Vivid::PointLightComponent>();
 		Vec3 lightColor = pointLights[0]->GetColor();
-		Vivid::Entity* lightEntity = pointLights[0]->GetEntity();
-		Vector<Vivid::Component*> LightComponents = lightEntity->GetAllComponents();
-		Vec3 lightPosition = lightEntity->GetComponent<Vivid::TransformComponent>()->GetPosition();
-		Vivid::ModelComponent* modelComponent;
+		Vec3 lightPosition = pointLights[0]->GetEntity()->GetComponent<Vivid::TransformComponent>()->GetPosition();
 
 		shader->SetUniform3f("lightColor", lightColor);
 		shader->SetUniform3f("lightPos", lightPosition);
@@ -79,14 +69,7 @@ public:
 
 	void ImGuiRender() override
 	{
-
-		translationModel2 = glm::vec3(transformComponent->GetPosition().x, transformComponent->GetPosition().y, transformComponent->GetPosition().z);
 		ImGui::Begin("Debug");
-		ImGui::SliderFloat3("Translation Model 1", &translationModel1.x, -500.0f, 500.0f);
-		ImGui::SliderFloat3("Translation Model 2", &translationModel2.x, -500.0f, 500.0f);
-		ImGui::SliderFloat3("Light Position", &lightPos.x, -500.0f, 500.0f);
-
-		transformComponent->SetPosition(Vec3(translationModel2.x, translationModel2.y, translationModel2.z));
 
 		ImGui::Text("Application average %.3f ms/frame (%.1f FPS)",
 		    1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);

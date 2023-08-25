@@ -1,13 +1,14 @@
 #pragma once
 #include "common/types/Types.h"
 #include "common/types/SmartPointers.h"
-#include "core/ecs/Component.h"
 
 #include "editor/camera/Camera.h"
 #include "editor/camera/EditorCamera.h"
 
 namespace Vivid
 {
+	class Component;
+
 	class Entity
 	{
 	private:
@@ -35,13 +36,15 @@ namespace Vivid
 		{
 			for (auto component : m_Components)
 			{
-				if (typeid(*component) == typeid(T))
+				if (GetType(component) == typeid(T).name())
 				{
 					return static_cast<T*>(component);
 				}
 			}
 			return nullptr;
 		}
+
+		const char* GetType(Component* component);
 	};
 
 }
