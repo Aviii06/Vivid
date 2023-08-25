@@ -14,7 +14,20 @@ namespace Vivid
 
 	public:
 		TransformComponent() = default;
+		TransformComponent(Vec3 position, Vec3 rotation, Vec3 scale)
+		    : m_Position(position)
+		    , m_Rotation(rotation)
+		    , m_Scale(scale)
+		{
+		}
 		virtual ~TransformComponent() = default;
+		void Draw(Camera* camera) override;
 		void ImGuiRender() override;
+
+		inline Vec3 GetPosition() const { return m_Position; }
+		inline Vec3 GetRotation() const { return m_Rotation; }
+		inline Vec3 GetScale() const { return m_Scale; }
+
+		inline void SetPosition(Vec3 position) { m_Position = position; }
 	};
 }

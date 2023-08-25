@@ -10,13 +10,10 @@ Vivid::ModelComponent::ModelComponent()
 
 void Vivid::ModelComponent::ImGuiRender()
 {
-	ImGui::Begin("Model");
 	ImGui::Text("Model");
 	if (ImGui::Button("Add Mesh"))
 	{
-		std::cerr << "Working\n";
 	}
-	ImGui::End();
 }
 
 void Vivid::ModelComponent::Draw(Camera* camera)

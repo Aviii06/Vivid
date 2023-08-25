@@ -19,6 +19,8 @@ namespace Vivid
 
 		void AddMesh(Vivid::Mesh* mesh);
 		void RemoveMesh(Vivid::Mesh* mesh);
+
+		inline Vector<Vivid::Mesh*> GetMeshes() { return m_Meshes; }
 	};
 
 }

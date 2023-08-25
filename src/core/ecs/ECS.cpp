@@ -1,6 +1,8 @@
 #include "ECS.h"
 
 Vector<Vivid::Component*> Vivid::ECS::g_Components;
+Vector<Vivid::Entity*> Vivid::ECS::g_Entities;
+int Vivid::ECS::s_EntityID = 0;
 
 void Vivid::ECS::AddComponent(Vivid::Component* component, Vivid::Entity* entity)
 {
@@ -28,16 +30,28 @@ bool Vivid::ECS::RemoveComponent(Vivid::Component* component, Vivid::Entity* ent
 
 void Vivid::ECS::Draw(Camera* camera)
 {
-	for (auto& component : g_Components)
+	for (auto& entity : g_Entities)
 	{
-		component->Draw(camera);
+		entity->Draw(camera);
 	}
 }
 
 void Vivid::ECS::ImGuiRender()
 {
-	for (auto& component : g_Components)
+	for (auto& entity : g_Entities)
 	{
-		component->ImGuiRender();
+		entity->DrawGUI();
 	}
+}
+
+Vivid::Entity* Vivid::ECS::CreateEntity(String name)
+{
+	Entity* entity = new Entity(s_EntityID++, name);
+	g_Entities.push_back(entity);
+	return entity;
+}
+Vivid::Entity* Vivid::ECS::CreateEntity(Vivid::Entity* entity)
+{
+	g_Entities.push_back(entity);
+	return entity;
 }

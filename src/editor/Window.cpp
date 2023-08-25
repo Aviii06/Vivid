@@ -3,6 +3,10 @@
 #include <iostream>
 #include "confs/Config.h"
 #include "inputs/InputHandler.h"
+#include "core/ecs/components/light/PointLightComponent.h"
+#include "core/ecs/components/TransformComponent.h"
+#include "core/ecs/components/model/Mesh.h"
+#include "core/ecs/components/model/ModelComponent.h"
 
 #include "imgui/imgui/backends/imgui_impl_glfw.h"
 #include "imgui/imgui/backends/imgui_impl_opengl3.h"
@@ -83,6 +87,7 @@ void Window::Update()
 		// If editor camera allow to move.
 		if (typeid(*camera) == typeid(EditorCamera))
 		{
+			// TODO: Put this in a function
 			EditorCamera* editorCamera = static_cast<EditorCamera*>(camera);
 			if (InputHandler::IsKeyPressed(GLFW_KEY_W))
 			{
@@ -142,6 +147,7 @@ void Window::Update()
 
 	Vivid::ECS::Draw(camera);
 	m_FrameBuffer->Unbind();
+	;
 
 	VividGUI::InitUI();
 

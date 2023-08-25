@@ -1,5 +1,8 @@
 #include "Entity.h"
 #include "editor/Application.h"
+#include "imgui/imgui/imgui.h"
+
+#include "core/ecs/ECS.h"
 #define MAX_COMPONENTS 10
 
 Vivid::Entity::Entity(int id, String name)
@@ -7,6 +10,7 @@ Vivid::Entity::Entity(int id, String name)
     , m_Name(std::move(name))
 {
 	m_Components.reserve(MAX_COMPONENTS);
+	ECS::CreateEntity(this);
 }
 
 Vivid::Entity::~Entity()
@@ -30,24 +34,21 @@ void Vivid::Entity::RemoveComponent(Vivid::Component* component)
 	}
 }
 
-void Vivid::Entity::drawGUI()
+void Vivid::Entity::DrawGUI()
 {
+	String name = "Entity: " + m_Name;
+	ImGui::Begin(name.c_str());
 	for (auto& component : m_Components)
 	{
 		component->ImGuiRender();
 	}
+	ImGui::End();
 }
 
-void Vivid::Entity::drawComponents()
+void Vivid::Entity::Draw(Camera* camera)
 {
 	for (auto& component : m_Components)
 	{
 		component->Draw(Application::GetInstance()->GetCamera());
 	}
-}
-
-void Vivid::Entity::Draw()
-{
-	drawComponents();
-	drawGUI();
 }

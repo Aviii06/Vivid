@@ -14,8 +14,7 @@ namespace Vivid
 
 	void PointLightComponent::ImGuiRender()
 	{
-		ImGui::Begin("Point Light");
+		ImGui::Text("Point Light");
 		ImGui::ColorPicker3("Color", &m_Color.x);
-		ImGui::End();
 	}
 }

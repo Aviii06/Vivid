@@ -18,5 +18,7 @@ namespace Vivid
 		PointLightComponent(Vec3 color);
 		void Draw(Camera* camera) override;
 		void ImGuiRender() override;
+
+		inline Vec3 GetColor() const { return m_Color; }
 	};
 }

@@ -6,8 +6,8 @@
 #include "core/ecs/components/model/Mesh.h"
 #include "core/ecs/components/model/ModelComponent.h"
 #include "core/ecs/components/TransformComponent.h"
-#include "core/ecs/Component.h"
 #include "core/ecs/Entity.h"
+#include "core/ecs/Component.h"
 #include "core/ecs/ECS.h"
 #include "core/ecs/components/light/PointLightComponent.h"
 

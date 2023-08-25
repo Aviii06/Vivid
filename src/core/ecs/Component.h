@@ -1,6 +1,5 @@
 #pragma once
 #include "editor/camera/Camera.h"
-#include "core/ecs/Entity.h"
 
 namespace Vivid
 {
@@ -9,6 +8,7 @@ namespace Vivid
 	class Component
 	{
 	protected:
+		friend class Entity;
 		Vivid::Entity* m_Entity;
 
 	public:
@@ -18,5 +18,6 @@ namespace Vivid
 		virtual void ImGuiRender() = 0;
 
 		void SetEntity(Vivid::Entity* entity) { m_Entity = entity; }
+		Vivid::Entity* GetEntity() const { return m_Entity; }
 	};
 }
