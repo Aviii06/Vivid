@@ -15,6 +15,7 @@
 #include "editor/gui/DockUI.h"
 #include "editor/Application.h"
 #include "core/ecs/ECS.h"
+#include "gui/SceneUI.h"
 
 Window::Window(int width, int height, const char* title)
 {
@@ -177,6 +178,10 @@ void Window::Update()
 		m_RenderingInterface->ImGuiRender();
 	}
 
+	// Scene "Tree"
+	VividGUI::SceneUI::DrawSceneUI();
+
+	// End Docking
 	VividGUI::EndUI();
 
 	ImGui::Render();
