@@ -7,15 +7,22 @@ namespace VividGUI
 
 	void SceneUI::DrawSceneUI()
 	{
-		ImGui::Begin("Scene", NULL, ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse);
-		ImGui::SetWindowSize(ImVec2(ImGui::GetIO().DisplaySize.x - 200, ImGui::GetIO().DisplaySize.y - 100));
-		for (auto& entity : Vivid::ECS::g_Entities)
+		ImGui::Begin("Scene");
+		for (auto entity : Vivid::ECS::g_Entities)
 		{
 			if (ImGui::Selectable(entity->GetName().c_str(), m_SelectedEntity == entity))
 			{
 				m_SelectedEntity = entity;
 			}
 		}
+
+		if (m_SelectedEntity)
+		{
+			ImGui::Begin("Inspector");
+			m_SelectedEntity->DrawGUI();
+			ImGui::End();
+		}
+
 		ImGui::SetWindowPos(ImVec2(200, 50));
 		ImGui::End();
 	}

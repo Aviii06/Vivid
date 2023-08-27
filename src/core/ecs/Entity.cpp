@@ -38,14 +38,18 @@ void Vivid::Entity::RemoveComponent(Vivid::Component* component)
 void Vivid::Entity::DrawGUI()
 {
 	String name = "Entity: " + m_Name;
-	ImGui::Begin(name.c_str());
+	ImGui::Text(name.c_str());
+
 	for (auto& component : m_Components)
 	{
+		if (ImGui::TreeNode(component->GetComponentName().c_str()))
+		{
+			component->ImGuiRender();
 
-		ImGui::SeparatorText(component->GetComponentName().c_str());
-		component->ImGuiRender();
+			ImGui::TreePop();
+		}
 	}
-	ImGui::End();
+
 }
 
 void Vivid::Entity::Draw(Camera* camera)

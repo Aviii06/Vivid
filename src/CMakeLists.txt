@@ -21,7 +21,7 @@ set(SOURCES
         ${CMAKE_CURRENT_SOURCE_DIR}/utils/Timer.cpp
         core/renderer/Renderer2D.cpp
         core/renderer/Renderer3D.cpp
-        editor/gui/DockUI.cpp core/renderer/FrameBuffer.cpp core/ecs/components/TransformComponent.cpp core/ecs/Entity.cpp core/ecs/components/model/ModelComponent.cpp editor/camera/OrthoCamera.cpp core/ecs/ECS.cpp editor/gui/SceneUI.cpp)
+        editor/gui/DockUI.cpp core/renderer/FrameBuffer.cpp core/ecs/components/TransformComponent.cpp core/ecs/Entity.cpp core/ecs/components/model/ModelComponent.cpp editor/camera/OrthoCamera.cpp core/ecs/ECS.cpp editor/gui/SceneUI.cpp editor/gui/UIFlags.cpp)
 
 set(HEADERS
         ${CMAKE_CURRENT_SOURCE_DIR}/inputs/InputHandler.h

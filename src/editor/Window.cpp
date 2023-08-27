@@ -46,6 +46,7 @@ Window::Window(int width, int height, const char* title)
 
 	glfwMakeContextCurrent(m_Window);
 
+
 	IMGUI_CONFS
 
 	IMGUI_CHECKVERSION();
@@ -54,6 +55,8 @@ Window::Window(int width, int height, const char* title)
 	ImGui_ImplOpenGL3_Init(glsl_version);
 	ImGui::StyleColorsDark();
 	ImGui::GetIO().ConfigFlags |= ImGuiConfigFlags_DockingEnable;
+
+	VividGUI::ImGuiThemeSetup();
 }
 
 Window* Window::Init(int width, int height, const char* title)
@@ -79,7 +82,6 @@ void Window::SetRenderingInterface(RenderingInterface* renderingInterface)
 
 void Window::Update()
 {
-
 	// Handle Custom Inputs
 
 	Camera* camera = Application::GetInstance()->GetCamera();
@@ -148,11 +150,8 @@ void Window::Update()
 
 	Vivid::ECS::Draw(camera);
 	m_FrameBuffer->Unbind();
-	;
 
 	VividGUI::InitUI();
-
-	Vivid::ECS::ImGuiRender();
 
 	ImGui::Begin("Viewport");
 	{

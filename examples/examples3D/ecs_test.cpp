@@ -13,11 +13,9 @@ private:
 	Vivid::Entity* entity1 = new Vivid::Entity(1, "Suzanne");
 	Vivid::Entity* entity2 = new Vivid::Entity(2, "PointLight");
 	Vivid::ModelComponent* modelComponent1;
-	Vivid::ModelComponent* modelComponent2;
 	Vivid::TransformComponent* transformComponent = new Vivid::TransformComponent();
 	Vivid::TransformComponent* transformComponent2 = new Vivid::TransformComponent();
 	Vivid::Mesh* mesh1;
-	Vivid::Mesh* mesh2;
 
 	Vivid::PointLightComponent* pointLightComponent;
 	Ref<Vivid::Shader> shader;
@@ -34,23 +32,14 @@ public:
 		mesh1 = new Vivid::Mesh("./../assets/obj/suzanne.obj");
 		mesh1->BindShader(shader);
 
-		//		mesh2 = new Vivid::Mesh("./../assets/obj/cube.obj");
-		//		mesh2->BindShader(shader);
-
 		modelComponent1 = new Vivid::ModelComponent();
 		modelComponent1->AddMesh(mesh1);
-
-		//		modelComponent2 = new Vivid::ModelComponent();
-		//		modelComponent2->AddMesh(mesh2);
-
-		//		entity1.AddComponent(modelComponent1);
 
 		pointLightComponent = new Vivid::PointLightComponent();
 
 		Vivid::ECS::AddComponent(modelComponent1, entity1);
 		Vivid::ECS::AddComponent(transformComponent2, entity1);
 
-		//		Vivid::ECS::AddComponent(modelComponent2, entity2);
 		Vivid::ECS::AddComponent(pointLightComponent, entity2);
 		Vivid::ECS::AddComponent(transformComponent, entity2);
 	}
