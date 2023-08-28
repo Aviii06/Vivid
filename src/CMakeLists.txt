@@ -70,4 +70,5 @@ target_link_libraries(Vivid
         imgui
         stb
         glad
+        imguizmo
         )

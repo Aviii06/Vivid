@@ -17,6 +17,8 @@
 #include "core/ecs/ECS.h"
 #include "gui/SceneUI.h"
 
+#include "imguizmo/ImGuizmo.h"
+
 Window::Window(int width, int height, const char* title)
 {
 	m_Width = width;
@@ -139,6 +141,7 @@ void Window::Update()
 	ImGui_ImplGlfw_NewFrame();
 	ImGui_ImplOpenGL3_NewFrame();
 	ImGui::NewFrame();
+    ImGuizmo::BeginFrame();
 
 	// Draw to a temporary framebuffer
 	// Some components might be drawing within imgui context
@@ -183,8 +186,10 @@ void Window::Update()
 	// End Docking
 	VividGUI::EndUI();
 
+
 	ImGui::Render();
 	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+
 
 	m_FrameBuffer->Bind();
 	Vivid::Renderer::Clear();
