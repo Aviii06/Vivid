@@ -12,5 +12,5 @@ set_target_properties(imguizmo PROPERTIES LINKER_LANGUAGE CXX)
 
 target_include_directories(imguizmo PUBLIC
         ./
-        ../ImGui/
+        ../imgui/
         )

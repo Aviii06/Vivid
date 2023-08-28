@@ -10,5 +10,6 @@ namespace VividGUI
 
 	public:
 		static void DrawSceneUI();
+        static void DrawGizmo(Camera* camera);
 	};
 };

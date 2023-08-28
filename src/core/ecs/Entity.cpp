@@ -4,6 +4,7 @@
 
 #include "Component.h"
 #include "core/ecs/ECS.h"
+#include "core/ecs/components/TransformComponent.h"
 #define MAX_COMPONENTS 10
 
 Vivid::Entity::Entity(int id, String name)
@@ -63,4 +64,12 @@ void Vivid::Entity::Draw(Camera* camera)
 const char* Vivid::Entity::GetType(Vivid::Component* component)
 {
 	return typeid(*component).name();
+}
+
+void Vivid::Entity::DrawGizmo(Camera* camera)
+{
+    auto transform = GetComponent<TransformComponent>();
+    if (transform) {
+        transform->DrawGizmo(camera);
+    }
 }

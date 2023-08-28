@@ -45,6 +45,7 @@ namespace Vivid
 		}
 
 		const char* GetType(Component* component);
+        void DrawGizmo(Camera* camera);
 	};
 
 }

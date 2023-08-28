@@ -141,7 +141,6 @@ void Window::Update()
 	ImGui_ImplGlfw_NewFrame();
 	ImGui_ImplOpenGL3_NewFrame();
 	ImGui::NewFrame();
-    ImGuizmo::BeginFrame();
 
 	// Draw to a temporary framebuffer
 	// Some components might be drawing within imgui context
@@ -156,8 +155,10 @@ void Window::Update()
 
 	VividGUI::InitUI();
 
+    ImGuizmo::BeginFrame();
+
 	ImGui::Begin("Viewport");
-	{
+    {
 		ImGui::BeginChild("GameRender");
 
 		float width = ImGui::GetContentRegionAvail().x;
@@ -182,6 +183,7 @@ void Window::Update()
 
 	// Scene "Tree"
 	VividGUI::SceneUI::DrawSceneUI();
+    VividGUI::SceneUI::DrawGizmo(camera);
 
 	// End Docking
 	VividGUI::EndUI();
