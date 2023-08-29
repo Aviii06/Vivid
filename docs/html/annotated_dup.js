@@ -31,6 +31,7 @@ var annotated_dup =
     [ "Application", "class_application.html", null ],
     [ "Camera", "class_camera.html", null ],
     [ "EditorCamera", "class_editor_camera.html", null ],
+    [ "ExampleInterface", "class_example_interface.html", null ],
     [ "FrameBuffer", "class_frame_buffer.html", null ],
     [ "KeyCode", "struct_key_code.html", null ],
     [ "OrthoCamera", "class_ortho_camera.html", null ],
