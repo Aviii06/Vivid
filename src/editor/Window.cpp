@@ -3,10 +3,6 @@
 #include <iostream>
 #include "confs/Config.h"
 #include "inputs/InputHandler.h"
-#include "core/ecs/components/light/PointLightComponent.h"
-#include "core/ecs/components/TransformComponent.h"
-#include "core/ecs/components/model/Mesh.h"
-#include "core/ecs/components/model/ModelComponent.h"
 
 #include "imgui/imgui/backends/imgui_impl_glfw.h"
 #include "imgui/imgui/backends/imgui_impl_opengl3.h"
@@ -47,7 +43,6 @@ Window::Window(int width, int height, const char* title)
 	}
 
 	glfwMakeContextCurrent(m_Window);
-
 
 	IMGUI_CONFS
 
@@ -155,22 +150,29 @@ void Window::Update()
 
 	VividGUI::InitUI();
 
-    ImGuizmo::BeginFrame();
+	ImGuizmo::BeginFrame();
 
 	ImGui::Begin("Viewport");
-    {
+	{
 		ImGui::BeginChild("GameRender");
 
 		float width = ImGui::GetContentRegionAvail().x;
 		float height = ImGui::GetContentRegionAvail().y;
 
+		//        Application::GetInstance()->GetCamera()->SetViewportSize(width, height);
+
 		Application::GetInstance()->GetCamera()->SetViewportSize(width, height);
 
 		ImGui::Image(
 		    (ImTextureID)m_FrameBuffer->getFrameTexture(),
-		    ImGui::GetContentRegionAvail(),
+		    ImVec2(width, height),
 		    ImVec2(0, 1),
 		    ImVec2(1, 0));
+
+		if (typeid(*camera) == typeid(EditorCamera))
+		{
+			VividGUI::SceneUI::DrawGizmo(camera);
+		}
 	}
 	ImGui::EndChild();
 	ImGui::End();
@@ -183,15 +185,12 @@ void Window::Update()
 
 	// Scene "Tree"
 	VividGUI::SceneUI::DrawSceneUI();
-    VividGUI::SceneUI::DrawGizmo(camera);
 
 	// End Docking
 	VividGUI::EndUI();
 
-
 	ImGui::Render();
 	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-
 
 	m_FrameBuffer->Bind();
 	Vivid::Renderer::Clear();

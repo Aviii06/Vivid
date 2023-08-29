@@ -26,6 +26,7 @@ bool Application::IsRunning()
 {
 	return !glfwWindowShouldClose(m_Window->GetGLFWWindow());
 }
+
 void Application::Terminate()
 {
 	glfwTerminate();

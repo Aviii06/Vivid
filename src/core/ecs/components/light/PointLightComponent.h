@@ -18,11 +18,17 @@ namespace Vivid
 
 	public:
 		PointLightComponent() = default;
+
 		PointLightComponent(Vec3 color);
+
 		void Draw(Camera* camera) override;
+
 		void ImGuiRender() override;
 
+		void SetColor(Vec3 color) { m_Color = color; }
+
 		inline Vec3 GetColor() const { return m_Color; }
+
 		inline float GetIntensity() const { return m_Intensity; }
 
 		String GetComponentName() override { return "PointLight Component"; }

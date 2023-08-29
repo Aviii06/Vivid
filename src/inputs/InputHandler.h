@@ -9,6 +9,8 @@
 namespace InputHandler
 {
 	bool IsKeyPressed(int key);
+
 	Vec2 GetMousePosition();
+
 	bool IsMouseButtonPressed(int button);
 };

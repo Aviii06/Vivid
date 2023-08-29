@@ -82,6 +82,7 @@ void EditorCamera::updateCameraVectors()
 	m_Right = glm::normalize(glm::cross(m_Front, glm::vec3(0.0f, 1.0f, 0.0f)));
 	m_Up = glm::normalize(glm::cross(m_Right, m_Front));
 }
+
 void EditorCamera::updateProjectionMatrix()
 {
 	m_ProjectionMatrix = glm::perspective(glm::radians(m_FOV), m_AspectRatio, m_NearCip, m_FarClip);
@@ -105,6 +106,8 @@ void EditorCamera::SetPerspective(float fov, float aspect, float near, float far
 void EditorCamera::SetViewportSize(int width, int height)
 {
 	m_AspectRatio = (float)width / (float)height;
+	m_ViewportWidth = width;
+	m_ViewportHeight = height;
 	updateProjectionMatrix();
 }
 

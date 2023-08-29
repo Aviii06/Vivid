@@ -18,7 +18,8 @@ namespace Vivid
 
 		if (m_Shader == nullptr)
 		{
-			m_Shader = Vivid::Shader::Create("./../assets/shaders/basic.vertexShader.glsl", "./../assets/shaders/basic.pixelShader.glsl");
+			m_Shader = Vivid::Shader::Create("./../assets/shaders/basic.vertexShader.glsl",
+			    "./../assets/shaders/basic.pixelShader.glsl");
 		}
 
 		m_Mesh = new Vivid::Mesh(*quad);

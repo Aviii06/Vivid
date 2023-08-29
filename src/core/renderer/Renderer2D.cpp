@@ -4,6 +4,7 @@
 namespace Vivid
 {
 	Storage Renderer2D::s_Storage;
+
 	void Renderer2D::Init(int reserveVertices)
 	{
 		// Initialize shaders
@@ -14,14 +15,22 @@ namespace Vivid
 		s_Storage.ellipseShader = MakeRef<Shader>("./../assets/shaders/quad.vertexShader.glsl",
 		    "./../assets/shaders/ellipse.pixelShader.glsl");
 		// Create vertices of a square
-		Vertex squareVert1 = { { 0.0f, 100.0f, -20.0f }, { 1.0f, 1.0f },
-			{ 0.0f, 1.0f, 0.0f }, { 1.0f, 1.0f, 1.0f } };
-		Vertex squareVert2 = { { 100.0f, 100.0f, -20.0f }, { 1.0f, 1.0f },
-			{ 0.0f, 1.0f, 0.0f }, { 1.0f, 1.0f, 1.0f } };
-		Vertex squareVert3 = { { 100.0f, 0.0f, -20.0f }, { 1.0f, 1.0f },
-			{ 0.0f, 1.0f, 0.0f }, { 1.0f, 1.0f, 1.0f } };
-		Vertex squareVert4 = { { 0.0f, 0.0f, -20.0f }, { 1.0f, 1.0f },
-			{ 0.0f, 1.0f, 0.0f }, { 1.0f, 1.0f, 1.0f } };
+		Vertex squareVert1 = { { 0.0f, 100.0f, -20.0f },
+			{ 1.0f, 1.0f },
+			{ 0.0f, 1.0f, 0.0f },
+			{ 1.0f, 1.0f, 1.0f } };
+		Vertex squareVert2 = { { 100.0f, 100.0f, -20.0f },
+			{ 1.0f, 1.0f },
+			{ 0.0f, 1.0f, 0.0f },
+			{ 1.0f, 1.0f, 1.0f } };
+		Vertex squareVert3 = { { 100.0f, 0.0f, -20.0f },
+			{ 1.0f, 1.0f },
+			{ 0.0f, 1.0f, 0.0f },
+			{ 1.0f, 1.0f, 1.0f } };
+		Vertex squareVert4 = { { 0.0f, 0.0f, -20.0f },
+			{ 1.0f, 1.0f },
+			{ 0.0f, 1.0f, 0.0f },
+			{ 1.0f, 1.0f, 1.0f } };
 
 		Vector<Vertex> verts = { squareVert1, squareVert2, squareVert3, squareVert4 };
 
@@ -187,14 +196,22 @@ namespace Vivid
 	// Winding order is clockwise
 	void Renderer2D::drawQuad(Vec2 vertex1, Vec2 vertex2, Vec2 vertex3, Vec2 vertex4, Vec3 color)
 	{
-		Vertex quadVert1 = { { vertex1.x, vertex1.y, -20.0f }, { 0.0f, 0.0f },
-			{ color.x, color.y, color.z }, { 1.0f, 1.0f, 1.0f } };
-		Vertex quadVert2 = { { vertex2.x, vertex2.y, -20.0f }, { 1.0f, 0.0f },
-			{ color.x, color.y, color.z }, { 1.0f, 1.0f, 1.0f } };
-		Vertex quadVert3 = { { vertex3.x, vertex3.y, -20.0f }, { 1.0f, 1.0f },
-			{ color.x, color.y, color.z }, { 1.0f, 1.0f, 1.0f } };
-		Vertex quadVert4 = { { vertex4.x, vertex4.y, -20.0f }, { 0.0f, 1.0f },
-			{ color.x, color.y, color.z }, { 1.0f, 1.0f, 1.0f } };
+		Vertex quadVert1 = { { vertex1.x, vertex1.y, -20.0f },
+			{ 0.0f, 0.0f },
+			{ color.x, color.y, color.z },
+			{ 1.0f, 1.0f, 1.0f } };
+		Vertex quadVert2 = { { vertex2.x, vertex2.y, -20.0f },
+			{ 1.0f, 0.0f },
+			{ color.x, color.y, color.z },
+			{ 1.0f, 1.0f, 1.0f } };
+		Vertex quadVert3 = { { vertex3.x, vertex3.y, -20.0f },
+			{ 1.0f, 1.0f },
+			{ color.x, color.y, color.z },
+			{ 1.0f, 1.0f, 1.0f } };
+		Vertex quadVert4 = { { vertex4.x, vertex4.y, -20.0f },
+			{ 0.0f, 1.0f },
+			{ color.x, color.y, color.z },
+			{ 1.0f, 1.0f, 1.0f } };
 
 		Vector<unsigned int> indices = {
 			0, 1, 2,
@@ -218,14 +235,22 @@ namespace Vivid
 
 	void Renderer2D::drawEllipse(Vec2 center, float radiusX, float radiusY, Vec3 color)
 	{
-		Vertex vertex1 = { { center.x - radiusX, center.y - radiusY, -20.0f }, { 0.0f, 0.0f },
-			{ color.x, color.y, color.z }, { 1.0f, 1.0f, 1.0f } };
-		Vertex vertex2 = { { center.x + radiusX, center.y - radiusY, -20.0f }, { 1.0f, 0.0f },
-			{ color.x, color.y, color.z }, { 1.0f, 1.0f, 1.0f } };
-		Vertex vertex3 = { { center.x + radiusX, center.y + radiusY, -20.0f }, { 1.0f, 1.0f },
-			{ color.x, color.y, color.z }, { 1.0f, 1.0f, 1.0f } };
-		Vertex vertex4 = { { center.x - radiusX, center.y + radiusY, -20.0f }, { 0.0f, 1.0f },
-			{ color.x, color.y, color.z }, { 1.0f, 1.0f, 1.0f } };
+		Vertex vertex1 = { { center.x - radiusX, center.y - radiusY, -20.0f },
+			{ 0.0f, 0.0f },
+			{ color.x, color.y, color.z },
+			{ 1.0f, 1.0f, 1.0f } };
+		Vertex vertex2 = { { center.x + radiusX, center.y - radiusY, -20.0f },
+			{ 1.0f, 0.0f },
+			{ color.x, color.y, color.z },
+			{ 1.0f, 1.0f, 1.0f } };
+		Vertex vertex3 = { { center.x + radiusX, center.y + radiusY, -20.0f },
+			{ 1.0f, 1.0f },
+			{ color.x, color.y, color.z },
+			{ 1.0f, 1.0f, 1.0f } };
+		Vertex vertex4 = { { center.x - radiusX, center.y + radiusY, -20.0f },
+			{ 0.0f, 1.0f },
+			{ color.x, color.y, color.z },
+			{ 1.0f, 1.0f, 1.0f } };
 
 		Vector<unsigned int> indices = {
 			0, 1, 2,
@@ -249,14 +274,22 @@ namespace Vivid
 
 	void Renderer2D::drawLine(Vec2 vertex1, Vec2 vertex2, Vec2 vertex3, Vec2 vertex4, Vec3 color)
 	{
-		Vertex lineVert1 = { { vertex1.x, vertex1.y, -20.0f }, { 0.0f, 0.0f },
-			{ color.x, color.y, color.z }, { 1.0f, 1.0f, 1.0f } };
-		Vertex lineVert2 = { { vertex2.x, vertex2.y, -20.0f }, { 1.0f, 0.0f },
-			{ color.x, color.y, color.z }, { 1.0f, 1.0f, 1.0f } };
-		Vertex lineVert3 = { { vertex3.x, vertex3.y, -20.0f }, { 1.0f, 1.0f },
-			{ color.x, color.y, color.z }, { 1.0f, 1.0f, 1.0f } };
-		Vertex lineVert4 = { { vertex4.x, vertex4.y, -20.0f }, { 0.0f, 1.0f },
-			{ color.x, color.y, color.z }, { 1.0f, 1.0f, 1.0f } };
+		Vertex lineVert1 = { { vertex1.x, vertex1.y, -20.0f },
+			{ 0.0f, 0.0f },
+			{ color.x, color.y, color.z },
+			{ 1.0f, 1.0f, 1.0f } };
+		Vertex lineVert2 = { { vertex2.x, vertex2.y, -20.0f },
+			{ 1.0f, 0.0f },
+			{ color.x, color.y, color.z },
+			{ 1.0f, 1.0f, 1.0f } };
+		Vertex lineVert3 = { { vertex3.x, vertex3.y, -20.0f },
+			{ 1.0f, 1.0f },
+			{ color.x, color.y, color.z },
+			{ 1.0f, 1.0f, 1.0f } };
+		Vertex lineVert4 = { { vertex4.x, vertex4.y, -20.0f },
+			{ 0.0f, 1.0f },
+			{ color.x, color.y, color.z },
+			{ 1.0f, 1.0f, 1.0f } };
 
 		Vector<unsigned int> indices = {
 			0, 1, 2,

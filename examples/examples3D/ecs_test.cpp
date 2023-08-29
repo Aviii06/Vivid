@@ -6,16 +6,16 @@ private:
 	Vec3 lightColor = Vec3(1.0f, 0.5f, 1.0f);
 	Vec3 lightPos = Vec3(0.0f, 0.0f, -100.0f);
 
-	glm::vec3 translationModel1 = glm::vec3(0, 50, -200);
-	glm::vec3 translationModel2 = glm::vec3(0, 50, -200);
+	glm::vec3 suzannePosition = glm::vec3(0, 50, -200);
+	glm::vec3 lightPosition = glm::vec3(0, 0, 0);
 	Vivid::Mesh lightMesh;
 	Ref<Vivid::Shader> lightShader;
-	Vivid::Entity* entity1 = new Vivid::Entity(1, "Suzanne");
-	Vivid::Entity* entity2 = new Vivid::Entity(2, "PointLight");
+	Vivid::Entity* suzanne = new Vivid::Entity(1, "Suzanne");
+	Vivid::Entity* light = new Vivid::Entity(2, "PointLight");
 	Vivid::ModelComponent* modelComponent1;
-	Vivid::TransformComponent* transformComponent = new Vivid::TransformComponent();
-	Vivid::TransformComponent* transformComponent2 = new Vivid::TransformComponent();
-	Vivid::Mesh* mesh1;
+	Vivid::TransformComponent* suzanneTransformComponent = new Vivid::TransformComponent();
+	Vivid::TransformComponent* lightTransformComponent = new Vivid::TransformComponent();
+	Vivid::Mesh* mesh;
 
 	Vivid::PointLightComponent* pointLightComponent;
 	Ref<Vivid::Shader> shader;
@@ -29,19 +29,20 @@ public:
 		shader = MakeRef<Vivid::Shader>("./../assets/shaders/phong.vertexShader.glsl",
 		    "./../assets/shaders/phong.pixelShader.glsl");
 
-		mesh1 = new Vivid::Mesh("./../assets/obj/suzanne.obj");
-		mesh1->BindShader(shader);
+		mesh = new Vivid::Mesh("./../assets/obj/suzanne.obj");
+		mesh->BindShader(shader);
 
 		modelComponent1 = new Vivid::ModelComponent();
-		modelComponent1->AddMesh(mesh1);
+		modelComponent1->AddMesh(mesh);
 
 		pointLightComponent = new Vivid::PointLightComponent();
+		pointLightComponent->SetColor(Vec3(1.0f, 0.5f, 1.0f));
 
-		Vivid::ECS::AddComponent(modelComponent1, entity1);
-		Vivid::ECS::AddComponent(transformComponent2, entity1);
+		Vivid::ECS::AddComponent(modelComponent1, suzanne);
+		Vivid::ECS::AddComponent(lightTransformComponent, suzanne);
 
-		Vivid::ECS::AddComponent(pointLightComponent, entity2);
-		Vivid::ECS::AddComponent(transformComponent, entity2);
+		Vivid::ECS::AddComponent(pointLightComponent, light);
+		Vivid::ECS::AddComponent(suzanneTransformComponent, light);
 	}
 
 	void Draw() override
@@ -51,7 +52,7 @@ public:
 		float intensity = pointLights[0]->GetIntensity();
 		Vec3 lightPosition = pointLights[0]->GetEntity()->GetComponent<Vivid::TransformComponent>()->GetPosition();
 
-		mesh1->BindShader(shader);
+		mesh->BindShader(shader);
 		shader->SetUniform3f("lightColor", lightColor);
 		shader->SetUniform3f("lightPos", lightPosition);
 		shader->SetUniform1f("intensity", intensity);
