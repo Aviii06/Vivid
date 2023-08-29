@@ -1,4 +1,5 @@
 #pragma once
+
 #include "common/types/Types.h"
 #include "common/types/SmartPointers.h"
 
@@ -18,17 +19,23 @@ namespace Vivid
 
 	public:
 		Entity() = default;
+
 		Entity(int id, String name);
+
 		~Entity();
 
 		void AddComponent(Vivid::Component* component);
+
 		void RemoveComponent(Vivid::Component* component);
 
 		void Draw(Camera* camera);
+
 		void DrawGUI();
 
 		inline int GetID() const { return m_ID; }
+
 		inline String GetName() const { return m_Name; }
+
 		inline Vector<Vivid::Component*> GetAllComponents() const { return m_Components; }
 
 		template <typename T>
@@ -45,6 +52,8 @@ namespace Vivid
 		}
 
 		const char* GetType(Component* component);
+
+		void DrawGizmo(Camera* camera);
 	};
 
 }

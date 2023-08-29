@@ -117,7 +117,8 @@ namespace Vivid
 		// Error handling
 		int result;
 		GLCall(glGetShaderiv(id, GL_COMPILE_STATUS, &result));
-		std::cout << (type == GL_VERTEX_SHADER ? "vertex" : "pixel") << " shader compile status: " << result << std::endl;
+		std::cout << (type == GL_VERTEX_SHADER ? "vertex" : "pixel") << " shader compile status: " << result
+		          << std::endl;
 		if (result == GL_FALSE)
 		{
 			int length;

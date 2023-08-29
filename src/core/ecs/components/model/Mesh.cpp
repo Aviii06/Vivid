@@ -61,7 +61,9 @@ namespace Vivid
 	void Mesh::BindShader(Ref<Shader> shader)
 	{
 		m_Shader = shader;
+		m_Shader->Bind();
 	}
+
 	void Mesh::loadOBJ(const std::string& file_name)
 	{
 		// Default Layout is of type Vertex

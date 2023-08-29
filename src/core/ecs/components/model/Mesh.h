@@ -37,10 +37,15 @@ namespace Vivid
 	public:
 		// Initializes the mesh
 		Mesh() = default;
+
 		Mesh(Vector<Vertex>& verts, Vector<unsigned int>& inds, VertexBufferLayout layout, glm::mat4 modelMatrix);
+
 		Mesh(Vector<Vertex>& verts, Vector<unsigned int>& inds);
+
 		explicit Mesh(Shape& shape);
+
 		explicit Mesh(const std::string& file_name);
+
 		explicit Mesh(const std::string& file_name, Ptr<Shader> shader);
 
 		void Update(const glm::mat4& modelMatrix);
@@ -48,11 +53,15 @@ namespace Vivid
 		void BindShader(Ref<Shader> shader);
 
 		Vector<Vertex> GetVertices() { return m_Vertices; }
+
 		Vector<unsigned int> GetIndices() { return m_Indices; };
+
 		glm::mat4 GetModelMatrix() { return m_ModelMatrix; };
+
 		Shader& GetShader() { return *m_Shader.get(); };
 
 		void SetVertices(Vector<Vertex> vertices);
+
 		void SetIndices(Vector<unsigned int> indices);
 
 		// Draws the mesh

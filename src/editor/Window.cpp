@@ -3,10 +3,6 @@
 #include <iostream>
 #include "confs/Config.h"
 #include "inputs/InputHandler.h"
-#include "core/ecs/components/light/PointLightComponent.h"
-#include "core/ecs/components/TransformComponent.h"
-#include "core/ecs/components/model/Mesh.h"
-#include "core/ecs/components/model/ModelComponent.h"
 
 #include "imgui/imgui/backends/imgui_impl_glfw.h"
 #include "imgui/imgui/backends/imgui_impl_opengl3.h"
@@ -15,6 +11,9 @@
 #include "editor/gui/DockUI.h"
 #include "editor/Application.h"
 #include "core/ecs/ECS.h"
+#include "gui/SceneUI.h"
+
+#include "imguizmo/ImGuizmo.h"
 
 Window::Window(int width, int height, const char* title)
 {
@@ -53,6 +52,8 @@ Window::Window(int width, int height, const char* title)
 	ImGui_ImplOpenGL3_Init(glsl_version);
 	ImGui::StyleColorsDark();
 	ImGui::GetIO().ConfigFlags |= ImGuiConfigFlags_DockingEnable;
+
+	VividGUI::ImGuiThemeSetup();
 }
 
 Window* Window::Init(int width, int height, const char* title)
@@ -78,7 +79,6 @@ void Window::SetRenderingInterface(RenderingInterface* renderingInterface)
 
 void Window::Update()
 {
-
 	// Handle Custom Inputs
 
 	Camera* camera = Application::GetInstance()->GetCamera();
@@ -147,11 +147,10 @@ void Window::Update()
 
 	Vivid::ECS::Draw(camera);
 	m_FrameBuffer->Unbind();
-	;
 
 	VividGUI::InitUI();
 
-	Vivid::ECS::ImGuiRender();
+	ImGuizmo::BeginFrame();
 
 	ImGui::Begin("Viewport");
 	{
@@ -160,13 +159,20 @@ void Window::Update()
 		float width = ImGui::GetContentRegionAvail().x;
 		float height = ImGui::GetContentRegionAvail().y;
 
+		//        Application::GetInstance()->GetCamera()->SetViewportSize(width, height);
+
 		Application::GetInstance()->GetCamera()->SetViewportSize(width, height);
 
 		ImGui::Image(
 		    (ImTextureID)m_FrameBuffer->getFrameTexture(),
-		    ImGui::GetContentRegionAvail(),
+		    ImVec2(width, height),
 		    ImVec2(0, 1),
 		    ImVec2(1, 0));
+
+		if (typeid(*camera) == typeid(EditorCamera))
+		{
+			VividGUI::SceneUI::DrawGizmo(camera);
+		}
 	}
 	ImGui::EndChild();
 	ImGui::End();
@@ -177,6 +183,10 @@ void Window::Update()
 		m_RenderingInterface->ImGuiRender();
 	}
 
+	// Scene "Tree"
+	VividGUI::SceneUI::DrawSceneUI();
+
+	// End Docking
 	VividGUI::EndUI();
 
 	ImGui::Render();

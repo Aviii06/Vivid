@@ -4,6 +4,8 @@
 
 #include "Component.h"
 #include "core/ecs/ECS.h"
+#include "core/ecs/components/TransformComponent.h"
+
 #define MAX_COMPONENTS 10
 
 Vivid::Entity::Entity(int id, String name)
@@ -38,14 +40,17 @@ void Vivid::Entity::RemoveComponent(Vivid::Component* component)
 void Vivid::Entity::DrawGUI()
 {
 	String name = "Entity: " + m_Name;
-	ImGui::Begin(name.c_str());
+	ImGui::Text(name.c_str());
+
 	for (auto& component : m_Components)
 	{
+		if (ImGui::TreeNode(component->GetComponentName().c_str()))
+		{
+			component->ImGuiRender();
 
-		ImGui::SeparatorText(component->GetComponentName().c_str());
-		component->ImGuiRender();
+			ImGui::TreePop();
+		}
 	}
-	ImGui::End();
 }
 
 void Vivid::Entity::Draw(Camera* camera)
@@ -59,4 +64,13 @@ void Vivid::Entity::Draw(Camera* camera)
 const char* Vivid::Entity::GetType(Vivid::Component* component)
 {
 	return typeid(*component).name();
+}
+
+void Vivid::Entity::DrawGizmo(Camera* camera)
+{
+	auto transform = GetComponent<TransformComponent>();
+	if (transform)
+	{
+		transform->DrawGizmo(camera);
+	}
 }

@@ -12,7 +12,8 @@ namespace Vivid
 	{
 	}
 
-	void VertexArray::AddVertexBuffer(const VertexBuffer& vb, const VertexBufferLayout& layout, const Vector<Vertex>& vertices)
+	void VertexArray::AddVertexBuffer(const VertexBuffer& vb, const VertexBufferLayout& layout,
+	    const Vector<Vertex>& vertices)
 	{
 		Bind();
 		vb.Bind(vertices);

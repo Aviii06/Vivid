@@ -2,6 +2,7 @@
 
 FrameBuffer::FrameBuffer(float width, float height)
 {
+	glViewport(0, 0, width, height);
 	GLCall(glGenFramebuffers(1, &fbo));
 	glBindFramebuffer(GL_FRAMEBUFFER, fbo);
 

@@ -21,7 +21,7 @@ set(SOURCES
         ${CMAKE_CURRENT_SOURCE_DIR}/utils/Timer.cpp
         core/renderer/Renderer2D.cpp
         core/renderer/Renderer3D.cpp
-        editor/gui/DockUI.cpp core/renderer/FrameBuffer.cpp core/ecs/components/TransformComponent.cpp core/ecs/Entity.cpp core/ecs/components/model/ModelComponent.cpp editor/camera/OrthoCamera.cpp core/ecs/ECS.cpp)
+        editor/gui/DockUI.cpp core/renderer/FrameBuffer.cpp core/ecs/components/TransformComponent.cpp core/ecs/Entity.cpp core/ecs/components/model/ModelComponent.cpp editor/camera/OrthoCamera.cpp core/ecs/ECS.cpp editor/gui/SceneUI.cpp editor/gui/UIFlags.cpp)
 
 set(HEADERS
         ${CMAKE_CURRENT_SOURCE_DIR}/inputs/InputHandler.h
@@ -51,7 +51,7 @@ set(HEADERS
         core/renderer/Renderer2D.h
         core/renderer/Renderer3D.h
         ${CMAKE_CURRENT_SOURCE_DIR}/Vivid.h
-        confs/DynamicExportingMacros.h editor/RenderingInterface.h editor/EntryPoint.h editor/gui/UIFlags.h editor/gui/DockUI.h core/renderer/FrameBuffer.h core/ecs/Component.h core/ecs/components/TransformComponent.h common/maths/Vec.h common/types/OpenGLTypes.h common/types/Types.h core/ecs/Entity.h core/ecs/components/model/ModelComponent.h editor/camera/OrthoCamera.h core/ecs/ECS.h)
+        confs/DynamicExportingMacros.h editor/RenderingInterface.h editor/EntryPoint.h editor/gui/UIFlags.h editor/gui/DockUI.h core/renderer/FrameBuffer.h core/ecs/Component.h core/ecs/components/TransformComponent.h common/maths/Vec.h common/types/OpenGLTypes.h common/types/Types.h core/ecs/Entity.h core/ecs/components/model/ModelComponent.h editor/camera/OrthoCamera.h core/ecs/ECS.h editor/gui/SceneUI.h)
 
 add_library(Vivid STATIC ${SOURCES} ${HEADERS})
 
@@ -70,4 +70,5 @@ target_link_libraries(Vivid
         imgui
         stb
         glad
+        imguizmo
         )

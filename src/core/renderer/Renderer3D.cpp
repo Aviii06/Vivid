@@ -5,18 +5,27 @@
 namespace Vivid
 {
 	Storage3D Renderer3D::s_Storage3D;
+
 	void Renderer3D::Init()
 	{
 		s_Storage3D.quadShader = MakeRef<Shader>("./../assets/shaders/quad.vertexShader.glsl",
 		    "./../assets/shaders/quad.pixelShader.glsl");
-		Vertex squareVert1 = { { 0.0f, 100.0f, -20.0f }, { 1.0f, 1.0f },
-			{ 0.0f, 1.0f, 0.0f }, { 1.0f, 1.0f, 1.0f } };
-		Vertex squareVert2 = { { 100.0f, 100.0f, -20.0f }, { 1.0f, 1.0f },
-			{ 0.0f, 1.0f, 0.0f }, { 1.0f, 1.0f, 1.0f } };
-		Vertex squareVert3 = { { 100.0f, 0.0f, -20.0f }, { 1.0f, 1.0f },
-			{ 0.0f, 1.0f, 0.0f }, { 1.0f, 1.0f, 1.0f } };
-		Vertex squareVert4 = { { 0.0f, 0.0f, -20.0f }, { 1.0f, 1.0f },
-			{ 0.0f, 1.0f, 0.0f }, { 1.0f, 1.0f, 1.0f } };
+		Vertex squareVert1 = { { 0.0f, 100.0f, -20.0f },
+			{ 1.0f, 1.0f },
+			{ 0.0f, 1.0f, 0.0f },
+			{ 1.0f, 1.0f, 1.0f } };
+		Vertex squareVert2 = { { 100.0f, 100.0f, -20.0f },
+			{ 1.0f, 1.0f },
+			{ 0.0f, 1.0f, 0.0f },
+			{ 1.0f, 1.0f, 1.0f } };
+		Vertex squareVert3 = { { 100.0f, 0.0f, -20.0f },
+			{ 1.0f, 1.0f },
+			{ 0.0f, 1.0f, 0.0f },
+			{ 1.0f, 1.0f, 1.0f } };
+		Vertex squareVert4 = { { 0.0f, 0.0f, -20.0f },
+			{ 1.0f, 1.0f },
+			{ 0.0f, 1.0f, 0.0f },
+			{ 1.0f, 1.0f, 1.0f } };
 
 		Vector<Vertex> verts = { squareVert1, squareVert2, squareVert3, squareVert4 };
 
@@ -101,14 +110,22 @@ namespace Vivid
 
 	void Renderer3D::DrawQuad(Vec3 vertex1, Vec3 vertex2, Vec3 vertex3, Vec3 vertex4, Vec3 color)
 	{
-		Vertex quadVert1 = { { vertex1.x, vertex1.y, vertex1.z }, { 0.0f, 0.0f },
-			{ color.x, color.y, color.z }, { 1.0f, 1.0f, 1.0f } };
-		Vertex quadVert2 = { { vertex2.x, vertex2.y, vertex2.z }, { 1.0f, 0.0f },
-			{ color.x, color.y, color.z }, { 1.0f, 1.0f, 1.0f } };
-		Vertex quadVert3 = { { vertex3.x, vertex3.y, vertex3.z }, { 1.0f, 1.0f },
-			{ color.x, color.y, color.z }, { 1.0f, 1.0f, 1.0f } };
-		Vertex quadVert4 = { { vertex4.x, vertex4.y, vertex4.z }, { 0.0f, 1.0f },
-			{ color.x, color.y, color.z }, { 1.0f, 1.0f, 1.0f } };
+		Vertex quadVert1 = { { vertex1.x, vertex1.y, vertex1.z },
+			{ 0.0f, 0.0f },
+			{ color.x, color.y, color.z },
+			{ 1.0f, 1.0f, 1.0f } };
+		Vertex quadVert2 = { { vertex2.x, vertex2.y, vertex2.z },
+			{ 1.0f, 0.0f },
+			{ color.x, color.y, color.z },
+			{ 1.0f, 1.0f, 1.0f } };
+		Vertex quadVert3 = { { vertex3.x, vertex3.y, vertex3.z },
+			{ 1.0f, 1.0f },
+			{ color.x, color.y, color.z },
+			{ 1.0f, 1.0f, 1.0f } };
+		Vertex quadVert4 = { { vertex4.x, vertex4.y, vertex4.z },
+			{ 0.0f, 1.0f },
+			{ color.x, color.y, color.z },
+			{ 1.0f, 1.0f, 1.0f } };
 
 		Vector<unsigned int> indices = {
 			0, 1, 2,
@@ -132,12 +149,18 @@ namespace Vivid
 
 	void Renderer3D::DrawTriangle(Vec3 vertex1, Vec3 vertex2, Vec3 vertex3, Vec3 color)
 	{
-		Vertex quadVert1 = { { vertex1.x, vertex1.y, vertex1.z }, { 0.0f, 0.0f },
-			{ color.x, color.y, color.z }, { 1.0f, 1.0f, 1.0f } };
-		Vertex quadVert2 = { { vertex2.x, vertex2.y, vertex2.z }, { 1.0f, 0.0f },
-			{ color.x, color.y, color.z }, { 1.0f, 1.0f, 1.0f } };
-		Vertex quadVert3 = { { vertex3.x, vertex3.y, vertex3.z }, { 1.0f, 1.0f },
-			{ color.x, color.y, color.z }, { 1.0f, 1.0f, 1.0f } };
+		Vertex quadVert1 = { { vertex1.x, vertex1.y, vertex1.z },
+			{ 0.0f, 0.0f },
+			{ color.x, color.y, color.z },
+			{ 1.0f, 1.0f, 1.0f } };
+		Vertex quadVert2 = { { vertex2.x, vertex2.y, vertex2.z },
+			{ 1.0f, 0.0f },
+			{ color.x, color.y, color.z },
+			{ 1.0f, 1.0f, 1.0f } };
+		Vertex quadVert3 = { { vertex3.x, vertex3.y, vertex3.z },
+			{ 1.0f, 1.0f },
+			{ color.x, color.y, color.z },
+			{ 1.0f, 1.0f, 1.0f } };
 
 		Vector<unsigned int> indices = {
 			0,

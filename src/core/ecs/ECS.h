@@ -1,4 +1,5 @@
 #pragma once
+
 #include "editor/camera/Camera.h"
 #include "common/types/Types.h"
 #include "core/ecs/Entity.h"
@@ -13,9 +14,11 @@ namespace Vivid
 		extern int s_EntityID;
 
 		void AddComponent(Vivid::Component* component, Vivid::Entity* entity);
+
 		bool RemoveComponent(Vivid::Component* component, Vivid::Entity* entity);
 
 		void Draw(Camera* camera);
+
 		void ImGuiRender();
 
 		template <typename T>
@@ -34,6 +37,7 @@ namespace Vivid
 		}
 
 		Entity* CreateEntity(String name);
+
 		Entity* CreateEntity(Entity* entity);
 
 	};

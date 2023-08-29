@@ -16,17 +16,24 @@ private:
 	FrameBuffer* m_FrameBuffer;
 
 	Window(int width, int height, const char* title);
+
 	static Window* s_Instance;
 
 public:
 	~Window() = default;
+
 	static Window* Init(int width, int height, const char* title);
+
 	void Clear() const;
+
 	void Update();
 
 	int GetWidth() const { return m_Width; }
+
 	int GetHeight() const { return m_Height; }
+
 	GLFWwindow* GetGLFWWindow() const { return m_Window; }
+
 	float GetAspectRatio() const { return (float)m_Width / (float)m_Height; }
 
 	void SetRenderingInterface(RenderingInterface* renderingInterface);

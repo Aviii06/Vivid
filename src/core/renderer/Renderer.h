@@ -16,6 +16,7 @@ namespace Vivid
 
 	public:
 		static void Draw(Ref<VertexArray> va, unsigned int indexCount);
+
 		static void DrawLine(Ref<VertexArray> va, unsigned int vertexCount);
 
 		static void Clear();

@@ -5,6 +5,7 @@
 // std::unique_ptr
 template <class T>
 using Ptr = std::unique_ptr<T>;
+
 template <class T, typename... Args>
 constexpr Ptr<T> MakePtr(Args&&... args)
 {
@@ -14,6 +15,7 @@ constexpr Ptr<T> MakePtr(Args&&... args)
 // std::shared_ptr
 template <class T>
 using Ref = std::shared_ptr<T>;
+
 template <typename T, typename... Args>
 constexpr Ref<T> MakeRef(Args&&... args)
 {

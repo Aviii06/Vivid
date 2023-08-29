@@ -7,7 +7,7 @@ private:
 	Vec3 lightPos = Vec3(0.0f, 0.0f, -100.0f);
 	Vec2* m_PrevMousePosition = new Vec2(0.0f, 0.0f);
 
-	glm::vec3 translationModel1 = glm::vec3(0, 50, -200);
+	glm::vec3 suzannePosition = glm::vec3(0, 50, -200);
 	Vivid::Mesh lightMesh;
 	Ref<Vivid::Shader> lightShader;
 
@@ -35,13 +35,13 @@ public:
 		Vivid::Mesh mesh1("./../assets/obj/suzanne.obj");
 		mesh1.BindShader(shader);
 
-		mesh1.Update(glm::translate(glm::mat4(1.0f), translationModel1));
+		mesh1.Update(glm::translate(glm::mat4(1.0f), suzannePosition));
 		shader->SetUniform3f("lightColor", lightColor);
 		shader->SetUniform3f("lightPos", lightPos);
 		shader->SetUniform1f("intensity", 2.0f);
 
 		shader->Bind();
-		mesh1.Update(glm::translate(glm::mat4(1.0f), translationModel1));
+		mesh1.Update(glm::translate(glm::mat4(1.0f), suzannePosition));
 		mesh1.Draw(Application::GetInstance()->GetCamera());
 
 		//		light.UpdateLightPosition(lightPos);
@@ -62,7 +62,7 @@ public:
 		shader->SetUniform1f("intensity", 2.0f);
 
 		shader->Bind();
-		mesh1.Update(glm::translate(glm::mat4(1.0f), translationModel1));
+		mesh1.Update(glm::translate(glm::mat4(1.0f), suzannePosition));
 		mesh1.Draw(Application::GetInstance()->GetCamera());
 
 		//		light.UpdateLightPosition(lightPos);
@@ -72,7 +72,7 @@ public:
 	void ImGuiRender() override
 	{
 		ImGui::Begin("Debug");
-		ImGui::SliderFloat3("Translation Model 1", &translationModel1.x, -500.0f, 500.0f);
+		ImGui::SliderFloat3("Translation Model 1", &suzannePosition.x, -500.0f, 500.0f);
 		ImGui::SliderFloat3("Light Position", &lightPos.x, -500.0f, 500.0f);
 
 		ImGui::Text("Application average %.3f ms/frame (%.1f FPS)",
