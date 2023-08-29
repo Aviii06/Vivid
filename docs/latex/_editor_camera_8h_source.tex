@@ -14,63 +14,75 @@
 \DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00011}00011\ \ \ \ \ \textcolor{keywordtype}{float}\ m\_FarClip\ =\ 5000.0f;}
 \DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00012}00012\ \ \ \ \ \textcolor{keywordtype}{float}\ m\_AspectRatio\ =\ 1.7778f;\ \textcolor{comment}{//\ 16:9\ =\ m\_ViewportWidth\ /\ m\_ViewportHeight}}
 \DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00013}00013\ }
-\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00014}00014\ \ \ \ \ glm::vec3\ m\_Position\ =\ glm::vec3(0.0f,\ 0.0f,\ 0.0f);}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00014}00014\ \ \ \ \ glm::vec3\ m\_Position\ =\ glm::vec3(0.0f,\ 0.0f,\ 300.0f);}
 \DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00015}00015\ }
 \DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00016}00016\ \ \ \ \ glm::vec3\ m\_Front\ =\ glm::vec3(0.0f,\ 0.0f,\ -\/1.0f);}
 \DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00017}00017\ \ \ \ \ glm::vec3\ m\_Up\ =\ glm::vec3(0.0f,\ 1.0f,\ 0.0f);}
 \DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00018}00018\ \ \ \ \ glm::vec3\ m\_Right\ =\ glm::vec3(1.0f,\ 0.0f,\ 0.0f);}
 \DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00019}00019\ }
-\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00020}00020\ \ \ \ \ \textcolor{keywordtype}{int}\ m\_ViewportWidth\ =\ 1280;}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00021}00021\ \ \ \ \ \textcolor{keywordtype}{int}\ m\_ViewportHeight\ =\ 720;}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00022}00022\ }
-\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00023}00023\ \ \ \ \ glm::mat4\ m\_ProjectionMatrix\ =\ glm::perspective(glm::radians(m\_FOV),}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00024}00024\ \ \ \ \ \ \ \ \ m\_AspectRatio,\ m\_NearCip,\ m\_FarClip);}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00025}00025\ \ \ \ \ glm::mat4\ m\_ViewMatrix\ =\ glm::lookAt(m\_Position,\ m\_Position\ +\ m\_Front,}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00026}00026\ \ \ \ \ \ \ \ \ glm::vec3(0.0f,\ 1.0f,\ 0.0f));}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00027}00027\ }
-\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00028}00028\ \ \ \ \ \textcolor{comment}{//\ We'll\ never\ roll\ the\ camera.\ https://sidvind.com/wiki/Yaw,\_pitch,\_roll\_camera}}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00029}00029\ \ \ \ \ \textcolor{keywordtype}{float}\ m\_Yaw\ =\ 0.0f;}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00030}00030\ \ \ \ \ \textcolor{keywordtype}{float}\ m\_Pitch\ =\ 0.0f;}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00031}00031\ }
-\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00032}00032\ \ \ \ \ \textcolor{keywordtype}{float}\ m\_MovementSpeed\ =\ 15.0f;}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00033}00033\ \ \ \ \ \textcolor{keywordtype}{float}\ m\_MouseSensitivity\ =\ 0.08f;}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00034}00034\ \ \ \ \ \textcolor{keywordtype}{float}\ m\_ZoomSensitivity\ =\ 0.08f;}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00035}00035\ }
-\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00036}00036\ \ \ \ \ glm::vec2\ m\_MousePosition\ =\ glm::vec2(0.0f,\ 0.0f);}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00037}00037\ }
-\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00038}00038\ \ \ \ \ \textcolor{keywordtype}{void}\ updateCameraVectors();}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00039}00039\ \ \ \ \ \textcolor{keywordtype}{void}\ updateProjectionMatrix();}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00040}00040\ \ \ \ \ \textcolor{keywordtype}{void}\ updateViewMatrix();}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00041}00041\ }
-\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00042}00042\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00043}00043\ \ \ \ \ \mbox{\hyperlink{class_editor_camera}{EditorCamera}}()\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00044}00044\ }
-\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00045}00045\ \ \ \ \ \mbox{\hyperlink{class_editor_camera}{EditorCamera}}(\textcolor{keywordtype}{float}\ fov,\ \textcolor{keywordtype}{float}\ aspect,\ \textcolor{keywordtype}{float}\ near,\ \textcolor{keywordtype}{float}\ far);}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00046}00046\ }
-\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00047}00047\ \ \ \ \ \textcolor{keywordtype}{void}\ ProcessKeyboard(CameraMovement\ direction);}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00048}00048\ }
-\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00049}00049\ \ \ \ \ \textcolor{keywordtype}{void}\ ProcessMouseMovement(\textcolor{keywordtype}{float}\ xOffset,\ \textcolor{keywordtype}{float}\ yOffset,\ \textcolor{keywordtype}{bool}\ constrainPitch\ =\ \textcolor{keyword}{true});}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00050}00050\ }
-\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00051}00051\ \ \ \ \ \textcolor{keywordtype}{void}\ ProcessMouseScroll(\textcolor{keywordtype}{float}\ scrollOffset);}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00052}00052\ }
-\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00053}00053\ \ \ \ \ glm::vec3\ GetPosition()\ \{\ \textcolor{keywordflow}{return}\ m\_Position;\ \}}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00020}00020\ \ \ \ \ glm::mat4\ m\_ProjectionMatrix\ =\ glm::perspective(glm::radians(m\_FOV),}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00021}00021\ \ \ \ \ \ \ \ \ m\_AspectRatio,\ m\_NearCip,\ m\_FarClip);}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00022}00022\ \ \ \ \ glm::mat4\ m\_ViewMatrix\ =\ glm::lookAt(m\_Position,\ m\_Position\ +\ m\_Front,}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00023}00023\ \ \ \ \ \ \ \ \ m\_Up);}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00025}00025\ \ \ \ \ \textcolor{comment}{//\ We'll\ never\ roll\ the\ camera.\ https://sidvind.com/wiki/Yaw,\_pitch,\_roll\_camera}}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00026}00026\ \ \ \ \ \textcolor{keywordtype}{float}\ m\_Yaw\ =\ 0.0f;}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00027}00027\ \ \ \ \ \textcolor{keywordtype}{float}\ m\_Pitch\ =\ 0.0f;}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00029}00029\ \ \ \ \ \textcolor{keywordtype}{float}\ m\_MovementSpeed\ =\ 15.0f;}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00030}00030\ \ \ \ \ \textcolor{keywordtype}{float}\ m\_MouseSensitivity\ =\ 0.08f;}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00031}00031\ \ \ \ \ \textcolor{keywordtype}{float}\ m\_ZoomSensitivity\ =\ 0.08f;}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00033}00033\ \ \ \ \ glm::vec2\ m\_MousePosition\ =\ glm::vec2(0.0f,\ 0.0f);}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00035}00035\ \ \ \ \ \textcolor{keywordtype}{void}\ updateCameraVectors();}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00037}00037\ \ \ \ \ \textcolor{keywordtype}{void}\ updateProjectionMatrix();}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00039}00039\ \ \ \ \ \textcolor{keywordtype}{void}\ updateViewMatrix();}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00041}00041\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00042}00042\ \ \ \ \ \mbox{\hyperlink{class_editor_camera}{EditorCamera}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00044}00044\ \ \ \ \ \mbox{\hyperlink{class_editor_camera}{EditorCamera}}(\textcolor{keywordtype}{float}\ fov,\ \textcolor{keywordtype}{float}\ aspect,\ \textcolor{keywordtype}{float}\ near,\ \textcolor{keywordtype}{float}\ far);}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00046}00046\ \ \ \ \ \textcolor{keywordtype}{void}\ ProcessKeyboard(CameraMovement\ direction);}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00048}00048\ \ \ \ \ \textcolor{keywordtype}{void}\ ProcessMouseMovement(\textcolor{keywordtype}{float}\ xOffset,\ \textcolor{keywordtype}{float}\ yOffset,\ \textcolor{keywordtype}{bool}\ constrainPitch\ =\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00050}00050\ \ \ \ \ \textcolor{keywordtype}{void}\ ProcessMouseScroll(\textcolor{keywordtype}{float}\ scrollOffset);}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00052}00052\ \ \ \ \ glm::vec3\ GetPosition()\ \{\ \textcolor{keywordflow}{return}\ m\_Position;\ \}}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00053}00053\ }
 \DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00054}00054\ \ \ \ \ glm::mat4\ GetViewMatrix()\ \{\ \textcolor{keywordflow}{return}\ m\_ViewMatrix;\ \};}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00055}00055\ \ \ \ \ glm::mat4\ GetProjectionMatrix()\ \{\ \textcolor{keywordflow}{return}\ m\_ProjectionMatrix;\ \};}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00056}00056\ \ \ \ \ \textcolor{keywordtype}{float}\ GetYaw()\ \{\ \textcolor{keywordflow}{return}\ m\_Yaw;\ \}}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00057}00057\ \ \ \ \ \textcolor{keywordtype}{float}\ GetPitch()\ \{\ \textcolor{keywordflow}{return}\ m\_Pitch;\ \}}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00058}00058\ \ \ \ \ \textcolor{keywordtype}{float}\ GetMovementSpeed()\ \{\ \textcolor{keywordflow}{return}\ m\_MovementSpeed;\ \}}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00059}00059\ \ \ \ \ \textcolor{keywordtype}{float}\ GetMouseSensitivity()\ \{\ \textcolor{keywordflow}{return}\ m\_MouseSensitivity;\ \}}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00060}00060\ \ \ \ \ \textcolor{keywordtype}{float}\ GetZoom()\ \{\ \textcolor{keywordflow}{return}\ m\_ZoomSensitivity;\ \}}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00056}00056\ \ \ \ \ glm::mat4\ GetProjectionMatrix()\ \{\ \textcolor{keywordflow}{return}\ m\_ProjectionMatrix;\ \};}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00058}00058\ \ \ \ \ \textcolor{keywordtype}{float}\ GetYaw()\ \{\ \textcolor{keywordflow}{return}\ m\_Yaw;\ \}}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00060}00060\ \ \ \ \ \textcolor{keywordtype}{float}\ GetPitch()\ \{\ \textcolor{keywordflow}{return}\ m\_Pitch;\ \}}
 \DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00061}00061\ }
-\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00062}00062\ \ \ \ \ \textcolor{keywordtype}{void}\ SetPerspective(glm::mat4\ perspective);}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00063}00063\ \ \ \ \ \textcolor{keywordtype}{void}\ SetPerspective(\textcolor{keywordtype}{float}\ fov,\ \textcolor{keywordtype}{float}\ aspect,\ \textcolor{keywordtype}{float}\ near,\ \textcolor{keywordtype}{float}\ far);}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00064}00064\ \ \ \ \ \textcolor{keywordtype}{void}\ SetViewMatrix(glm::mat4\ view);}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00062}00062\ \ \ \ \ \textcolor{keywordtype}{float}\ GetMovementSpeed()\ \{\ \textcolor{keywordflow}{return}\ m\_MovementSpeed;\ \}}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00064}00064\ \ \ \ \ \textcolor{keywordtype}{float}\ GetMouseSensitivity()\ \{\ \textcolor{keywordflow}{return}\ m\_MouseSensitivity;\ \}}
 \DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00065}00065\ }
-\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00066}00066\ \ \ \ \ \textcolor{keywordtype}{void}\ SetViewportSize(\textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height);}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00067}00067\ \ \ \ \ \textcolor{keywordtype}{void}\ MoveForward();}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00068}00068\ \ \ \ \ \textcolor{keywordtype}{void}\ MoveBackward();}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00069}00069\ \ \ \ \ \textcolor{keywordtype}{void}\ MoveLeft();}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00070}00070\ \ \ \ \ \textcolor{keywordtype}{void}\ MoveRight();}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00071}00071\ \};}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00066}00066\ \ \ \ \ \textcolor{keywordtype}{float}\ GetZoom()\ \{\ \textcolor{keywordflow}{return}\ m\_ZoomSensitivity;\ \}}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00068}00068\ \ \ \ \ \textcolor{keywordtype}{void}\ SetPerspective(glm::mat4\ perspective);}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00070}00070\ \ \ \ \ \textcolor{keywordtype}{void}\ SetPerspective(\textcolor{keywordtype}{float}\ fov,\ \textcolor{keywordtype}{float}\ aspect,\ \textcolor{keywordtype}{float}\ near,\ \textcolor{keywordtype}{float}\ far);}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00072}00072\ \ \ \ \ \textcolor{keywordtype}{void}\ SetViewMatrix(glm::mat4\ view);}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00074}00074\ \ \ \ \ \textcolor{keywordtype}{void}\ SetViewportSize(\textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height);}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00076}00076\ \ \ \ \ \textcolor{keywordtype}{void}\ MoveForward();}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00078}00078\ \ \ \ \ \textcolor{keywordtype}{void}\ MoveBackward();}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00080}00080\ \ \ \ \ \textcolor{keywordtype}{void}\ MoveLeft();}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00082}00082\ \ \ \ \ \textcolor{keywordtype}{void}\ MoveRight();}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8h_source_l00083}00083\ \};}
 
 \end{DoxyCode}

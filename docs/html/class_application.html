@@ -106,6 +106,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aaf09cd6cb412086dc039e28cdb059f0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f3ce16afe465046b346d6b324fd047f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_window.html">Window</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_application.html#a0f3ce16afe465046b346d6b324fd047f">GetWindow</a> ()</td></tr>
 <tr class="separator:a0f3ce16afe465046b346d6b324fd047f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0790d191cb9b772d681396c69503643c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_camera.html">Camera</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_application.html#a0790d191cb9b772d681396c69503643c">GetCamera</a> ()</td></tr>
+<tr class="separator:a0790d191cb9b772d681396c69503643c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a688cbf1093a9f9c974e7ad30652ecbd4"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_application.html#a688cbf1093a9f9c974e7ad30652ecbd4">GetTitle</a> ()</td></tr>
+<tr class="separator:a688cbf1093a9f9c974e7ad30652ecbd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7373688b144b6b626df91ba9e95041d6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_application.html#a7373688b144b6b626df91ba9e95041d6">SetCamera</a> (<a class="el" href="class_camera.html">Camera</a> *camera)</td></tr>
+<tr class="separator:a7373688b144b6b626df91ba9e95041d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adac7ae00e5a8b79f75295d8a79aef852"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_application.html#adac7ae00e5a8b79f75295d8a79aef852">Terminate</a> ()</td></tr>
 <tr class="separator:adac7ae00e5a8b79f75295d8a79aef852"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae6e661683922dcdd7ac33019bde7f12a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_application.html#ae6e661683922dcdd7ac33019bde7f12a">SetRenderingInterface</a> (<a class="el" href="class_rendering_interface.html">RenderingInterface</a> *renderingInterface)</td></tr>
@@ -113,15 +119,42 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a36b018652c11aaa78aee68a51a3f3946"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_application.html">Application</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_application.html#a36b018652c11aaa78aee68a51a3f3946">GetInstance</a> (int width=1920, int height=1080, const char *title=&quot;Newton&quot;)</td></tr>
-<tr class="separator:a36b018652c11aaa78aee68a51a3f3946"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a066cca25612f524e644f734dbc8e6525"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_application.html">Application</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_application.html#a066cca25612f524e644f734dbc8e6525">GetInstance</a> (int width=1920, int height=1080, const char *title=&quot;Vivid&quot;, <a class="el" href="class_camera.html">Camera</a> *camera=nullptr)</td></tr>
+<tr class="separator:a066cca25612f524e644f734dbc8e6525"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_application_8h_source.html#l00008">8</a> of file <a class="el" href="_application_8h_source.html">Application.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_application_8h_source.html#l00013">13</a> of file <a class="el" href="_application_8h_source.html">Application.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a36b018652c11aaa78aee68a51a3f3946" name="a36b018652c11aaa78aee68a51a3f3946"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a36b018652c11aaa78aee68a51a3f3946">&#9670;&#160;</a></span>GetInstance()</h2>
+<a id="a0790d191cb9b772d681396c69503643c" name="a0790d191cb9b772d681396c69503643c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0790d191cb9b772d681396c69503643c">&#9670;&#160;</a></span>GetCamera()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_camera.html">Camera</a> * Application::GetCamera </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_application_8h_source.html#l00043">43</a> of file <a class="el" href="_application_8h_source.html">Application.h</a>.</p>
+
+</div>
+</div>
+<a id="a066cca25612f524e644f734dbc8e6525" name="a066cca25612f524e644f734dbc8e6525"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a066cca25612f524e644f734dbc8e6525">&#9670;&#160;</a></span>GetInstance()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -145,7 +178,13 @@ Static Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>title</em> = <code>&quot;Newton&quot;</code>&#160;</td>
+          <td class="paramname"><em>title</em> = <code>&quot;Vivid&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_camera.html">Camera</a> *&#160;</td>
+          <td class="paramname"><em>camera</em> = <code>nullptr</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -160,7 +199,34 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_application_8h_source.html#l00024">24</a> of file <a class="el" href="_application_8h_source.html">Application.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_application_8h_source.html#l00034">34</a> of file <a class="el" href="_application_8h_source.html">Application.h</a>.</p>
+
+</div>
+</div>
+<a id="a688cbf1093a9f9c974e7ad30652ecbd4" name="a688cbf1093a9f9c974e7ad30652ecbd4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a688cbf1093a9f9c974e7ad30652ecbd4">&#9670;&#160;</a></span>GetTitle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">char * Application::GetTitle </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_application_8h_source.html#l00045">45</a> of file <a class="el" href="_application_8h_source.html">Application.h</a>.</p>
 
 </div>
 </div>
@@ -187,7 +253,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_application_8h_source.html#l00031">31</a> of file <a class="el" href="_application_8h_source.html">Application.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_application_8h_source.html#l00041">41</a> of file <a class="el" href="_application_8h_source.html">Application.h</a>.</p>
 
 </div>
 </div>
@@ -206,7 +272,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_application_8cpp_source.html#l00020">20</a> of file <a class="el" href="_application_8cpp_source.html">Application.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_application_8cpp_source.html#l00025">25</a> of file <a class="el" href="_application_8cpp_source.html">Application.cpp</a>.</p>
 
 </div>
 </div>
@@ -225,7 +291,35 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_application_8cpp_source.html#l00029">29</a> of file <a class="el" href="_application_8cpp_source.html">Application.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_application_8cpp_source.html#l00035">35</a> of file <a class="el" href="_application_8cpp_source.html">Application.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a7373688b144b6b626df91ba9e95041d6" name="a7373688b144b6b626df91ba9e95041d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7373688b144b6b626df91ba9e95041d6">&#9670;&#160;</a></span>SetCamera()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Application::SetCamera </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_camera.html">Camera</a> *&#160;</td>
+          <td class="paramname"><em>camera</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_application_8h_source.html#l00047">47</a> of file <a class="el" href="_application_8h_source.html">Application.h</a>.</p>
 
 </div>
 </div>
@@ -253,7 +347,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_application_8h_source.html#l00034">34</a> of file <a class="el" href="_application_8h_source.html">Application.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_application_8h_source.html#l00051">51</a> of file <a class="el" href="_application_8h_source.html">Application.h</a>.</p>
 
 </div>
 </div>
@@ -272,13 +366,13 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_application_8cpp_source.html#l00024">24</a> of file <a class="el" href="_application_8cpp_source.html">Application.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_application_8cpp_source.html#l00030">30</a> of file <a class="el" href="_application_8cpp_source.html">Application.cpp</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>src/Editor/<a class="el" href="_application_8h_source.html">Application.h</a></li>
-<li>src/Editor/<a class="el" href="_application_8cpp_source.html">Application.cpp</a></li>
+<li>src/editor/<a class="el" href="_application_8h_source.html">Application.h</a></li>
+<li>src/editor/<a class="el" href="_application_8cpp_source.html">Application.cpp</a></li>
 <li>src/<a class="el" href="_vivid_8h_source.html">Vivid.h</a></li>
 </ul>
 </div><!-- contents -->

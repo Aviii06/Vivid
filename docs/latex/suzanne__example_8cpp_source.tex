@@ -4,59 +4,98 @@
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}Vivid.h"{}}}
 \DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00002}00002\ }
-\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00003}00003\ \textcolor{keywordtype}{int}\ main(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00003}00003\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_example_interface}{ExampleInterface}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_rendering_interface}{RenderingInterface}}}
 \DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00004}00004\ \{}
-\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00005}00005\ \ \ \ \ \mbox{\hyperlink{class_application}{Application}}*\ app\ =\ Application::GetInstance(1920,\ 1080,\ \textcolor{stringliteral}{"{}Suzanne\ Example"{}});}
-\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00006}00006\ }
-\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00007}00007\ \ \ \ \ \textcolor{comment}{//\ Can\ write\ custom\ opengl\ confs\ here}}
-\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00008}00008\ \ \ \ \ OPENGL\_CONFS}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00005}00005\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00006}00006\ \ \ \ \ \mbox{\hyperlink{struct_vec3}{Vec3}}\ lightColor\ =\ \mbox{\hyperlink{struct_vec3}{Vec3}}(1.0f,\ 0.5f,\ 1.0f);}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00007}00007\ \ \ \ \ \mbox{\hyperlink{struct_vec3}{Vec3}}\ lightPos\ =\ \mbox{\hyperlink{struct_vec3}{Vec3}}(0.0f,\ 0.0f,\ -\/100.0f);}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00008}00008\ \ \ \ \ \mbox{\hyperlink{struct_vec2}{Vec2}}*\ m\_PrevMousePosition\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{struct_vec2}{Vec2}}(0.0f,\ 0.0f);}
 \DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00009}00009\ }
-\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00010}00010\ \ \ \ \ \textcolor{comment}{//\ Light\ Info}}
-\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00011}00011\ \ \ \ \ \mbox{\hyperlink{struct_vec3}{Vec3}}\ lightColor\ =\ \mbox{\hyperlink{struct_vec3}{Vec3}}(1.0f,\ 0.5f,\ 1.0f);}
-\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00012}00012\ \ \ \ \ \mbox{\hyperlink{struct_vec3}{Vec3}}\ lightPos\ =\ \mbox{\hyperlink{struct_vec3}{Vec3}}(0.0f,\ 0.0f,\ -\/100.0f);}
-\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00013}00013\ \ \ \ \ \mbox{\hyperlink{class_vivid_1_1_quad3d}{Vivid::Quad3d}}\ cube(10.0f,\ lightColor);}
-\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00014}00014\ \ \ \ \ \mbox{\hyperlink{class_vivid_1_1_mesh}{Vivid::Mesh}}\ lightMesh(cube);}
-\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00015}00015\ \ \ \ \ \mbox{\hyperlink{class_vivid_1_1_point_light}{Vivid::PointLight}}\ light(lightPos,\ lightColor,\ \&lightMesh);}
-\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00016}00016\ \ \ \ \ Ref<Vivid::Shader>\ lightShader\ =\ MakeRef<Vivid::Shader>(\textcolor{stringliteral}{"{}./../assets/shaders/basic.vertexShader.glsl"{}},}
-\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00017}00017\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}./../assets/shaders/basic.pixelShader.glsl"{}});}
-\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00018}00018\ \ \ \ \ light.Draw(lightShader);}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00010}00010\ \ \ \ \ glm::vec3\ suzannePosition\ =\ glm::vec3(0,\ 50,\ -\/200);}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00011}00011\ \ \ \ \ \mbox{\hyperlink{class_vivid_1_1_mesh}{Vivid::Mesh}}\ lightMesh;}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00012}00012\ \ \ \ \ Ref<Vivid::Shader>\ lightShader;}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00014}00014\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00015}00015\ \ \ \ \ \textcolor{keywordtype}{void}\ Setup()\textcolor{keyword}{\ override}}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00016}00016\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00017}00017\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Can\ write\ custom\ opengl\ confs\ here}}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00018}00018\ \ \ \ \ \ \ \ \ OPENGL\_CONFS}
 \DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00019}00019\ }
-\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00020}00020\ \ \ \ \ \textcolor{comment}{//\ Creating\ a\ shader}}
-\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00021}00021\ \ \ \ \ Ref<Vivid::Shader>\ shader\ =\ MakeRef<Vivid::Shader>(\textcolor{stringliteral}{"{}./../assets/shaders/phong.vertexShader.glsl"{}},}
-\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}./../assets/shaders/phong.pixelShader.glsl"{}});}
-\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00023}00023\ }
-\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00024}00024\ \ \ \ \ \textcolor{comment}{//\ Drawing\ other\ meshes}}
-\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00025}00025\ \ \ \ \ \mbox{\hyperlink{class_vivid_1_1_mesh}{Vivid::Mesh}}\ mesh1(\textcolor{stringliteral}{"{}./../assets/obj/suzanne.obj"{}});}
-\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00026}00026\ \ \ \ \ mesh1.BindShader(shader);}
-\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00027}00027\ }
-\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00028}00028\ \ \ \ \ glm::vec3\ translationModel1(0,\ 50,\ -\/200);}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00020}00020\ \ \ \ \ \ \ \ \ Vivid::Renderer2D::Init();}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Light\ Info}}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_vivid_1_1_quad3d}{Vivid::Quad3d}}\ cube(10.0f,\ lightColor);}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ lightMesh\ =\ Vivid::Mesh(cube);}}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ light\ =\ Vivid::PointLight(lightPos,\ lightColor,\ \&lightMesh);}}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ lightShader\ =\ MakeRef<Vivid::Shader>("{}./../assets/shaders/basic.vertexShader.glsl"{},}}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ "{}./../assets/shaders/basic.pixelShader.glsl"{});}}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ light.Draw(lightShader);}}
 \DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00029}00029\ }
-\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00030}00030\ \ \ \ \ mesh1.Update(glm::translate(glm::mat4(1.0f),\ translationModel1));}
-\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00031}00031\ \ \ \ \ mesh1.Draw();}
-\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00032}00032\ }
-\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00033}00033\ \ \ \ \ \textcolor{keywordflow}{while}\ (app-\/>IsRunning())}
-\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00034}00034\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ shader-\/>Bind();}
-\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ shader-\/>SetUniform3f(\textcolor{stringliteral}{"{}lightColor"{}},\ lightColor);}
-\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ shader-\/>SetUniform3f(\textcolor{stringliteral}{"{}lightPos"{}},\ lightPos);}
-\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ shader-\/>SetUniform1f(\textcolor{stringliteral}{"{}intensity"{}},\ 2.0f);}
-\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ mesh1.Update(glm::translate(glm::mat4(1.0f),\ translationModel1));}
-\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ mesh1.Draw();}
-\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00041}00041\ }
-\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ light.UpdateLightPosition(lightPos);}
-\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ light.Draw(lightShader);}
-\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00044}00044\ }
-\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ app-\/>GetWindow().Update();}
-\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00046}00046\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00047}00047\ }
-\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00048}00048\ \ \ \ \ app-\/>Terminate();}
-\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00049}00049\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
-\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00050}00050\ \}}
-\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00051}00051\ }
-\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00052}00052\ \mbox{\hyperlink{class_application}{Application}}*\ Vivid::CreateApplication()}
-\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00053}00053\ \{}
-\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00054}00054\ \ \ \ \ \mbox{\hyperlink{class_application}{Application}}*\ app\ =\ Application::GetInstance(1920,\ 1080,\ \textcolor{stringliteral}{"{}suzanne"{}});}
-\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00055}00055\ \ \ \ \ \textcolor{keywordflow}{return}\ app;}
-\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00056}00056\ \}}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Creating\ a\ shader}}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ Ref<Vivid::Shader>\ shader\ =\ MakeRef<Vivid::Shader>(\textcolor{stringliteral}{"{}./../assets/shaders/phong.vertexShader.glsl"{}},}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}./../assets/shaders/phong.pixelShader.glsl"{}});}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Drawing\ other\ meshes}}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_vivid_1_1_mesh}{Vivid::Mesh}}\ mesh1(\textcolor{stringliteral}{"{}./../assets/obj/suzanne.obj"{}});}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ mesh1.BindShader(shader);}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ mesh1.Update(glm::translate(glm::mat4(1.0f),\ suzannePosition));}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ shader-\/>SetUniform3f(\textcolor{stringliteral}{"{}lightColor"{}},\ lightColor);}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ shader-\/>SetUniform3f(\textcolor{stringliteral}{"{}lightPos"{}},\ lightPos);}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00041}00041\ \ \ \ \ \ \ \ \ shader-\/>SetUniform1f(\textcolor{stringliteral}{"{}intensity"{}},\ 2.0f);}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ shader-\/>Bind();}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ mesh1.Update(glm::translate(glm::mat4(1.0f),\ suzannePosition));}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ mesh1.Draw(Application::GetInstance()-\/>GetCamera());}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ light.UpdateLightPosition(lightPos);}}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ light.Draw(lightShader);}}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00049}00049\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00051}00051\ \ \ \ \ \textcolor{keywordtype}{void}\ Draw()\textcolor{keyword}{\ override}}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00052}00052\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ Ref<Vivid::Shader>\ shader\ =\ MakeRef<Vivid::Shader>(\textcolor{stringliteral}{"{}./../assets/shaders/phong.vertexShader.glsl"{}},}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}./../assets/shaders/phong.pixelShader.glsl"{}});}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Drawing\ other\ meshes}}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_vivid_1_1_mesh}{Vivid::Mesh}}\ mesh1(\textcolor{stringliteral}{"{}./../assets/obj/suzanne.obj"{}});}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ mesh1.BindShader(shader);}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ shader-\/>SetUniform3f(\textcolor{stringliteral}{"{}lightColor"{}},\ lightColor);}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ shader-\/>SetUniform3f(\textcolor{stringliteral}{"{}lightPos"{}},\ lightPos);}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00062}00062\ \ \ \ \ \ \ \ \ shader-\/>SetUniform1f(\textcolor{stringliteral}{"{}intensity"{}},\ 2.0f);}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00064}00064\ \ \ \ \ \ \ \ \ shader-\/>Bind();}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ mesh1.Update(glm::translate(glm::mat4(1.0f),\ suzannePosition));}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ mesh1.Draw(Application::GetInstance()-\/>GetCamera());}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ light.UpdateLightPosition(lightPos);}}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ light.Draw(lightShader);}}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00070}00070\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00072}00072\ \ \ \ \ \textcolor{keywordtype}{void}\ ImGuiRender()\textcolor{keyword}{\ override}}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00073}00073\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00074}00074\ \ \ \ \ \ \ \ \ ImGui::Begin(\textcolor{stringliteral}{"{}Debug"{}});}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ ImGui::SliderFloat3(\textcolor{stringliteral}{"{}Translation\ Model\ 1"{}},\ \&suzannePosition.x,\ -\/500.0f,\ 500.0f);}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00076}00076\ \ \ \ \ \ \ \ \ ImGui::SliderFloat3(\textcolor{stringliteral}{"{}Light\ Position"{}},\ \&lightPos.x,\ -\/500.0f,\ 500.0f);}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00078}00078\ \ \ \ \ \ \ \ \ ImGui::Text(\textcolor{stringliteral}{"{}Application\ average\ \%.3f\ ms/frame\ (\%.1f\ FPS)"{}},}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ 1000.0f\ /\ ImGui::GetIO().Framerate,\ ImGui::GetIO().Framerate);}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00081}00081\ \ \ \ \ \ \ \ \ ImGui::End();}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00082}00082\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00083}00083\ \};}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00085}00085\ \mbox{\hyperlink{class_application}{Application}}*\ Vivid::CreateApplication()}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00086}00086\ \{}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00087}00087\ \ \ \ \ \mbox{\hyperlink{class_application}{Application}}*\ app\ =\ Application::GetInstance(1920,\ 1080,\ \textcolor{stringliteral}{"{}Vivid:\ Suzanne\ Example"{}});}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00088}00088\ \ \ \ \ app-\/>SetRenderingInterface(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_example_interface}{ExampleInterface}});}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00089}00089\ \ \ \ \ \textcolor{keywordflow}{return}\ app;}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00090}00090\ \}}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00092}00092\ \textcolor{keywordtype}{int}\ main()}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00093}00093\ \{}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00094}00094\ \ \ \ \ \textcolor{keywordflow}{return}\ Vivid::main(0,\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{\Hypertarget{suzanne__example_8cpp_source_l00095}00095\ \}}
 
 \end{DoxyCode}

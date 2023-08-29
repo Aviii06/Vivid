@@ -1,19 +1,19 @@
 \hypertarget{_mesh_8h_source}{}\doxysection{Mesh.\+h}
-\label{_mesh_8h_source}\index{src/renderer/Mesh.h@{src/renderer/Mesh.h}}
+\label{_mesh_8h_source}\index{src/core/ecs/components/model/Mesh.h@{src/core/ecs/components/model/Mesh.h}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00002}00002\ }
-\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}IndexBuffer.h"{}}}
-\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}Renderer.h"{}}}
-\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}Texture.h"{}}}
-\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}VertexArray.h"{}}}
-\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}VertexBuffer.h"{}}}
-\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}VertexBufferLayout.h"{}}}
-\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00009}00009\ \textcolor{preprocessor}{\#include\ "{}Camera.h"{}}}
-\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00010}00010\ \textcolor{preprocessor}{\#include\ "{}shapes/Shape.h"{}}}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}core/renderer/IndexBuffer.h"{}}}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}core/renderer/Renderer.h"{}}}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}core/renderer/Texture.h"{}}}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}core/renderer/VertexArray.h"{}}}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}core/renderer/VertexBuffer.h"{}}}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}core/renderer/VertexBufferLayout.h"{}}}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00009}00009\ \textcolor{preprocessor}{\#include\ "{}editor/camera/Camera.h"{}}}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00010}00010\ \textcolor{preprocessor}{\#include\ "{}core/renderer/shapes/Shape.h"{}}}
 \DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00011}00011\ }
-\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00012}00012\ \textcolor{preprocessor}{\#include\ "{}common/Types.h"{}}}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00012}00012\ \textcolor{preprocessor}{\#include\ "{}common/types/SmartPointers.h"{}}}
 \DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}utils/Error.h"{}}}
 \DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00014}00014\ }
 \DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00015}00015\ \textcolor{preprocessor}{\#include\ <string>}}
@@ -41,27 +41,36 @@
 \DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00037}00037\ \ \ \ \ \textcolor{keyword}{public}:}
 \DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00038}00038\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Initializes\ the\ mesh}}
 \DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00039}00039\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_vivid_1_1_mesh}{Mesh}}()\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00040}00040\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_vivid_1_1_mesh}{Mesh}}(Vector<Vertex>\&\ verts,\ Vector<unsigned\ int>\&\ inds,\ \mbox{\hyperlink{class_vivid_1_1_vertex_buffer_layout}{VertexBufferLayout}}\ layout,\ glm::mat4\ modelMatrix);}
-\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00041}00041\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_vivid_1_1_mesh}{Mesh}}(Vector<Vertex>\&\ verts,\ Vector<unsigned\ int>\&\ inds);}
-\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00042}00042\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_vivid_1_1_mesh}{Mesh}}(\mbox{\hyperlink{class_vivid_1_1_shape}{Shape}}\&\ shape);}
-\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00043}00043\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_vivid_1_1_mesh}{Mesh}}(\textcolor{keyword}{const}\ std::string\&\ file\_name);}
-\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00044}00044\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_vivid_1_1_mesh}{Mesh}}(\textcolor{keyword}{const}\ std::string\&\ file\_name,\ Ptr<Shader>\ shader);}
-\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00045}00045\ }
-\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00046}00046\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ Update(\textcolor{keyword}{const}\ glm::mat4\&\ modelMatrix);}
-\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00047}00047\ }
-\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00048}00048\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ BindShader(Ref<Shader>\ shader);}
-\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00049}00049\ }
-\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00050}00050\ \ \ \ \ \ \ \ \ Vector<Vertex>\ GetVertices()\ \{\ \textcolor{keywordflow}{return}\ m\_Vertices;\ \}}
-\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00051}00051\ \ \ \ \ \ \ \ \ Vector<unsigned\ int>\ GetIndices()\ \{\ \textcolor{keywordflow}{return}\ m\_Indices;\ \};}
-\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00052}00052\ \ \ \ \ \ \ \ \ glm::mat4\ GetModelMatrix()\ \{\ \textcolor{keywordflow}{return}\ m\_ModelMatrix;\ \};}
-\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00053}00053\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_vivid_1_1_shader}{Shader}}\&\ GetShader()\ \{\ \textcolor{keywordflow}{return}\ *m\_Shader.get();\ \};}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00041}00041\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_vivid_1_1_mesh}{Mesh}}(Vector<Vertex>\&\ verts,\ Vector<unsigned\ int>\&\ inds,\ \mbox{\hyperlink{class_vivid_1_1_vertex_buffer_layout}{VertexBufferLayout}}\ layout,\ glm::mat4\ modelMatrix);}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00043}00043\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_vivid_1_1_mesh}{Mesh}}(Vector<Vertex>\&\ verts,\ Vector<unsigned\ int>\&\ inds);}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00045}00045\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_vivid_1_1_mesh}{Mesh}}(\mbox{\hyperlink{class_vivid_1_1_shape}{Shape}}\&\ shape);}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00047}00047\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_vivid_1_1_mesh}{Mesh}}(\textcolor{keyword}{const}\ std::string\&\ file\_name);}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00049}00049\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_vivid_1_1_mesh}{Mesh}}(\textcolor{keyword}{const}\ std::string\&\ file\_name,\ Ptr<Shader>\ shader);}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00051}00051\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ Update(\textcolor{keyword}{const}\ glm::mat4\&\ modelMatrix);}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00053}00053\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ BindShader(Ref<Shader>\ shader);}
 \DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00054}00054\ }
-\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00055}00055\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetVertices(Vector<Vertex>\ vertices);}
-\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00056}00056\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetIndices(Vector<unsigned\ int>\ indices);}
-\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00057}00057\ }
-\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00058}00058\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Draws\ the\ mesh}}
-\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00059}00059\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ Draw();}
-\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00060}00060\ \ \ \ \ \};}
-\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00061}00061\ \}}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00055}00055\ \ \ \ \ \ \ \ \ Vector<Vertex>\ GetVertices()\ \{\ \textcolor{keywordflow}{return}\ m\_Vertices;\ \}}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00057}00057\ \ \ \ \ \ \ \ \ Vector<unsigned\ int>\ GetIndices()\ \{\ \textcolor{keywordflow}{return}\ m\_Indices;\ \};}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00059}00059\ \ \ \ \ \ \ \ \ glm::mat4\ GetModelMatrix()\ \{\ \textcolor{keywordflow}{return}\ m\_ModelMatrix;\ \};}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00061}00061\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_vivid_1_1_shader}{Shader}}\&\ GetShader()\ \{\ \textcolor{keywordflow}{return}\ *m\_Shader.get();\ \};}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00063}00063\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetVertices(Vector<Vertex>\ vertices);}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00065}00065\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetIndices(Vector<unsigned\ int>\ indices);}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00067}00067\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Draws\ the\ mesh}}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00068}00068\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ Draw(\mbox{\hyperlink{class_camera}{Camera}}*\ camera);}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00069}00069\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00070}00070\ \}}
 
 \end{DoxyCode}

@@ -10,9 +10,9 @@ digraph "build/src/CMakeFiles/Vivid.dir"
   subgraph clusterdir_e954c899b8cec7f4192bb4e75a73ad34 {
     graph [ bgcolor="#daedff", pencolor="grey25", label="", fontname=Helvetica,fontsize=10 style="filled,bold", URL="dir_e954c899b8cec7f4192bb4e75a73ad34.html",tooltip=""]
     dir_e954c899b8cec7f4192bb4e75a73ad34 [shape=plaintext, label="Vivid.dir"];
-  dir_8ff750122a0488952fb515a3b5b74501 [label="Editor", fillcolor="#4ea9ff", color="grey25", style="filled", URL="dir_8ff750122a0488952fb515a3b5b74501.html",tooltip=""];
+  dir_6c367376ff1d0e87f7492bc5ef9cffa5 [label="core", fillcolor="#4ea9ff", color="grey25", style="filled", URL="dir_6c367376ff1d0e87f7492bc5ef9cffa5.html",tooltip=""];
+  dir_defda894a68ee8bbda74e8afd99d289d [label="editor", fillcolor="#4ea9ff", color="grey25", style="filled", URL="dir_defda894a68ee8bbda74e8afd99d289d.html",tooltip=""];
   dir_5f7a1dcf85546e1c793821dba8f111a3 [label="inputs", fillcolor="#4ea9ff", color="grey25", style="filled", URL="dir_5f7a1dcf85546e1c793821dba8f111a3.html",tooltip=""];
-  dir_b051afc0eb21719126e84f3410f69a9e [label="renderer", fillcolor="#4ea9ff", color="grey25", style="filled", URL="dir_b051afc0eb21719126e84f3410f69a9e.html",tooltip=""];
   dir_a0cd09110211a55e0fd0014bd4aef2d3 [label="utils", fillcolor="#4ea9ff", color="grey25", style="filled", URL="dir_a0cd09110211a55e0fd0014bd4aef2d3.html",tooltip=""];
   }
   }

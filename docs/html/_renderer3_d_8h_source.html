@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.6"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Vivid: src/renderer/Renderer3D.h Source File</title>
+<title>Vivid: src/core/renderer/Renderer3D.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -107,34 +107,40 @@ $(document).ready(function(){initNavTree('_renderer3_d_8h_source.html',''); init
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>        Vector&lt;Vertex&gt; triangleVertices;</div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>        Vector&lt;unsigned int&gt; triangleIndices;</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    };</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="class_vivid_1_1_renderer3_d.html">   15</a></span>    <span class="keyword">class </span><a class="code hl_class" href="class_vivid_1_1_renderer3_d.html">Renderer3D</a></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    {</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        <span class="keyword">static</span> <a class="code hl_struct" href="struct_vivid_1_1_storage3_d.html">Storage3D</a> s_Storage3D;</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        <a class="code hl_class" href="class_vivid_1_1_renderer3_d.html">Renderer3D</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        <a class="code hl_class" href="class_vivid_1_1_renderer3_d.html">~Renderer3D</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="class_vivid_1_1_renderer3_d.html">   16</a></span>    <span class="keyword">class </span><a class="code hl_class" href="class_vivid_1_1_renderer3_d.html">Renderer3D</a></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    {</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        <span class="keyword">static</span> <a class="code hl_struct" href="struct_vivid_1_1_storage3_d.html">Storage3D</a> s_Storage3D;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        <a class="code hl_class" href="class_vivid_1_1_renderer3_d.html">Renderer3D</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        <span class="keyword">static</span> <span class="keywordtype">void</span> Init();</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <span class="keyword">static</span> <span class="keywordtype">void</span> BeginScene();</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <span class="keyword">static</span> <span class="keywordtype">void</span> EndScene();</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        <a class="code hl_class" href="class_vivid_1_1_renderer3_d.html">~Renderer3D</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <span class="keyword">static</span> <span class="keywordtype">void</span> Init();</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        <span class="keyword">static</span> <span class="keywordtype">void</span> DrawQuad(<a class="code hl_struct" href="struct_vec3.html">Vec3</a> vertex1, <a class="code hl_struct" href="struct_vec3.html">Vec3</a> vertex2, <a class="code hl_struct" href="struct_vec3.html">Vec3</a> vertex3, <a class="code hl_struct" href="struct_vec3.html">Vec3</a> vertex4, <a class="code hl_struct" href="struct_vec3.html">Vec3</a> color);</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        <span class="keyword">static</span> <span class="keywordtype">void</span> DrawTriangle(<a class="code hl_struct" href="struct_vec3.html">Vec3</a> vertex1, <a class="code hl_struct" href="struct_vec3.html">Vec3</a> vertex2, <a class="code hl_struct" href="struct_vec3.html">Vec3</a> vertex3, <a class="code hl_struct" href="struct_vec3.html">Vec3</a> color);</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        <span class="keyword">static</span> <span class="keywordtype">void</span> DrawCube(<a class="code hl_struct" href="struct_vec3.html">Vec3</a> center, <span class="keywordtype">float</span> edgeLength, <a class="code hl_struct" href="struct_vec3.html">Vec3</a> color);</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    };</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>}</div>
-<div class="ttc" id="aclass_vivid_1_1_renderer3_d_html"><div class="ttname"><a href="class_vivid_1_1_renderer3_d.html">Vivid::Renderer3D</a></div><div class="ttdef"><b>Definition:</b> <a href="_renderer3_d_8h_source.html#l00015">Renderer3D.h:16</a></div></div>
-<div class="ttc" id="astruct_vec3_html"><div class="ttname"><a href="struct_vec3.html">Vec3</a></div><div class="ttdef"><b>Definition:</b> <a href="_types_8h_source.html#l00073">Types.h:74</a></div></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        <span class="keyword">static</span> <span class="keywordtype">void</span> BeginScene();</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        <span class="keyword">static</span> <span class="keywordtype">void</span> EndScene();</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <span class="keyword">static</span> <span class="keywordtype">void</span> DrawQuad(<a class="code hl_struct" href="struct_vec3.html">Vec3</a> vertex1, <a class="code hl_struct" href="struct_vec3.html">Vec3</a> vertex2, <a class="code hl_struct" href="struct_vec3.html">Vec3</a> vertex3, <a class="code hl_struct" href="struct_vec3.html">Vec3</a> vertex4, <a class="code hl_struct" href="struct_vec3.html">Vec3</a> color);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        <span class="keyword">static</span> <span class="keywordtype">void</span> DrawTriangle(<a class="code hl_struct" href="struct_vec3.html">Vec3</a> vertex1, <a class="code hl_struct" href="struct_vec3.html">Vec3</a> vertex2, <a class="code hl_struct" href="struct_vec3.html">Vec3</a> vertex3, <a class="code hl_struct" href="struct_vec3.html">Vec3</a> color);</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <span class="keyword">static</span> <span class="keywordtype">void</span> DrawCube(<a class="code hl_struct" href="struct_vec3.html">Vec3</a> center, <span class="keywordtype">float</span> edgeLength, <a class="code hl_struct" href="struct_vec3.html">Vec3</a> color);</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    };</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>}</div>
+<div class="ttc" id="aclass_vivid_1_1_renderer3_d_html"><div class="ttname"><a href="class_vivid_1_1_renderer3_d.html">Vivid::Renderer3D</a></div><div class="ttdef"><b>Definition:</b> <a href="_renderer3_d_8h_source.html#l00016">Renderer3D.h:17</a></div></div>
+<div class="ttc" id="astruct_vec3_html"><div class="ttname"><a href="struct_vec3.html">Vec3</a></div><div class="ttdef"><b>Definition:</b> <a href="_vec_8h_source.html#l00031">Vec.h:32</a></div></div>
 <div class="ttc" id="astruct_vivid_1_1_storage3_d_html"><div class="ttname"><a href="struct_vivid_1_1_storage3_d.html">Vivid::Storage3D</a></div><div class="ttdef"><b>Definition:</b> <a href="_renderer3_d_8h_source.html#l00005">Renderer3D.h:6</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_7bc5e25958a2fb25a8561f3aa0def6c5.html">renderer</a></li><li class="navelem"><b>Renderer3D.h</b></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_aebb8dcc11953d78e620bbef0b9e2183.html">core</a></li><li class="navelem"><a class="el" href="dir_01aa78ce2fe93d6383726aeb6438a860.html">renderer</a></li><li class="navelem"><b>Renderer3D.h</b></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6 </li>
   </ul>
 </div>

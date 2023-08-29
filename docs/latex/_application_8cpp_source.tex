@@ -1,41 +1,47 @@
 \hypertarget{_application_8cpp_source}{}\doxysection{Application.\+cpp}
-\label{_application_8cpp_source}\index{src/Editor/Application.cpp@{src/Editor/Application.cpp}}
+\label{_application_8cpp_source}\index{src/editor/Application.cpp@{src/editor/Application.cpp}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}Application.h"{}}}
-\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00002}00002\ }
-\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00003}00003\ \mbox{\hyperlink{class_application}{Application}}*\ Application::s\_Instance\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00004}00004\ }
-\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00005}00005\ Application::Application()}
-\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00006}00006\ \{}
-\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00007}00007\ \ \ \ \ m\_Window\ =\ Window::Init(m\_Width,\ m\_Height,\ m\_Title);}
-\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00008}00008\ \}}
-\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00009}00009\ }
-\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00010}00010\ Application::Application(\textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ title)}
-\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00011}00011\ \ \ \ \ :\ m\_Width(width)}
-\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00012}00012\ \ \ \ \ ,\ m\_Height(height)}
-\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00013}00013\ \ \ \ \ ,\ m\_Title(std::move(title))}
-\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00014}00014\ \{}
-\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00015}00015\ \ \ \ \ \textcolor{keywordflow}{if}\ (title\ ==\ \textcolor{keyword}{nullptr})}
-\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00016}00016\ \ \ \ \ \ \ \ \ m\_Title\ =\ \textcolor{stringliteral}{"{}Newton"{}};}
-\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00017}00017\ \ \ \ \ m\_Window\ =\ Window::Init(m\_Width,\ m\_Height,\ m\_Title);}
-\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00018}00018\ \}}
-\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00019}00019\ }
-\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00020}00020\ \textcolor{keywordtype}{bool}\ Application::IsRunning()}
-\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00021}00021\ \{}
-\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00022}00022\ \ \ \ \ \textcolor{keywordflow}{return}\ !glfwWindowShouldClose(m\_Window-\/>GetGLFWWindow());}
+\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}camera/EditorCamera.h"{}}}
+\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00004}00004\ \mbox{\hyperlink{class_window}{Window}}*\ Window::s\_Instance\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00006}00006\ Application::Application()}
+\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00007}00007\ \{}
+\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00008}00008\ \ \ \ \ m\_Window\ =\ Window::Init(m\_Width,\ m\_Height,\ m\_Title);}
+\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00009}00009\ \}}
+\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00011}00011\ Application::Application(\textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ title,\ \mbox{\hyperlink{class_camera}{Camera}}*\ camera)}
+\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00012}00012\ \ \ \ \ :\ m\_Width(width)}
+\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00013}00013\ \ \ \ \ ,\ m\_Height(height)}
+\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00014}00014\ \ \ \ \ ,\ m\_Title(std::move(title))}
+\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00015}00015\ \{}
+\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00016}00016\ \ \ \ \ \textcolor{keywordflow}{if}\ (title\ ==\ \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00017}00017\ \ \ \ \ \ \ \ \ m\_Title\ =\ \textcolor{stringliteral}{"{}Vivid"{}};}
+\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00018}00018\ \ \ \ \ m\_Window\ =\ Window::Init(m\_Width,\ m\_Height,\ m\_Title);}
+\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00019}00019\ \ \ \ \ \textcolor{keywordflow}{if}\ (camera\ !=\ \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00020}00020\ \ \ \ \ \ \ \ \ m\_Camera\ =\ camera;}
+\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00021}00021\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00022}00022\ \ \ \ \ \ \ \ \ m\_Camera\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_editor_camera}{EditorCamera}}(60.0f,\ 1.7778f,\ 0.1f,\ 5000.0f);}
 \DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00023}00023\ \}}
-\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00024}00024\ \textcolor{keywordtype}{void}\ Application::Terminate()}
-\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00025}00025\ \{}
-\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00026}00026\ \ \ \ \ glfwTerminate();}
-\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00027}00027\ \}}
-\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00028}00028\ }
-\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00029}00029\ \textcolor{keywordtype}{void}\ Application::Run()}
-\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00030}00030\ \{}
-\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00031}00031\ \ \ \ \ \textcolor{keywordflow}{while}\ (IsRunning())}
-\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00032}00032\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ m\_Window-\/>Update();}
-\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00034}00034\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00035}00035\ \}}
+\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00025}00025\ \textcolor{keywordtype}{bool}\ Application::IsRunning()}
+\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00026}00026\ \{}
+\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00027}00027\ \ \ \ \ \textcolor{keywordflow}{return}\ !glfwWindowShouldClose(m\_Window-\/>GetGLFWWindow());}
+\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00028}00028\ \}}
+\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00030}00030\ \textcolor{keywordtype}{void}\ Application::Terminate()}
+\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00031}00031\ \{}
+\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00032}00032\ \ \ \ \ glfwTerminate();}
+\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00033}00033\ \}}
+\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00035}00035\ \textcolor{keywordtype}{void}\ Application::Run()}
+\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00036}00036\ \{}
+\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00037}00037\ \ \ \ \ \textcolor{keywordflow}{while}\ (IsRunning())}
+\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00038}00038\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ m\_Window-\/>Update();}
+\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00040}00040\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_application_8cpp_source_l00041}00041\ \}}
 
 \end{DoxyCode}

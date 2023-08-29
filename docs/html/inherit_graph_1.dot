@@ -5,5 +5,9 @@ digraph "Graphical Class Hierarchy"
   edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
   node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
   rankdir="LR";
-  Node0 [label="InputHandler",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_input_handler.html",tooltip=" "];
+  Node0 [label="Camera",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_camera.html",tooltip="It is an abstract class that represents a camera."];
+  Node0 -> Node1 [dir="back",color="steelblue1",style="solid"];
+  Node1 [label="EditorCamera",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_editor_camera.html",tooltip="Editor EditorCamera has the ability to move around the scene using WASD keys and mouse in an intuitiv..."];
+  Node0 -> Node2 [dir="back",color="steelblue1",style="solid"];
+  Node2 [label="OrthoCamera",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_ortho_camera.html",tooltip=" "];
 }

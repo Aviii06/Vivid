@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['mesh_0',['Mesh',['../class_vivid_1_1_mesh.html',1,'Vivid']]]
+  ['indexbuffer_0',['IndexBuffer',['../class_vivid_1_1_index_buffer.html',1,'Vivid']]]
 ];

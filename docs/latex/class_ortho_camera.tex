@@ -33,6 +33,7 @@ void \mbox{\hyperlink{class_ortho_camera_a05ec2f3c5207ddd49a851a2e9fd9dce2}{Set\
 \item 
 void \mbox{\hyperlink{class_ortho_camera_a3558c72554765bb41a2d610ceb01a01a}{Set\+Viewport\+Size}} (int width, int height) override
 \end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_camera}{Camera}}}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{class_camera_a4890075ff407e59ce0996aef90d206a5}\label{class_camera_a4890075ff407e59ce0996aef90d206a5}} 
@@ -49,13 +50,25 @@ virtual void {\bfseries Set\+View\+Matrix} (glm\+::mat4 view)=0
 \item 
 \mbox{\Hypertarget{class_camera_aae905d66a644d95e0e19a19fcd3d92a3}\label{class_camera_aae905d66a644d95e0e19a19fcd3d92a3}} 
 virtual void {\bfseries Set\+Viewport\+Size} (int width, int height)=0
+\item 
+int \mbox{\hyperlink{class_camera_acc055e418f536dd58239c29101759e18}{Get\+Viewport\+Width}} ()
+\item 
+int \mbox{\hyperlink{class_camera_a54235e2b3ae188c2e1576a54b319b9d6}{Get\+Viewport\+Height}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+\doxysubsubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_camera}{Camera}}}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_camera_a871e9f504a885886552348249132c8cd}{m\+\_\+\+Viewport\+Width}}
+\item 
+int \mbox{\hyperlink{class_camera_a2fbbaa5fcf32be00a5f898769e3d92dd}{m\+\_\+\+Viewport\+Height}}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 
 
-Definition at line \mbox{\hyperlink{_ortho_camera_8h_source_l00005}{5}} of file \mbox{\hyperlink{_ortho_camera_8h_source}{Ortho\+Camera.\+h}}.
+Definition at line \mbox{\hyperlink{_ortho_camera_8h_source_l00006}{6}} of file \mbox{\hyperlink{_ortho_camera_8h_source}{Ortho\+Camera.\+h}}.
 
 
 
@@ -81,7 +94,7 @@ Definition at line \mbox{\hyperlink{_ortho_camera_8cpp_source_l00003}{3}} of fil
 
 
 
-Definition at line \mbox{\hyperlink{_ortho_camera_8h_source_l00023}{23}} of file \mbox{\hyperlink{_ortho_camera_8h_source}{Ortho\+Camera.\+h}}.
+Definition at line \mbox{\hyperlink{_ortho_camera_8h_source_l00026}{26}} of file \mbox{\hyperlink{_ortho_camera_8h_source}{Ortho\+Camera.\+h}}.
 
 \mbox{\Hypertarget{class_ortho_camera_a61071e3086ded66dab3dac618bccc5e6}\label{class_ortho_camera_a61071e3086ded66dab3dac618bccc5e6}} 
 \index{OrthoCamera@{OrthoCamera}!GetProjectionMatrix@{GetProjectionMatrix}}
@@ -95,7 +108,7 @@ Implements \mbox{\hyperlink{class_camera}{Camera}}.
 
 
 
-Definition at line \mbox{\hyperlink{_ortho_camera_8h_source_l00029}{29}} of file \mbox{\hyperlink{_ortho_camera_8h_source}{Ortho\+Camera.\+h}}.
+Definition at line \mbox{\hyperlink{_ortho_camera_8h_source_l00034}{34}} of file \mbox{\hyperlink{_ortho_camera_8h_source}{Ortho\+Camera.\+h}}.
 
 \mbox{\Hypertarget{class_ortho_camera_ad1c3c69d8c14d31ed9ee26526b766608}\label{class_ortho_camera_ad1c3c69d8c14d31ed9ee26526b766608}} 
 \index{OrthoCamera@{OrthoCamera}!GetRotation@{GetRotation}}
@@ -105,7 +118,7 @@ Definition at line \mbox{\hyperlink{_ortho_camera_8h_source_l00029}{29}} of file
 
 
 
-Definition at line \mbox{\hyperlink{_ortho_camera_8h_source_l00024}{24}} of file \mbox{\hyperlink{_ortho_camera_8h_source}{Ortho\+Camera.\+h}}.
+Definition at line \mbox{\hyperlink{_ortho_camera_8h_source_l00028}{28}} of file \mbox{\hyperlink{_ortho_camera_8h_source}{Ortho\+Camera.\+h}}.
 
 \mbox{\Hypertarget{class_ortho_camera_a3bb1129902e59ad569b78c35084fc008}\label{class_ortho_camera_a3bb1129902e59ad569b78c35084fc008}} 
 \index{OrthoCamera@{OrthoCamera}!GetViewMatrix@{GetViewMatrix}}
@@ -119,7 +132,7 @@ Implements \mbox{\hyperlink{class_camera}{Camera}}.
 
 
 
-Definition at line \mbox{\hyperlink{_ortho_camera_8h_source_l00028}{28}} of file \mbox{\hyperlink{_ortho_camera_8h_source}{Ortho\+Camera.\+h}}.
+Definition at line \mbox{\hyperlink{_ortho_camera_8h_source_l00032}{32}} of file \mbox{\hyperlink{_ortho_camera_8h_source}{Ortho\+Camera.\+h}}.
 
 \mbox{\Hypertarget{class_ortho_camera_a703cc45265d921194d306ade0c167ebf}\label{class_ortho_camera_a703cc45265d921194d306ade0c167ebf}} 
 \index{OrthoCamera@{OrthoCamera}!SetPerspective@{SetPerspective}}

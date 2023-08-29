@@ -16,15 +16,27 @@
 \DoxyCodeLine{\Hypertarget{_point_light_component_8h_source_l00012}00012\ \ \ \ \ \{}
 \DoxyCodeLine{\Hypertarget{_point_light_component_8h_source_l00013}00013\ \ \ \ \ \textcolor{keyword}{private}:}
 \DoxyCodeLine{\Hypertarget{_point_light_component_8h_source_l00014}00014\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vec3}{Vec3}}\ m\_Color;}
-\DoxyCodeLine{\Hypertarget{_point_light_component_8h_source_l00015}00015\ }
-\DoxyCodeLine{\Hypertarget{_point_light_component_8h_source_l00016}00016\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{_point_light_component_8h_source_l00017}00017\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_vivid_1_1_point_light_component}{PointLightComponent}}()\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{\Hypertarget{_point_light_component_8h_source_l00018}00018\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_vivid_1_1_point_light_component}{PointLightComponent}}(\mbox{\hyperlink{struct_vec3}{Vec3}}\ color);}
-\DoxyCodeLine{\Hypertarget{_point_light_component_8h_source_l00019}00019\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ Draw(\mbox{\hyperlink{class_camera}{Camera}}*\ camera)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{\Hypertarget{_point_light_component_8h_source_l00020}00020\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ ImGuiRender()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_point_light_component_8h_source_l00015}00015\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ m\_Intensity\ =\ 1.0f;}
+\DoxyCodeLine{\Hypertarget{_point_light_component_8h_source_l00016}00016\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_vivid_1_1_mesh}{Vivid::Mesh}}*\ m\_Mesh;}
+\DoxyCodeLine{\Hypertarget{_point_light_component_8h_source_l00017}00017\ \ \ \ \ \ \ \ \ Ref<Vivid::Shader>\ m\_Shader;}
+\DoxyCodeLine{\Hypertarget{_point_light_component_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{_point_light_component_8h_source_l00019}00019\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_point_light_component_8h_source_l00020}00020\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_vivid_1_1_point_light_component}{PointLightComponent}}()\ =\ \textcolor{keywordflow}{default};}
 \DoxyCodeLine{\Hypertarget{_point_light_component_8h_source_l00021}00021\ }
-\DoxyCodeLine{\Hypertarget{_point_light_component_8h_source_l00022}00022\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{struct_vec3}{Vec3}}\ GetColor()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_Color;\ \}}
-\DoxyCodeLine{\Hypertarget{_point_light_component_8h_source_l00023}00023\ \ \ \ \ \};}
-\DoxyCodeLine{\Hypertarget{_point_light_component_8h_source_l00024}00024\ \}}
+\DoxyCodeLine{\Hypertarget{_point_light_component_8h_source_l00022}00022\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_vivid_1_1_point_light_component}{PointLightComponent}}(\mbox{\hyperlink{struct_vec3}{Vec3}}\ color);}
+\DoxyCodeLine{\Hypertarget{_point_light_component_8h_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{_point_light_component_8h_source_l00024}00024\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ Draw(\mbox{\hyperlink{class_camera}{Camera}}*\ camera)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_point_light_component_8h_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{_point_light_component_8h_source_l00026}00026\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ ImGuiRender()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_point_light_component_8h_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{_point_light_component_8h_source_l00028}00028\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetColor(\mbox{\hyperlink{struct_vec3}{Vec3}}\ color)\ \{\ m\_Color\ =\ color;\ \}}
+\DoxyCodeLine{\Hypertarget{_point_light_component_8h_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{_point_light_component_8h_source_l00030}00030\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{struct_vec3}{Vec3}}\ GetColor()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_Color;\ \}}
+\DoxyCodeLine{\Hypertarget{_point_light_component_8h_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{_point_light_component_8h_source_l00032}00032\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{float}\ GetIntensity()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_Intensity;\ \}}
+\DoxyCodeLine{\Hypertarget{_point_light_component_8h_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{_point_light_component_8h_source_l00034}00034\ \ \ \ \ \ \ \ \ String\ GetComponentName()\textcolor{keyword}{\ override\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}PointLight\ Component"{}};\ \}}
+\DoxyCodeLine{\Hypertarget{_point_light_component_8h_source_l00035}00035\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_point_light_component_8h_source_l00036}00036\ \}}
 
 \end{DoxyCode}

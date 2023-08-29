@@ -1,5 +1,5 @@
 \hypertarget{_shader_8h_source}{}\doxysection{Shader.\+h}
-\label{_shader_8h_source}\index{src/renderer/Shader.h@{src/renderer/Shader.h}}
+\label{_shader_8h_source}\index{src/core/renderer/Shader.h@{src/core/renderer/Shader.h}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\Hypertarget{_shader_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
@@ -27,39 +27,40 @@
 \DoxyCodeLine{\Hypertarget{_shader_8h_source_l00023}00023\ }
 \DoxyCodeLine{\Hypertarget{_shader_8h_source_l00024}00024\ \ \ \ \ \textcolor{keyword}{public}:}
 \DoxyCodeLine{\Hypertarget{_shader_8h_source_l00025}00025\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_vivid_1_1_shader}{Shader}}(\textcolor{keyword}{const}\ std::string\&\ filepathVertexShader,\ \textcolor{keyword}{const}\ std::string\&\ filepathPixelShader);}
-\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00026}00026\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_vivid_1_1_shader}{\string~Shader}}();}
-\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00027}00027\ }
-\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00028}00028\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ Ref<Shader>\ Create(\textcolor{keyword}{const}\ std::string\&\ filepathVertexShader,\ \textcolor{keyword}{const}\ std::string\&\ filepathPixelShader);}
-\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00029}00029\ }
-\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00030}00030\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ Bind()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00031}00031\ }
-\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00032}00032\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ Unbind()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00033}00033\ }
-\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00034}00034\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Set\ uniforms}}
-\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00035}00035\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetUniform4f(\textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keywordtype}{float}\ f0,\ \textcolor{keywordtype}{float}\ f1,\ \textcolor{keywordtype}{float}\ f2,\ \textcolor{keywordtype}{float}\ f3);}
-\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00036}00036\ }
-\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00037}00037\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetUniform4f(\textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keyword}{const}\ glm::vec4\&\ matrix);}
-\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00038}00038\ }
-\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00039}00039\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetUniform3f(\textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keywordtype}{float}\ f0,\ \textcolor{keywordtype}{float}\ f1,\ \textcolor{keywordtype}{float}\ f2);}
-\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00040}00040\ }
-\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00041}00041\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetUniform3f(\textcolor{keyword}{const}\ std::string\&\ name,\ \mbox{\hyperlink{struct_vec3}{Vec3}}\&\ value);}
-\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00042}00042\ }
-\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00043}00043\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetUniform1f(\textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keywordtype}{float}\ value);}
-\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00044}00044\ }
-\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00045}00045\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetUniform1i(\textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keywordtype}{int}\ value);}
-\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00046}00046\ }
-\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00047}00047\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetUniformMat4f(\textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keyword}{const}\ glm::mat4\&\ matrix);}
-\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00048}00048\ }
-\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00049}00049\ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00050}00050\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ GetUniformLocation(\textcolor{keyword}{const}\ std::string\&\ name);}
-\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00051}00051\ }
-\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00052}00052\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_vivid_1_1_shader_program_source}{ShaderProgramSource}}}
-\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00053}00053\ \ \ \ \ \ \ \ \ ParseShader(const\ std::string\&\ filepathVertexShader,\ const\ std::string\&\ filepathPixelShader);}
-\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00054}00054\ }
-\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00055}00055\ \ \ \ \ \ \ \ \ unsigned\ int\ CompileShader(unsigned\ int\ type,\ const\ std::string\&\ source);}
-\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00056}00056\ }
-\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00057}00057\ \ \ \ \ \ \ \ \ unsigned\ int\ CreateShader(const\ std::string\&\ vertexShader,\ const\ std::string\&\ fragmentShader);}
-\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00058}00058\ \ \ \ \ \};}
-\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00059}00059\ \}}
+\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00027}00027\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_vivid_1_1_shader}{\string~Shader}}();}
+\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00029}00029\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ Ref<Shader>\ Create(\textcolor{keyword}{const}\ std::string\&\ filepathVertexShader,\ \textcolor{keyword}{const}\ std::string\&\ filepathPixelShader);}
+\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00031}00031\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ Bind()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00033}00033\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ Unbind()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00035}00035\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Set\ uniforms}}
+\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00036}00036\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetUniform4f(\textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keywordtype}{float}\ f0,\ \textcolor{keywordtype}{float}\ f1,\ \textcolor{keywordtype}{float}\ f2,\ \textcolor{keywordtype}{float}\ f3);}
+\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00038}00038\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetUniform4f(\textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keyword}{const}\ glm::vec4\&\ matrix);}
+\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00040}00040\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetUniform3f(\textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keywordtype}{float}\ f0,\ \textcolor{keywordtype}{float}\ f1,\ \textcolor{keywordtype}{float}\ f2);}
+\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00042}00042\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetUniform3f(\textcolor{keyword}{const}\ std::string\&\ name,\ \mbox{\hyperlink{struct_vec3}{Vec3}}\&\ value);}
+\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00044}00044\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetUniform1f(\textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keywordtype}{float}\ value);}
+\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00046}00046\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetUniform1i(\textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keywordtype}{int}\ value);}
+\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00048}00048\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetUniformMat4f(\textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keyword}{const}\ glm::mat4\&\ matrix);}
+\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00050}00050\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00051}00051\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ GetUniformLocation(\textcolor{keyword}{const}\ std::string\&\ name);}
+\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00053}00053\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_vivid_1_1_shader_program_source}{ShaderProgramSource}}}
+\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00054}00054\ \ \ \ \ \ \ \ \ ParseShader(const\ std::string\&\ filepathVertexShader,\ const\ std::string\&\ filepathPixelShader);}
+\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00056}00056\ \ \ \ \ \ \ \ \ unsigned\ int\ CompileShader(unsigned\ int\ type,\ const\ std::string\&\ source);}
+\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00058}00058\ \ \ \ \ \ \ \ \ unsigned\ int\ CreateShader(const\ std::string\&\ vertexShader,\ const\ std::string\&\ fragmentShader);}
+\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00059}00059\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_shader_8h_source_l00060}00060\ \}}
 
 \end{DoxyCode}
