@@ -60,6 +60,7 @@ void \mbox{\hyperlink{class_editor_camera_a48e80c6e678cc5099fae32250d6ec474}{Mov
 \item 
 void \mbox{\hyperlink{class_editor_camera_a215f36a7284d25541f3f7824d2954e6b}{Move\+Right}} ()
 \end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_camera}{Camera}}}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{class_camera_a4890075ff407e59ce0996aef90d206a5}\label{class_camera_a4890075ff407e59ce0996aef90d206a5}} 
@@ -76,6 +77,18 @@ virtual void {\bfseries Set\+View\+Matrix} (glm\+::mat4 view)=0
 \item 
 \mbox{\Hypertarget{class_camera_aae905d66a644d95e0e19a19fcd3d92a3}\label{class_camera_aae905d66a644d95e0e19a19fcd3d92a3}} 
 virtual void {\bfseries Set\+Viewport\+Size} (int width, int height)=0
+\item 
+int \mbox{\hyperlink{class_camera_acc055e418f536dd58239c29101759e18}{Get\+Viewport\+Width}} ()
+\item 
+int \mbox{\hyperlink{class_camera_a54235e2b3ae188c2e1576a54b319b9d6}{Get\+Viewport\+Height}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+\doxysubsubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_camera}{Camera}}}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_camera_a871e9f504a885886552348249132c8cd}{m\+\_\+\+Viewport\+Width}}
+\item 
+int \mbox{\hyperlink{class_camera_a2fbbaa5fcf32be00a5f898769e3d92dd}{m\+\_\+\+Viewport\+Height}}
 \end{DoxyCompactItemize}
 
 
@@ -108,7 +121,7 @@ Definition at line \mbox{\hyperlink{_editor_camera_8cpp_source_l00003}{3}} of fi
 
 
 
-Definition at line \mbox{\hyperlink{_editor_camera_8h_source_l00059}{59}} of file \mbox{\hyperlink{_editor_camera_8h_source}{Editor\+Camera.\+h}}.
+Definition at line \mbox{\hyperlink{_editor_camera_8h_source_l00064}{64}} of file \mbox{\hyperlink{_editor_camera_8h_source}{Editor\+Camera.\+h}}.
 
 \mbox{\Hypertarget{class_editor_camera_a6e097006b4b9000245e4bd15c6f2b812}\label{class_editor_camera_a6e097006b4b9000245e4bd15c6f2b812}} 
 \index{EditorCamera@{EditorCamera}!GetMovementSpeed@{GetMovementSpeed}}
@@ -118,7 +131,7 @@ Definition at line \mbox{\hyperlink{_editor_camera_8h_source_l00059}{59}} of fil
 
 
 
-Definition at line \mbox{\hyperlink{_editor_camera_8h_source_l00058}{58}} of file \mbox{\hyperlink{_editor_camera_8h_source}{Editor\+Camera.\+h}}.
+Definition at line \mbox{\hyperlink{_editor_camera_8h_source_l00062}{62}} of file \mbox{\hyperlink{_editor_camera_8h_source}{Editor\+Camera.\+h}}.
 
 \mbox{\Hypertarget{class_editor_camera_ab7f717c0937b2aae90105f999c17b863}\label{class_editor_camera_ab7f717c0937b2aae90105f999c17b863}} 
 \index{EditorCamera@{EditorCamera}!GetPitch@{GetPitch}}
@@ -128,7 +141,7 @@ Definition at line \mbox{\hyperlink{_editor_camera_8h_source_l00058}{58}} of fil
 
 
 
-Definition at line \mbox{\hyperlink{_editor_camera_8h_source_l00057}{57}} of file \mbox{\hyperlink{_editor_camera_8h_source}{Editor\+Camera.\+h}}.
+Definition at line \mbox{\hyperlink{_editor_camera_8h_source_l00060}{60}} of file \mbox{\hyperlink{_editor_camera_8h_source}{Editor\+Camera.\+h}}.
 
 \mbox{\Hypertarget{class_editor_camera_ae59302fb08ed42d2182211772a56fc55}\label{class_editor_camera_ae59302fb08ed42d2182211772a56fc55}} 
 \index{EditorCamera@{EditorCamera}!GetPosition@{GetPosition}}
@@ -138,7 +151,7 @@ Definition at line \mbox{\hyperlink{_editor_camera_8h_source_l00057}{57}} of fil
 
 
 
-Definition at line \mbox{\hyperlink{_editor_camera_8h_source_l00053}{53}} of file \mbox{\hyperlink{_editor_camera_8h_source}{Editor\+Camera.\+h}}.
+Definition at line \mbox{\hyperlink{_editor_camera_8h_source_l00052}{52}} of file \mbox{\hyperlink{_editor_camera_8h_source}{Editor\+Camera.\+h}}.
 
 \mbox{\Hypertarget{class_editor_camera_a5fd2d0fd50c5105d82e5feb44e0e8df1}\label{class_editor_camera_a5fd2d0fd50c5105d82e5feb44e0e8df1}} 
 \index{EditorCamera@{EditorCamera}!GetProjectionMatrix@{GetProjectionMatrix}}
@@ -152,7 +165,7 @@ Implements \mbox{\hyperlink{class_camera}{Camera}}.
 
 
 
-Definition at line \mbox{\hyperlink{_editor_camera_8h_source_l00055}{55}} of file \mbox{\hyperlink{_editor_camera_8h_source}{Editor\+Camera.\+h}}.
+Definition at line \mbox{\hyperlink{_editor_camera_8h_source_l00056}{56}} of file \mbox{\hyperlink{_editor_camera_8h_source}{Editor\+Camera.\+h}}.
 
 \mbox{\Hypertarget{class_editor_camera_a7e9f3b31e0744bf02a2b1f97babd228c}\label{class_editor_camera_a7e9f3b31e0744bf02a2b1f97babd228c}} 
 \index{EditorCamera@{EditorCamera}!GetViewMatrix@{GetViewMatrix}}
@@ -176,7 +189,7 @@ Definition at line \mbox{\hyperlink{_editor_camera_8h_source_l00054}{54}} of fil
 
 
 
-Definition at line \mbox{\hyperlink{_editor_camera_8h_source_l00056}{56}} of file \mbox{\hyperlink{_editor_camera_8h_source}{Editor\+Camera.\+h}}.
+Definition at line \mbox{\hyperlink{_editor_camera_8h_source_l00058}{58}} of file \mbox{\hyperlink{_editor_camera_8h_source}{Editor\+Camera.\+h}}.
 
 \mbox{\Hypertarget{class_editor_camera_ac8e9df617f5fe9163e3d0e81e93187e7}\label{class_editor_camera_ac8e9df617f5fe9163e3d0e81e93187e7}} 
 \index{EditorCamera@{EditorCamera}!GetZoom@{GetZoom}}
@@ -186,7 +199,7 @@ Definition at line \mbox{\hyperlink{_editor_camera_8h_source_l00056}{56}} of fil
 
 
 
-Definition at line \mbox{\hyperlink{_editor_camera_8h_source_l00060}{60}} of file \mbox{\hyperlink{_editor_camera_8h_source}{Editor\+Camera.\+h}}.
+Definition at line \mbox{\hyperlink{_editor_camera_8h_source_l00066}{66}} of file \mbox{\hyperlink{_editor_camera_8h_source}{Editor\+Camera.\+h}}.
 
 \mbox{\Hypertarget{class_editor_camera_a882f6954efbe75c0563a04a22acfe207}\label{class_editor_camera_a882f6954efbe75c0563a04a22acfe207}} 
 \index{EditorCamera@{EditorCamera}!MoveBackward@{MoveBackward}}
@@ -196,7 +209,7 @@ Definition at line \mbox{\hyperlink{_editor_camera_8h_source_l00060}{60}} of fil
 
 
 
-Definition at line \mbox{\hyperlink{_editor_camera_8cpp_source_l00117}{117}} of file \mbox{\hyperlink{_editor_camera_8cpp_source}{Editor\+Camera.\+cpp}}.
+Definition at line \mbox{\hyperlink{_editor_camera_8cpp_source_l00120}{120}} of file \mbox{\hyperlink{_editor_camera_8cpp_source}{Editor\+Camera.\+cpp}}.
 
 \mbox{\Hypertarget{class_editor_camera_a976ecaaced6fc1174bf1cc05663666cb}\label{class_editor_camera_a976ecaaced6fc1174bf1cc05663666cb}} 
 \index{EditorCamera@{EditorCamera}!MoveForward@{MoveForward}}
@@ -206,7 +219,7 @@ Definition at line \mbox{\hyperlink{_editor_camera_8cpp_source_l00117}{117}} of 
 
 
 
-Definition at line \mbox{\hyperlink{_editor_camera_8cpp_source_l00111}{111}} of file \mbox{\hyperlink{_editor_camera_8cpp_source}{Editor\+Camera.\+cpp}}.
+Definition at line \mbox{\hyperlink{_editor_camera_8cpp_source_l00114}{114}} of file \mbox{\hyperlink{_editor_camera_8cpp_source}{Editor\+Camera.\+cpp}}.
 
 \mbox{\Hypertarget{class_editor_camera_a48e80c6e678cc5099fae32250d6ec474}\label{class_editor_camera_a48e80c6e678cc5099fae32250d6ec474}} 
 \index{EditorCamera@{EditorCamera}!MoveLeft@{MoveLeft}}
@@ -216,7 +229,7 @@ Definition at line \mbox{\hyperlink{_editor_camera_8cpp_source_l00111}{111}} of 
 
 
 
-Definition at line \mbox{\hyperlink{_editor_camera_8cpp_source_l00123}{123}} of file \mbox{\hyperlink{_editor_camera_8cpp_source}{Editor\+Camera.\+cpp}}.
+Definition at line \mbox{\hyperlink{_editor_camera_8cpp_source_l00126}{126}} of file \mbox{\hyperlink{_editor_camera_8cpp_source}{Editor\+Camera.\+cpp}}.
 
 \mbox{\Hypertarget{class_editor_camera_a215f36a7284d25541f3f7824d2954e6b}\label{class_editor_camera_a215f36a7284d25541f3f7824d2954e6b}} 
 \index{EditorCamera@{EditorCamera}!MoveRight@{MoveRight}}
@@ -226,7 +239,7 @@ Definition at line \mbox{\hyperlink{_editor_camera_8cpp_source_l00123}{123}} of 
 
 
 
-Definition at line \mbox{\hyperlink{_editor_camera_8cpp_source_l00129}{129}} of file \mbox{\hyperlink{_editor_camera_8cpp_source}{Editor\+Camera.\+cpp}}.
+Definition at line \mbox{\hyperlink{_editor_camera_8cpp_source_l00132}{132}} of file \mbox{\hyperlink{_editor_camera_8cpp_source}{Editor\+Camera.\+cpp}}.
 
 \mbox{\Hypertarget{class_editor_camera_a49450b0455b84ce4822d8918e18212cd}\label{class_editor_camera_a49450b0455b84ce4822d8918e18212cd}} 
 \index{EditorCamera@{EditorCamera}!ProcessKeyboard@{ProcessKeyboard}}
@@ -266,7 +279,7 @@ Definition at line \mbox{\hyperlink{_editor_camera_8cpp_source_l00059}{59}} of f
 
 
 
-Definition at line \mbox{\hyperlink{_editor_camera_8cpp_source_l00096}{96}} of file \mbox{\hyperlink{_editor_camera_8cpp_source}{Editor\+Camera.\+cpp}}.
+Definition at line \mbox{\hyperlink{_editor_camera_8cpp_source_l00097}{97}} of file \mbox{\hyperlink{_editor_camera_8cpp_source}{Editor\+Camera.\+cpp}}.
 
 \mbox{\Hypertarget{class_editor_camera_a3dcf9ff1832af5e5f802f7edd7d9130d}\label{class_editor_camera_a3dcf9ff1832af5e5f802f7edd7d9130d}} 
 \index{EditorCamera@{EditorCamera}!SetPerspective@{SetPerspective}}
@@ -280,7 +293,7 @@ Implements \mbox{\hyperlink{class_camera}{Camera}}.
 
 
 
-Definition at line \mbox{\hyperlink{_editor_camera_8cpp_source_l00140}{140}} of file \mbox{\hyperlink{_editor_camera_8cpp_source}{Editor\+Camera.\+cpp}}.
+Definition at line \mbox{\hyperlink{_editor_camera_8cpp_source_l00143}{143}} of file \mbox{\hyperlink{_editor_camera_8cpp_source}{Editor\+Camera.\+cpp}}.
 
 \mbox{\Hypertarget{class_editor_camera_a1302fd4c622f3222b113c50299d77acc}\label{class_editor_camera_a1302fd4c622f3222b113c50299d77acc}} 
 \index{EditorCamera@{EditorCamera}!SetViewMatrix@{SetViewMatrix}}
@@ -294,7 +307,7 @@ Implements \mbox{\hyperlink{class_camera}{Camera}}.
 
 
 
-Definition at line \mbox{\hyperlink{_editor_camera_8cpp_source_l00135}{135}} of file \mbox{\hyperlink{_editor_camera_8cpp_source}{Editor\+Camera.\+cpp}}.
+Definition at line \mbox{\hyperlink{_editor_camera_8cpp_source_l00138}{138}} of file \mbox{\hyperlink{_editor_camera_8cpp_source}{Editor\+Camera.\+cpp}}.
 
 \mbox{\Hypertarget{class_editor_camera_af482b644954ee7b739d293fd2bfa39b2}\label{class_editor_camera_af482b644954ee7b739d293fd2bfa39b2}} 
 \index{EditorCamera@{EditorCamera}!SetViewportSize@{SetViewportSize}}
@@ -308,7 +321,7 @@ Implements \mbox{\hyperlink{class_camera}{Camera}}.
 
 
 
-Definition at line \mbox{\hyperlink{_editor_camera_8cpp_source_l00105}{105}} of file \mbox{\hyperlink{_editor_camera_8cpp_source}{Editor\+Camera.\+cpp}}.
+Definition at line \mbox{\hyperlink{_editor_camera_8cpp_source_l00106}{106}} of file \mbox{\hyperlink{_editor_camera_8cpp_source}{Editor\+Camera.\+cpp}}.
 
 
 

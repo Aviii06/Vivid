@@ -17,7 +17,13 @@ void \mbox{\hyperlink{class_vivid_1_1_point_light_component_a9cc83da96624b4bcfc7
 \item 
 void \mbox{\hyperlink{class_vivid_1_1_point_light_component_ac6312024698373d7e721e7ea06d04329}{Im\+Gui\+Render}} () override
 \item 
+void \mbox{\hyperlink{class_vivid_1_1_point_light_component_a856f8b00d0e5d9e814f1ac1c390bb872}{Set\+Color}} (\mbox{\hyperlink{struct_vec3}{Vec3}} color)
+\item 
 \mbox{\hyperlink{struct_vec3}{Vec3}} \mbox{\hyperlink{class_vivid_1_1_point_light_component_a043c666c5b311127f478862f0a09bb0d}{Get\+Color}} () const
+\item 
+float \mbox{\hyperlink{class_vivid_1_1_point_light_component_ac2fa8e970ee479553062535e68a8ec8e}{Get\+Intensity}} () const
+\item 
+String \mbox{\hyperlink{class_vivid_1_1_point_light_component_a7cf7e2e38c03b39963c6968caef24936}{Get\+Component\+Name}} () override
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_vivid_1_1_component}{Vivid\+::\+Component}}}
 \begin{DoxyCompactItemize}
@@ -31,6 +37,9 @@ virtual void {\bfseries Im\+Gui\+Render} ()=0
 void \mbox{\hyperlink{class_vivid_1_1_component_a3a260c023f353dd0d31ca139ef26d60c}{Set\+Entity}} (\mbox{\hyperlink{class_vivid_1_1_entity}{Vivid\+::\+Entity}} $\ast$entity)
 \item 
 \mbox{\hyperlink{class_vivid_1_1_entity}{Vivid\+::\+Entity}} $\ast$ \mbox{\hyperlink{class_vivid_1_1_component_a8d46ad6052d123982d63b369f2520435}{Get\+Entity}} () const
+\item 
+\mbox{\Hypertarget{class_vivid_1_1_component_a4098ad385ce7cfaf955f11feeb3dca52}\label{class_vivid_1_1_component_a4098ad385ce7cfaf955f11feeb3dca52}} 
+virtual String {\bfseries Get\+Component\+Name} ()=0
 \end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 \doxysubsubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_vivid_1_1_component}{Vivid\+::\+Component}}}
@@ -56,7 +65,7 @@ Definition at line \mbox{\hyperlink{_point_light_component_8h_source_l00011}{11}
 
 
 
-Definition at line \mbox{\hyperlink{_point_light_component_8cpp_source_l00006}{6}} of file \mbox{\hyperlink{_point_light_component_8cpp_source}{Point\+Light\+Component.\+cpp}}.
+Definition at line \mbox{\hyperlink{_point_light_component_8cpp_source_l00009}{9}} of file \mbox{\hyperlink{_point_light_component_8cpp_source}{Point\+Light\+Component.\+cpp}}.
 
 
 
@@ -73,7 +82,7 @@ Implements \mbox{\hyperlink{class_vivid_1_1_component}{Vivid\+::\+Component}}.
 
 
 
-Definition at line \mbox{\hyperlink{_point_light_component_8cpp_source_l00011}{11}} of file \mbox{\hyperlink{_point_light_component_8cpp_source}{Point\+Light\+Component.\+cpp}}.
+Definition at line \mbox{\hyperlink{_point_light_component_8cpp_source_l00014}{14}} of file \mbox{\hyperlink{_point_light_component_8cpp_source}{Point\+Light\+Component.\+cpp}}.
 
 \mbox{\Hypertarget{class_vivid_1_1_point_light_component_a043c666c5b311127f478862f0a09bb0d}\label{class_vivid_1_1_point_light_component_a043c666c5b311127f478862f0a09bb0d}} 
 \index{Vivid::PointLightComponent@{Vivid::PointLightComponent}!GetColor@{GetColor}}
@@ -83,7 +92,31 @@ Definition at line \mbox{\hyperlink{_point_light_component_8cpp_source_l00011}{1
 
 
 
-Definition at line \mbox{\hyperlink{_point_light_component_8h_source_l00022}{22}} of file \mbox{\hyperlink{_point_light_component_8h_source}{Point\+Light\+Component.\+h}}.
+Definition at line \mbox{\hyperlink{_point_light_component_8h_source_l00030}{30}} of file \mbox{\hyperlink{_point_light_component_8h_source}{Point\+Light\+Component.\+h}}.
+
+\mbox{\Hypertarget{class_vivid_1_1_point_light_component_a7cf7e2e38c03b39963c6968caef24936}\label{class_vivid_1_1_point_light_component_a7cf7e2e38c03b39963c6968caef24936}} 
+\index{Vivid::PointLightComponent@{Vivid::PointLightComponent}!GetComponentName@{GetComponentName}}
+\index{GetComponentName@{GetComponentName}!Vivid::PointLightComponent@{Vivid::PointLightComponent}}
+\doxysubsubsection{\texorpdfstring{GetComponentName()}{GetComponentName()}}
+{\footnotesize\ttfamily String Vivid\+::\+Point\+Light\+Component\+::\+Get\+Component\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_vivid_1_1_component}{Vivid\+::\+Component}}.
+
+
+
+Definition at line \mbox{\hyperlink{_point_light_component_8h_source_l00034}{34}} of file \mbox{\hyperlink{_point_light_component_8h_source}{Point\+Light\+Component.\+h}}.
+
+\mbox{\Hypertarget{class_vivid_1_1_point_light_component_ac2fa8e970ee479553062535e68a8ec8e}\label{class_vivid_1_1_point_light_component_ac2fa8e970ee479553062535e68a8ec8e}} 
+\index{Vivid::PointLightComponent@{Vivid::PointLightComponent}!GetIntensity@{GetIntensity}}
+\index{GetIntensity@{GetIntensity}!Vivid::PointLightComponent@{Vivid::PointLightComponent}}
+\doxysubsubsection{\texorpdfstring{GetIntensity()}{GetIntensity()}}
+{\footnotesize\ttfamily float Vivid\+::\+Point\+Light\+Component\+::\+Get\+Intensity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_point_light_component_8h_source_l00032}{32}} of file \mbox{\hyperlink{_point_light_component_8h_source}{Point\+Light\+Component.\+h}}.
 
 \mbox{\Hypertarget{class_vivid_1_1_point_light_component_ac6312024698373d7e721e7ea06d04329}\label{class_vivid_1_1_point_light_component_ac6312024698373d7e721e7ea06d04329}} 
 \index{Vivid::PointLightComponent@{Vivid::PointLightComponent}!ImGuiRender@{ImGuiRender}}
@@ -97,7 +130,17 @@ Implements \mbox{\hyperlink{class_vivid_1_1_component}{Vivid\+::\+Component}}.
 
 
 
-Definition at line \mbox{\hyperlink{_point_light_component_8cpp_source_l00015}{15}} of file \mbox{\hyperlink{_point_light_component_8cpp_source}{Point\+Light\+Component.\+cpp}}.
+Definition at line \mbox{\hyperlink{_point_light_component_8cpp_source_l00033}{33}} of file \mbox{\hyperlink{_point_light_component_8cpp_source}{Point\+Light\+Component.\+cpp}}.
+
+\mbox{\Hypertarget{class_vivid_1_1_point_light_component_a856f8b00d0e5d9e814f1ac1c390bb872}\label{class_vivid_1_1_point_light_component_a856f8b00d0e5d9e814f1ac1c390bb872}} 
+\index{Vivid::PointLightComponent@{Vivid::PointLightComponent}!SetColor@{SetColor}}
+\index{SetColor@{SetColor}!Vivid::PointLightComponent@{Vivid::PointLightComponent}}
+\doxysubsubsection{\texorpdfstring{SetColor()}{SetColor()}}
+{\footnotesize\ttfamily void Vivid\+::\+Point\+Light\+Component\+::\+Set\+Color (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vec3}{Vec3}}}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_point_light_component_8h_source_l00028}{28}} of file \mbox{\hyperlink{_point_light_component_8h_source}{Point\+Light\+Component.\+h}}.
 
 
 

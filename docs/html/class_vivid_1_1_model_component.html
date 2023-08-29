@@ -17,6 +17,7 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -120,6 +121,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ae0312e142f58e62c5bab1457299030a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a199f4ec2dbec4e9872c5aa285b7ca70a"><td class="memItemLeft" align="right" valign="top">Vector&lt; <a class="el" href="class_vivid_1_1_mesh.html">Vivid::Mesh</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vivid_1_1_model_component.html#a199f4ec2dbec4e9872c5aa285b7ca70a">GetMeshes</a> ()</td></tr>
 <tr class="separator:a199f4ec2dbec4e9872c5aa285b7ca70a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37f213fb3892de57a44932431f57e609"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vivid_1_1_model_component.html#a37f213fb3892de57a44932431f57e609">GetComponentName</a> () override</td></tr>
+<tr class="separator:a37f213fb3892de57a44932431f57e609"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_vivid_1_1_component"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_vivid_1_1_component')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_vivid_1_1_component.html">Vivid::Component</a></td></tr>
 <tr class="memitem:a89933dd3a3576a6a3ef8e1fe007624ac inherit pub_methods_class_vivid_1_1_component"><td class="memItemLeft" align="right" valign="top"><a id="a89933dd3a3576a6a3ef8e1fe007624ac" name="a89933dd3a3576a6a3ef8e1fe007624ac"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Draw</b> (<a class="el" href="class_camera.html">Camera</a> *camera)=0</td></tr>
@@ -131,6 +134,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>ImGuiRender</
 <tr class="separator:a3a260c023f353dd0d31ca139ef26d60c inherit pub_methods_class_vivid_1_1_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d46ad6052d123982d63b369f2520435 inherit pub_methods_class_vivid_1_1_component"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_vivid_1_1_entity.html">Vivid::Entity</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vivid_1_1_component.html#a8d46ad6052d123982d63b369f2520435">GetEntity</a> () const</td></tr>
 <tr class="separator:a8d46ad6052d123982d63b369f2520435 inherit pub_methods_class_vivid_1_1_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4098ad385ce7cfaf955f11feeb3dca52 inherit pub_methods_class_vivid_1_1_component"><td class="memItemLeft" align="right" valign="top"><a id="a4098ad385ce7cfaf955f11feeb3dca52" name="a4098ad385ce7cfaf955f11feeb3dca52"></a>
+virtual String&#160;</td><td class="memItemRight" valign="bottom"><b>GetComponentName</b> ()=0</td></tr>
+<tr class="separator:a4098ad385ce7cfaf955f11feeb3dca52 inherit pub_methods_class_vivid_1_1_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -140,7 +146,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_model_component_8h_source.html#l00009">9</a> of file <a class="el" href="_model_component_8h_source.html">ModelComponent.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_model_component_8h_source.html#l00010">10</a> of file <a class="el" href="_model_component_8h_source.html">ModelComponent.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a543971fe643d24b4c7d07109f738200c" name="a543971fe643d24b4c7d07109f738200c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a543971fe643d24b4c7d07109f738200c">&#9670;&#160;</a></span>ModelComponent()</h2>
@@ -157,7 +163,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_model_component_8cpp_source.html#l00006">6</a> of file <a class="el" href="_model_component_8cpp_source.html">ModelComponent.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_model_component_8cpp_source.html#l00007">7</a> of file <a class="el" href="_model_component_8cpp_source.html">ModelComponent.cpp</a>.</p>
 
 </div>
 </div>
@@ -178,7 +184,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_model_component_8cpp_source.html#l00025">25</a> of file <a class="el" href="_model_component_8cpp_source.html">ModelComponent.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_model_component_8cpp_source.html#l00031">31</a> of file <a class="el" href="_model_component_8cpp_source.html">ModelComponent.cpp</a>.</p>
 
 </div>
 </div>
@@ -208,7 +214,36 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="class_vivid_1_1_component.html">Vivid::Component</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_model_component_8cpp_source.html#l00019">19</a> of file <a class="el" href="_model_component_8cpp_source.html">ModelComponent.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_model_component_8cpp_source.html#l00020">20</a> of file <a class="el" href="_model_component_8cpp_source.html">ModelComponent.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a37f213fb3892de57a44932431f57e609" name="a37f213fb3892de57a44932431f57e609"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37f213fb3892de57a44932431f57e609">&#9670;&#160;</a></span>GetComponentName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">String Vivid::ModelComponent::GetComponentName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="class_vivid_1_1_component.html">Vivid::Component</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_model_component_8h_source.html#l00030">30</a> of file <a class="el" href="_model_component_8h_source.html">ModelComponent.h</a>.</p>
 
 </div>
 </div>
@@ -235,7 +270,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_model_component_8h_source.html#l00023">23</a> of file <a class="el" href="_model_component_8h_source.html">ModelComponent.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_model_component_8h_source.html#l00028">28</a> of file <a class="el" href="_model_component_8h_source.html">ModelComponent.h</a>.</p>
 
 </div>
 </div>
@@ -264,7 +299,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="class_vivid_1_1_component.html">Vivid::Component</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_model_component_8cpp_source.html#l00011">11</a> of file <a class="el" href="_model_component_8cpp_source.html">ModelComponent.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_model_component_8cpp_source.html#l00012">12</a> of file <a class="el" href="_model_component_8cpp_source.html">ModelComponent.cpp</a>.</p>
 
 </div>
 </div>
@@ -284,7 +319,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_model_component_8cpp_source.html#l00030">30</a> of file <a class="el" href="_model_component_8cpp_source.html">ModelComponent.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_model_component_8cpp_source.html#l00036">36</a> of file <a class="el" href="_model_component_8cpp_source.html">ModelComponent.cpp</a>.</p>
 
 </div>
 </div>

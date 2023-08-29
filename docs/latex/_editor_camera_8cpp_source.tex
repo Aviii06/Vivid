@@ -86,64 +86,67 @@
 \DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00082}00082\ \ \ \ \ m\_Right\ =\ glm::normalize(glm::cross(m\_Front,\ glm::vec3(0.0f,\ 1.0f,\ 0.0f)));}
 \DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00083}00083\ \ \ \ \ m\_Up\ =\ glm::normalize(glm::cross(m\_Right,\ m\_Front));}
 \DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00084}00084\ \}}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00085}00085\ \textcolor{keywordtype}{void}\ EditorCamera::updateProjectionMatrix()}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00086}00086\ \{}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00087}00087\ \ \ \ \ m\_ProjectionMatrix\ =\ glm::perspective(glm::radians(m\_FOV),\ m\_AspectRatio,\ m\_NearCip,\ m\_FarClip);}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00088}00088\ \}}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00089}00089\ }
-\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00090}00090\ \textcolor{comment}{//\ Updates\ view\ matrix\ based\ on\ camera\ position\ and\ orientation}}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00091}00091\ \textcolor{keywordtype}{void}\ EditorCamera::updateViewMatrix()}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00092}00092\ \{}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00093}00093\ \ \ \ \ m\_ViewMatrix\ =\ glm::lookAt(m\_Position,\ m\_Position\ +\ m\_Front,\ m\_Up);}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00094}00094\ \}}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00095}00095\ }
-\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00096}00096\ \textcolor{keywordtype}{void}\ EditorCamera::SetPerspective(\textcolor{keywordtype}{float}\ fov,\ \textcolor{keywordtype}{float}\ aspect,\ \textcolor{keywordtype}{float}\ near,\ \textcolor{keywordtype}{float}\ far)}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00097}00097\ \{}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00098}00098\ \ \ \ \ m\_FOV\ =\ fov;}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00099}00099\ \ \ \ \ m\_AspectRatio\ =\ aspect;}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00100}00100\ \ \ \ \ m\_NearCip\ =\ near;}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00101}00101\ \ \ \ \ m\_FarClip\ =\ far;}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00102}00102\ \ \ \ \ updateProjectionMatrix();}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00103}00103\ \}}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00104}00104\ }
-\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00105}00105\ \textcolor{keywordtype}{void}\ EditorCamera::SetViewportSize(\textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height)}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00106}00106\ \{}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00107}00107\ \ \ \ \ m\_AspectRatio\ =\ (float)width\ /\ (\textcolor{keywordtype}{float})height;}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00108}00108\ \ \ \ \ updateProjectionMatrix();}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00109}00109\ \}}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00110}00110\ }
-\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00111}00111\ \textcolor{keywordtype}{void}\ EditorCamera::MoveForward()}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00112}00112\ \{}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00113}00113\ \ \ \ \ m\_Position\ +=\ m\_Front\ *\ m\_MovementSpeed;}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00114}00114\ \ \ \ \ updateViewMatrix();}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00115}00115\ \}}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00116}00116\ }
-\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00117}00117\ \textcolor{keywordtype}{void}\ EditorCamera::MoveBackward()}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00118}00118\ \{}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00119}00119\ \ \ \ \ m\_Position\ -\/=\ m\_Front\ *\ m\_MovementSpeed;}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00120}00120\ \ \ \ \ updateViewMatrix();}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00121}00121\ \}}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00122}00122\ }
-\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00123}00123\ \textcolor{keywordtype}{void}\ EditorCamera::MoveLeft()}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00124}00124\ \{}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00125}00125\ \ \ \ \ m\_Position\ -\/=\ m\_Right\ *\ m\_MovementSpeed;}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00126}00126\ \ \ \ \ updateViewMatrix();}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00127}00127\ \}}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00128}00128\ }
-\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00129}00129\ \textcolor{keywordtype}{void}\ EditorCamera::MoveRight()}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00130}00130\ \{}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00131}00131\ \ \ \ \ m\_Position\ +=\ m\_Right\ *\ m\_MovementSpeed;}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00132}00132\ \ \ \ \ updateViewMatrix();}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00133}00133\ \}}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00134}00134\ }
-\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00135}00135\ \textcolor{keywordtype}{void}\ EditorCamera::SetViewMatrix(glm::mat4\ view)}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00136}00136\ \{}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00137}00137\ \ \ \ \ m\_ViewMatrix\ =\ view;}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00138}00138\ \}}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00139}00139\ }
-\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00140}00140\ \textcolor{keywordtype}{void}\ EditorCamera::SetPerspective(glm::mat4\ perspective)}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00141}00141\ \{}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00142}00142\ \ \ \ \ m\_ProjectionMatrix\ =\ perspective;}
-\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00143}00143\ \}}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00086}00086\ \textcolor{keywordtype}{void}\ EditorCamera::updateProjectionMatrix()}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00087}00087\ \{}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00088}00088\ \ \ \ \ m\_ProjectionMatrix\ =\ glm::perspective(glm::radians(m\_FOV),\ m\_AspectRatio,\ m\_NearCip,\ m\_FarClip);}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00089}00089\ \}}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00091}00091\ \textcolor{comment}{//\ Updates\ view\ matrix\ based\ on\ camera\ position\ and\ orientation}}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00092}00092\ \textcolor{keywordtype}{void}\ EditorCamera::updateViewMatrix()}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00093}00093\ \{}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00094}00094\ \ \ \ \ m\_ViewMatrix\ =\ glm::lookAt(m\_Position,\ m\_Position\ +\ m\_Front,\ m\_Up);}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00095}00095\ \}}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00097}00097\ \textcolor{keywordtype}{void}\ EditorCamera::SetPerspective(\textcolor{keywordtype}{float}\ fov,\ \textcolor{keywordtype}{float}\ aspect,\ \textcolor{keywordtype}{float}\ near,\ \textcolor{keywordtype}{float}\ far)}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00098}00098\ \{}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00099}00099\ \ \ \ \ m\_FOV\ =\ fov;}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00100}00100\ \ \ \ \ m\_AspectRatio\ =\ aspect;}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00101}00101\ \ \ \ \ m\_NearCip\ =\ near;}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00102}00102\ \ \ \ \ m\_FarClip\ =\ far;}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00103}00103\ \ \ \ \ updateProjectionMatrix();}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00104}00104\ \}}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00106}00106\ \textcolor{keywordtype}{void}\ EditorCamera::SetViewportSize(\textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height)}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00107}00107\ \{}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00108}00108\ \ \ \ \ m\_AspectRatio\ =\ (float)width\ /\ (\textcolor{keywordtype}{float})height;}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00109}00109\ \ \ \ \ m\_ViewportWidth\ =\ width;}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00110}00110\ \ \ \ \ m\_ViewportHeight\ =\ height;}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00111}00111\ \ \ \ \ updateProjectionMatrix();}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00112}00112\ \}}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00113}00113\ }
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00114}00114\ \textcolor{keywordtype}{void}\ EditorCamera::MoveForward()}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00115}00115\ \{}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00116}00116\ \ \ \ \ m\_Position\ +=\ m\_Front\ *\ m\_MovementSpeed;}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00117}00117\ \ \ \ \ updateViewMatrix();}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00118}00118\ \}}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00120}00120\ \textcolor{keywordtype}{void}\ EditorCamera::MoveBackward()}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00121}00121\ \{}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00122}00122\ \ \ \ \ m\_Position\ -\/=\ m\_Front\ *\ m\_MovementSpeed;}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00123}00123\ \ \ \ \ updateViewMatrix();}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00124}00124\ \}}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00125}00125\ }
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00126}00126\ \textcolor{keywordtype}{void}\ EditorCamera::MoveLeft()}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00127}00127\ \{}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00128}00128\ \ \ \ \ m\_Position\ -\/=\ m\_Right\ *\ m\_MovementSpeed;}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00129}00129\ \ \ \ \ updateViewMatrix();}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00130}00130\ \}}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00131}00131\ }
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00132}00132\ \textcolor{keywordtype}{void}\ EditorCamera::MoveRight()}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00133}00133\ \{}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00134}00134\ \ \ \ \ m\_Position\ +=\ m\_Right\ *\ m\_MovementSpeed;}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00135}00135\ \ \ \ \ updateViewMatrix();}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00136}00136\ \}}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00137}00137\ }
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00138}00138\ \textcolor{keywordtype}{void}\ EditorCamera::SetViewMatrix(glm::mat4\ view)}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00139}00139\ \{}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00140}00140\ \ \ \ \ m\_ViewMatrix\ =\ view;}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00141}00141\ \}}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00142}00142\ }
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00143}00143\ \textcolor{keywordtype}{void}\ EditorCamera::SetPerspective(glm::mat4\ perspective)}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00144}00144\ \{}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00145}00145\ \ \ \ \ m\_ProjectionMatrix\ =\ perspective;}
+\DoxyCodeLine{\Hypertarget{_editor_camera_8cpp_source_l00146}00146\ \}}
 
 \end{DoxyCode}

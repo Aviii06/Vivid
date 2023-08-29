@@ -1,0 +1,80 @@
+\hypertarget{_u_i_flags_8cpp_source}{}\doxysection{UIFlags.\+cpp}
+\label{_u_i_flags_8cpp_source}\index{src/editor/gui/UIFlags.cpp@{src/editor/gui/UIFlags.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}UIFlags.h"{}}}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00003}00003\ \textcolor{keywordtype}{void}\ VividGUI::ImGuiThemeSetup()}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00004}00004\ \{}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00005}00005\ \ \ \ \ ImVec4*\ colors\ =\ ImGui::GetStyle().Colors;}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00006}00006\ \ \ \ \ colors[ImGuiCol\_Text]\ =\ ImVec4(1.00f,\ 1.00f,\ 1.00f,\ 1.00f);}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00007}00007\ \ \ \ \ colors[ImGuiCol\_TextDisabled]\ =\ ImVec4(0.50f,\ 0.50f,\ 0.50f,\ 1.00f);}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00008}00008\ \ \ \ \ colors[ImGuiCol\_WindowBg]\ =\ ImVec4(0.16f,\ 0.16f,\ 0.16f,\ 0.94f);}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00009}00009\ \ \ \ \ colors[ImGuiCol\_ChildBg]\ =\ ImVec4(0.16f,\ 0.16f,\ 0.16f,\ 0.94f);}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00010}00010\ \ \ \ \ colors[ImGuiCol\_PopupBg]\ =\ ImVec4(0.16f,\ 0.16f,\ 0.16f,\ 0.94f);}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00011}00011\ \ \ \ \ colors[ImGuiCol\_Border]\ =\ ImVec4(0.56f,\ 0.56f,\ 0.56f,\ 0.50f);}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00012}00012\ \ \ \ \ colors[ImGuiCol\_BorderShadow]\ =\ ImVec4(0.00f,\ 0.00f,\ 0.00f,\ 0.00f);}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00013}00013\ \ \ \ \ colors[ImGuiCol\_FrameBg]\ =\ ImVec4(0.40f,\ 0.40f,\ 0.40f,\ 0.54f);}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00014}00014\ \ \ \ \ colors[ImGuiCol\_FrameBgHovered]\ =\ ImVec4(0.72f,\ 0.72f,\ 0.73f,\ 0.40f);}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00015}00015\ \ \ \ \ colors[ImGuiCol\_FrameBgActive]\ =\ ImVec4(0.82f,\ 0.82f,\ 0.82f,\ 0.67f);}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00016}00016\ \ \ \ \ colors[ImGuiCol\_TitleBg]\ =\ ImVec4(0.21f,\ 0.21f,\ 0.21f,\ 1.00f);}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00017}00017\ \ \ \ \ colors[ImGuiCol\_TitleBgActive]\ =\ ImVec4(0.29f,\ 0.29f,\ 0.29f,\ 1.00f);}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00018}00018\ \ \ \ \ colors[ImGuiCol\_TitleBgCollapsed]\ =\ ImVec4(0.00f,\ 0.00f,\ 0.00f,\ 0.51f);}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00019}00019\ \ \ \ \ colors[ImGuiCol\_MenuBarBg]\ =\ ImVec4(0.14f,\ 0.14f,\ 0.14f,\ 1.00f);}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00020}00020\ \ \ \ \ colors[ImGuiCol\_ScrollbarBg]\ =\ ImVec4(0.02f,\ 0.02f,\ 0.02f,\ 0.53f);}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00021}00021\ \ \ \ \ colors[ImGuiCol\_ScrollbarGrab]\ =\ ImVec4(0.31f,\ 0.31f,\ 0.31f,\ 1.00f);}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00022}00022\ \ \ \ \ colors[ImGuiCol\_ScrollbarGrabHovered]\ =\ ImVec4(0.41f,\ 0.41f,\ 0.41f,\ 1.00f);}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00023}00023\ \ \ \ \ colors[ImGuiCol\_ScrollbarGrabActive]\ =\ ImVec4(0.51f,\ 0.51f,\ 0.51f,\ 1.00f);}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00024}00024\ \ \ \ \ colors[ImGuiCol\_CheckMark]\ =\ ImVec4(0.74f,\ 0.74f,\ 0.74f,\ 1.00f);}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00025}00025\ \ \ \ \ colors[ImGuiCol\_SliderGrab]\ =\ ImVec4(0.49f,\ 0.49f,\ 0.49f,\ 1.00f);}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00026}00026\ \ \ \ \ colors[ImGuiCol\_SliderGrabActive]\ =\ ImVec4(0.29f,\ 0.29f,\ 0.29f,\ 1.00f);}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00027}00027\ \ \ \ \ colors[ImGuiCol\_Button]\ =\ ImVec4(1.00f,\ 1.00f,\ 1.00f,\ 0.40f);}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00028}00028\ \ \ \ \ colors[ImGuiCol\_ButtonHovered]\ =\ ImVec4(0.36f,\ 0.37f,\ 0.37f,\ 1.00f);}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00029}00029\ \ \ \ \ colors[ImGuiCol\_ButtonActive]\ =\ ImVec4(0.27f,\ 0.27f,\ 0.27f,\ 1.00f);}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00030}00030\ \ \ \ \ colors[ImGuiCol\_Header]\ =\ ImVec4(0.26f,\ 0.59f,\ 0.98f,\ 0.31f);}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00031}00031\ \ \ \ \ colors[ImGuiCol\_HeaderHovered]\ =\ ImVec4(0.26f,\ 0.59f,\ 0.98f,\ 0.80f);}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00032}00032\ \ \ \ \ colors[ImGuiCol\_HeaderActive]\ =\ ImVec4(0.26f,\ 0.59f,\ 0.98f,\ 1.00f);}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00033}00033\ \ \ \ \ colors[ImGuiCol\_Separator]\ =\ ImVec4(0.43f,\ 0.43f,\ 0.50f,\ 0.50f);}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00034}00034\ \ \ \ \ colors[ImGuiCol\_SeparatorHovered]\ =\ ImVec4(0.10f,\ 0.40f,\ 0.75f,\ 0.78f);}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00035}00035\ \ \ \ \ colors[ImGuiCol\_SeparatorActive]\ =\ ImVec4(0.10f,\ 0.40f,\ 0.75f,\ 1.00f);}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00036}00036\ \ \ \ \ colors[ImGuiCol\_ResizeGrip]\ =\ ImVec4(0.26f,\ 0.59f,\ 0.98f,\ 0.20f);}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00037}00037\ \ \ \ \ colors[ImGuiCol\_ResizeGripHovered]\ =\ ImVec4(0.26f,\ 0.59f,\ 0.98f,\ 0.67f);}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00038}00038\ \ \ \ \ colors[ImGuiCol\_ResizeGripActive]\ =\ ImVec4(0.26f,\ 0.59f,\ 0.98f,\ 0.95f);}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00039}00039\ \ \ \ \ colors[ImGuiCol\_Tab]\ =\ ImVec4(0.33f,\ 0.33f,\ 0.33f,\ 0.86f);}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00040}00040\ \ \ \ \ colors[ImGuiCol\_TabHovered]\ =\ ImVec4(0.48f,\ 0.48f,\ 0.48f,\ 1.00f);}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00041}00041\ \ \ \ \ colors[ImGuiCol\_TabActive]\ =\ ImVec4(0.64f,\ 0.64f,\ 0.64f,\ 1.00f);}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00042}00042\ \ \ \ \ colors[ImGuiCol\_TabUnfocused]\ =\ ImVec4(0.33f,\ 0.33f,\ 0.33f,\ 0.86f);}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00043}00043\ \ \ \ \ colors[ImGuiCol\_TabUnfocusedActive]\ =\ ImVec4(0.33f,\ 0.33f,\ 0.33f,\ 0.86f);}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00044}00044\ \ \ \ \ colors[ImGuiCol\_DockingPreview]\ =\ ImVec4(0.31f,\ 0.31f,\ 0.31f,\ 0.70f);}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00045}00045\ \ \ \ \ colors[ImGuiCol\_DockingEmptyBg]\ =\ ImVec4(0.20f,\ 0.20f,\ 0.20f,\ 1.00f);}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00046}00046\ \ \ \ \ colors[ImGuiCol\_PlotLines]\ =\ ImVec4(0.61f,\ 0.61f,\ 0.61f,\ 1.00f);}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00047}00047\ \ \ \ \ colors[ImGuiCol\_PlotLinesHovered]\ =\ ImVec4(1.00f,\ 0.43f,\ 0.35f,\ 1.00f);}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00048}00048\ \ \ \ \ colors[ImGuiCol\_PlotHistogram]\ =\ ImVec4(0.90f,\ 0.70f,\ 0.00f,\ 1.00f);}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00049}00049\ \ \ \ \ colors[ImGuiCol\_PlotHistogramHovered]\ =\ ImVec4(1.00f,\ 0.60f,\ 0.00f,\ 1.00f);}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00050}00050\ \ \ \ \ colors[ImGuiCol\_TableHeaderBg]\ =\ ImVec4(0.19f,\ 0.19f,\ 0.20f,\ 1.00f);}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00051}00051\ \ \ \ \ colors[ImGuiCol\_TableBorderStrong]\ =\ ImVec4(0.31f,\ 0.31f,\ 0.35f,\ 1.00f);}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00052}00052\ \ \ \ \ colors[ImGuiCol\_TableBorderLight]\ =\ ImVec4(0.23f,\ 0.23f,\ 0.25f,\ 1.00f);}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00053}00053\ \ \ \ \ colors[ImGuiCol\_TableRowBg]\ =\ ImVec4(0.00f,\ 0.00f,\ 0.00f,\ 0.00f);}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00054}00054\ \ \ \ \ colors[ImGuiCol\_TableRowBgAlt]\ =\ ImVec4(1.00f,\ 1.00f,\ 1.00f,\ 0.06f);}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00055}00055\ \ \ \ \ colors[ImGuiCol\_TextSelectedBg]\ =\ ImVec4(0.68f,\ 0.68f,\ 0.68f,\ 0.35f);}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00056}00056\ \ \ \ \ colors[ImGuiCol\_DragDropTarget]\ =\ ImVec4(1.00f,\ 1.00f,\ 0.00f,\ 0.90f);}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00057}00057\ \ \ \ \ colors[ImGuiCol\_NavHighlight]\ =\ ImVec4(0.69f,\ 0.69f,\ 0.69f,\ 1.00f);}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00058}00058\ \ \ \ \ colors[ImGuiCol\_NavWindowingHighlight]\ =\ ImVec4(1.00f,\ 1.00f,\ 1.00f,\ 0.70f);}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00059}00059\ \ \ \ \ colors[ImGuiCol\_NavWindowingDimBg]\ =\ ImVec4(0.80f,\ 0.80f,\ 0.80f,\ 0.20f);}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00060}00060\ \ \ \ \ colors[ImGuiCol\_ModalWindowDimBg]\ =\ ImVec4(0.80f,\ 0.80f,\ 0.80f,\ 0.35f);}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00062}00062\ \ \ \ \ ImGuiStyle*\ style\ =\ \&ImGui::GetStyle();}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00063}00063\ \ \ \ \ style-\/>WindowPadding\ =\ ImVec2(8,\ 8);}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00064}00064\ \ \ \ \ style-\/>FramePadding\ =\ ImVec2(4,\ 6);}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00065}00065\ \ \ \ \ style-\/>CellPadding\ =\ ImVec2(4,\ 2);}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00066}00066\ \ \ \ \ style-\/>ItemSpacing\ =\ ImVec2(4,\ 4);}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00067}00067\ \ \ \ \ style-\/>ItemInnerSpacing\ =\ ImVec2(4,\ 4);}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00068}00068\ \ \ \ \ style-\/>WindowRounding\ =\ 10;}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00069}00069\ \ \ \ \ style-\/>FrameRounding\ =\ 7;}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00070}00070\ \ \ \ \ style-\/>ScrollbarRounding\ =\ 12;}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00071}00071\ \ \ \ \ style-\/>GrabRounding\ =\ 4;}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00072}00072\ \ \ \ \ style-\/>WindowMenuButtonPosition\ =\ ImGuiDir\_None;}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00073}00073\ \ \ \ \ style-\/>DockingSeparatorSize\ =\ 2;}
+\DoxyCodeLine{\Hypertarget{_u_i_flags_8cpp_source_l00074}00074\ \}}
+
+\end{DoxyCode}

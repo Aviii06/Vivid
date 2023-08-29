@@ -1,9 +1,9 @@
 \hypertarget{_window_8cpp_source}{}\doxysection{Window.\+cpp}
-\label{_window_8cpp_source}\index{src/Editor/Window.cpp@{src/Editor/Window.cpp}}
+\label{_window_8cpp_source}\index{src/editor/Window.cpp@{src/editor/Window.cpp}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}Window.h"{}}}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}renderer/Camera.h"{}}}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}editor/camera/EditorCamera.h"{}}}
 \DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <iostream>}}
 \DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}confs/Config.h"{}}}
 \DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}inputs/InputHandler.h"{}}}
@@ -11,83 +11,197 @@
 \DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}imgui/imgui/backends/imgui\_impl\_glfw.h"{}}}
 \DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}imgui/imgui/backends/imgui\_impl\_opengl3.h"{}}}
 \DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ "{}imgui/imgui/imgui.h"{}}}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00010}00010\ \textcolor{preprocessor}{\#include\ "{}renderer/Renderer.h"{}}}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00011}00011\ }
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00012}00012\ \mbox{\hyperlink{class_input_handler}{InputHandler}}*\ InputHandler::s\_Instance;}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00013}00013\ \mbox{\hyperlink{class_vivid_1_1_camera}{Vivid::Camera}}*\ Vivid::Camera::s\_Instance;}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00014}00014\ }
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00015}00015\ Window::Window(\textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ title)}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00016}00016\ \{}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00017}00017\ \ \ \ \ m\_Width\ =\ width;}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00018}00018\ \ \ \ \ m\_Height\ =\ height;}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00019}00019\ \ \ \ \ m\_Title\ =\ title;}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00020}00020\ \ \ \ \ m\_PrevMousePosition\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{struct_vec2}{Vec2}}(0.0f,\ 0.0f);}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00021}00021\ }
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00022}00022\ \ \ \ \ \textcolor{keywordflow}{if}\ (!glfwInit())}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00023}00023\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00024}00024\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}GLFW\ failed\ to\ initialize!"{}}\ <<\ std::endl;}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00025}00025\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00026}00026\ }
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00027}00027\ \ \ \ \ \textcolor{comment}{//\ FOR\ MACOS}}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00028}00028\ \ \ \ \ glfwWindowHint(GLFW\_CONTEXT\_VERSION\_MAJOR,\ 4);}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00029}00029\ \ \ \ \ glfwWindowHint(GLFW\_CONTEXT\_VERSION\_MINOR,\ 0);}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00030}00030\ \ \ \ \ glfwWindowHint(GLFW\_OPENGL\_PROFILE,\ GLFW\_OPENGL\_CORE\_PROFILE);}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00031}00031\ \textcolor{preprocessor}{\#ifdef\ \_\_APPLE\_\_}}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00032}00032\ \ \ \ \ glfwWindowHint(GLFW\_OPENGL\_FORWARD\_COMPAT,\ GL\_TRUE);}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00033}00033\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00034}00034\ \ \ \ \ m\_Window\ =\ glfwCreateWindow(m\_Width,\ m\_Height,\ m\_Title,\ NULL,\ NULL);}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00035}00035\ \ \ \ \ glfwSetInputMode(m\_Window,\ GLFW\_STICKY\_KEYS,\ 1);}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00036}00036\ \ \ \ \ \textcolor{keywordflow}{if}\ (!m\_Window)}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00037}00037\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ glfwTerminate();}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00040}00040\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00041}00041\ }
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00042}00042\ \ \ \ \ glfwMakeContextCurrent(m\_Window);}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00043}00043\ }
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00044}00044\ \ \ \ \ IMGUI\_CONFS}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00045}00045\ }
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00046}00046\ \ \ \ \ IMGUI\_CHECKVERSION();}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00047}00047\ \ \ \ \ ImGui::CreateContext();}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00048}00048\ \ \ \ \ ImGui\_ImplGlfw\_InitForOpenGL(m\_Window,\ \textcolor{keyword}{true});}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00049}00049\ \ \ \ \ ImGui\_ImplOpenGL3\_Init(glsl\_version);}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00050}00050\ \ \ \ \ ImGui::StyleColorsDark();}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00051}00051\ \}}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00052}00052\ }
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00053}00053\ Ptr<Window>\ Window::Init(\textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ title)}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00054}00054\ \{}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00055}00055\ \ \ \ \ \textcolor{keywordflow}{return}\ MakePtr<Window>(width,\ height,\ title);}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00056}00056\ \}}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00057}00057\ }
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00058}00058\ \textcolor{keywordtype}{void}\ Window::Clear()\textcolor{keyword}{\ const}}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00059}00059\ \textcolor{keyword}{}\{}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00060}00060\ \ \ \ \ glClear(GL\_COLOR\_BUFFER\_BIT\ |\ GL\_DEPTH\_BUFFER\_BIT);}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00061}00061\ \}}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00062}00062\ }
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00063}00063\ \textcolor{keywordtype}{void}\ Window::SetRenderingInterface(\mbox{\hyperlink{class_rendering_interface}{RenderingInterface}}*\ renderingInterface)}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00064}00064\ \{}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00065}00065\ \ \ \ \ m\_RenderingInterface\ =\ renderingInterface;}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00066}00066\ \ \ \ \ m\_RenderingInterface-\/>Setup();}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00067}00067\ \}}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00068}00068\ }
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00069}00069\ \textcolor{keywordtype}{void}\ Window::Update()}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00070}00070\ \{}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00071}00071\ \ \ \ \ \mbox{\hyperlink{class_vivid_1_1_camera}{Vivid::Camera}}*\ camera\ =\ Vivid::Camera::GetInstance();}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00072}00072\ \ \ \ \ \textcolor{keywordflow}{if}\ (m\_RenderingInterface\ !=\ \textcolor{keyword}{nullptr})}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00073}00073\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00074}00074\ \ \ \ \ \ \ \ \ m\_RenderingInterface-\/>Draw();}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ m\_RenderingInterface-\/>ImGuiRender();}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00076}00076\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00077}00077\ \ \ \ \ \textcolor{comment}{//\ Handle\ keyboard\ input}}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00078}00078\ \ \ \ \ glfwPollEvents();}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00010}00010\ \textcolor{preprocessor}{\#include\ "{}core/renderer/Renderer.h"{}}}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ "{}editor/gui/DockUI.h"{}}}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ "{}editor/Application.h"{}}}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}core/ecs/ECS.h"{}}}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}gui/SceneUI.h"{}}}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00016}00016\ \textcolor{preprocessor}{\#include\ "{}imguizmo/ImGuizmo.h"{}}}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00018}00018\ Window::Window(\textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ title)}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00019}00019\ \{}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00020}00020\ \ \ \ \ m\_Width\ =\ width;}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00021}00021\ \ \ \ \ m\_Height\ =\ height;}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00022}00022\ \ \ \ \ m\_Title\ =\ title;}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00023}00023\ \ \ \ \ m\_PrevMousePosition\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{struct_vec2}{Vec2}}(0.0f,\ 0.0f);}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00025}00025\ \ \ \ \ \textcolor{keywordflow}{if}\ (!glfwInit())}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00026}00026\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}GLFW\ failed\ to\ initialize!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00028}00028\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00030}00030\ \ \ \ \ \textcolor{comment}{//\ FOR\ MACOS}}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00031}00031\ \ \ \ \ glfwWindowHint(GLFW\_CONTEXT\_VERSION\_MAJOR,\ 4);}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00032}00032\ \ \ \ \ glfwWindowHint(GLFW\_CONTEXT\_VERSION\_MINOR,\ 0);}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00033}00033\ \ \ \ \ glfwWindowHint(GLFW\_OPENGL\_PROFILE,\ GLFW\_OPENGL\_CORE\_PROFILE);}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00034}00034\ \textcolor{preprocessor}{\#ifdef\ \_\_APPLE\_\_}}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00035}00035\ \ \ \ \ glfwWindowHint(GLFW\_OPENGL\_FORWARD\_COMPAT,\ GL\_TRUE);}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00036}00036\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00037}00037\ \ \ \ \ m\_Window\ =\ glfwCreateWindow(m\_Width,\ m\_Height,\ m\_Title,\ NULL,\ NULL);}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00038}00038\ \ \ \ \ glfwSetInputMode(m\_Window,\ GLFW\_STICKY\_KEYS,\ 1);}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00039}00039\ \ \ \ \ \textcolor{keywordflow}{if}\ (!m\_Window)}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00040}00040\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00041}00041\ \ \ \ \ \ \ \ \ glfwTerminate();}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00043}00043\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00045}00045\ \ \ \ \ glfwMakeContextCurrent(m\_Window);}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00047}00047\ \ \ \ \ IMGUI\_CONFS}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00049}00049\ \ \ \ \ IMGUI\_CHECKVERSION();}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00050}00050\ \ \ \ \ ImGui::CreateContext();}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00051}00051\ \ \ \ \ ImGui\_ImplGlfw\_InitForOpenGL(m\_Window,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00052}00052\ \ \ \ \ ImGui\_ImplOpenGL3\_Init(glsl\_version);}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00053}00053\ \ \ \ \ ImGui::StyleColorsDark();}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00054}00054\ \ \ \ \ ImGui::GetIO().ConfigFlags\ |=\ ImGuiConfigFlags\_DockingEnable;}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00056}00056\ \ \ \ \ VividGUI::ImGuiThemeSetup();}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00057}00057\ \}}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00059}00059\ \mbox{\hyperlink{class_window}{Window}}*\ Window::Init(\textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ title)}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00060}00060\ \{}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00061}00061\ \ \ \ \ \textcolor{keywordflow}{if}\ (s\_Instance\ ==\ NULL)}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00062}00062\ \ \ \ \ \ \ \ \ s\_Instance\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_window}{Window}}(width,\ height,\ title);}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00064}00064\ \ \ \ \ \textcolor{keywordflow}{return}\ s\_Instance;}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00065}00065\ \}}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00067}00067\ \textcolor{keywordtype}{void}\ Window::Clear()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00068}00068\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00069}00069\ \ \ \ \ glClear(GL\_COLOR\_BUFFER\_BIT\ |\ GL\_DEPTH\_BUFFER\_BIT);}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00070}00070\ \}}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00072}00072\ \textcolor{keywordtype}{void}\ Window::SetRenderingInterface(\mbox{\hyperlink{class_rendering_interface}{RenderingInterface}}*\ renderingInterface)}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00073}00073\ \{}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00074}00074\ \ \ \ \ m\_RenderingInterface\ =\ renderingInterface;}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00075}00075\ \ \ \ \ m\_RenderingInterface-\/>Setup();}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00077}00077\ \ \ \ \ m\_FrameBuffer\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_frame_buffer}{FrameBuffer}}(m\_Width,\ m\_Height);}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00078}00078\ \}}
 \DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00079}00079\ }
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00080}00080\ \ \ \ \ glfwMakeContextCurrent(m\_Window);}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00081}00081\ \ \ \ \ glfwSwapBuffers(m\_Window);}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00082}00082\ }
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00083}00083\ \ \ \ \ glClear(GL\_DEPTH\_BUFFER\_BIT);}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00084}00084\ \ \ \ \ glClearColor(1.0f,\ 1.0f,\ 1.0f,\ 1.0f);}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00085}00085\ }
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00086}00086\ \ \ \ \ Vivid::Renderer::Clear();}
-\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00087}00087\ \}}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00080}00080\ \textcolor{keywordtype}{void}\ Window::Update()}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00081}00081\ \{}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00082}00082\ \ \ \ \ \textcolor{comment}{//\ Handle\ Custom\ Inputs}}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00084}00084\ \ \ \ \ \mbox{\hyperlink{class_camera}{Camera}}*\ camera\ =\ Application::GetInstance()-\/>GetCamera();}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00085}00085\ \ \ \ \ \textcolor{keywordflow}{if}\ (m\_RenderingInterface\ !=\ \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00086}00086\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00087}00087\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ editor\ camera\ allow\ to\ move.}}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00088}00088\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{typeid}(*camera)\ ==\ \textcolor{keyword}{typeid}(\mbox{\hyperlink{class_editor_camera}{EditorCamera}}))}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00089}00089\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO:\ Put\ this\ in\ a\ function}}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_editor_camera}{EditorCamera}}*\ editorCamera\ =\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{class_editor_camera}{EditorCamera}}*\textcolor{keyword}{>}(camera);}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (InputHandler::IsKeyPressed(GLFW\_KEY\_W))}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ editorCamera-\/>MoveForward();}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (InputHandler::IsKeyPressed(GLFW\_KEY\_S))}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ editorCamera-\/>MoveBackward();}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (InputHandler::IsKeyPressed(GLFW\_KEY\_A))}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ editorCamera-\/>MoveLeft();}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (InputHandler::IsKeyPressed(GLFW\_KEY\_D))}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ editorCamera-\/>MoveRight();}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00109}00109\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vec2}{Vec2}}\ mousePosition\ =\ InputHandler::GetMousePosition();}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (InputHandler::IsMouseButtonPressed(GLFW\_MOUSE\_BUTTON\_RIGHT))}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ editorCamera-\/>ProcessMouseMovement(mousePosition.x\ -\/\ m\_PrevMousePosition-\/>x,}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mousePosition.y\ -\/\ m\_PrevMousePosition-\/>y);}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_PrevMousePosition-\/>x\ =\ mousePosition.x;}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_PrevMousePosition-\/>y\ =\ mousePosition.y;}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_PrevMousePosition-\/>x\ =\ mousePosition.x;}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_PrevMousePosition-\/>y\ =\ mousePosition.y;}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00121}00121\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00122}00122\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00123}00123\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00125}00125\ \ \ \ \ \textcolor{comment}{//\ Handle\ keyboard\ input}}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00126}00126\ \ \ \ \ glfwPollEvents();}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00127}00127\ }
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00128}00128\ \ \ \ \ glfwMakeContextCurrent(m\_Window);}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00129}00129\ \ \ \ \ glfwSwapBuffers(m\_Window);}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00130}00130\ }
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00131}00131\ \ \ \ \ glClear(GL\_DEPTH\_BUFFER\_BIT);}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00132}00132\ \ \ \ \ glClearColor(1.0f,\ 1.0f,\ 1.0f,\ 1.0f);}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00133}00133\ }
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00134}00134\ \ \ \ \ Vivid::Renderer::Clear();}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00135}00135\ }
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00136}00136\ \ \ \ \ ImGui\_ImplGlfw\_NewFrame();}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00137}00137\ \ \ \ \ ImGui\_ImplOpenGL3\_NewFrame();}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00138}00138\ \ \ \ \ ImGui::NewFrame();}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00139}00139\ }
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00140}00140\ \ \ \ \ \textcolor{comment}{//\ Draw\ to\ a\ temporary\ framebuffer}}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00141}00141\ \ \ \ \ \textcolor{comment}{//\ Some\ components\ might\ be\ drawing\ within\ imgui\ context}}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00142}00142\ \ \ \ \ m\_FrameBuffer-\/>Bind();}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00143}00143\ \ \ \ \ \textcolor{keywordflow}{if}\ (m\_RenderingInterface\ !=\ \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00144}00144\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00145}00145\ \ \ \ \ \ \ \ \ m\_RenderingInterface-\/>Draw();}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00146}00146\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00147}00147\ }
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00148}00148\ \ \ \ \ Vivid::ECS::Draw(camera);}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00149}00149\ \ \ \ \ m\_FrameBuffer-\/>Unbind();}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00150}00150\ }
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00151}00151\ \ \ \ \ VividGUI::InitUI();}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00152}00152\ }
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00153}00153\ \ \ \ \ ImGuizmo::BeginFrame();}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00154}00154\ }
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00155}00155\ \ \ \ \ ImGui::Begin(\textcolor{stringliteral}{"{}Viewport"{}});}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00156}00156\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00157}00157\ \ \ \ \ \ \ \ \ ImGui::BeginChild(\textcolor{stringliteral}{"{}GameRender"{}});}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00158}00158\ }
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00159}00159\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ width\ =\ ImGui::GetContentRegionAvail().x;}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00160}00160\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ height\ =\ ImGui::GetContentRegionAvail().y;}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00161}00161\ }
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00162}00162\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ Application::GetInstance()-\/>GetCamera()-\/>SetViewportSize(width,\ height);}}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00163}00163\ }
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00164}00164\ \ \ \ \ \ \ \ \ Application::GetInstance()-\/>GetCamera()-\/>SetViewportSize(width,\ height);}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00165}00165\ }
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00166}00166\ \ \ \ \ \ \ \ \ ImGui::Image(}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00167}00167\ \ \ \ \ \ \ \ \ \ \ \ \ (ImTextureID)m\_FrameBuffer-\/>getFrameTexture(),}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00168}00168\ \ \ \ \ \ \ \ \ \ \ \ \ ImVec2(width,\ height),}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00169}00169\ \ \ \ \ \ \ \ \ \ \ \ \ ImVec2(0,\ 1),}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00170}00170\ \ \ \ \ \ \ \ \ \ \ \ \ ImVec2(1,\ 0));}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00171}00171\ }
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00172}00172\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{typeid}(*camera)\ ==\ \textcolor{keyword}{typeid}(\mbox{\hyperlink{class_editor_camera}{EditorCamera}}))}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00173}00173\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00174}00174\ \ \ \ \ \ \ \ \ \ \ \ \ VividGUI::SceneUI::DrawGizmo(camera);}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00175}00175\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00176}00176\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00177}00177\ \ \ \ \ ImGui::EndChild();}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00178}00178\ \ \ \ \ ImGui::End();}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00179}00179\ }
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00180}00180\ \ \ \ \ \textcolor{comment}{//\ Custom\ ImGui\ Rendering}}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00181}00181\ \ \ \ \ \textcolor{keywordflow}{if}\ (m\_RenderingInterface\ !=\ \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00182}00182\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00183}00183\ \ \ \ \ \ \ \ \ m\_RenderingInterface-\/>ImGuiRender();}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00184}00184\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00185}00185\ }
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00186}00186\ \ \ \ \ \textcolor{comment}{//\ Scene\ "{}Tree"{}}}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00187}00187\ \ \ \ \ VividGUI::SceneUI::DrawSceneUI();}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00188}00188\ }
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00189}00189\ \ \ \ \ \textcolor{comment}{//\ End\ Docking}}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00190}00190\ \ \ \ \ VividGUI::EndUI();}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00191}00191\ }
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00192}00192\ \ \ \ \ ImGui::Render();}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00193}00193\ \ \ \ \ ImGui\_ImplOpenGL3\_RenderDrawData(ImGui::GetDrawData());}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00194}00194\ }
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00195}00195\ \ \ \ \ m\_FrameBuffer-\/>Bind();}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00196}00196\ \ \ \ \ Vivid::Renderer::Clear();}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00197}00197\ }
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00198}00198\ \ \ \ \ glClear(GL\_DEPTH\_BUFFER\_BIT);}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00199}00199\ \ \ \ \ glClearColor(1.0f,\ 1.0f,\ 1.0f,\ 1.0f);}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00200}00200\ \ \ \ \ m\_FrameBuffer-\/>Unbind();}
+\DoxyCodeLine{\Hypertarget{_window_8cpp_source_l00201}00201\ \}}
 
 \end{DoxyCode}
