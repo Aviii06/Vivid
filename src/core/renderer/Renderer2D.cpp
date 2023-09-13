@@ -58,6 +58,10 @@ namespace Vivid
 		s_Storage.ellipseIndices.reserve(reserveVertices);
 		s_Storage.lineVertices.reserve(reserveVertices);
 		s_Storage.lineIndices.reserve(reserveVertices);
+
+
+        Camera* camera = Application::GetInstance()->GetCamera();
+        camera->SetPerspective(glm::ortho(-960.0f, 960.0f, -540.0f, 540.0f, 0.1f, 100.0f));
 	}
 
 	void Renderer2D::Shutdown()
@@ -66,8 +70,7 @@ namespace Vivid
 
 	void Renderer2D::BeginScene()
 	{
-		Camera* camera = Application::GetInstance()->GetCamera();
-		camera->SetPerspective(glm::ortho(-960.0f, 960.0f, -540.0f, 540.0f, 0.1f, 100.0f));
+        Camera* camera = Application::GetInstance()->GetCamera();
 
 		s_Storage.quadShader->Bind();
 		s_Storage.quadShader->SetUniformMat4f("u_Model", glm::mat4(1.0f));

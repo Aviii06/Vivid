@@ -39,4 +39,5 @@ void OrthoCamera::SetViewportSize(int width, int height)
 	m_Width = width;
 	m_Height = height;
 	m_AspectRatio = (float)width / (float)height;
+    m_ProjectionMatrix = glm::ortho(-(float)width, (float)width, -(float)height, (float)height, 0.1f, 100.0f);
 }
