@@ -2,8 +2,8 @@
 
 OrthoCamera::OrthoCamera(float left, float right, float bottom, float top)
 {
-	m_Width = right - left;
-	m_Height = top - bottom;
+	m_ViewportWidth = right - left;
+	m_ViewportHeight = top - bottom;
 
 	m_ProjectionMatrix = glm::ortho(left, right, bottom, top, -1.0f, 1.0f);
 	m_ViewMatrix = glm::mat4(1.0f);
@@ -36,8 +36,8 @@ void OrthoCamera::SetViewMatrix(glm::mat4 view)
 
 void OrthoCamera::SetViewportSize(int width, int height)
 {
-	m_Width = width;
-	m_Height = height;
+	m_ViewportWidth = width;
+	m_ViewportHeight = height;
 	m_AspectRatio = (float)width / (float)height;
-    m_ProjectionMatrix = glm::ortho(-(float)width, (float)width, -(float)height, (float)height, 0.1f, 100.0f);
+	m_ProjectionMatrix = glm::ortho(-(float)width, (float)width, -(float)height, (float)height, 0.1f, 100.0f);
 }
