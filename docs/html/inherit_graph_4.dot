@@ -6,4 +6,6 @@ digraph "Graphical Class Hierarchy"
   node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
   rankdir="LR";
   Node0 [label="RenderingInterface",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_rendering_interface.html",tooltip=" "];
+  Node0 -> Node1 [dir="back",color="steelblue1",style="solid"];
+  Node1 [label="ExampleInterface",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_example_interface.html",tooltip=" "];
 }

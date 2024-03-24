@@ -18,7 +18,9 @@ var hierarchy =
     [ "Vivid::Renderer", "class_vivid_1_1_renderer.html", null ],
     [ "Vivid::Renderer2D", "class_vivid_1_1_renderer2_d.html", null ],
     [ "Vivid::Renderer3D", "class_vivid_1_1_renderer3_d.html", null ],
-    [ "RenderingInterface", "class_rendering_interface.html", null ],
+    [ "RenderingInterface", "class_rendering_interface.html", [
+      [ "ExampleInterface", "class_example_interface.html", null ]
+    ] ],
     [ "VividGUI::SceneUI", "class_vivid_g_u_i_1_1_scene_u_i.html", null ],
     [ "Vivid::Shader", "class_vivid_1_1_shader.html", null ],
     [ "Vivid::ShaderProgramSource", "struct_vivid_1_1_shader_program_source.html", null ],

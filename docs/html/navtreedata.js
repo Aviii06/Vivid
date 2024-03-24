@@ -25,12 +25,32 @@
 var NAVTREE =
 [
   [ "Vivid", "index.html", [
-    [ "3D rendering", "index.html#autotoc_md1", null ],
-    [ "2D Rendering", "index.html#autotoc_md2", null ],
-    [ "Devlopment", "index.html#autotoc_md3", [
-      [ "Dependencies", "index.html#autotoc_md4", null ],
-      [ "Build", "index.html#autotoc_md5", null ]
+    [ "Features", "index.html#autotoc_md1", null ],
+    [ "Integration", "index.html#autotoc_md2", null ],
+    [ "Getting Started", "index.html#autotoc_md3", [
+      [ "Clone repo", "index.html#autotoc_md4", null ],
+      [ "Dependencies:", "index.html#autotoc_md5", null ],
+      [ "Build the Project:", "index.html#autotoc_md6", null ],
+      [ "Running the project:", "index.html#autotoc_md7", null ],
+      [ "Explore and Experiment:", "index.html#autotoc_md8", null ]
     ] ],
+    [ "API", "index.html#autotoc_md9", [
+      [ "Philosophy", "index.html#autotoc_md10", null ],
+      [ "Types of API", "index.html#autotoc_md11", [
+        [ "ECS API", "index.html#autotoc_md12", null ],
+        [ "Rendering 2D/3D APIs", "index.html#autotoc_md13", null ],
+        [ "Mesh API", "index.html#autotoc_md14", null ]
+      ] ],
+      [ "Rendering Interface", "index.html#autotoc_md15", [
+        [ "Setup()", "index.html#autotoc_md16", null ],
+        [ "Draw()", "index.html#autotoc_md17", null ],
+        [ "ImGuiRender()", "index.html#autotoc_md18", null ]
+      ] ],
+      [ "2D", "index.html#autotoc_md19", null ],
+      [ "3D", "index.html#autotoc_md20", null ]
+    ] ],
+    [ "Documentation", "index.html#autotoc_md21", null ],
+    [ "License", "index.html#autotoc_md22", null ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
