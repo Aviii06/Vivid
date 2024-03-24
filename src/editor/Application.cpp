@@ -1,5 +1,5 @@
 #include "Application.h"
-#include "camera/EditorCamera.h"
+#include "editor/camera/movable/EditorCamera.h"
 
 Window* Window::s_Instance = nullptr;
 
@@ -19,7 +19,7 @@ Application::Application(int width, int height, const char* title, Camera* camer
 	if (camera != nullptr)
 		m_Camera = camera;
 	else
-		m_Camera = new EditorCamera(60.0f, 1.7778f, 0.1f, 5000.0f);
+		m_Camera = new EditorCamera(60.0f, 1.7778f, 0.1f, 10000.0f);
 }
 
 bool Application::IsRunning()

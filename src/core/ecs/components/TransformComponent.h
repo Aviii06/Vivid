@@ -3,6 +3,7 @@
 #include "core/ecs/Component.h"
 #include "common/maths/Vec.h"
 #include "imguizmo/ImGuizmo.h"
+#include "common/maths/Vec.h"
 
 namespace Vivid
 {
@@ -10,9 +11,10 @@ namespace Vivid
 	class TransformComponent : public Component
 	{
 	private:
-		Vec3 m_Position;
-		Vec3 m_Rotation;
-		Vec3 m_Scale = Vec3(1.0f, 1.0f, 1.0f);
+		Maths::Vec3 m_Position;
+		Maths::Vec3 m_Rotation;
+		Maths::Vec3 m_Scale = Maths::Vec3(1.0f, 1.0f, 1.0f);
+		Maths::Vec3 m_PrevScale = Maths::Vec3(1.0f, 1.0f, 1.0f);
 		bool m_FixScale = false;
 		glm::mat4 m_Transform = glm::mat4(1.0f);
 		ImGuizmo::OPERATION m_CurrentGizmoOperation = ImGuizmo::TRANSLATE;
@@ -27,7 +29,7 @@ namespace Vivid
 	public:
 		TransformComponent() = default;
 
-		TransformComponent(Vec3 position, Vec3 rotation, Vec3 scale)
+		TransformComponent(Maths::Vec3 position, Maths::Vec3 rotation, Maths::Vec3 scale)
 		    : m_Position(position)
 		    , m_Rotation(rotation)
 		    , m_Scale(scale)
@@ -41,19 +43,19 @@ namespace Vivid
 
 		void ImGuiRender() override;
 
-		inline Vec3 GetPosition() const { return m_Position; }
+		inline Maths::Vec3 GetPosition() const { return m_Position; }
 
-		inline Vec3 GetRotation() const { return m_Rotation; }
+		inline Maths::Vec3 GetRotation() const { return m_Rotation; }
 
-		inline Vec3 GetScale() const { return m_Scale; }
+		inline Maths::Vec3 GetScale() const { return m_Scale; }
 
 		inline glm::mat4 GetTransform() const { return m_Transform; }
 
-		inline void SetPosition(Vec3 position) { m_Position = position; }
+		inline void SetPosition(Maths::Vec3 position) { m_Position = position; }
 
-		inline void SetRotation(Vec3 rotation) { m_Rotation = rotation; }
+		inline void SetRotation(Maths::Vec3 rotation) { m_Rotation = rotation; }
 
-		inline void SetScale(Vec3 scale) { m_Scale = scale; }
+		inline void SetScale(Maths::Vec3 scale) { m_Scale = scale; }
 
 		String GetComponentName() override { return "Transform Component"; }
 

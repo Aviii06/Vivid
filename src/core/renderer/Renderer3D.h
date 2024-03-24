@@ -1,4 +1,5 @@
 #include "Renderer.h"
+#include "common/maths/Vec.h"
 
 namespace Vivid
 {
@@ -29,11 +30,11 @@ namespace Vivid
 
 		static void EndScene();
 
-		static void DrawQuad(Vec3 vertex1, Vec3 vertex2, Vec3 vertex3, Vec3 vertex4, Vec3 color);
+		static void DrawQuad(Maths::Vec3 vertex1, Maths::Vec3 vertex2, Maths::Vec3 vertex3, Maths::Vec3 vertex4, Maths::Vec3 color);
 
-		static void DrawTriangle(Vec3 vertex1, Vec3 vertex2, Vec3 vertex3, Vec3 color);
+		static void DrawTriangle(Maths::Vec3 vertex1, Maths::Vec3 vertex2, Maths::Vec3 vertex3, Maths::Vec3 color);
 
-		static void DrawCube(Vec3 center, float edgeLength, Vec3 color);
+		static void DrawCube(Maths::Vec3 center, float edgeLength, Maths::Vec3 color);
 	};
 
 }

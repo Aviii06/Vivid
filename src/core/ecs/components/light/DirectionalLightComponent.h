@@ -9,18 +9,17 @@
 namespace Vivid
 {
 
-	class PointLightComponent : public Vivid::Component
+	class DirectionalLightComponent : public Vivid::Component
 	{
 	private:
 		Maths::Vec3 m_Color;
 		float m_Intensity = 1.0f;
-		Vivid::Mesh* m_Mesh;
-		Ref<Vivid::Shader> m_Shader;
+		Maths::Vec3 m_Direction = Maths::Vec3(0.0f, -1.0f, 0.0f);
 
 	public:
-		PointLightComponent() = default;
+		DirectionalLightComponent() = default;
 
-		PointLightComponent(Maths::Vec3 color);
+		DirectionalLightComponent(Maths::Vec3 color);
 
 		void Draw(Camera* camera) override;
 
@@ -28,10 +27,14 @@ namespace Vivid
 
 		void SetColor(Maths::Vec3 color) { m_Color = color; }
 
+		void SetDirection(Maths::Vec3 direction) { m_Direction = direction; }
+
 		inline Maths::Vec3 GetColor() const { return m_Color; }
 
 		inline float GetIntensity() const { return m_Intensity; }
 
-		String GetComponentName() override { return "PointLight Component"; }
+		inline Maths::Vec3 GetDirection() const { return m_Direction; }
+
+		String GetComponentName() override { return "DirectionalLight Component"; }
 	};
 }

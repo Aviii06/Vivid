@@ -6,10 +6,11 @@
 #include "core/ecs/components/model/Mesh.h"
 #include "core/ecs/components/model/ModelComponent.h"
 #include "core/ecs/components/TransformComponent.h"
+#include "core/ecs/components/light/DirectionalLightComponent.h"
+#include "core/ecs/components/light/PointLightComponent.h"
 #include "core/ecs/Entity.h"
 #include "core/ecs/Component.h"
 #include "core/ecs/ECS.h"
-#include "core/ecs/components/light/PointLightComponent.h"
 
 #include "core/renderer/IndexBuffer.h"
 #include "core/renderer/Renderer.h"
@@ -23,8 +24,8 @@
 #include "core/renderer/Renderer3D.h"
 
 #include "editor/camera/Camera.h"
-#include "editor/camera/EditorCamera.h"
-#include "editor/camera/OrthoCamera.h"
+#include "editor/camera/movable/EditorCamera.h"
+#include "editor/camera/movable/OrthoCamera.h"
 #include "editor/Window.h"
 #include "editor/Application.h"
 #include "editor/RenderingInterface.h"

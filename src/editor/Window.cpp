@@ -1,5 +1,6 @@
 #include "Window.h"
-#include "editor/camera/EditorCamera.h"
+#include "editor/camera/movable/EditorCamera.h"
+#include "editor/camera/movable/OrthoCamera.h"
 #include <iostream>
 #include "confs/Config.h"
 #include "inputs/InputHandler.h"
@@ -14,13 +15,14 @@
 #include "gui/SceneUI.h"
 
 #include "imguizmo/ImGuizmo.h"
+#include "common/maths/Vec.h"
 
 Window::Window(int width, int height, const char* title)
 {
 	m_Width = width;
 	m_Height = height;
 	m_Title = title;
-	m_PrevMousePosition = new Vec2(0.0f, 0.0f);
+	m_PrevMousePosition = new Vivid::Maths::Vec2(0.0f, 0.0f);
 
 	if (!glfwInit())
 	{
@@ -85,31 +87,31 @@ void Window::Update()
 	if (m_RenderingInterface != nullptr)
 	{
 		// If editor camera allow to move.
-		if (typeid(*camera) == typeid(EditorCamera))
+		if (typeid(*camera) == typeid(EditorCamera) || typeid(*camera) == typeid(OrthoCamera))
 		{
 			// TODO: Put this in a function
-			EditorCamera* editorCamera = static_cast<EditorCamera*>(camera);
+			MovableCamera* movableCamera = static_cast<MovableCamera*>(camera);
 			if (InputHandler::IsKeyPressed(GLFW_KEY_W))
 			{
-				editorCamera->MoveForward();
+				movableCamera->MoveForward();
 			}
 			if (InputHandler::IsKeyPressed(GLFW_KEY_S))
 			{
-				editorCamera->MoveBackward();
+				movableCamera->MoveBackward();
 			}
 			if (InputHandler::IsKeyPressed(GLFW_KEY_A))
 			{
-				editorCamera->MoveLeft();
+				movableCamera->MoveLeft();
 			}
 			if (InputHandler::IsKeyPressed(GLFW_KEY_D))
 			{
-				editorCamera->MoveRight();
+				movableCamera->MoveRight();
 			}
 
-			Vec2 mousePosition = InputHandler::GetMousePosition();
+			Vivid::Maths::Vec2 mousePosition = InputHandler::GetMousePosition();
 			if (InputHandler::IsMouseButtonPressed(GLFW_MOUSE_BUTTON_RIGHT))
 			{
-				editorCamera->ProcessMouseMovement(mousePosition.x - m_PrevMousePosition->x,
+				movableCamera->ProcessMouseMovement(mousePosition.x - m_PrevMousePosition->x,
 				    mousePosition.y - m_PrevMousePosition->y);
 				m_PrevMousePosition->x = mousePosition.x;
 				m_PrevMousePosition->y = mousePosition.y;
@@ -195,7 +197,7 @@ void Window::Update()
 	m_FrameBuffer->Bind();
 	Vivid::Renderer::Clear();
 
-	glClear(GL_DEPTH_BUFFER_BIT);
-	glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+	GLCall(glClear(GL_DEPTH_BUFFER_BIT));
+	GLCall(glClearColor(1.0f, 1.0f, 1.0f, 1.0f));
 	m_FrameBuffer->Unbind();
 }

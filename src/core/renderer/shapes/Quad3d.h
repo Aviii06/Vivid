@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Shape.h"
+#include "common/maths/Vec.h"
 
 namespace Vivid
 {
@@ -10,6 +11,6 @@ namespace Vivid
 		float m_Size;
 
 	public:
-		Quad3d(int size, Vec3 col = Vec3(1.0f, 1.0f, 1.0f));
+		Quad3d(int size, Maths::Vec3 col = Maths::Vec3(1.0f, 1.0f, 1.0f));
 	};
 }

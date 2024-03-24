@@ -2,6 +2,7 @@
 
 #include "glm/glm.hpp"
 #include "VertexBuffer.h"
+#include "common/maths/Vec.h"
 #include <string>
 #include <unordered_map>
 
@@ -39,7 +40,7 @@ namespace Vivid
 
 		void SetUniform3f(const std::string& name, float f0, float f1, float f2);
 
-		void SetUniform3f(const std::string& name, Vec3& value);
+		void SetUniform3f(const std::string& name, Maths::Vec3& value);
 
 		void SetUniform1f(const std::string& name, float value);
 

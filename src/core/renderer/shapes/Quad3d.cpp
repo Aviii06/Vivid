@@ -1,37 +1,38 @@
 #include "Quad3d.h"
+#include "common/maths/Vec.h"
 
 namespace Vivid
 {
 	// TODO: Use multiple vertices to have correct normals for each vertex
-	Quad3d::Quad3d(int size, Vec3 col)
+	Quad3d::Quad3d(int size, Maths::Vec3 col)
 	{
 		m_Size = (float)size;
 		const float const_Size = m_Size;
 
 		// TODO: Correct culling
-		Vec3 pos[8] = {
-			Vec3(-const_Size, const_Size, -const_Size),
-			Vec3(const_Size, const_Size, -const_Size),
-			Vec3(-const_Size, -const_Size, -const_Size),
-			Vec3(const_Size, -const_Size, -const_Size),
-			Vec3(-const_Size, const_Size, const_Size),
-			Vec3(const_Size, const_Size, const_Size),
-			Vec3(-const_Size, -const_Size, const_Size),
-			Vec3(const_Size, -const_Size, const_Size),
+		Maths::Vec3 pos[8] = {
+			Maths::Vec3(-const_Size, const_Size, -const_Size),
+			Maths::Vec3(const_Size, const_Size, -const_Size),
+			Maths::Vec3(-const_Size, -const_Size, -const_Size),
+			Maths::Vec3(const_Size, -const_Size, -const_Size),
+			Maths::Vec3(-const_Size, const_Size, const_Size),
+			Maths::Vec3(const_Size, const_Size, const_Size),
+			Maths::Vec3(-const_Size, -const_Size, const_Size),
+			Maths::Vec3(const_Size, -const_Size, const_Size),
 		};
 
-		Vec2 tex[8] = {
-			Vec2(0.0, 0.0),
-			Vec2(1.0, 0.0),
-			Vec2(1.0, 1.0),
-			Vec2(0.0, 1.0),
-			Vec2(0.0, 0.0),
-			Vec2(1.0, 0.0),
-			Vec2(1.0, 1.0),
-			Vec2(0.0, 1.0),
+		Maths::Vec2 tex[8] = {
+			Maths::Vec2(0.0, 0.0),
+			Maths::Vec2(1.0, 0.0),
+			Maths::Vec2(1.0, 1.0),
+			Maths::Vec2(0.0, 1.0),
+			Maths::Vec2(0.0, 0.0),
+			Maths::Vec2(1.0, 0.0),
+			Maths::Vec2(1.0, 1.0),
+			Maths::Vec2(0.0, 1.0),
 		};
 
-		Vec3 color[8] = {
+		Maths::Vec3 color[8] = {
 			col,
 			col,
 			col,
@@ -42,15 +43,15 @@ namespace Vivid
 			col,
 		};
 
-		Vec3 normal[8] = {
-			Vec3(1.0, 1.0, 1.0),
-			Vec3(1.0, 1.0, 1.0),
-			Vec3(1.0, 1.0, 1.0),
-			Vec3(1.0, 1.0, 1.0),
-			Vec3(1.0, 1.0, 1.0),
-			Vec3(1.0, 1.0, 1.0),
-			Vec3(1.0, 1.0, 1.0),
-			Vec3(1.0, 1.0, 1.0),
+		Maths::Vec3 normal[8] = {
+			Maths::Vec3(1.0, 1.0, 1.0),
+			Maths::Vec3(1.0, 1.0, 1.0),
+			Maths::Vec3(1.0, 1.0, 1.0),
+			Maths::Vec3(1.0, 1.0, 1.0),
+			Maths::Vec3(1.0, 1.0, 1.0),
+			Maths::Vec3(1.0, 1.0, 1.0),
+			Maths::Vec3(1.0, 1.0, 1.0),
+			Maths::Vec3(1.0, 1.0, 1.0),
 		};
 
 		unsigned int ind[12 * 3] = {

@@ -15,7 +15,7 @@ namespace Vivid
 		Renderer() = default;
 
 	public:
-		static void Draw(Ref<VertexArray> va, unsigned int indexCount);
+		static void Draw(Ref<VertexArray> va, unsigned int indexCount, unsigned int instanceCount = 1);
 
 		static void DrawLine(Ref<VertexArray> va, unsigned int vertexCount);
 
