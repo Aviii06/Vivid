@@ -1,5 +1,6 @@
 #include "Shader.h"
 #include "Renderer.h"
+#include "common/maths/Vec.h"
 
 #include <fstream>
 #include <iostream>
@@ -59,7 +60,7 @@ namespace Vivid
 		GLCall(glUniform1f(GetUniformLocation(name), value));
 	}
 
-	void Shader::SetUniform3f(const std::string& name, Vec3& value)
+	void Shader::SetUniform3f(const std::string& name, Maths::Vec3& value)
 	{
 		GLCall(glUniform3f(GetUniformLocation(name), (GLfloat)value.x, (GLfloat)value.y, (GLfloat)value.z));
 	}

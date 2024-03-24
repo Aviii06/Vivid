@@ -160,22 +160,22 @@ public:
 				int x = i * g_Dim;
 				int y = j * g_Dim;
 
-				Vec2 x1 = Vec2(x, y);
-				Vec2 x2 = Vec2(x + g_Dim, y);
-				Vec2 x3 = Vec2(x + g_Dim, y + g_Dim);
-				Vec2 x4 = Vec2(x, y + g_Dim);
+				Vivid::Maths::Vec2 x1 = Vivid::Maths::Vec2(x, y);
+				Vivid::Maths::Vec2 x2 = Vivid::Maths::Vec2(x + g_Dim, y);
+				Vivid::Maths::Vec2 x3 = Vivid::Maths::Vec2(x + g_Dim, y + g_Dim);
+				Vivid::Maths::Vec2 x4 = Vivid::Maths::Vec2(x, y + g_Dim);
 
 				if (g_RenderQuad)
 				{
-					Vivid::Renderer2D::DrawQuad(x1.x, x1.y, g_Dim, g_Dim, Vec3(v1, v1, v1));
+					Vivid::Renderer2D::DrawQuad(x1.x, x1.y, g_Dim, g_Dim, Vivid::Maths::Vec3(v1, v1, v1));
 				}
 
-				Vec2 a = x1 + (x2 - x1) * (float)(v1 / (v1 + v2));
-				Vec2 b = x2 + (x3 - x2) * (float)(v2 / (v2 + v3));
-				Vec2 c = x3 + (x4 - x3) * (float)(v3 / (v3 + v4));
-				Vec2 d = x4 + (x1 - x4) * (float)(v4 / (v4 + v1));
+				Vivid::Maths::Vec2 a = x1 + (x2 - x1) * (float)(v1 / (v1 + v2));
+				Vivid::Maths::Vec2 b = x2 + (x3 - x2) * (float)(v2 / (v2 + v3));
+				Vivid::Maths::Vec2 c = x3 + (x4 - x3) * (float)(v3 / (v3 + v4));
+				Vivid::Maths::Vec2 d = x4 + (x1 - x4) * (float)(v4 / (v4 + v1));
 
-				Vec3 col = Vec3(g_Color[0], g_Color[1], g_Color[2]);
+				Vivid::Maths::Vec3 col = Vivid::Maths::Vec3(g_Color[0], g_Color[1], g_Color[2]);
 				float thickness = g_Thickness;
 				switch (GetState(v1, v2, v3, v4))
 				{
@@ -257,9 +257,12 @@ public:
 Application* Vivid::CreateApplication()
 {
 	Application* app = Application::GetInstance(1920, 1080, "Marching Squares");
+	Maths::Vec3 pos = Maths::Vec3(0, 0, 0);
+	float rot = 0.0f;
+	float zoom = 0.10f;
 
-	OrthoCamera* orthoCamera = new OrthoCamera(0, 1920, 0, 1080);
-	app->SetCamera(orthoCamera);
+	Camera* camera = new OrthoCamera(pos, rot, zoom, -1000.0f, 1000.0f);
+	app->SetCamera(camera);
 	app->SetRenderingInterface(new ExampleInterface);
 	return app;
 }

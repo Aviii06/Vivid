@@ -4,7 +4,8 @@
 #include "utils/Error.h"
 #include "Renderer.h"
 #include "core/ecs/components/model/Mesh.h"
-#include "editor/camera/EditorCamera.h"
+#include "editor/camera/movable/EditorCamera.h"
+#include "common/maths/Vec.h"
 
 namespace Vivid
 {
@@ -31,13 +32,13 @@ namespace Vivid
 
 		~Renderer2D() = default;
 
-		static void drawQuad(Vec2 vertex1, Vec2 vertex2, Vec2 vertex3, Vec2 vertex4, Vec3 color);
+		static void drawQuad(Maths::Vec2 vertex1, Maths::Vec2 vertex2, Maths::Vec2 vertex3, Maths::Vec2 vertex4, Maths::Vec3 color);
 
-		static void drawQuad(float x, float y, float width, float height, const Vec3& color);
+		static void drawQuad(float x, float y, float width, float height, const Maths::Vec3& color);
 
-		static void drawEllipse(Vec2 center, float radiusX, float radiusY, Vec3 color);
+		static void drawEllipse(Maths::Vec2 center, float radiusX, float radiusY, Maths::Vec3 color);
 
-		static void drawLine(Vec2 vertex1, Vec2 vertex2, Vec2 vertex3, Vec2 vertex4, Vec3 color);
+		static void drawLine(Maths::Vec2 vertex1, Maths::Vec2 vertex2, Maths::Vec2 vertex3, Maths::Vec2 vertex4, Maths::Vec3 color);
 
 	public:
 		static void Init(int reserveVertices = 10000);
@@ -48,15 +49,15 @@ namespace Vivid
 
 		static void EndScene();
 
-		static void DrawQuad(float x, float y, float width, float height, const Vec3& color);
+		static void DrawQuad(float x, float y, float width, float height, const Maths::Vec3& color);
 
-		static void DrawQuad(const Vec2& vertex1, const Vec2& vertex2, const Vec2& vertex3,
-		    const Vec2& vertex4, const Vec3& color);
+		static void DrawQuad(const Maths::Vec2& vertex1, const Maths::Vec2& vertex2, const Maths::Vec2& vertex3,
+		    const Maths::Vec2& vertex4, const Maths::Vec3& color);
 
-		static void DrawLine(Vec2 start, Vec2 end, float thickness, Vec3 color);
+		static void DrawLine(Maths::Vec2 start, Maths::Vec2 end, float thickness, Maths::Vec3 color);
 
-		static void DrawEllipse(Vec2 center, float radiusX, float radiusY, Vec3 color);
+		static void DrawEllipse(Maths::Vec2 center, float radiusX, float radiusY, Maths::Vec3 color);
 
-		static void DrawCircle(Vec2 center, float radius, Vec3 color);
+		static void DrawCircle(Maths::Vec2 center, float radius, Maths::Vec3 color);
 	};
 }

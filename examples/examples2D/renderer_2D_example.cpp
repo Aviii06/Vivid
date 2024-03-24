@@ -15,12 +15,12 @@ public:
 		Vivid::Renderer2D::BeginScene();
 
 		// Draw using API
-		Vivid::Renderer2D::DrawCircle(Vec2(0, 0), 150, Vec3(0.0f, 1.0f, 0.0f));
+		Vivid::Renderer2D::DrawCircle(Vivid::Maths::Vec2(0, 0), 150, Vivid::Maths::Vec3(0.0f, 1.0f, 0.0f));
 
-		Vivid::Renderer2D::DrawLine(Vec2(-150, 0), Vec2(150, 0), 2,
-		    Vec3(1.0f, 0.5f, 0.0f));
+		Vivid::Renderer2D::DrawLine(Vivid::Maths::Vec2(-150, 0), Vivid::Maths::Vec2(150, 0), 2,
+		    Vivid::Maths::Vec3(1.0f, 0.5f, 0.0f));
 
-		Vivid::Renderer2D::DrawQuad(-200, -200, 100, 100, Vec3(1.0f, 1.0f, 0.0f));
+		Vivid::Renderer2D::DrawQuad(-200, -200, 100, 100, Vivid::Maths::Vec3(1.0f, 1.0f, 0.0f));
 
 		Vivid::Renderer2D::EndScene();
 	}
@@ -42,8 +42,13 @@ Application* Vivid::CreateApplication()
 {
 	Application* app = Application::GetInstance(1920, 1080, "Rendering2D");
 
-	OrthoCamera* orthoCamera = new OrthoCamera(0, 1920, 0, 1080);
-	app->SetCamera(orthoCamera);
+	// Important for 2D rendering, set the camera to OrthoCamera
+	Maths::Vec3 pos = Maths::Vec3(0, 0, 0);
+	float rot = 0.0f;
+	float zoom = 0.10f;
+	Camera* camera = new OrthoCamera(pos, rot, zoom, -1000.0f, 1000.0f);
+	app->SetCamera(camera);
+
 	app->SetRenderingInterface(new ExampleInterface);
 	return app;
 }

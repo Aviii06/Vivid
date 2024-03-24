@@ -4,7 +4,7 @@
 #include "common/types/SmartPointers.h"
 
 #include "editor/camera/Camera.h"
-#include "editor/camera/EditorCamera.h"
+#include "editor/camera/movable/EditorCamera.h"
 
 namespace Vivid
 {

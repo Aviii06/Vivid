@@ -1,6 +1,7 @@
 #include "Renderer3D.h"
-#include "editor/camera/EditorCamera.h"
+#include "editor/camera/movable/EditorCamera.h"
 #include "editor/Application.h"
+#include "common/maths/Vec.h"
 
 namespace Vivid
 {
@@ -108,7 +109,7 @@ namespace Vivid
 		}
 	}
 
-	void Renderer3D::DrawQuad(Vec3 vertex1, Vec3 vertex2, Vec3 vertex3, Vec3 vertex4, Vec3 color)
+	void Renderer3D::DrawQuad(Maths::Vec3 vertex1, Maths::Vec3 vertex2, Maths::Vec3 vertex3, Maths::Vec3 vertex4, Maths::Vec3 color)
 	{
 		Vertex quadVert1 = { { vertex1.x, vertex1.y, vertex1.z },
 			{ 0.0f, 0.0f },
@@ -147,7 +148,7 @@ namespace Vivid
 		s_Storage3D.quadVertices.emplace_back(quadVert4);
 	}
 
-	void Renderer3D::DrawTriangle(Vec3 vertex1, Vec3 vertex2, Vec3 vertex3, Vec3 color)
+	void Renderer3D::DrawTriangle(Maths::Vec3 vertex1, Maths::Vec3 vertex2, Maths::Vec3 vertex3, Maths::Vec3 color)
 	{
 		Vertex quadVert1 = { { vertex1.x, vertex1.y, vertex1.z },
 			{ 0.0f, 0.0f },
@@ -179,18 +180,18 @@ namespace Vivid
 		s_Storage3D.quadVertices.emplace_back(quadVert3);
 	}
 
-	void Renderer3D::DrawCube(Vec3 center, float edgeLength, Vec3 color)
+	void Renderer3D::DrawCube(Maths::Vec3 center, float edgeLength, Maths::Vec3 color)
 	{
 		float halfEdgeLength = edgeLength / 2.0f;
 
-		Vec3 vertex1 = { center.x - halfEdgeLength, center.y - halfEdgeLength, center.z - halfEdgeLength };
-		Vec3 vertex2 = { center.x + halfEdgeLength, center.y - halfEdgeLength, center.z - halfEdgeLength };
-		Vec3 vertex3 = { center.x + halfEdgeLength, center.y + halfEdgeLength, center.z - halfEdgeLength };
-		Vec3 vertex4 = { center.x - halfEdgeLength, center.y + halfEdgeLength, center.z - halfEdgeLength };
-		Vec3 vertex5 = { center.x - halfEdgeLength, center.y - halfEdgeLength, center.z + halfEdgeLength };
-		Vec3 vertex6 = { center.x + halfEdgeLength, center.y - halfEdgeLength, center.z + halfEdgeLength };
-		Vec3 vertex7 = { center.x + halfEdgeLength, center.y + halfEdgeLength, center.z + halfEdgeLength };
-		Vec3 vertex8 = { center.x - halfEdgeLength, center.y + halfEdgeLength, center.z + halfEdgeLength };
+		Maths::Vec3 vertex1 = { center.x - halfEdgeLength, center.y - halfEdgeLength, center.z - halfEdgeLength };
+		Maths::Vec3 vertex2 = { center.x + halfEdgeLength, center.y - halfEdgeLength, center.z - halfEdgeLength };
+		Maths::Vec3 vertex3 = { center.x + halfEdgeLength, center.y + halfEdgeLength, center.z - halfEdgeLength };
+		Maths::Vec3 vertex4 = { center.x - halfEdgeLength, center.y + halfEdgeLength, center.z - halfEdgeLength };
+		Maths::Vec3 vertex5 = { center.x - halfEdgeLength, center.y - halfEdgeLength, center.z + halfEdgeLength };
+		Maths::Vec3 vertex6 = { center.x + halfEdgeLength, center.y - halfEdgeLength, center.z + halfEdgeLength };
+		Maths::Vec3 vertex7 = { center.x + halfEdgeLength, center.y + halfEdgeLength, center.z + halfEdgeLength };
+		Maths::Vec3 vertex8 = { center.x - halfEdgeLength, center.y + halfEdgeLength, center.z + halfEdgeLength };
 
 		// Front
 		DrawQuad(vertex1, vertex2, vertex3, vertex4, color);

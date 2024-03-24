@@ -3,11 +3,12 @@
 class ExampleInterface : public RenderingInterface
 {
 private:
-	Vec3 lightColor = Vec3(1.0f, 0.5f, 1.0f);
-	Vec3 lightPos = Vec3(0.0f, 0.0f, -100.0f);
+	Vivid::Maths::Vec3 lightColor = Vivid::Maths::Vec3(1.0f, 0.5f, 1.0f);
+	Vivid::Maths::Vec3 lightPos = Vivid::Maths::Vec3(0.0f, 0.0f, -100.0f);
 
 	glm::vec3 suzannePosition = glm::vec3(0, 50, -200);
 	glm::vec3 lightPosition = glm::vec3(0, 0, 0);
+
 	Vivid::Mesh lightMesh;
 	Ref<Vivid::Shader> lightShader;
 	Vivid::Entity* suzanne = new Vivid::Entity(1, "Suzanne");
@@ -36,8 +37,8 @@ public:
 		modelComponent1->AddMesh(mesh);
 
 		pointLightComponent = new Vivid::PointLightComponent();
-		pointLightComponent->SetColor(Vec3(1.0f, 0.5f, 1.0f));
-
+		pointLightComponent->SetColor(Vivid::Maths::Vec3(1.0f, 0.5f, 1.0f));
+		//
 		Vivid::ECS::AddComponent(modelComponent1, suzanne);
 		Vivid::ECS::AddComponent(lightTransformComponent, suzanne);
 
@@ -48,14 +49,17 @@ public:
 	void Draw() override
 	{
 		Vector<Vivid::PointLightComponent*> pointLights = Vivid::ECS::GetAllComponents<Vivid::PointLightComponent>();
-		Vec3 lightColor = pointLights[0]->GetColor();
+		Vivid::Maths::Vec3 lightColor = pointLights[0]->GetColor();
 		float intensity = pointLights[0]->GetIntensity();
-		Vec3 lightPosition = pointLights[0]->GetEntity()->GetComponent<Vivid::TransformComponent>()->GetPosition();
+		Vivid::Maths::Vec3 lightPosition = pointLights[0]->GetEntity()->GetComponent<Vivid::TransformComponent>()->GetPosition();
 
 		mesh->BindShader(shader);
 		shader->SetUniform3f("lightColor", lightColor);
 		shader->SetUniform3f("lightPos", lightPosition);
 		shader->SetUniform1f("intensity", intensity);
+
+		// Draw using API
+		Vivid::Renderer2D::DrawQuad(2013, -200, 100, 100, Vivid::Maths::Vec3(1.0f, 1.0f, 0.0f));
 	}
 
 	void ImGuiRender() override

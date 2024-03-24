@@ -1,8 +1,15 @@
 #include "Mesh.h"
+#include "common/maths/Vec.h"
 
 namespace Vivid
 {
-	Mesh::Mesh(Vector<Vertex>& verts, Vector<unsigned int>& inds, VertexBufferLayout layout, glm::mat4 modelMatrix)
+	Mesh::Mesh()
+	    : m_Instances(1)
+	{
+	}
+
+	Mesh::Mesh(Vector<Vertex>& verts, Vector<unsigned int>& inds, VertexBufferLayout layout, glm::mat4 modelMatrix, unsigned int instances)
+	    : m_Instances(instances)
 	{
 		m_Vertices = verts;
 		m_Indices = inds;
@@ -13,7 +20,8 @@ namespace Vivid
 		m_Vao = VertexArray::Create();
 	}
 
-	Mesh::Mesh(Vector<Vertex>& verts, Vector<unsigned int>& inds)
+	Mesh::Mesh(Vector<Vertex>& verts, Vector<unsigned int>& inds, unsigned int instances)
+	    : m_Instances(instances)
 	{
 		m_Vertices = verts;
 		m_Indices = inds;
@@ -29,18 +37,21 @@ namespace Vivid
 		m_Vao = VertexArray::Create();
 	}
 
-	Mesh::Mesh(const std::string& file_name)
+	Mesh::Mesh(const std::string& file_name, unsigned int instances)
+	    : m_Instances(instances)
 	{
 		loadOBJ(file_name);
 	}
 
-	Mesh::Mesh(const std::string& file_name, Ptr<Shader> shader)
+	Mesh::Mesh(const std::string& file_name, Ptr<Shader> shader, unsigned int instances)
+	    : m_Instances(instances)
 	{
 		BindShader(std::move(shader));
 		loadOBJ(file_name);
 	}
 
-	Mesh::Mesh(Shape& shape)
+	Mesh::Mesh(Shape& shape, unsigned int instances)
+	    : m_Instances(instances)
 	{
 		m_Vertices = shape.GetPositions();
 		m_Indices = shape.GetIndices();
@@ -73,9 +84,9 @@ namespace Vivid
 		m_Layout.AddFloat(3); // Normal
 
 		// Vertex portions
-		Vector<Vec3> vertex_positions;
-		Vector<Vec2> vertex_texcoords;
-		Vector<Vec3> vertex_normals;
+		Vector<Maths::Vec3> vertex_positions;
+		Vector<Maths::Vec2> vertex_texcoords;
+		Vector<Maths::Vec3> vertex_normals;
 
 		// Face vectors
 		std::vector<GLint> vertex_position_indicies;
@@ -86,8 +97,8 @@ namespace Vivid
 		std::ifstream in_file(file_name.c_str());
 		std::string line = "";
 		std::string prefix = "";
-		Vec3 temp_vec3;
-		Vec2 temp_vec2;
+		Maths::Vec3 temp_vec3;
+		Maths::Vec2 temp_vec2;
 		GLint temp_glint = 0;
 
 		// File open error check
@@ -167,7 +178,7 @@ namespace Vivid
 		{
 			if (vertex_texcoord_indicies[i] == 0)
 			{
-				m_Vertices[i].texcoord = Vec2(1.0, 0.0);
+				m_Vertices[i].texcoord = Maths::Vec2(1.0, 0.0);
 			}
 			else
 			{
@@ -176,14 +187,14 @@ namespace Vivid
 
 			if (vertex_normal_indicies[i] == 0)
 			{
-				m_Vertices[i].normal = Vec3(1.0, 0.0, 0.0);
+				m_Vertices[i].normal = Maths::Vec3(1.0, 0.0, 0.0);
 			}
 			else
 			{
 				m_Vertices[i].normal = vertex_normals[vertex_normal_indicies[i] - 1];
 			}
 			m_Vertices[i].position = vertex_positions[vertex_position_indicies[i] - 1] * 100.0f;
-			m_Vertices[i].color = Vec3(0.0f, 0.0f, 1.0f);
+			m_Vertices[i].color = Maths::Vec3(0.0f, 0.0f, 1.0f);
 			m_Indices[i] = i;
 		}
 
@@ -223,6 +234,6 @@ namespace Vivid
 		m_Shader->SetUniformMat4f("u_Model", m_ModelMatrix);
 		m_Shader->SetUniformMat4f("u_View", camera->GetViewMatrix());
 		m_Shader->SetUniformMat4f("u_Proj", camera->GetProjectionMatrix());
-		Vivid::Renderer::Draw(m_Vao, m_Ebo->GetCount());
+		Vivid::Renderer::Draw(m_Vao, m_Ebo->GetCount(), m_Instances);
 	}
 }

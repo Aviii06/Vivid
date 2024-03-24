@@ -1,6 +1,7 @@
 #include "TransformComponent.h"
 
 #include "imgui/imgui/imgui.h"
+#include "common/maths/Vec.h"
 #include <glm/glm.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
@@ -74,7 +75,7 @@ namespace Vivid
 
 	void TransformComponent::ImGuiRender()
 	{
-		Vec3 prevScale = m_Scale;
+		Maths::Vec3 prevScale = m_Scale;
 
 		updateTransformImGUI();
 

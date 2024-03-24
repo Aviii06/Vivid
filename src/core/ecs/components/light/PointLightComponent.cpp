@@ -3,10 +3,11 @@
 #include "core/renderer/shapes/Quad3d.h"
 #include "core/ecs/components/TransformComponent.h"
 #include "core/ecs/components/model/ModelComponent.h"
+#include "common/maths/Vec.h"
 
 namespace Vivid
 {
-	PointLightComponent::PointLightComponent(Vec3 color)
+	PointLightComponent::PointLightComponent(Maths::Vec3 color)
 	    : m_Color(color)
 	{
 	}

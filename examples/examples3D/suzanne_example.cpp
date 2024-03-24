@@ -3,9 +3,9 @@
 class ExampleInterface : public RenderingInterface
 {
 private:
-	Vec3 lightColor = Vec3(1.0f, 0.5f, 1.0f);
-	Vec3 lightPos = Vec3(0.0f, 0.0f, -100.0f);
-	Vec2* m_PrevMousePosition = new Vec2(0.0f, 0.0f);
+	Vivid::Maths::Vec3 lightColor = Vivid::Maths::Vec3(1.0f, 0.5f, 1.0f);
+	Vivid::Maths::Vec3 lightPos = Vivid::Maths::Vec3(0.0f, 0.0f, -100.0f);
+	Vivid::Maths::Vec2* m_PrevMousePosition = new Vivid::Maths::Vec2(0.0f, 0.0f);
 
 	glm::vec3 suzannePosition = glm::vec3(0, 50, -200);
 	Vivid::Mesh lightMesh;

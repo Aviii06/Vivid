@@ -4,16 +4,17 @@
 #include "common/types/Types.h"
 #include "common/types/SmartPointers.h"
 #include "glm/glm/glm.hpp"
+#include "common/maths/Vec.h"
 
 namespace Vivid
 {
 
 	struct Vertex
 	{
-		Vec3 position;
-		Vec2 texcoord;
-		Vec3 color;
-		Vec3 normal;
+		Maths::Vec3 position;
+		Maths::Vec2 texcoord;
+		Maths::Vec3 color;
+		Maths::Vec3 normal;
 	};
 
 	class VertexBuffer

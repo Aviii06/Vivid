@@ -1,5 +1,6 @@
 #include "Renderer2D.h"
 #include "editor/Application.h"
+#include "common/maths/Vec.h"
 
 namespace Vivid
 {
@@ -85,33 +86,33 @@ namespace Vivid
 		s_Storage.ellipseShader->SetUniformMat4f("u_Proj", camera->GetProjectionMatrix());
 	}
 
-	void Renderer2D::DrawQuad(float x, float y, float width, float height, const Vec3& color)
+	void Renderer2D::DrawQuad(float x, float y, float width, float height, const Maths::Vec3& color)
 	{
 		drawQuad(x, y, width, height, color);
 	}
 
-	void Renderer2D::DrawQuad(const Vec2& vertex1, const Vec2& vertex2, const Vec2& vertex3,
-	    const Vec2& vertex4, const Vec3& color)
+	void Renderer2D::DrawQuad(const Maths::Vec2& vertex1, const Maths::Vec2& vertex2, const Maths::Vec2& vertex3,
+	    const Maths::Vec2& vertex4, const Maths::Vec3& color)
 	{
 		drawQuad(vertex1, vertex2, vertex3, vertex4, color);
 	}
 
-	void Renderer2D::DrawLine(Vec2 start, Vec2 end, float thickness, Vec3 color)
+	void Renderer2D::DrawLine(Maths::Vec2 start, Maths::Vec2 end, float thickness, Maths::Vec3 color)
 	{
-		Vec2 vertex1 = start + (end - start).Perpendicular().Normalize() * thickness;
-		Vec2 vertex2 = end + (end - start).Perpendicular().Normalize() * thickness;
-		Vec2 vertex3 = end - (end - start).Perpendicular().Normalize() * thickness;
-		Vec2 vertex4 = start - (end - start).Perpendicular().Normalize() * thickness;
+		Maths::Vec2 vertex1 = start + (end - start).Perpendicular().Normalize() * thickness;
+		Maths::Vec2 vertex2 = end + (end - start).Perpendicular().Normalize() * thickness;
+		Maths::Vec2 vertex3 = end - (end - start).Perpendicular().Normalize() * thickness;
+		Maths::Vec2 vertex4 = start - (end - start).Perpendicular().Normalize() * thickness;
 
 		drawLine(vertex1, vertex2, vertex3, vertex4, color);
 	}
 
-	void Renderer2D::DrawEllipse(Vec2 center, float radiusX, float radiusY, Vec3 color)
+	void Renderer2D::DrawEllipse(Maths::Vec2 center, float radiusX, float radiusY, Maths::Vec3 color)
 	{
 		drawEllipse(center, radiusX, radiusY, color);
 	}
 
-	void Renderer2D::DrawCircle(Vec2 center, float radius, Vec3 color)
+	void Renderer2D::DrawCircle(Maths::Vec2 center, float radius, Maths::Vec3 color)
 	{
 		drawEllipse(center, radius, radius, color);
 	}
@@ -187,14 +188,14 @@ namespace Vivid
 	}
 
 	// All private implementations
-	void Renderer2D::drawQuad(float x, float y, float width, float height, const Vec3& color)
+	void Renderer2D::drawQuad(float x, float y, float width, float height, const Maths::Vec3& color)
 	{
-		drawQuad(Vec2(x - width / 2, y - height / 2), Vec2(x - width / 2, y + height / 2),
-		    Vec2(x + width / 2, y + height / 2), Vec2(x + width / 2, y - height / 2), color);
+		drawQuad(Maths::Vec2(x - width / 2, y - height / 2), Maths::Vec2(x - width / 2, y + height / 2),
+		    Maths::Vec2(x + width / 2, y + height / 2), Maths::Vec2(x + width / 2, y - height / 2), color);
 	}
 
 	// Winding order is clockwise
-	void Renderer2D::drawQuad(Vec2 vertex1, Vec2 vertex2, Vec2 vertex3, Vec2 vertex4, Vec3 color)
+	void Renderer2D::drawQuad(Maths::Vec2 vertex1, Maths::Vec2 vertex2, Maths::Vec2 vertex3, Maths::Vec2 vertex4, Maths::Vec3 color)
 	{
 		Vertex quadVert1 = { { vertex1.x, vertex1.y, -20.0f },
 			{ 0.0f, 0.0f },
@@ -233,7 +234,7 @@ namespace Vivid
 		s_Storage.quadVertices.emplace_back(quadVert4);
 	}
 
-	void Renderer2D::drawEllipse(Vec2 center, float radiusX, float radiusY, Vec3 color)
+	void Renderer2D::drawEllipse(Maths::Vec2 center, float radiusX, float radiusY, Maths::Vec3 color)
 	{
 		Vertex vertex1 = { { center.x - radiusX, center.y - radiusY, -20.0f },
 			{ 0.0f, 0.0f },
@@ -272,7 +273,7 @@ namespace Vivid
 		s_Storage.ellipseVertices.push_back(vertex4);
 	}
 
-	void Renderer2D::drawLine(Vec2 vertex1, Vec2 vertex2, Vec2 vertex3, Vec2 vertex4, Vec3 color)
+	void Renderer2D::drawLine(Maths::Vec2 vertex1, Maths::Vec2 vertex2, Maths::Vec2 vertex3, Maths::Vec2 vertex4, Maths::Vec3 color)
 	{
 		Vertex lineVert1 = { { vertex1.x, vertex1.y, -20.0f },
 			{ 0.0f, 0.0f },

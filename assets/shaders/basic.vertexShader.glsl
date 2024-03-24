@@ -10,9 +10,11 @@ uniform mat4 u_Proj;
 out vec2 v_TexCoord;
 out vec3 v_Color;
 
+uniform vec3 offsets[36];
+
 void main()
 {
-  gl_Position = u_Proj * u_View * u_Model * vec4(position, 1.0f);
+  gl_Position = u_Proj * u_View * u_Model * vec4(position + offsets[gl_InstanceID], 1.0f);
   v_TexCoord = texCoord;
   v_Color = col;
 }

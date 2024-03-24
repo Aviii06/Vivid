@@ -4,6 +4,7 @@
 #include "utils/Error.h"
 #include "core/renderer/FrameBuffer.h"
 #include "editor/RenderingInterface.h"
+#include "common/maths/Vec.h"
 
 class Window
 {
@@ -11,7 +12,7 @@ private:
 	GLFWwindow* m_Window;
 	int m_Width, m_Height;
 	const char* m_Title;
-	Vec2* m_PrevMousePosition;
+	Vivid::Maths::Vec2* m_PrevMousePosition;
 	RenderingInterface* m_RenderingInterface;
 	FrameBuffer* m_FrameBuffer;
 
