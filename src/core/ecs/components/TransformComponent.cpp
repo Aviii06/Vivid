@@ -30,7 +30,7 @@ namespace Vivid
 		ImGui::Text("Rotation");
 		ImGui::SliderFloat3("##Rotation", &m_Rotation.x, -180.0f, 180.0f);
 		ImGui::Text("Scale");
-		ImGui::SliderFloat3("##Scale", &m_Scale.x, 0.0f, 5.0f, "%.2f");
+		ImGui::SliderFloat3("##Scale", &m_Scale.x, 0.0f, 100.0f, "%.2f");
 		ImGui::SameLine();
 		ImGui::Text("Fix Scale");
 		ImGui::SameLine();
@@ -116,6 +116,7 @@ namespace Vivid
 
 	void TransformComponent::DrawGizmo(Camera* camera)
 	{
+		ImGuizmo::RecomposeMatrixFromComponents(&m_Position.x, &m_Rotation.x, &m_Scale.x, glm::value_ptr(m_Transform));
 		ImGuizmo::SetOrthographic(false);
 
 		glm::mat4 cameraProjection = camera->GetProjectionMatrix();

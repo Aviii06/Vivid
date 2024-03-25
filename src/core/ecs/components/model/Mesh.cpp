@@ -193,7 +193,7 @@ namespace Vivid
 			{
 				m_Vertices[i].normal = vertex_normals[vertex_normal_indicies[i] - 1];
 			}
-			m_Vertices[i].position = vertex_positions[vertex_position_indicies[i] - 1] * 100.0f;
+			m_Vertices[i].position = vertex_positions[vertex_position_indicies[i] - 1];
 			m_Vertices[i].color = Maths::Vec3(0.0f, 0.0f, 1.0f);
 			m_Indices[i] = i;
 		}

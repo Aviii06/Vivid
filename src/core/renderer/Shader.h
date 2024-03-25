@@ -14,6 +14,8 @@ namespace Vivid
 		std::string PixelSource;
 	};
 
+	// Shader should contain all the uniforms that are required by it to run.
+	// We can bind those uniforms to the shader and then use them automatically. Or we can have them Statically Bind them, which doesn;t put them into the shader's object. Just binds them for some time.
 	class Shader
 	{
 	private:

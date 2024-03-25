@@ -12,14 +12,17 @@ private:
 	Vivid::Mesh lightMesh;
 	Ref<Vivid::Shader> lightShader;
 	Vivid::Entity* suzanne = new Vivid::Entity(1, "Suzanne");
-	Vivid::Entity* light = new Vivid::Entity(2, "PointLight");
+	Vivid::Entity* light = new Vivid::Entity(2, "DirectionalLight");
 	Vivid::ModelComponent* modelComponent1;
-	Vivid::TransformComponent* suzanneTransformComponent = new Vivid::TransformComponent();
+	Vivid::TransformComponent* sphereTransformComponent = new Vivid::TransformComponent();
 	Vivid::TransformComponent* lightTransformComponent = new Vivid::TransformComponent();
 	Vivid::Mesh* mesh;
 
 	Vivid::PointLightComponent* pointLightComponent;
+	Vivid::DirectionalLightComponent* directionalLightComponent;
 	Ref<Vivid::Shader> shader;
+
+	float shininess = 32.0f;
 
 public:
 	void Setup() override
@@ -30,7 +33,7 @@ public:
 		shader = MakeRef<Vivid::Shader>("./../assets/shaders/phong.vertexShader.glsl",
 		    "./../assets/shaders/phong.pixelShader.glsl");
 
-		mesh = new Vivid::Mesh("./../assets/obj/suzanne.obj");
+		mesh = new Vivid::Mesh("./../assets/obj/suzanne.obj", 1);
 		mesh->BindShader(shader);
 
 		modelComponent1 = new Vivid::ModelComponent();
@@ -38,28 +41,34 @@ public:
 
 		pointLightComponent = new Vivid::PointLightComponent();
 		pointLightComponent->SetColor(Vivid::Maths::Vec3(1.0f, 0.5f, 1.0f));
-		//
-		Vivid::ECS::AddComponent(modelComponent1, suzanne);
-		Vivid::ECS::AddComponent(lightTransformComponent, suzanne);
 
-		Vivid::ECS::AddComponent(pointLightComponent, light);
-		Vivid::ECS::AddComponent(suzanneTransformComponent, light);
+		directionalLightComponent = new Vivid::DirectionalLightComponent();
+		directionalLightComponent->SetDirection(Vivid::Maths::Vec3(0.0f, -1.0f, 0.0f));
+		//
+
+		sphereTransformComponent->SetScale(Vivid::Maths::Vec3(50.0f, 50.0f, 50.0f));
+		Vivid::ECS::AddComponent(modelComponent1, suzanne);
+		Vivid::ECS::AddComponent(sphereTransformComponent, suzanne);
+
+		Vivid::ECS::AddComponent(directionalLightComponent, light);
 	}
 
 	void Draw() override
 	{
-		Vector<Vivid::PointLightComponent*> pointLights = Vivid::ECS::GetAllComponents<Vivid::PointLightComponent>();
-		Vivid::Maths::Vec3 lightColor = pointLights[0]->GetColor();
-		float intensity = pointLights[0]->GetIntensity();
-		Vivid::Maths::Vec3 lightPosition = pointLights[0]->GetEntity()->GetComponent<Vivid::TransformComponent>()->GetPosition();
+		Vector<Vivid::DirectionalLightComponent*> directionalLights = Vivid::ECS::GetAllComponents<Vivid::DirectionalLightComponent>();
+		Vivid::Maths::Vec3 lightDiffuseColor = directionalLights[0]->GetDiffuseColor();
+		Vivid::Maths::Vec3 lightSpecularColor = directionalLights[0]->GetSpecularColor();
+		float intensity = directionalLights[0]->GetIntensity();
+		Vivid::Maths::Vec3 lightDir = directionalLights[0]->GetDirection();
 
 		mesh->BindShader(shader);
-		shader->SetUniform3f("lightColor", lightColor);
-		shader->SetUniform3f("lightPos", lightPosition);
-		shader->SetUniform1f("intensity", intensity);
+		shader->SetUniform3f("LightDiffuseColor", lightDiffuseColor);
+		shader->SetUniform3f("LightDir", lightDir);
+		shader->SetUniform1f("LightIntensity", intensity);
+		shader->SetUniform3f("LightSpecularColor", lightSpecularColor);
+		shader->SetUniform3f("LightColor", lightColor);
+		shader->SetUniform1f("shininess", shininess);
 
-		// Draw using API
-		Vivid::Renderer2D::DrawQuad(2013, -200, 100, 100, Vivid::Maths::Vec3(1.0f, 1.0f, 0.0f));
 	}
 
 	void ImGuiRender() override
@@ -68,6 +77,8 @@ public:
 
 		ImGui::Text("Application average %.3f ms/frame (%.1f FPS)",
 		    1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+
+		ImGui::SliderFloat("shininess", &shininess, 0.0f, 32.0f);
 
 		ImGui::End();
 	}

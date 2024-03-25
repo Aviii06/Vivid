@@ -5,6 +5,8 @@
 #include "imguizmo/ImGuizmo.h"
 #include "common/maths/Vec.h"
 
+#include "glm/gtc/quaternion.hpp"
+
 namespace Vivid
 {
 
@@ -13,10 +15,10 @@ namespace Vivid
 	private:
 		Maths::Vec3 m_Position;
 		Maths::Vec3 m_Rotation;
-		Maths::Vec3 m_Scale = Maths::Vec3(1.0f, 1.0f, 1.0f);
-		Maths::Vec3 m_PrevScale = Maths::Vec3(1.0f, 1.0f, 1.0f);
+		Maths::Vec3 m_Scale;
+		Maths::Vec3 m_PrevScale = Maths::Vec3(50.0f, 50.0f, 50.0f);
 		bool m_FixScale = false;
-		glm::mat4 m_Transform = glm::mat4(1.0f);
+		glm::mat4 m_Transform;
 		ImGuizmo::OPERATION m_CurrentGizmoOperation = ImGuizmo::TRANSLATE;
 		ImGuizmo::MODE m_CurrentGizmoMode = ImGuizmo::LOCAL;
 		bool m_UsingSnap = false;
@@ -27,14 +29,18 @@ namespace Vivid
 		void drawGizmo(Camera* camera);
 
 	public:
-		TransformComponent() = default;
+		TransformComponent()
+		{
+			m_Scale = Maths::Vec3(1.0f, 1.0f, 1.0f);
+			ImGuizmo::RecomposeMatrixFromComponents(&m_Position.x, &m_Rotation.x, &m_Scale.x, &m_Transform[0][0]);
+		}
 
 		TransformComponent(Maths::Vec3 position, Maths::Vec3 rotation, Maths::Vec3 scale)
 		    : m_Position(position)
 		    , m_Rotation(rotation)
 		    , m_Scale(scale)
 		{
-			m_Transform = glm::translate(glm::mat4(1.0f), glm::vec3(m_Position.x, m_Position.y, m_Position.z));
+			TransformComponent();
 		}
 
 		virtual ~TransformComponent() = default;
@@ -49,13 +55,25 @@ namespace Vivid
 
 		inline Maths::Vec3 GetScale() const { return m_Scale; }
 
-		inline glm::mat4 GetTransform() const { return m_Transform; }
+		inline glm::mat4 GetTransform() { return m_Transform; }
 
-		inline void SetPosition(Maths::Vec3 position) { m_Position = position; }
+		inline void SetPosition(Maths::Vec3 position)
+		{
+			m_Position = position;
+			ImGuizmo::RecomposeMatrixFromComponents(&m_Position.x, &m_Rotation.x, &m_Scale.x, &m_Transform[0][0]);
+		}
 
-		inline void SetRotation(Maths::Vec3 rotation) { m_Rotation = rotation; }
+		inline void SetRotation(Maths::Vec3 rotation)
+		{
+			m_Rotation = rotation;
+			ImGuizmo::RecomposeMatrixFromComponents(&m_Position.x, &m_Rotation.x, &m_Scale.x, &m_Transform[0][0]);
+		}
 
-		inline void SetScale(Maths::Vec3 scale) { m_Scale = scale; }
+		inline void SetScale(Maths::Vec3 scale)
+		{
+			m_Scale = scale;
+			ImGuizmo::RecomposeMatrixFromComponents(&m_Position.x, &m_Rotation.x, &m_Scale.x, &m_Transform[0][0]);
+		}
 
 		String GetComponentName() override { return "Transform Component"; }
 
