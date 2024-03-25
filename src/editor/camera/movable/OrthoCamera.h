@@ -44,7 +44,4 @@ public:
 	void MoveRight() override;
 	void ProcessMouseScroll(float scrollOffset) override;
 	void ProcessMouseMovement(float xOffset, float yOffset, bool constrainPitch) override;
-
-	// Ray Casting
-	Vivid::Maths::Vec3 RayCast(const Vivid::Maths::Vec2& screenCoords);
 };

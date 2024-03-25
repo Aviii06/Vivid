@@ -95,16 +95,3 @@ void OrthoCamera::ProcessMouseMovement(float xOffset, float yOffset, bool constr
 	m_Position.y -= yOffset * m_Speed * m_ScrollSpeed;
 	updateViewMatrix();
 }
-
-Vivid::Maths::Vec3 OrthoCamera::RayCast(const Vivid::Maths::Vec2& screenCoords)
-{
-	int windowWidth = Application::GetInstance()->GetWindow().GetWidth();
-	int windowHeight = Application::GetInstance()->GetWindow().GetHeight();
-
-	Vivid::Maths::Vec3 rayPoint = Vivid::Maths::Vec3(screenCoords.x * 2, (screenCoords.y) * 2, 0.0f);
-
-//    std::cout << "Window Height: " << windowHeight << std::endl;
-//    std::cout << "Ray point: " << rayPoint.x << " " << rayPoint.y << " " << rayPoint.z << std::endl;
-
-	return rayPoint;
-}
