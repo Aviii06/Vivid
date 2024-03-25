@@ -41,6 +41,7 @@ set(HEADERS
         ${CMAKE_CURRENT_SOURCE_DIR}/editor/Window.h
         ${CMAKE_CURRENT_SOURCE_DIR}/editor/Application.h
         editor/camera/movable/EditorCamera.h
+        editor/camera/movable/OrthoCamera.h
         core/ecs/components/light/PointLightComponent.h
         core/renderer/shapes/Quad3d.h
         core/renderer/shapes/Sphere.h

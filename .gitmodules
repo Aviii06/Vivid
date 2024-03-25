@@ -10,6 +10,7 @@
 [submodule "vendor/imgui/imgui"]
 	path = vendor/imgui/imgui
 	url = https://github.com/ocornut/imgui.git
+	commit = 11613013860d149667302a258041dcd832069f36
 [submodule "vendor/imgui/SDL"]
 	path = vendor/imgui/SDL
 	url = https://github.com/libsdl-org/SDL.git

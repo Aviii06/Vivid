@@ -35,6 +35,7 @@ namespace Vivid
 		const unsigned int m_Instances;
 
 		void loadOBJ(const std::string& file_name);
+        void normalizeVertices();
 
 	public:
 		// Initializes the mesh

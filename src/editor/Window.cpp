@@ -158,16 +158,18 @@ void Window::Update()
 	{
 		ImGui::BeginChild("GameRender");
 
-		float width = ImGui::GetContentRegionAvail().x;
-		float height = ImGui::GetContentRegionAvail().y;
+		m_ViewportWidth = ImGui::GetContentRegionAvail().x;
+		m_ViewportHeight = ImGui::GetContentRegionAvail().y;
+        // Get the starting position of the viewport
+        m_ViewportPosition = Vivid::Maths::Vec2(ImGui::GetCursorScreenPos().x, ImGui::GetCursorScreenPos().y);
 
 		//        Application::GetInstance()->GetCamera()->SetViewportSize(width, height);
 
-		Application::GetInstance()->GetCamera()->SetViewportSize(width, height);
+		Application::GetInstance()->GetCamera()->SetViewportSize(m_ViewportWidth, m_ViewportHeight);
 
 		ImGui::Image(
 		    (ImTextureID)m_FrameBuffer->getFrameTexture(),
-		    ImVec2(width, height),
+		    ImVec2(m_ViewportWidth, m_ViewportHeight),
 		    ImVec2(0, 1),
 		    ImVec2(1, 0));
 

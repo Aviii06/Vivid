@@ -1,17 +1,20 @@
 #version 330 core
 
+in vec3 v_VertPos;
 in vec3 v_CrntPos;
 in vec3 v_Normal;
 in vec3 v_Color;
-in vec3 v_Offset;
 
 uniform vec3 pointLightColor;
 uniform vec3 pointLightPos;
 uniform float pointLightIntensity;
 
-uniform vec3 directionalLightColor;
-uniform vec3 directionalLightDir;
-uniform float directionalLightIntensity;
+uniform vec3 LightDiffuseColor;
+uniform vec3 LightDir;
+uniform float LightIntensity;
+uniform vec3 LightSpecularColor;
+uniform vec3 LightColor;
+uniform float shininess;
 
 
 out vec4 FragColor;
@@ -36,38 +39,45 @@ vec4 pointLight()
 //	return vec4(v_Offset, 1.0f);
 }
 
+// Linear to sRGB conversion
+vec3 linearToRgb(vec3 color)
+{
+	return pow(color, vec3(1.0f / 2.2f));
+}
+
+// sRGB to Linear conversion
+vec3 rgbToLinear(vec3 color)
+{
+	return pow(color, vec3(2.2f));
+}
+
+// Phone BRDF
+vec3 phongBRDF(vec3 lightDir, vec3 viewDir, vec3 normal, vec3 diffuseColor, vec3 specularColor, float shininess)
+{
+	vec3 color = diffuseColor;
+	vec3 reflectDir = reflect(-lightDir, normal);
+	float specDot = max(dot(reflectDir, viewDir), 0.0);
+	color += pow(specDot, shininess) * specularColor;
+
+	return color;
+}
+
 vec4 directionalLight()
 {
-	// intensity of light with respect to distance
-	vec3 direction = directionalLightDir;
-	float inten = directionalLightIntensity;
-
-	// diffuse lighting
+	vec3 lightDir = normalize(LightDir);
+	vec3 viewDir = normalize(-v_VertPos);
 	vec3 normal = normalize(v_Normal);
-	float diffuse = min(max(dot(normal, direction) * inten, 0.0f), 1.0f);
+	vec3 radiance = rgbToLinear(LightDiffuseColor.rgb) * 0.1f;
+	float irradiance = max(dot(lightDir, normal), 0.0) * LightIntensity;
 
-	return vec4(diffuse, diffuse, diffuse, 1.0f) * vec4(directionalLightColor, 1.0f);
+	vec3 brdf = phongBRDF(lightDir, viewDir, normal, rgbToLinear(LightDiffuseColor.rbg), rgbToLinear(LightSpecularColor.rgb), shininess);
+	radiance += irradiance * brdf * rgbToLinear(LightColor.rgb);
 
-}
-
-float near = 0.1f;
-float far = 100.0f;
-
-float linearizeDepth(float depth)
-{
-	return (2.0 * near * far) / (far + near - (depth * 2.0 - 1.0) * (far - near));
-}
-
-float logisticDepth(float depth, float steepness, float offset)
-{
-	float zVal = linearizeDepth(depth);
-	return (1 / (1 + exp(-steepness * (zVal - offset))));
+	return vec4(linearToRgb(radiance), 1.0f);
 }
 
 void main()
 {
-	// outputs final color
-	float depth = logisticDepth(gl_FragCoord.z, 0.5f, 5.0f);
 	FragColor = pointLight() + directionalLight();
 }
 

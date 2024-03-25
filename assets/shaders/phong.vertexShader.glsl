@@ -8,23 +8,22 @@ uniform mat4 u_Model;
 uniform mat4 u_View;
 uniform mat4 u_Proj;
 
-uniform vec3 offsets[36];
-
 out vec2 v_TexCoord;
 out vec3 v_Color;
 out vec3 v_CrntPos;
 out vec3 v_Normal;
-out vec3 v_Offset;
+out vec3 v_VertPos;
 
 void main()
 {
-  vec3 newPos = position + offsets[gl_InstanceID];
-  v_CrntPos = vec3(u_Model * vec4(newPos, 1.0f));
-  gl_Position = (u_Proj * u_View * u_Model * vec4(newPos, 1.0f));
+  vec4 temp = u_Model * vec4(position, 1.0f);
+  v_CrntPos = vec3(temp);
+  temp = u_View * temp;
+  v_VertPos = vec3(temp);
+  gl_Position = u_Proj * temp;
   v_TexCoord = texCoord;
   v_Color = col;
   v_Normal = normal;
-  v_Offset = vec3((gl_InstanceID) / 36.0f);
 }
 
 //////////

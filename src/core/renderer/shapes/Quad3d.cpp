@@ -4,7 +4,7 @@
 namespace Vivid
 {
 	// TODO: Use multiple vertices to have correct normals for each vertex
-	Quad3d::Quad3d(int size, Maths::Vec3 col)
+	Quad3d::Quad3d(float size, Maths::Vec3 col)
 	{
 		m_Size = (float)size;
 		const float const_Size = m_Size;
