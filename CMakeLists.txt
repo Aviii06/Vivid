@@ -19,4 +19,4 @@ set(EXECUTABLE_OUTPUT_PATH "${CMAKE_BINARY_DIR}")
 add_subdirectory(vendor)
 
 add_subdirectory(src)
-# add_subdirectory(examples)
+add_subdirectory(examples)

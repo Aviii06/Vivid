@@ -33,6 +33,7 @@ Window::Window(int width, int height, const char* title)
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 #ifdef __APPLE__
 	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 #endif
@@ -76,13 +77,16 @@ void Window::SetRenderingInterface(RenderingInterface* renderingInterface)
 	m_RenderingInterface = renderingInterface;
 	m_RenderingInterface->Setup();
 
+	glfwGetWindowSize(m_Window, &m_Width, &m_Height);
 	m_FrameBuffer = new FrameBuffer(m_Width, m_Height);
 }
 
 void Window::Update()
 {
-	// Handle Custom Inputs
+	glfwGetWindowSize(m_Window, &m_Width, &m_Height);
+	m_FrameBuffer->RescaleFrameBuffer(m_Width, m_Height);
 
+	// Handle Custom Inputs
 	Camera* camera = Application::GetInstance()->GetCamera();
 	if (m_RenderingInterface != nullptr)
 	{
@@ -163,9 +167,9 @@ void Window::Update()
         // Get the starting position of the viewport
         m_ViewportPosition = Vivid::Maths::Vec2(ImGui::GetCursorScreenPos().x, ImGui::GetCursorScreenPos().y);
 
-		//        Application::GetInstance()->GetCamera()->SetViewportSize(width, height);
-
 		Application::GetInstance()->GetCamera()->SetViewportSize(m_ViewportWidth, m_ViewportHeight);
+
+//		m_FrameBuffer->RescaleFrameBuffer(m_ViewportWidth, m_ViewportHeight);
 
 		ImGui::Image(
 		    (ImTextureID)m_FrameBuffer->getFrameTexture(),

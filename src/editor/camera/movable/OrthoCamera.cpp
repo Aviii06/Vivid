@@ -1,8 +1,7 @@
 #include "OrthoCamera.h"
 #include "common/maths/Vec.h"
-#include "editor/Application.h"
-#include <iostream>
 #include <glm/gtc/matrix_transform.hpp>
+#include <iostream>
 
 OrthoCamera::OrthoCamera(Vivid::Maths::Vec3 position, float rotation, float zoomLevel, float near, float far)
     : m_Rotation(rotation)
@@ -12,9 +11,9 @@ OrthoCamera::OrthoCamera(Vivid::Maths::Vec3 position, float rotation, float zoom
 {
 	m_Position = position;
 	m_Left = 0;
-	m_Right = m_ViewportWidth;
+	m_Right = m_ViewportWidth / 2;
 	m_Bottom = 0;
-	m_Top = m_ViewportHeight;
+	m_Top = m_ViewportHeight / 2;
 
 	updateProjectionMatrix();
 	updateViewMatrix();
@@ -31,7 +30,9 @@ void OrthoCamera::updateViewMatrix()
 {
 	// TODO: Add rotations and movement
 //	m_ViewMatrix = glm::translate(glm::mat4(1.0f), m_Position.ToGLM());
-	m_ViewMatrix = glm::mat4(1.0f);
+	glm::mat4 transform = glm::translate(glm::mat4(1.0f), m_Position.ToGLM())
+	    * glm::rotate(glm::mat4(1.0f), m_Rotation, glm::vec3(0, 0, 1));
+	m_ViewMatrix = glm::inverse(transform);
 }
 
 void OrthoCamera::SetRotation(float rotation)
@@ -47,9 +48,9 @@ void OrthoCamera::SetPerspective(float left, float right, float bottom, float to
 void OrthoCamera::SetViewportSize(int width, int height)
 {
 	m_Left = 0;
-	m_Right = (float)width;
+	m_Right = width;
 	m_Bottom = 0;
-	m_Top = (float)height;
+	m_Top = height;
 	m_ViewportWidth = width;
 	m_ViewportHeight = height;
 	updateProjectionMatrix();
@@ -91,7 +92,17 @@ void OrthoCamera::ProcessMouseScroll(float scrollOffset)
 
 void OrthoCamera::ProcessMouseMovement(float xOffset, float yOffset, bool constrainPitch)
 {
-	m_Position.x += xOffset * m_Speed * m_ScrollSpeed;
-	m_Position.y -= yOffset * m_Speed * m_ScrollSpeed;
+	m_Position.x -= xOffset * m_Speed * m_ScrollSpeed;
+	m_Position.y += yOffset * m_Speed * m_ScrollSpeed;
 	updateViewMatrix();
+}
+
+Vivid::Maths::Vec2 OrthoCamera::ScreenToWorldCoords(float x, float y)
+{
+	glm::vec4 screenPos = glm::vec4(x, y, 0.0f, 1.0f);
+	glm::vec4 worldPos = glm::inverse(m_ViewMatrix) * screenPos;
+//	glm::vec4 worldPos = screenPos;
+//	glm::vec4 worldPos = screenPos + glm::vec4((m_Position * 2).ToGLM(),0.0f);
+
+	return Vivid::Maths::Vec2(worldPos.x / worldPos.w, worldPos.y / worldPos.w);
 }
