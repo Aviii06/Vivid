@@ -8,7 +8,9 @@
 namespace Vivid
 {
 	DirectionalLightComponent::DirectionalLightComponent(Maths::Vec3 diffuseColor, Maths::Vec3 specularColor, Maths::Vec3 lightColor)
-	    : m_DiffuseColor(diffuseColor), m_SpecularColor(specularColor), m_LightColor(lightColor)
+	    : m_DiffuseColor(diffuseColor)
+	    , m_SpecularColor(specularColor)
+	    , m_LightColor(lightColor)
 	{
 	}
 

@@ -1,4 +1,4 @@
-#version 330 core
+#version 400 core
 
 in vec3 v_VertPos;
 in vec3 v_CrntPos;

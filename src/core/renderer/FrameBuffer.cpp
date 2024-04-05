@@ -54,7 +54,6 @@ void FrameBuffer::RescaleFrameBuffer(float width, float height)
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 	glBindTexture(GL_TEXTURE_2D, 0);
 	glBindRenderbuffer(GL_RENDERBUFFER, 0);
-
 }
 
 void FrameBuffer::Bind() const

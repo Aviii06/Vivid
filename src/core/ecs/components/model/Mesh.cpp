@@ -19,7 +19,7 @@ namespace Vivid
 		m_Ebo = new IndexBuffer(m_Indices);
 		m_Vao = VertexArray::Create();
 
-        normalizeVertices();
+		normalizeVertices();
 	}
 
 	Mesh::Mesh(Vector<Vertex>& verts, Vector<unsigned int>& inds, unsigned int instances)
@@ -38,7 +38,7 @@ namespace Vivid
 		m_Ebo = new IndexBuffer(m_Indices);
 		m_Vao = VertexArray::Create();
 
-        normalizeVertices();
+		normalizeVertices();
 	}
 
 	Mesh::Mesh(const std::string& file_name, unsigned int instances)
@@ -67,7 +67,7 @@ namespace Vivid
 		m_Ebo = new IndexBuffer(m_Indices);
 		m_Vao = VertexArray::Create();
 
-        normalizeVertices();
+		normalizeVertices();
 	}
 
 	void Mesh::Update(const glm::mat4& modelMatrix)
@@ -210,7 +210,7 @@ namespace Vivid
 		std::cout << "OBJ file loaded!"
 		          << "\n";
 
-        normalizeVertices();
+		normalizeVertices();
 	}
 
 	void Mesh::SetVertices(Vector<Vertex> vertices)
@@ -220,7 +220,7 @@ namespace Vivid
 			m_Vertices[i] = vertices[i];
 		}
 
-        normalizeVertices();
+		normalizeVertices();
 	}
 
 	void Mesh::SetIndices(Vector<unsigned int> indices)
@@ -247,12 +247,18 @@ namespace Vivid
 		Vivid::Renderer::Draw(m_Vao, m_Ebo->GetCount(), m_Instances);
 	}
 
-    void Mesh::normalizeVertices()
-    {
-        for (int i = 0; i < m_Vertices.size(); i++)
-        {
-            float mag = sqrt(m_Vertices[i].position.x * m_Vertices[i].position.x + m_Vertices[i].position.y * m_Vertices[i].position.y + m_Vertices[i].position.z * m_Vertices[i].position.z);
-            m_Vertices[i].position = m_Vertices[i].position * (1/mag);
-        }
-    }
+	void Mesh::normalizeVertices()
+	{
+		float maxMag = 0;
+		for (int i = 0; i < m_Vertices.size(); i++)
+		{
+			float mag = sqrt(m_Vertices[i].position.x * m_Vertices[i].position.x + m_Vertices[i].position.y * m_Vertices[i].position.y + m_Vertices[i].position.z * m_Vertices[i].position.z);
+			maxMag = std::max(mag, maxMag);
+		}
+
+		for (int i = 0; i < m_Vertices.size(); i++)
+		{
+			m_Vertices[i].position = m_Vertices[i].position * (1 / maxMag);
+		}
+	}
 }

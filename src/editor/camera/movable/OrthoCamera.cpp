@@ -21,7 +21,7 @@ OrthoCamera::OrthoCamera(Vivid::Maths::Vec3 position, float rotation, float zoom
 
 void OrthoCamera::updateProjectionMatrix()
 {
-//	m_ProjectionMatrix = glm::ortho(m_Left * m_ZoomLevel, m_Right * m_ZoomLevel, m_Bottom * m_ZoomLevel, m_Top * m_ZoomLevel, m_Near, m_Far);
+	//	m_ProjectionMatrix = glm::ortho(m_Left * m_ZoomLevel, m_Right * m_ZoomLevel, m_Bottom * m_ZoomLevel, m_Top * m_ZoomLevel, m_Near, m_Far);
 	// For now ignore zoom level
 	m_ProjectionMatrix = glm::ortho(m_Left, m_Right, m_Bottom, m_Top, m_Near, m_Far);
 }
@@ -29,7 +29,7 @@ void OrthoCamera::updateProjectionMatrix()
 void OrthoCamera::updateViewMatrix()
 {
 	// TODO: Add rotations and movement
-//	m_ViewMatrix = glm::translate(glm::mat4(1.0f), m_Position.ToGLM());
+	//	m_ViewMatrix = glm::translate(glm::mat4(1.0f), m_Position.ToGLM());
 	glm::mat4 transform = glm::translate(glm::mat4(1.0f), m_Position.ToGLM())
 	    * glm::rotate(glm::mat4(1.0f), m_Rotation, glm::vec3(0, 0, 1));
 	m_ViewMatrix = glm::inverse(transform);
@@ -59,14 +59,14 @@ void OrthoCamera::SetViewportSize(int width, int height)
 
 void OrthoCamera::MoveForward()
 {
-//	m_ZoomLevel -= m_Speed;
+	//	m_ZoomLevel -= m_Speed;
 	m_ZoomLevel = std::fmax(m_ZoomLevel, 0.01f);
 	updateViewMatrix();
 }
 
 void OrthoCamera::MoveBackward()
 {
-//	m_ZoomLevel += m_Speed;
+	//	m_ZoomLevel += m_Speed;
 	m_ZoomLevel = std::fmax(m_ZoomLevel, 0.01f);
 	updateViewMatrix();
 }
@@ -101,8 +101,8 @@ Vivid::Maths::Vec2 OrthoCamera::ScreenToWorldCoords(float x, float y)
 {
 	glm::vec4 screenPos = glm::vec4(x, y, 0.0f, 1.0f);
 	glm::vec4 worldPos = glm::inverse(m_ViewMatrix) * screenPos;
-//	glm::vec4 worldPos = screenPos;
-//	glm::vec4 worldPos = screenPos + glm::vec4((m_Position * 2).ToGLM(),0.0f);
+	//	glm::vec4 worldPos = screenPos;
+	//	glm::vec4 worldPos = screenPos + glm::vec4((m_Position * 2).ToGLM(),0.0f);
 
 	return Vivid::Maths::Vec2(worldPos.x / worldPos.w, worldPos.y / worldPos.w);
 }

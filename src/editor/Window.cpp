@@ -50,6 +50,7 @@ Window::Window(int width, int height, const char* title)
 	IMGUI_CONFS
 
 	IMGUI_CHECKVERSION();
+	std::cout << glsl_version << "\n";
 	ImGui::CreateContext();
 	ImGui_ImplGlfw_InitForOpenGL(m_Window, true);
 	ImGui_ImplOpenGL3_Init(glsl_version);
@@ -164,12 +165,12 @@ void Window::Update()
 
 		m_ViewportWidth = ImGui::GetContentRegionAvail().x;
 		m_ViewportHeight = ImGui::GetContentRegionAvail().y;
-        // Get the starting position of the viewport
-        m_ViewportPosition = Vivid::Maths::Vec2(ImGui::GetCursorScreenPos().x, ImGui::GetCursorScreenPos().y);
+		// Get the starting position of the viewport
+		m_ViewportPosition = Vivid::Maths::Vec2(ImGui::GetCursorScreenPos().x, ImGui::GetCursorScreenPos().y);
 
 		Application::GetInstance()->GetCamera()->SetViewportSize(m_ViewportWidth, m_ViewportHeight);
 
-//		m_FrameBuffer->RescaleFrameBuffer(m_ViewportWidth, m_ViewportHeight);
+		//		m_FrameBuffer->RescaleFrameBuffer(m_ViewportWidth, m_ViewportHeight);
 
 		ImGui::Image(
 		    (ImTextureID)m_FrameBuffer->getFrameTexture(),

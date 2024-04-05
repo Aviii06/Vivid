@@ -33,8 +33,8 @@ Vivid::Maths::Vec2 InputHandler::GetMousePositionOnViewport()
 	mousePos.y -= Application::GetInstance()->GetWindow().GetViewportPosition().y;
 	mousePos.y = Application::GetInstance()->GetWindow().GetViewportHeight() - mousePos.y;
 
-//	mousePos.x -= Application::GetInstance()->GetWindow().GetViewportWidth() / 2;
-//	mousePos.y -= Application::GetInstance()->GetWindow().GetViewportHeight() / 2;
+	//	mousePos.x -= Application::GetInstance()->GetWindow().GetViewportWidth() / 2;
+	//	mousePos.y -= Application::GetInstance()->GetWindow().GetViewportHeight() / 2;
 
 	return mousePos;
 }

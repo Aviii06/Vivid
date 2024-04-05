@@ -68,7 +68,6 @@ public:
 		shader->SetUniform3f("LightSpecularColor", lightSpecularColor);
 		shader->SetUniform3f("LightColor", lightColor);
 		shader->SetUniform1f("shininess", shininess);
-
 	}
 
 	void ImGuiRender() override

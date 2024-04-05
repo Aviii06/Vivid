@@ -46,8 +46,8 @@ namespace Vivid::Maths
 		Vec3(float x)
 		{
 			this->x = x;
-            this->y = x;
-            this->z = x;
+			this->y = x;
+			this->z = x;
 		}
 
 		Vec3(float x, float y, float z)
