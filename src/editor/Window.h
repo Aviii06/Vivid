@@ -10,7 +10,9 @@ class Window
 {
 private:
 	GLFWwindow* m_Window;
+	Vivid::Maths::Vec2 m_ViewportPosition;
 	int m_Width, m_Height;
+	float m_ViewportWidth, m_ViewportHeight;
 	const char* m_Title;
 	Vivid::Maths::Vec2* m_PrevMousePosition;
 	RenderingInterface* m_RenderingInterface;
@@ -38,4 +40,8 @@ public:
 	float GetAspectRatio() const { return (float)m_Width / (float)m_Height; }
 
 	void SetRenderingInterface(RenderingInterface* renderingInterface);
+
+	Vivid::Maths::Vec2 GetViewportPosition() { return m_ViewportPosition; }
+	float GetViewportWidth() { return m_ViewportWidth; }
+	float GetViewportHeight() { return m_ViewportHeight; }
 };

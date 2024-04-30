@@ -12,6 +12,7 @@ namespace InputHandler
 	bool IsKeyPressed(int key);
 
 	Vivid::Maths::Vec2 GetMousePosition();
+	Vivid::Maths::Vec2 GetMousePositionOnViewport();
 
 	bool IsMouseButtonPressed(int button);
 };

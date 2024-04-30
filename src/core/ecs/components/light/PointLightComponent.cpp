@@ -14,7 +14,8 @@ namespace Vivid
 
 	void PointLightComponent::Draw(Camera* camera)
 	{
-		Vivid::Quad3d* quad = new Vivid::Quad3d(10, m_Color);
+		float scale = m_Entity->GetComponent<TransformComponent>()->GetScale().x;
+		Vivid::Quad3d* quad = new Vivid::Quad3d(10.0f / scale, m_Color);
 		Vivid::ModelComponent* modelComponent = new Vivid::ModelComponent();
 
 		if (m_Shader == nullptr)

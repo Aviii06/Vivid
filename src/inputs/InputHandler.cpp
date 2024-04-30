@@ -23,3 +23,18 @@ bool InputHandler::IsMouseButtonPressed(int button)
 	int state = glfwGetMouseButton(window, button);
 	return state == GLFW_PRESS;
 }
+
+// Gives Position on viewport from the center of the viewport.
+// Right is positive x, up is positive y.
+Vivid::Maths::Vec2 InputHandler::GetMousePositionOnViewport()
+{
+	Vivid::Maths::Vec2 mousePos = GetMousePosition();
+	mousePos.x -= Application::GetInstance()->GetWindow().GetViewportPosition().x;
+	mousePos.y -= Application::GetInstance()->GetWindow().GetViewportPosition().y;
+	mousePos.y = Application::GetInstance()->GetWindow().GetViewportHeight() - mousePos.y;
+
+	//	mousePos.x -= Application::GetInstance()->GetWindow().GetViewportWidth() / 2;
+	//	mousePos.y -= Application::GetInstance()->GetWindow().GetViewportHeight() / 2;
+
+	return mousePos;
+}

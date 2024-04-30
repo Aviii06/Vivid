@@ -7,8 +7,10 @@
 
 namespace Vivid
 {
-	DirectionalLightComponent::DirectionalLightComponent(Maths::Vec3 color)
-	    : m_Color(color)
+	DirectionalLightComponent::DirectionalLightComponent(Maths::Vec3 diffuseColor, Maths::Vec3 specularColor, Maths::Vec3 lightColor)
+	    : m_DiffuseColor(diffuseColor)
+	    , m_SpecularColor(specularColor)
+	    , m_LightColor(lightColor)
 	{
 	}
 
@@ -33,8 +35,10 @@ namespace Vivid
 
 	void DirectionalLightComponent::ImGuiRender()
 	{
-		ImGui::ColorPicker3("Color", &m_Color.x);
 		ImGui::SliderFloat("Intensity", &m_Intensity, 0.0f, 10.0f);
 		ImGui::SliderFloat3("Direction", &m_Direction.x, -1.0f, 1.0f);
+		ImGui::ColorPicker3("Diffuse Color", &m_DiffuseColor.x);
+		ImGui::ColorPicker3("Specular Color", &m_SpecularColor.x);
+		ImGui::ColorPicker3("Light Color", &m_LightColor.x);
 	}
 }

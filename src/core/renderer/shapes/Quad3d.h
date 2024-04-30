@@ -11,6 +11,6 @@ namespace Vivid
 		float m_Size;
 
 	public:
-		Quad3d(int size, Maths::Vec3 col = Maths::Vec3(1.0f, 1.0f, 1.0f));
+		Quad3d(float size, Maths::Vec3 col = Maths::Vec3(1.0f, 1.0f, 1.0f));
 	};
 }
