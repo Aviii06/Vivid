@@ -1,7 +1,5 @@
 #include "SceneUI.h"
 #include "UIFlags.h"
-#include "ImGuizmo.h"
-#include "core/ecs/components/TransformComponent.h"
 
 namespace VividGUI
 {

@@ -1,9 +1,11 @@
 #include "DockUI.h"
+#include "menu/MenuUI.h"
 
 void VividGUI::InitUI()
 {
 	DockConfig();
 	InitDock();
+	MenuUI::DrawMenuUI();
 }
 
 void VividGUI::DockConfig()

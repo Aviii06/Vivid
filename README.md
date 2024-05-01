@@ -56,7 +56,7 @@ Here is a checklist of dependencies for different operating systems:
 - freeglut3-dev
 #### File Dialog Boxes
 - GTK (default)
-- Make sure libgtk-3-dev is installed on your system.
+- Make sure libgtk-3-dev is installed on your system. `build-essential` and  `libgtk-3-dev`
 
 ### MacOS
 #### OpenGL

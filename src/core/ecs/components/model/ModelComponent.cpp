@@ -16,7 +16,7 @@ void Vivid::ModelComponent::ImGuiRender()
 	if (ImGui::Button("Add Mesh"))
 	{
 		// Open os Dialogue Box
-		const char* res = FileDialogue::OpenFile(nullptr);
+		String res = FileDialogue::OpenFile(Vector<String>(), Vector<String>());
 	}
 }
 

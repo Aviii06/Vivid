@@ -2,37 +2,86 @@
 #include <nfd.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <iostream>
 
 
-const char* FileDialogue::OpenFile(const char* filter)
+static Vector<nfdfilteritem_t> makeFilterItem(Vector<String> names, Vector<String> specs);
+
+namespace Vivid
 {
-	NFD_Init();
+	String FileDialogue::OpenFile(Vector<String> filterName, Vector<String> filterSpecs)
+	{
+		NFD_Init();
 
-	nfdchar_t *outPath;
-	nfdfilteritem_t filterItem[2] = { { "Source code", "c,cpp,cc" }, { "Headers", "h,hpp" } };
-	nfdresult_t result = NFD_OpenDialog(&outPath, filterItem, 2, NULL);
-	if (result == NFD_OKAY)
-	{
-		puts("Success!");
-		puts(outPath);
-		NFD_FreePath(outPath);
-	}
-	else if (result == NFD_CANCEL)
-	{
-		puts("User pressed cancel.");
-	}
-	else
-	{
-		printf("Error: %s\n", NFD_GetError());
+		nfdchar_t* outPath;
+		Vector<nfdfilteritem_t> filterItem = makeFilterItem(filterName, filterSpecs);
+		nfdresult_t result = NFD_OpenDialog(&outPath, filterItem.data(), filterItem.size(), NULL);
+		String path;
+		if (result == NFD_OKAY)
+		{
+			path = String(outPath);
+			std::cout << "Open Path: " << outPath << std::endl;
+			NFD_FreePath(outPath);
+		}
+		else if (result == NFD_CANCEL)
+		{
+			std::cout << "User pressed cancel." << std::endl;
+		}
+		else
+		{
+			std::cerr << "Error: " << NFD_GetError() << std::endl;
+		}
+
+		NFD_Quit();
+
+		return path;
 	}
 
-	NFD_Quit();
-	return 0;
+	String FileDialogue::SaveFile(Vector<String> filter, Vector<String> filterSpecs)
+	{
+		NFD_Init();
+
+		nfdchar_t* savePath;
+
+		Vector<nfdfilteritem_t> filterItem = makeFilterItem(filter, filterSpecs);
+
+		nfdresult_t result = NFD_SaveDialog(&savePath, filterItem.data(), 2, NULL, "Untitled.c");
+		String path;
+		if (result == NFD_OKAY)
+		{
+			std::cout << "Save Path: " << savePath << std::endl;
+			path = String(savePath);
+			NFD_FreePath(savePath);
+		}
+		else if (result == NFD_CANCEL)
+		{
+			std::cout << "User pressed cancel." << std::endl;
+		}
+		else
+		{
+			std::cerr << "Error: " << NFD_GetError() << std::endl;
+		}
+
+		NFD_Quit();
+		return path;
+	}
 }
 
-const char* FileDialogue::SaveFile(const char* filter)
+static Vector<nfdfilteritem_t> makeFilterItem(Vector<String> names, Vector<String> specs)
 {
-	const char* path = nullptr;
+	int size = names.size();
+	Vector<nfdfilteritem_t> filterItems(size);
+	if (size != specs.size())
+	{
+		printf("Error: Name and extensions size mismatch\n");
+		return filterItems;
+	}
 
-	return path;
+	for (int i = 0; i < size; i++)
+	{
+		filterItems[i].name = names[i].c_str();
+		filterItems[i].spec = specs[i].c_str();
+	}
+
+	return filterItems;
 }

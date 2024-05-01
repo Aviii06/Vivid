@@ -1,7 +1,12 @@
 #include <string>
+#include "common/types/Types.h"
 
-namespace FileDialogue
+namespace Vivid
 {
-	const char* OpenFile(const char* filter);
-	const char* SaveFile(const char* filter);
-};
+	namespace FileDialogue
+	{
+		String OpenFile(Vector<String> filterName, Vector<String> filterSpecs);
+		String SaveFile(Vector<String> filter, Vector<String> filterSpecs);
+	};
+
+}

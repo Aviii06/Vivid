@@ -69,6 +69,6 @@ void VividGUI::ImGuiThemeSetup()
 	style->FrameRounding = 7;
 	style->ScrollbarRounding = 12;
 	style->GrabRounding = 4;
-	style->WindowMenuButtonPosition = ImGuiDir_None;
+//	style->WindowMenuButtonPosition = ImGuiDir_None;
 	style->DockingSeparatorSize = 2;
 }
