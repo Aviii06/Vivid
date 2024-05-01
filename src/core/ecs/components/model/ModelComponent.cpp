@@ -1,6 +1,7 @@
 #include "ModelComponent.h"
 #include "imgui/imgui/imgui.h"
 #include "core/ecs/components/TransformComponent.h"
+#include "core/os/FileDialogue.h"
 
 #define MAX_MESHES 10
 
@@ -14,6 +15,8 @@ void Vivid::ModelComponent::ImGuiRender()
 	ImGui::Text("Model");
 	if (ImGui::Button("Add Mesh"))
 	{
+		// Open os Dialogue Box
+		const char* res = FileDialogue::OpenFile(nullptr);
 	}
 }
 

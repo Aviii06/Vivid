@@ -26,6 +26,7 @@ namespace Vivid
 		Vector<Vertex> m_Vertices;
 		Vector<GLuint> m_Indices;
 		VertexBufferLayout m_Layout;
+		Ref<Texture> m_Texture = nullptr;
 		Ref<VertexArray> m_Vao;
 		IndexBuffer* m_Ebo;
 		Ref<Shader> m_Shader;

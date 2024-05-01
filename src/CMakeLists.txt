@@ -1,60 +1,89 @@
 set(SOURCES
         ${CMAKE_CURRENT_SOURCE_DIR}/inputs/InputHandler.cpp
-        core/renderer/IndexBuffer.cpp
-        core/ecs/components/model/Mesh.cpp
-        core/renderer/Renderer.cpp
-        core/renderer/Shader.cpp
-        core/renderer/Texture.cpp
-        core/renderer/VertexArray.cpp
-        core/renderer/VertexBuffer.cpp
-        editor/camera/movable/EditorCamera.cpp
-        core/ecs/components/light/PointLightComponent.cpp
-        core/renderer/shapes/Quad3d.cpp
-        core/renderer/shapes/Sphere.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/editor/Window.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/editor/Application.cpp
-        editor/camera/movable/EditorCamera.cpp
-        core/ecs/components/light/PointLightComponent.cpp
-        core/renderer/shapes/Quad3d.cpp
-        core/renderer/shapes/Sphere.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/utils/Error.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/utils/Timer.cpp
-        core/renderer/Renderer2D.cpp
-        core/renderer/Renderer3D.cpp
-        editor/gui/DockUI.cpp core/renderer/FrameBuffer.cpp core/ecs/components/TransformComponent.cpp core/ecs/Entity.cpp core/ecs/components/model/ModelComponent.cpp editor/camera/movable/OrthoCamera.cpp core/ecs/ECS.cpp editor/gui/SceneUI.cpp editor/gui/UIFlags.cpp)
+        ${CMAKE_CURRENT_SOURCE_DIR}/core/renderer/IndexBuffer.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/core/ecs/components/model/Mesh.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/core/renderer/Renderer.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/core/renderer/Shader.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/core/renderer/Texture.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/core/renderer/VertexArray.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/core/renderer/VertexBuffer.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/editor/camera/movable/EditorCamera.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/core/ecs/components/light/PointLightComponent.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/core/renderer/shapes/Quad3d.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/core/renderer/shapes/Sphere.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/editor/camera/movable/EditorCamera.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/core/ecs/components/light/PointLightComponent.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/core/renderer/shapes/Quad3d.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/core/renderer/shapes/Sphere.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/core/renderer/Renderer2D.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/core/renderer/Renderer3D.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/core/ecs/components/light/DirectionalLightComponent.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/editor/gui/DockUI.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/core/renderer/FrameBuffer.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/core/ecs/components/TransformComponent.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/core/ecs/Entity.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/core/ecs/components/model/ModelComponent.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/editor/camera/movable/OrthoCamera.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/core/ecs/ECS.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/editor/gui/SceneUI.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/editor/gui/UIFlags.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/core/os/FileDialogue.cpp)
 
 set(HEADERS
         ${CMAKE_CURRENT_SOURCE_DIR}/inputs/InputHandler.h
-        core/renderer/IndexBuffer.h
-        core/ecs/components/model/Mesh.h
-        core/renderer/Renderer.h
-        core/renderer/Shader.h
-        core/renderer/shapes/Shape.h
-        core/renderer/Texture.h
-        core/renderer/VertexArray.h
-        core/renderer/VertexBuffer.h
-        core/renderer/VertexBufferLayout.h
-        editor/camera/movable/EditorCamera.h
-        core/ecs/components/light/PointLightComponent.h
-        core/renderer/shapes/Quad3d.h
-        core/renderer/shapes/Sphere.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/core/renderer/IndexBuffer.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/core/ecs/components/model/Mesh.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/core/renderer/Renderer.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/core/renderer/Shader.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/core/renderer/shapes/Shape.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/core/renderer/Texture.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/core/renderer/VertexArray.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/core/renderer/VertexBuffer.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/core/renderer/VertexBufferLayout.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/editor/camera/movable/EditorCamera.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/core/ecs/components/light/PointLightComponent.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/core/renderer/shapes/Quad3d.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/core/renderer/shapes/Sphere.h
         ${CMAKE_CURRENT_SOURCE_DIR}/editor/Window.h
         ${CMAKE_CURRENT_SOURCE_DIR}/editor/Application.h
-        editor/camera/movable/EditorCamera.h
-        editor/camera/movable/OrthoCamera.h
-        core/ecs/components/light/PointLightComponent.h
-        core/renderer/shapes/Quad3d.h
-        core/renderer/shapes/Sphere.h
-        common/types/SmartPointers.h
-        common/maths/Vec.h
-        common/maths/VectorHelper.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/editor/camera/movable/EditorCamera.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/editor/camera/movable/OrthoCamera.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/core/ecs/components/light/PointLightComponent.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/core/renderer/shapes/Quad3d.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/core/renderer/shapes/Sphere.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/common/types/SmartPointers.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/common/maths/Vec.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/common/maths/VectorHelper.h
         ${CMAKE_CURRENT_SOURCE_DIR}/confs/Config.h
         ${CMAKE_CURRENT_SOURCE_DIR}/utils/Error.h
         ${CMAKE_CURRENT_SOURCE_DIR}/utils/Timer.h
-        core/renderer/Renderer2D.h
-        core/renderer/Renderer3D.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/core/renderer/Renderer2D.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/core/renderer/Renderer3D.h
         ${CMAKE_CURRENT_SOURCE_DIR}/Vivid.h
-        confs/DynamicExportingMacros.h editor/RenderingInterface.h editor/EntryPoint.h editor/gui/UIFlags.h editor/gui/DockUI.h core/renderer/FrameBuffer.h core/ecs/Component.h core/ecs/components/TransformComponent.h common/maths/Vec.h common/types/OpenGLTypes.h common/types/Types.h core/ecs/Entity.h core/ecs/components/model/ModelComponent.h editor/camera/movable/OrthoCamera.h core/ecs/ECS.h editor/gui/SceneUI.h core/ecs/components/light/DirectionalLightComponent.cpp core/ecs/components/light/DirectionalLightComponent.h editor/camera/movable/MovableCamera.h common/maths/VectorHelper.h)
+        ${CMAKE_CURRENT_SOURCE_DIR}/confs/DynamicExportingMacros.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/editor/RenderingInterface.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/editor/EntryPoint.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/editor/gui/UIFlags.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/editor/gui/DockUI.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/core/renderer/FrameBuffer.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/core/ecs/Component.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/core/ecs/components/TransformComponent.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/common/maths/Vec.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/common/types/OpenGLTypes.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/common/types/Types.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/core/ecs/Entity.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/core/ecs/components/model/ModelComponent.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/editor/camera/movable/OrthoCamera.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/core/ecs/ECS.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/editor/gui/SceneUI.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/core/ecs/components/light/DirectionalLightComponent.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/editor/camera/movable/MovableCamera.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/common/maths/VectorHelper.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/core/os/FileDialogue.h)
 
 add_library(Vivid STATIC ${SOURCES} ${HEADERS})
 
@@ -74,4 +103,5 @@ target_link_libraries(Vivid
         stb
         glad
         imguizmo
+        nfd
         )

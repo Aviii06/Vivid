@@ -14,3 +14,6 @@
 [submodule "vendor/imgui/SDL"]
 	path = vendor/imgui/SDL
 	url = https://github.com/libsdl-org/SDL.git
+[submodule "vendor/nativefiledialog-extended"]
+	path = vendor/nativefiledialog-extended
+	url = https://github.com/Aviii06/nativefiledialog-extended.git

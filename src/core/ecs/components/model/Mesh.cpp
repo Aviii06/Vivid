@@ -244,6 +244,14 @@ namespace Vivid
 		m_Shader->SetUniformMat4f("u_Model", m_ModelMatrix);
 		m_Shader->SetUniformMat4f("u_View", camera->GetViewMatrix());
 		m_Shader->SetUniformMat4f("u_Proj", camera->GetProjectionMatrix());
+
+		// Bind Texture
+		if (m_Texture != nullptr)
+		{
+			m_Texture->Bind(0);
+			m_Shader->SetUniform1i("texture", 0);
+		}
+
 		Vivid::Renderer::Draw(m_Vao, m_Ebo->GetCount(), m_Instances);
 	}
 

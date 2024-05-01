@@ -40,6 +40,36 @@ git submodule update --init --recursive
 ## Dependencies: 
 Before running the renderer, ensure you have the necessary dependencies installed. This includes an OpenGL driver, a C++ compiler, and the necessary libraries (GLEW, GLFW, etc.).
 
+Here is a checklist of dependencies for different operating systems:
+### Linux
+#### OpenGL
+- OpenGL
+#### CPP Tools
+- CMake
+- xorg-dev 
+- libglu1-mesa-dev 
+- freeglut3-dev 
+- mesa-common-dev 
+- libgl1-mesa-dev 
+- libglew-dev 
+- mesa-utils 
+- freeglut3-dev
+#### File Dialog Boxes
+- GTK (default)
+- Make sure libgtk-3-dev is installed on your system.
+
+### MacOS
+#### OpenGL
+- OpenGL
+#### File Dialog Boxes
+- On MacOS, add AppKit and UniformTypeIdentifiers to the list of frameworks.
+
+### Windows
+#### OpenGL
+- OpenGL
+#### File Dialog Boxes
+- On Windows (both MSVC and MinGW), ensure you are building against ole32.lib, uuid.lib, and shell32.lib.
+
 ## Build the Project: 
 Use the provided build system (CMake, Makefile, etc.) to build the renderer. Make sure to configure the build with the appropriate settings for your system.
 ```bash
