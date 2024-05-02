@@ -23,6 +23,8 @@ namespace Vivid
 	class Mesh
 	{
 	private:
+		static unsigned int s_ID;
+		unsigned int m_ID;
 		Vector<Vertex> m_Vertices;
 		Vector<GLuint> m_Indices;
 		VertexBufferLayout m_Layout;
@@ -70,5 +72,7 @@ namespace Vivid
 
 		// Draws the mesh
 		void Draw(Camera* camera);
+
+		unsigned int GetID() { return m_ID; };
 	};
 }

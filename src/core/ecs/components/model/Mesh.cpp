@@ -3,14 +3,20 @@
 
 namespace Vivid
 {
+	unsigned int Mesh::s_ID = 0;
 	Mesh::Mesh()
 	    : m_Instances(1)
 	{
+		m_ID = s_ID;
+		s_ID++;
 	}
 
 	Mesh::Mesh(Vector<Vertex>& verts, Vector<unsigned int>& inds, VertexBufferLayout layout, glm::mat4 modelMatrix, unsigned int instances)
 	    : m_Instances(instances)
 	{
+		m_ID = s_ID;
+		s_ID++;
+
 		m_Vertices = verts;
 		m_Indices = inds;
 		m_Layout = layout;
@@ -25,6 +31,9 @@ namespace Vivid
 	Mesh::Mesh(Vector<Vertex>& verts, Vector<unsigned int>& inds, unsigned int instances)
 	    : m_Instances(instances)
 	{
+		m_ID = s_ID;
+		s_ID++;
+
 		m_Vertices = verts;
 		m_Indices = inds;
 
@@ -44,12 +53,18 @@ namespace Vivid
 	Mesh::Mesh(const std::string& file_name, unsigned int instances)
 	    : m_Instances(instances)
 	{
+		m_ID = s_ID;
+		s_ID++;
+
 		loadOBJ(file_name);
 	}
 
 	Mesh::Mesh(const std::string& file_name, Ptr<Shader> shader, unsigned int instances)
 	    : m_Instances(instances)
 	{
+		m_ID = s_ID;
+		s_ID++;
+
 		BindShader(std::move(shader));
 		loadOBJ(file_name);
 	}
@@ -57,6 +72,9 @@ namespace Vivid
 	Mesh::Mesh(Shape& shape, unsigned int instances)
 	    : m_Instances(instances)
 	{
+		m_ID = s_ID;
+		s_ID++;
+
 		m_Vertices = shape.GetPositions();
 		m_Indices = shape.GetIndices();
 		m_Layout.AddFloat(3); // Position
