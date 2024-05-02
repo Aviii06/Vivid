@@ -4,9 +4,9 @@
 
 namespace VividGUI
 {
-	class MenuUI
+	class FileMenu
 	{
 	public:
-		static void DrawMenuUI();
+		static void draw();
 	};
 }

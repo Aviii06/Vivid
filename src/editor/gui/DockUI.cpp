@@ -5,7 +5,8 @@ void VividGUI::InitUI()
 {
 	DockConfig();
 	InitDock();
-	MenuUI::DrawMenuUI();
+	// TODO: Implement MenuUI
+//	MenuUI::DrawMenuUI();
 }
 
 void VividGUI::DockConfig()

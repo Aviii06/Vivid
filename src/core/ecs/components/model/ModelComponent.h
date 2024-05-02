@@ -11,6 +11,10 @@ namespace Vivid
 	{
 	private:
 		Vector<Vivid::Mesh*> m_Meshes;
+		Texture* texEdit = new Texture("./src/editor/assets/edit.png");
+		Texture* texMinus = new Texture("./src/editor/assets/minus.png");
+		Texture* texPlus = new Texture("./src/editor/assets/plus.png");
+		Texture* texOpen = new Texture("./src/editor/assets/open.png");
 
 	public:
 		ModelComponent();

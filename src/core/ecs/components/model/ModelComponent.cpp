@@ -2,6 +2,7 @@
 #include "imgui/imgui/imgui.h"
 #include "core/ecs/components/TransformComponent.h"
 #include "core/os/FileDialogue.h"
+#include "core/renderer/Texture.h"
 
 #define MAX_MESHES 10
 
@@ -13,10 +14,16 @@ Vivid::ModelComponent::ModelComponent()
 void Vivid::ModelComponent::ImGuiRender()
 {
 	ImGui::Text("Model");
-	if (ImGui::Button("Add Mesh"))
+
+	ImGui::Text("Meshes");
+	for (int i = 0; i < m_Meshes.size(); i++)
 	{
-		// Open os Dialogue Box
-		String res = FileDialogue::OpenFile(Vector<String>(), Vector<String>());
+		ImGui::Text("Mesh %d", i);
+		ImGui::SameLine();
+		if (ImGui::ImageButton((ImTextureID)texMinus->getRendererID(), ImVec2(50, 50)))
+		{
+			RemoveMesh(m_Meshes[i]);
+		}
 	}
 }
 

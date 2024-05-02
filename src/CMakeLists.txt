@@ -31,7 +31,7 @@ set(SOURCES
         ${CMAKE_CURRENT_SOURCE_DIR}/core/ecs/ECS.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/editor/gui/SceneUI.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/editor/gui/UIFlags.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/core/os/FileDialogue.cpp editor/gui/menu/MenuUI.cpp)
+        ${CMAKE_CURRENT_SOURCE_DIR}/core/os/FileDialogue.cpp editor/gui/menu/MenuUI.cpp editor/gui/menu/FileMenu.cpp)
 
 set(HEADERS
         ${CMAKE_CURRENT_SOURCE_DIR}/inputs/InputHandler.h
@@ -83,7 +83,7 @@ set(HEADERS
         ${CMAKE_CURRENT_SOURCE_DIR}/core/ecs/components/light/DirectionalLightComponent.h
         ${CMAKE_CURRENT_SOURCE_DIR}/editor/camera/movable/MovableCamera.h
         ${CMAKE_CURRENT_SOURCE_DIR}/common/maths/VectorHelper.h
-        ${CMAKE_CURRENT_SOURCE_DIR}/core/os/FileDialogue.h editor/gui/menu/MenuUI.h)
+        ${CMAKE_CURRENT_SOURCE_DIR}/core/os/FileDialogue.h editor/gui/menu/MenuUI.h editor/gui/menu/FileMenu.h)
 
 add_library(Vivid STATIC ${SOURCES} ${HEADERS})
 
@@ -94,6 +94,8 @@ target_include_directories(Vivid PUBLIC
 target_include_directories(Vivid PUBLIC
         ${PROJECT_SOURCE_DIR}/vendor
         )
+
+file(COPY editor/assets/ DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/editor/assets/)
 
 target_link_libraries(Vivid
         glfw
