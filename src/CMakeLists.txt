@@ -31,7 +31,7 @@ set(SOURCES
         ${CMAKE_CURRENT_SOURCE_DIR}/core/ecs/ECS.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/editor/gui/SceneUI.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/editor/gui/UIFlags.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/core/os/FileDialogue.cpp editor/gui/menu/MenuUI.cpp editor/gui/menu/FileMenu.cpp)
+        ${CMAKE_CURRENT_SOURCE_DIR}/core/os/FileDialogue.cpp editor/gui/menu/MenuUI.cpp editor/gui/menu/FileMenu.cpp editor/assets/Assets.cpp)
 
 set(HEADERS
         ${CMAKE_CURRENT_SOURCE_DIR}/inputs/InputHandler.h
@@ -83,7 +83,7 @@ set(HEADERS
         ${CMAKE_CURRENT_SOURCE_DIR}/core/ecs/components/light/DirectionalLightComponent.h
         ${CMAKE_CURRENT_SOURCE_DIR}/editor/camera/movable/MovableCamera.h
         ${CMAKE_CURRENT_SOURCE_DIR}/common/maths/VectorHelper.h
-        ${CMAKE_CURRENT_SOURCE_DIR}/core/os/FileDialogue.h editor/gui/menu/MenuUI.h editor/gui/menu/FileMenu.h)
+        ${CMAKE_CURRENT_SOURCE_DIR}/core/os/FileDialogue.h editor/gui/menu/MenuUI.h editor/gui/menu/FileMenu.h editor/assets/Assets.h)
 
 add_library(Vivid STATIC ${SOURCES} ${HEADERS})
 

@@ -24,7 +24,7 @@ namespace Vivid
 
 		void Unbind() const;
 
-		inline unsigned int getRendererID() const { return m_RendererID; }
+		inline unsigned int GetRendererID() const { return m_RendererID; }
 
 		inline int GetWidth() const { return m_Width; }
 

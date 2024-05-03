@@ -25,7 +25,7 @@ namespace Vivid
 		std::unordered_map<std::string, int> m_UniformLocationCache;
 
 	public:
-		Shader(const std::string& filepathVertexShader, const std::string& filepathPixelShader);
+		Shader(const String& filepathVertexShader, const String& filepathPixelShader);
 
 		~Shader();
 
@@ -49,6 +49,9 @@ namespace Vivid
 		void SetUniform1i(const std::string& name, int value);
 
 		void SetUniformMat4f(const std::string& name, const glm::mat4& matrix);
+
+		String GetVertexShaderPath() { return m_FilePathVS; }
+		String GetPixelShaderPath() { return m_FilePathPS; }
 
 	private:
 		int GetUniformLocation(const std::string& name);

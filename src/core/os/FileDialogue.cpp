@@ -4,7 +4,6 @@
 #include <stdlib.h>
 #include <iostream>
 
-
 static Vector<nfdfilteritem_t> makeFilterItem(Vector<String> names, Vector<String> specs);
 
 namespace Vivid

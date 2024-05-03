@@ -1,5 +1,8 @@
 #include "Mesh.h"
 #include "common/maths/Vec.h"
+#include "imgui.h"
+#include "editor/assets/Assets.h"
+#include "core/os/FileDialogue.h"
 
 namespace Vivid
 {
@@ -96,6 +99,8 @@ namespace Vivid
 	void Mesh::BindShader(Ref<Shader> shader)
 	{
 		m_Shader = shader;
+		m_VertexShaderPath = shader->GetVertexShaderPath();
+		m_PixelShaderPath = shader->GetPixelShaderPath();
 		m_Shader->Bind();
 	}
 
@@ -249,8 +254,19 @@ namespace Vivid
 		}
 	}
 
+	void Mesh::recompileShader()
+	{
+		m_Shader = Shader::Create(m_VertexShaderPath, m_PixelShaderPath);
+		m_Shader->Bind();
+	}
+
 	void Mesh::Draw(Camera* camera)
 	{
+		if (m_Shader == nullptr)
+		{
+			std::cout << "Shader is not bound to the mesh!" << std::endl;
+			return;
+		}
 		m_Shader->Bind();
 
 		VertexBuffer vbo(m_Vertices);
@@ -285,6 +301,93 @@ namespace Vivid
 		for (int i = 0; i < m_Vertices.size(); i++)
 		{
 			m_Vertices[i].position = m_Vertices[i].position * (1 / maxMag);
+		}
+	}
+
+	void Mesh::EditMesh()
+	{
+		m_IsEditing = true;
+	}
+
+	void Mesh::ImGuiRender()
+	{
+		if (m_IsEditing)
+		{
+			ImGui::Begin("Mesh Editor");
+			ImGui::PushID("MeshEditor" + m_ID);
+			if (ImGui::Button("Close Mesh Editor"))
+			{
+				m_IsEditing = false;
+			}
+			ImGui::Text("Mesh ID: %d", m_ID);
+			ImGui::Text("Vertices: %d", m_Vertices.size());
+			ImGui::Text("Indices: %d", m_Indices.size());
+			ImGui::Text("Instances: %d", m_Instances);
+			ImGui::SeparatorText("Model Matirx");
+			ImGui::InputFloat4("##ModelMatrix1", &m_ModelMatrix[0][0]);
+			ImGui::InputFloat4("##ModelMatrix2", &m_ModelMatrix[1][0]);
+			ImGui::InputFloat4("##ModelMatrix3", &m_ModelMatrix[2][0]);
+			ImGui::InputFloat4("##ModelMatrix4", &m_ModelMatrix[3][0]);
+
+			ImGui::SeparatorText("Shader");
+			ImGui::Text("Vertex Shader");
+			if (!m_VertexShaderPath.empty())
+			{
+				ImGui::Text(m_VertexShaderPath.c_str());
+			}
+			else
+			{
+				ImGui::Text("No Vertex Shader");
+			}
+			ImGui::SameLine();
+			ImGui::PushID("VertexShader");
+			unsigned int texId = VividGui::Assets::GetInstance()->GetTexOpen()->GetRendererID();
+			if (ImGui::ImageButton((ImTextureID)texId,
+			        ImVec2(VividGui::Assets::GetInstance()->GetButtonWidth(), VividGui::Assets::GetInstance()->GetButtonWidth()),
+			        ImVec2(0.0, 0.0), ImVec2(1.0, 1.0), 2))
+			{
+				std::string file = FileDialogue::OpenFile({}, {});
+				if (!file.empty())
+				{
+					m_VertexShaderPath = file;
+				}
+			}
+			ImGui::PopID();
+
+			ImGui::Text("Pixel Shader");
+			if (!m_PixelShaderPath.empty())
+			{
+				ImGui::Text(m_PixelShaderPath.c_str());
+			}
+			else
+			{
+				ImGui::Text("No Pixel Shader");
+			}
+			ImGui::SameLine();
+			ImGui::PushID("PixelShader");
+			if (ImGui::ImageButton((ImTextureID)texId,
+			        ImVec2(VividGui::Assets::GetInstance()->GetButtonWidth(), VividGui::Assets::GetInstance()->GetButtonWidth()),
+			        ImVec2(0.0, 0.0), ImVec2(1.0, 1.0), 2))
+			{
+				std::string file = FileDialogue::OpenFile({}, {});
+				if (!file.empty())
+				{
+					m_PixelShaderPath = file;
+				}
+			}
+			ImGui::PopID();
+
+			if (ImGui::Button("Compile Shader"))
+			{
+				if (!m_VertexShaderPath.empty() && !m_PixelShaderPath.empty())
+				{
+					recompileShader();
+				}
+			}
+			ImGui::PopID();
+
+			// TODO: Add a Texture editing feature here.
+			ImGui::End();
 		}
 	}
 }

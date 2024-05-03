@@ -61,7 +61,8 @@ public:
 		float intensity = directionalLights[0]->GetIntensity();
 		Vivid::Maths::Vec3 lightDir = directionalLights[0]->GetDirection();
 
-		mesh->BindShader(shader);
+		//		mesh->BindShader(shader);
+		shader->Bind();
 		shader->SetUniform3f("LightDiffuseColor", lightDiffuseColor);
 		shader->SetUniform3f("LightDir", lightDir);
 		shader->SetUniform1f("LightIntensity", intensity);

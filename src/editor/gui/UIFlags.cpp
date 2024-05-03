@@ -58,6 +58,7 @@ void VividGUI::ImGuiThemeSetup()
 	colors[ImGuiCol_NavWindowingHighlight] = ImVec4(1.00f, 1.00f, 1.00f, 0.70f);
 	colors[ImGuiCol_NavWindowingDimBg] = ImVec4(0.80f, 0.80f, 0.80f, 0.20f);
 	colors[ImGuiCol_ModalWindowDimBg] = ImVec4(0.80f, 0.80f, 0.80f, 0.35f);
+	colors[ImGuiCol_DockingEmptyBg] = ImVec4(0.00f, 0.00f, 0.00f, 1.00f);
 
 	ImGuiStyle* style = &ImGui::GetStyle();
 	style->WindowPadding = ImVec2(8, 8);
@@ -69,6 +70,6 @@ void VividGUI::ImGuiThemeSetup()
 	style->FrameRounding = 7;
 	style->ScrollbarRounding = 12;
 	style->GrabRounding = 4;
-//	style->WindowMenuButtonPosition = ImGuiDir_None;
+	//	style->WindowMenuButtonPosition = ImGuiDir_None;
 	style->DockingSeparatorSize = 2;
 }

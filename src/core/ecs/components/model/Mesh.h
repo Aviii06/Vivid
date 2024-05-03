@@ -23,6 +23,7 @@ namespace Vivid
 	class Mesh
 	{
 	private:
+		bool m_IsEditing = false;
 		static unsigned int s_ID;
 		unsigned int m_ID;
 		Vector<Vertex> m_Vertices;
@@ -32,6 +33,8 @@ namespace Vivid
 		Ref<VertexArray> m_Vao;
 		IndexBuffer* m_Ebo;
 		Ref<Shader> m_Shader;
+		String m_VertexShaderPath;
+		String m_PixelShaderPath;
 
 		glm::mat4 m_ModelMatrix;
 
@@ -74,5 +77,11 @@ namespace Vivid
 		void Draw(Camera* camera);
 
 		unsigned int GetID() { return m_ID; };
+
+		void EditMesh();
+		void ImGuiRender();
+
+	private:
+		void recompileShader();
 	};
 }
