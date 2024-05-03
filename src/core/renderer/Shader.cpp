@@ -9,7 +9,7 @@
 
 namespace Vivid
 {
-	Shader::Shader(const std::string& filepathVertexShader, const std::string& filepathPixelShader)
+	Shader::Shader(const String& filepathVertexShader, const String& filepathPixelShader)
 	    : m_FilePathVS(filepathVertexShader)
 	    , m_FilePathPS(filepathPixelShader)
 	    , m_RendererID(0)

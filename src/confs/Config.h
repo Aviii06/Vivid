@@ -35,7 +35,7 @@
 	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 #else
 #define IMGUI_CONFS                                \
-	const char* glsl_version = "#version 130";     \
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3); \
+	const char* glsl_version = "#version 400";     \
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4); \
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
 #endif
