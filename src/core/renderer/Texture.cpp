@@ -29,6 +29,8 @@ namespace Vivid
 		{
 			stbi_image_free(m_LocalBuffer);
 		}
+
+		m_Name = "Texture" + std::to_string(m_RendererID);
 	}
 
 	Texture::Texture()

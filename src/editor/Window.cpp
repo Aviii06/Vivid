@@ -87,48 +87,6 @@ void Window::Update()
 	glfwGetWindowSize(m_Window, &m_Width, &m_Height);
 	m_FrameBuffer->RescaleFrameBuffer(m_Width, m_Height);
 
-	// Handle Custom Inputs
-	Camera* camera = Application::GetInstance()->GetCamera();
-	if (m_RenderingInterface != nullptr)
-	{
-		// If editor camera allow to move.
-		if (typeid(*camera) == typeid(EditorCamera) || typeid(*camera) == typeid(OrthoCamera))
-		{
-			// TODO: Put this in a function
-			MovableCamera* movableCamera = static_cast<MovableCamera*>(camera);
-			if (InputHandler::IsKeyPressed(GLFW_KEY_W))
-			{
-				movableCamera->MoveForward();
-			}
-			if (InputHandler::IsKeyPressed(GLFW_KEY_S))
-			{
-				movableCamera->MoveBackward();
-			}
-			if (InputHandler::IsKeyPressed(GLFW_KEY_A))
-			{
-				movableCamera->MoveLeft();
-			}
-			if (InputHandler::IsKeyPressed(GLFW_KEY_D))
-			{
-				movableCamera->MoveRight();
-			}
-
-			Vivid::Maths::Vec2 mousePosition = InputHandler::GetMousePosition();
-			if (InputHandler::IsMouseButtonPressed(GLFW_MOUSE_BUTTON_RIGHT))
-			{
-				movableCamera->ProcessMouseMovement(mousePosition.x - m_PrevMousePosition->x,
-				    mousePosition.y - m_PrevMousePosition->y);
-				m_PrevMousePosition->x = mousePosition.x;
-				m_PrevMousePosition->y = mousePosition.y;
-			}
-			else
-			{
-				m_PrevMousePosition->x = mousePosition.x;
-				m_PrevMousePosition->y = mousePosition.y;
-			}
-		}
-	}
-
 	// Handle keyboard input
 	glfwPollEvents();
 
@@ -144,24 +102,68 @@ void Window::Update()
 	ImGui_ImplOpenGL3_NewFrame();
 	ImGui::NewFrame();
 
-	// Draw to a temporary framebuffer
-	// Some components might be drawing within imgui context
-	m_FrameBuffer->Bind();
-	if (m_RenderingInterface != nullptr)
-	{
-		m_RenderingInterface->Draw();
-	}
-
-	Vivid::ECS::Draw(camera);
-	m_FrameBuffer->Unbind();
-
 	VividGUI::InitUI();
 
 	ImGuizmo::BeginFrame();
 
-	ImGui::Begin("Viewport");
+	if (ImGui::Begin("Viewport"))
 	{
-		ImGui::BeginChild("GameRender");
+		// Handle Custom Inputs
+		Camera* camera = Application::GetInstance()->GetCamera();
+		if (ImGui::IsWindowFocused())
+		{
+
+			if (m_RenderingInterface != nullptr)
+			{
+				// If editor camera allow to move.
+				if (typeid(*camera) == typeid(EditorCamera) || typeid(*camera) == typeid(OrthoCamera))
+				{
+					// TODO: Put this in a function
+					MovableCamera* movableCamera = static_cast<MovableCamera*>(camera);
+					if (InputHandler::IsKeyPressed(GLFW_KEY_W))
+					{
+						movableCamera->MoveForward();
+					}
+					if (InputHandler::IsKeyPressed(GLFW_KEY_S))
+					{
+						movableCamera->MoveBackward();
+					}
+					if (InputHandler::IsKeyPressed(GLFW_KEY_A))
+					{
+						movableCamera->MoveLeft();
+					}
+					if (InputHandler::IsKeyPressed(GLFW_KEY_D))
+					{
+						movableCamera->MoveRight();
+					}
+
+					Vivid::Maths::Vec2 mousePosition = InputHandler::GetMousePosition();
+					if (InputHandler::IsMouseButtonPressed(GLFW_MOUSE_BUTTON_RIGHT))
+					{
+						movableCamera->ProcessMouseMovement(mousePosition.x - m_PrevMousePosition->x,
+						    mousePosition.y - m_PrevMousePosition->y);
+						m_PrevMousePosition->x = mousePosition.x;
+						m_PrevMousePosition->y = mousePosition.y;
+					}
+					else
+					{
+						m_PrevMousePosition->x = mousePosition.x;
+						m_PrevMousePosition->y = mousePosition.y;
+					}
+				}
+			}
+		}
+
+		// Draw to a temporary framebuffer
+		// Some components might be drawing within imgui context
+		m_FrameBuffer->Bind();
+		if (m_RenderingInterface != nullptr)
+		{
+			m_RenderingInterface->Draw();
+		}
+
+		Vivid::ECS::Draw(camera);
+		m_FrameBuffer->Unbind();
 
 		m_ViewportWidth = ImGui::GetContentRegionAvail().x;
 		m_ViewportHeight = ImGui::GetContentRegionAvail().y;
@@ -169,8 +171,6 @@ void Window::Update()
 		m_ViewportPosition = Vivid::Maths::Vec2(ImGui::GetCursorScreenPos().x, ImGui::GetCursorScreenPos().y);
 
 		Application::GetInstance()->GetCamera()->SetViewportSize(m_ViewportWidth, m_ViewportHeight);
-
-		//		m_FrameBuffer->RescaleFrameBuffer(m_ViewportWidth, m_ViewportHeight);
 
 		ImGui::Image(
 		    (ImTextureID)m_FrameBuffer->getFrameTexture(),
@@ -182,9 +182,8 @@ void Window::Update()
 		{
 			VividGUI::SceneUI::DrawGizmo(camera);
 		}
+		ImGui::End();
 	}
-	ImGui::EndChild();
-	ImGui::End();
 
 	// Custom ImGui Rendering
 	if (m_RenderingInterface != nullptr)

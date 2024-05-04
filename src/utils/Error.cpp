@@ -18,3 +18,9 @@ bool GLLogError(const char* function, const char* file, int line)
 	}
 	return true;
 }
+
+void ERROR(const char* message)
+{
+	// Error Message in Red
+	std::cerr << "\033[1;31m" << message << "\033[0m" << std::endl;
+}

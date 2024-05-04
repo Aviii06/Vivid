@@ -98,6 +98,12 @@ namespace Vivid
 
 	void Mesh::BindShader(Ref<Shader> shader)
 	{
+		if (shader->GetRendererID() == -1)
+		{
+			m_VertexShaderPath = m_Shader->GetVertexShaderPath();
+			m_PixelShaderPath = m_Shader->GetPixelShaderPath();
+			return;
+		}
 		m_Shader = shader;
 		m_VertexShaderPath = shader->GetVertexShaderPath();
 		m_PixelShaderPath = shader->GetPixelShaderPath();
@@ -254,12 +260,6 @@ namespace Vivid
 		}
 	}
 
-	void Mesh::recompileShader()
-	{
-		m_Shader = Shader::Create(m_VertexShaderPath, m_PixelShaderPath);
-		m_Shader->Bind();
-	}
-
 	void Mesh::Draw(Camera* camera)
 	{
 		if (m_Shader == nullptr)
@@ -279,11 +279,19 @@ namespace Vivid
 		m_Shader->SetUniformMat4f("u_View", camera->GetViewMatrix());
 		m_Shader->SetUniformMat4f("u_Proj", camera->GetProjectionMatrix());
 
-		// Bind Texture
-		if (m_Texture != nullptr)
+		//		// Bind Textures
+		int slot = 0;
+		for (auto texture : m_Textures)
 		{
-			m_Texture->Bind(0);
-			m_Shader->SetUniform1i("texture", 0);
+			if (texture == nullptr)
+			{
+				continue;
+			}
+			texture->Bind(texture->GetRendererID());
+			m_Shader->Bind();
+			String name = "Texture" + std::to_string(slot);
+			m_Shader->SetUniform1i(texture->GetName(), texture->GetRendererID());
+			slot++;
 		}
 
 		Vivid::Renderer::Draw(m_Vao, m_Ebo->GetCount(), m_Instances);
@@ -381,12 +389,106 @@ namespace Vivid
 			{
 				if (!m_VertexShaderPath.empty() && !m_PixelShaderPath.empty())
 				{
-					recompileShader();
+					BindShader(Ref<Shader>(new Shader(m_VertexShaderPath, m_PixelShaderPath)));
 				}
 			}
 			ImGui::PopID();
 
 			// TODO: Add a Texture editing feature here.
+			ImGui::SeparatorText("Textures");
+
+			int slot = 0;
+			for (auto&& texture : m_Textures)
+			{
+				if (texture == nullptr)
+				{
+					continue;
+				}
+				ImGui::Text(texture->GetName().c_str());
+
+				ImGui::Image((ImTextureID)texture->GetRendererID(), ImVec2(100, 100));
+				ImGui::SameLine();
+				ImGui::Text(texture->GetFilePath().c_str());
+				ImGui::SameLine();
+				ImGui::PushID(texture->GetName().c_str());
+
+				// Change the texture
+				if (ImGui::ImageButton((ImTextureID)VividGui::Assets::GetInstance()->GetTexOpen()->GetRendererID(),
+				        ImVec2(VividGui::Assets::GetInstance()->GetButtonWidth(), VividGui::Assets::GetInstance()->GetButtonWidth()),
+				        ImVec2(0.0, 1.0), ImVec2(1.0, 0.0), 2))
+				{
+					std::string file = FileDialogue::OpenFile({}, {});
+					if (!file.empty())
+					{
+						texture = Ref<Texture>(new Texture(file));
+						texture->SetName(texture->GetName());
+					}
+				}
+
+				// Remove the texture
+				ImGui::SameLine();
+				ImGui::PushID(std::to_string(slot).c_str());
+				if (ImGui::ImageButton((ImTextureID)VividGui::Assets::GetInstance()->GetTexMinus()->GetRendererID(),
+				        ImVec2(VividGui::Assets::GetInstance()->GetButtonWidth(), VividGui::Assets::GetInstance()->GetButtonWidth()),
+				        ImVec2(0.25, 0.25), ImVec2(0.75, 0.75), 2))
+				{
+					m_Textures.erase(m_Textures.begin() + slot);
+				}
+				ImGui::PopID();
+
+				// Add a input to give a name to the texture
+				String temp = texture->GetName();
+				char* name = temp.data();
+				ImGui::PopID();
+				static const ImGuiInputTextFlags flags = ImGuiInputTextFlags_EnterReturnsTrue;
+				String slotName = "Texture Name##" + std::to_string(slot);
+				if (ImGui::InputText(slotName.c_str(), name, 255, flags))
+				{
+					if (name == "")
+					{
+						texture->SetName("Texture" + std::to_string(slot));
+					}
+
+					String temp = name;
+					// temp must not contain space
+					for (int i = 0; i < temp.size(); i++)
+					{
+						if (name[i] == ' ')
+						{
+							name[i] = '_';
+						}
+					}
+					texture->SetName(name);
+				}
+
+				for (int i = 0; i < m_Textures.size(); i++)
+				{
+					if (i == slot)
+					{
+						continue;
+					}
+
+					if (m_Textures[i]->GetName() == temp)
+					{
+						ImGui::Text("Name already exists");
+					}
+				}
+				slot++;
+			}
+
+			ImGui::PushID("AddTexture" + m_ID);
+			if (ImGui::ImageButton((ImTextureID)VividGui::Assets::GetInstance()->GetTexPlus()->GetRendererID(),
+			        ImVec2(VividGui::Assets::GetInstance()->GetButtonWidth(), VividGui::Assets::GetInstance()->GetButtonWidth()),
+			        ImVec2(1.0, 0.0), ImVec2(0.0, 1.0), 2))
+			{
+				std::string file = FileDialogue::OpenFile({}, {});
+				if (!file.empty())
+				{
+					m_Textures.push_back(Ref<Texture>(new Texture(file)));
+				}
+			}
+			ImGui::PopID();
+
 			ImGui::End();
 		}
 	}

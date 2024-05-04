@@ -20,6 +20,17 @@
 
 namespace Vivid
 {
+	class TypesOfTexture
+	{
+	public:
+		enum class Type
+		{
+			DIFFUSE,
+			NORMAL,
+			SPECULAR,
+			DISPLACEMENT
+		};
+	};
 	class Mesh
 	{
 	private:
@@ -29,7 +40,11 @@ namespace Vivid
 		Vector<Vertex> m_Vertices;
 		Vector<GLuint> m_Indices;
 		VertexBufferLayout m_Layout;
-		Ref<Texture> m_Texture = nullptr;
+		Vector<Ref<Texture>> m_Textures;
+		Ref<Texture> m_DiffuseTexture = nullptr;
+		Ref<Texture> m_NormalMapTexture = nullptr;
+		Ref<Texture> m_SpecularMapTexture = nullptr;
+		Ref<Texture> m_DisplacementMapTexture = nullptr;
 		Ref<VertexArray> m_Vao;
 		IndexBuffer* m_Ebo;
 		Ref<Shader> m_Shader;
