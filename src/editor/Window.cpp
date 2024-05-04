@@ -175,8 +175,7 @@ void Window::Update()
 		ImGui::Image(
 		    (ImTextureID)m_FrameBuffer->getFrameTexture(),
 		    ImVec2(m_ViewportWidth, m_ViewportHeight),
-		    ImVec2(0, 1),
-		    ImVec2(1, 0));
+		    { 0, 1 }, { 1, 0 });
 
 		if (typeid(*camera) == typeid(EditorCamera))
 		{

@@ -352,7 +352,11 @@ namespace Vivid
 			unsigned int texId = VividGui::Assets::GetInstance()->GetTexOpen()->GetRendererID();
 			if (ImGui::ImageButton((ImTextureID)texId,
 			        ImVec2(VividGui::Assets::GetInstance()->GetButtonWidth(), VividGui::Assets::GetInstance()->GetButtonWidth()),
-			        ImVec2(0.0, 0.0), ImVec2(1.0, 1.0), 2))
+			        {
+			            0,
+			            0,
+			        },
+			        { 1, 1 }, 2))
 			{
 				std::string file = FileDialogue::OpenFile({}, {});
 				if (!file.empty())
@@ -375,7 +379,7 @@ namespace Vivid
 			ImGui::PushID("PixelShader");
 			if (ImGui::ImageButton((ImTextureID)texId,
 			        ImVec2(VividGui::Assets::GetInstance()->GetButtonWidth(), VividGui::Assets::GetInstance()->GetButtonWidth()),
-			        ImVec2(0.0, 0.0), ImVec2(1.0, 1.0), 2))
+			        { 0, 0 }, { 1, 1 }, 2))
 			{
 				std::string file = FileDialogue::OpenFile({}, {});
 				if (!file.empty())
@@ -415,7 +419,7 @@ namespace Vivid
 				// Change the texture
 				if (ImGui::ImageButton((ImTextureID)VividGui::Assets::GetInstance()->GetTexOpen()->GetRendererID(),
 				        ImVec2(VividGui::Assets::GetInstance()->GetButtonWidth(), VividGui::Assets::GetInstance()->GetButtonWidth()),
-				        ImVec2(0.0, 1.0), ImVec2(1.0, 0.0), 2))
+				        { 0, 1 }, { 1, 0 }, 2))
 				{
 					std::string file = FileDialogue::OpenFile({}, {});
 					if (!file.empty())
@@ -430,7 +434,7 @@ namespace Vivid
 				ImGui::PushID(std::to_string(slot).c_str());
 				if (ImGui::ImageButton((ImTextureID)VividGui::Assets::GetInstance()->GetTexMinus()->GetRendererID(),
 				        ImVec2(VividGui::Assets::GetInstance()->GetButtonWidth(), VividGui::Assets::GetInstance()->GetButtonWidth()),
-				        ImVec2(0.25, 0.25), ImVec2(0.75, 0.75), 2))
+				        { 0.25, 0.75 }, { 0.75, 0.25 }, 2))
 				{
 					m_Textures.erase(m_Textures.begin() + slot);
 				}
@@ -479,7 +483,7 @@ namespace Vivid
 			ImGui::PushID("AddTexture" + m_ID);
 			if (ImGui::ImageButton((ImTextureID)VividGui::Assets::GetInstance()->GetTexPlus()->GetRendererID(),
 			        ImVec2(VividGui::Assets::GetInstance()->GetButtonWidth(), VividGui::Assets::GetInstance()->GetButtonWidth()),
-			        ImVec2(1.0, 0.0), ImVec2(0.0, 1.0), 2))
+			        { 1, 0 }, { 0, 1 }, 2))
 			{
 				std::string file = FileDialogue::OpenFile({}, {});
 				if (!file.empty())
