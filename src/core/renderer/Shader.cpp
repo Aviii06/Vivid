@@ -19,6 +19,11 @@ namespace Vivid
 		m_RendererID = CreateShader(source.VertexSource, source.PixelSource);
 
 		GLCall(glUseProgram(m_RendererID));
+
+		if (m_RendererID == -1)
+		{
+			ERROR("Shader creation failed");
+		}
 	}
 
 	Shader::~Shader()
@@ -145,6 +150,11 @@ namespace Vivid
 		unsigned int vs = CompileShader(GL_VERTEX_SHADER, vertexShader);
 		unsigned int ps = CompileShader(GL_FRAGMENT_SHADER, pixelShader);
 
+		if (vs == 0 || ps == 0)
+		{
+			return -1;
+		}
+
 		GLCall(glAttachShader(program, vs));
 		GLCall(glAttachShader(program, ps));
 
@@ -161,6 +171,7 @@ namespace Vivid
 			GLCall(glGetProgramInfoLog(program, 1024, &log_length, message));
 			std::cout << "Failed to link program" << std::endl;
 			std::cout << message << std::endl;
+			return -1;
 		}
 
 		GLCall(glValidateProgram(program));

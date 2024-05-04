@@ -83,7 +83,7 @@ set(HEADERS
         ${CMAKE_CURRENT_SOURCE_DIR}/core/ecs/components/light/DirectionalLightComponent.h
         ${CMAKE_CURRENT_SOURCE_DIR}/editor/camera/movable/MovableCamera.h
         ${CMAKE_CURRENT_SOURCE_DIR}/common/maths/VectorHelper.h
-        ${CMAKE_CURRENT_SOURCE_DIR}/core/os/FileDialogue.h editor/gui/menu/MenuUI.h editor/gui/menu/FileMenu.h editor/assets/Assets.h)
+        ${CMAKE_CURRENT_SOURCE_DIR}/core/os/FileDialogue.h editor/gui/menu/MenuUI.h editor/gui/menu/FileMenu.h editor/assets/Assets.h common/errors/OpenGLErrors.h)
 
 add_library(Vivid STATIC ${SOURCES} ${HEADERS})
 

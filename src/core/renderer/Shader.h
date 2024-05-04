@@ -53,6 +53,8 @@ namespace Vivid
 		String GetVertexShaderPath() { return m_FilePathVS; }
 		String GetPixelShaderPath() { return m_FilePathPS; }
 
+		unsigned int GetRendererID() { return m_RendererID; }
+
 	private:
 		int GetUniformLocation(const std::string& name);
 
