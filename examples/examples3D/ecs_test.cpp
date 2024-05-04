@@ -11,8 +11,8 @@ private:
 
 	Vivid::Mesh lightMesh;
 	Ref<Vivid::Shader> lightShader;
-	Vivid::Entity* suzanne = new Vivid::Entity(1, "Suzanne");
-	Vivid::Entity* light = new Vivid::Entity(2, "DirectionalLight");
+	Vivid::Entity* suzanne = Vivid::ECS::CreateEntity("Suzanne");
+	Vivid::Entity* light = Vivid::ECS::CreateEntity("DirectionalLight");
 	Vivid::ModelComponent* modelComponent1;
 	Vivid::TransformComponent* sphereTransformComponent = new Vivid::TransformComponent();
 	Vivid::TransformComponent* lightTransformComponent = new Vivid::TransformComponent();

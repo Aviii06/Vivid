@@ -46,13 +46,12 @@ void Vivid::ECS::ImGuiRender()
 
 Vivid::Entity* Vivid::ECS::CreateEntity(String name)
 {
-	Entity* entity = new Entity(s_EntityID++, name);
-	g_Entities.push_back(entity);
+	Entity* entity = new Entity(s_EntityID, name);
 	return entity;
 }
 
 Vivid::Entity* Vivid::ECS::CreateEntity(Vivid::Entity* entity)
 {
-	g_Entities.push_back(entity);
+	g_Entities.emplace_back(entity);
 	return entity;
 }

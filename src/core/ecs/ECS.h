@@ -39,6 +39,5 @@ namespace Vivid
 		Entity* CreateEntity(String name);
 
 		Entity* CreateEntity(Entity* entity);
-
 	};
 }

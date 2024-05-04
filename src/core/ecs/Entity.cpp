@@ -12,6 +12,7 @@ Vivid::Entity::Entity(int id, String name)
     : m_ID(id)
     , m_Name(std::move(name))
 {
+	ECS::s_EntityID++;
 	m_Components.reserve(MAX_COMPONENTS);
 	ECS::CreateEntity(this);
 }

@@ -35,6 +35,7 @@ namespace Vivid
 		inline int GetID() const { return m_ID; }
 
 		inline String GetName() const { return m_Name; }
+		void SetName(String name) { m_Name = name; }
 
 		inline Vector<Vivid::Component*> GetAllComponents() const { return m_Components; }
 

@@ -477,6 +477,7 @@ namespace Vivid
 						ImGui::Text("Name already exists");
 					}
 				}
+
 				slot++;
 			}
 
