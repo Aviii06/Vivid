@@ -87,8 +87,6 @@ void Window::Update()
 	glfwGetWindowSize(m_Window, &m_Width, &m_Height);
 	m_FrameBuffer->RescaleFrameBuffer(m_Width, m_Height);
 
-
-
 	// Handle keyboard input
 	glfwPollEvents();
 
@@ -103,7 +101,6 @@ void Window::Update()
 	ImGui_ImplGlfw_NewFrame();
 	ImGui_ImplOpenGL3_NewFrame();
 	ImGui::NewFrame();
-
 
 	VividGUI::InitUI();
 
@@ -156,7 +153,6 @@ void Window::Update()
 				}
 			}
 		}
-
 
 		// Draw to a temporary framebuffer
 		// Some components might be drawing within imgui context

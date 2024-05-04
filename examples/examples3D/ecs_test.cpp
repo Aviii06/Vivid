@@ -62,13 +62,13 @@ public:
 		Vivid::Maths::Vec3 lightDir = directionalLights[0]->GetDirection();
 
 		//		mesh->BindShader(shader);
-		shader->Bind();
-		shader->SetUniform3f("LightDiffuseColor", lightDiffuseColor);
-		shader->SetUniform3f("LightDir", lightDir);
-		shader->SetUniform1f("LightIntensity", intensity);
-		shader->SetUniform3f("LightSpecularColor", lightSpecularColor);
-		shader->SetUniform3f("LightColor", lightColor);
-		shader->SetUniform1f("shininess", shininess);
+		//		shader->Bind();
+		//		shader->SetUniform3f("LightDiffuseColor", lightDiffuseColor);
+		//		shader->SetUniform3f("LightDir", lightDir);
+		//		shader->SetUniform1f("LightIntensity", intensity);
+		//		shader->SetUniform3f("LightSpecularColor", lightSpecularColor);
+		//		shader->SetUniform3f("LightColor", lightColor);
+		//		shader->SetUniform1f("shininess", shininess);
 	}
 
 	void ImGuiRender() override

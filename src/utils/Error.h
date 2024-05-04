@@ -5,12 +5,12 @@
 #include <iostream>
 
 #define ASSERT(x) \
-	if (!(x))        \
+	if (!(x))     \
 	std::cerr << "Assertion failed: " << #x << std::endl
 
 #define GLCall(x)   \
 	GLClearError(); \
-	x;                 \
+	x;              \
 	ASSERT(GLLogError(#x, __FILE__, __LINE__))
 
 void GLClearError();

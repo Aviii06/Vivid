@@ -279,9 +279,9 @@ namespace Vivid
 		m_Shader->SetUniformMat4f("u_View", camera->GetViewMatrix());
 		m_Shader->SetUniformMat4f("u_Proj", camera->GetProjectionMatrix());
 
-//		// Bind Textures
+		//		// Bind Textures
 		int slot = 0;
-		for (auto texture: m_Textures)
+		for (auto texture : m_Textures)
 		{
 			if (texture == nullptr)
 			{
@@ -398,7 +398,7 @@ namespace Vivid
 			ImGui::SeparatorText("Textures");
 
 			int slot = 0;
-			for (auto&& texture: m_Textures)
+			for (auto&& texture : m_Textures)
 			{
 				if (texture == nullptr)
 				{
@@ -440,7 +440,7 @@ namespace Vivid
 				String temp = texture->GetName();
 				char* name = temp.data();
 				ImGui::PopID();
-				static const  ImGuiInputTextFlags flags = ImGuiInputTextFlags_EnterReturnsTrue;
+				static const ImGuiInputTextFlags flags = ImGuiInputTextFlags_EnterReturnsTrue;
 				String slotName = "Texture Name##" + std::to_string(slot);
 				if (ImGui::InputText(slotName.c_str(), name, 255, flags))
 				{
@@ -475,7 +475,6 @@ namespace Vivid
 				}
 				slot++;
 			}
-
 
 			ImGui::PushID("AddTexture" + m_ID);
 			if (ImGui::ImageButton((ImTextureID)VividGui::Assets::GetInstance()->GetTexPlus()->GetRendererID(),
