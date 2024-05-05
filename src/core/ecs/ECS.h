@@ -11,9 +11,10 @@ namespace Vivid
 	{
 		extern Vector<Vivid::Component*> g_Components;
 		extern Vector<Vivid::Entity*> g_Entities;
+		extern Vector<Vivid::Component*> g_AllComponents;
 		extern int s_EntityID;
 
-		void AddComponent(Vivid::Component* component, Vivid::Entity* entity);
+		bool AddComponent(Vivid::Component* component, Vivid::Entity* entity);
 
 		bool RemoveComponent(Vivid::Component* component, Vivid::Entity* entity);
 

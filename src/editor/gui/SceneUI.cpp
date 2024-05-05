@@ -2,6 +2,7 @@
 #include "UIFlags.h"
 #include "editor/assets/Assets.h"
 #include "core/ecs/ECS.h"
+#include "core/ecs/components/TransformComponent.h"
 
 namespace VividGUI
 {
@@ -69,11 +70,48 @@ namespace VividGUI
 				}
 			}
 			ImGui::End();
+
+			// A Popup which is triggered when you right click a entity and you can add components through a list of checklist
+			if (ImGui::BeginPopupContextWindow())
+			{
+				if (ImGui::BeginMenu("Add Component"))
+				{
+					for (auto& component : Vivid::ECS::g_AllComponents)
+					{
+						bool isComponentExist = false;
+						if (m_SelectedEntity->HasComponent(component->GetComponentName()) != -1)
+						{
+							isComponentExist = true;
+						}
+
+						if (ImGui::MenuItem(component->GetComponentName().c_str(), NULL, isComponentExist))
+						{
+							if (isComponentExist)
+							{
+								if (component->GetComponentName() == Vivid::TransformComponent().GetComponentName())
+								{
+									isComponentExist = true;
+									continue;
+								}
+								Vivid::ECS::RemoveComponent(component, m_SelectedEntity);
+							}
+							else
+							{
+								Vivid::ECS::AddComponent(component, m_SelectedEntity);
+							}
+						}
+					}
+					ImGui::EndMenu();
+				}
+				ImGui::EndPopup();
+			}
 		}
 
 		ImGui::SetWindowPos(ImVec2(200, 50));
 		ImGui::End();
 	}
+
+
 
 	void SceneUI::DrawGizmo(Camera* camera)
 	{

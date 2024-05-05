@@ -26,6 +26,7 @@ namespace Vivid
 
 		void AddComponent(Vivid::Component* component);
 
+		void RemoveComponent(int index);
 		void RemoveComponent(Vivid::Component* component);
 
 		void Draw(Camera* camera);
@@ -55,6 +56,8 @@ namespace Vivid
 		const char* GetType(Component* component);
 
 		void DrawGizmo(Camera* camera);
+
+		int HasComponent(const String& componentName);
 	};
 
 }

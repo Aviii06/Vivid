@@ -15,6 +15,7 @@ Vivid::Entity::Entity(int id, String name)
 	ECS::s_EntityID++;
 	m_Components.reserve(MAX_COMPONENTS);
 	ECS::CreateEntity(this);
+	ECS::AddComponent(new TransformComponent(), this);
 }
 
 Vivid::Entity::~Entity()
@@ -23,7 +24,12 @@ Vivid::Entity::~Entity()
 
 void Vivid::Entity::AddComponent(Vivid::Component* component)
 {
-	m_Components.push_back(component);
+	m_Components.emplace_back(component);
+}
+
+void Vivid::Entity::RemoveComponent(int index)
+{
+	m_Components.erase(m_Components.begin() + index);
 }
 
 void Vivid::Entity::RemoveComponent(Vivid::Component* component)
@@ -58,7 +64,7 @@ void Vivid::Entity::Draw(Camera* camera)
 {
 	for (auto& component : m_Components)
 	{
-		component->Draw(Application::GetInstance()->GetCamera());
+		component->Draw(camera);
 	}
 }
 
@@ -74,4 +80,16 @@ void Vivid::Entity::DrawGizmo(Camera* camera)
 	{
 		transform->DrawGizmo(camera);
 	}
+}
+int Vivid::Entity::HasComponent(const String& componentName)
+{
+	for (int index = 0; index < m_Components.size(); index++)
+	{
+		if (m_Components[index]->GetComponentName() == componentName)
+		{
+			return index;
+		}
+	}
+
+	return -1;
 }
