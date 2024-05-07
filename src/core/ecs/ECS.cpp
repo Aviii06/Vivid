@@ -4,17 +4,18 @@
 #include "core/ecs/components/light/PointLightComponent.h"
 #include "core/ecs/components/light/DirectionalLightComponent.h"
 
-Vector<Vivid::Component*> Vivid::ECS::g_Components;
+Vector<Ref<Vivid::Component>> Vivid::ECS::g_Components;
 Vector<Vivid::Entity*> Vivid::ECS::g_Entities;
-Vector<Vivid::Component*> Vivid::ECS::g_AllComponents = {
-	new Vivid::TransformComponent(),
-	new Vivid::ModelComponent(),
-	new Vivid::PointLightComponent(),
-	new Vivid::DirectionalLightComponent()
+Vector<Ref<Vivid::Component>> Vivid::ECS::g_AllComponents = {
+	MakeRef<Vivid::TransformComponent>(),
+	MakeRef<Vivid::ModelComponent>(),
+	MakeRef<Vivid::PointLightComponent>(),
+	MakeRef<Vivid::DirectionalLightComponent>()
 };
+
 int Vivid::ECS::s_EntityID = 0;
 
-bool Vivid::ECS::AddComponent(Vivid::Component* component, Vivid::Entity* entity)
+bool Vivid::ECS::AddComponent(Ref<Vivid::Component> component, Vivid::Entity* entity)
 {
 	// Check if the component already exists
 	// If So then just update the component
@@ -28,12 +29,13 @@ bool Vivid::ECS::AddComponent(Vivid::Component* component, Vivid::Entity* entity
 	}
 
 	component->SetEntity(entity);
+
 	g_Components.push_back(component);
 	entity->AddComponent(component);
 	return true;
 }
 
-bool Vivid::ECS::RemoveComponent(Vivid::Component* component, Vivid::Entity* entity)
+bool Vivid::ECS::RemoveComponent(Ref<Vivid::Component> component, Vivid::Entity* entity)
 {
 	component->SetEntity(entity);
 

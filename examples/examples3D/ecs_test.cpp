@@ -13,13 +13,11 @@ private:
 	Ref<Vivid::Shader> lightShader;
 	Vivid::Entity* suzanne = Vivid::ECS::CreateEntity("Suzanne");
 	Vivid::Entity* light = Vivid::ECS::CreateEntity("DirectionalLight");
-	Vivid::ModelComponent* modelComponent1;
-	Vivid::TransformComponent* sphereTransformComponent = new Vivid::TransformComponent();
-	Vivid::TransformComponent* lightTransformComponent = new Vivid::TransformComponent();
+	Ref<Vivid::ModelComponent> modelComponent1;
+	Ref<Vivid::TransformComponent> sphereTransformComponent = MakeRef<Vivid::TransformComponent>();
 	Vivid::Mesh* mesh;
 
-	Vivid::PointLightComponent* pointLightComponent;
-	Vivid::DirectionalLightComponent* directionalLightComponent;
+	Ref<Vivid::DirectionalLightComponent> directionalLightComponent;
 	Ref<Vivid::Shader> shader;
 
 	float shininess = 32.0f;
@@ -36,13 +34,10 @@ public:
 		mesh = new Vivid::Mesh("./../assets/obj/suzanne.obj", 1);
 		mesh->BindShader(shader);
 
-		modelComponent1 = new Vivid::ModelComponent();
+		modelComponent1 = MakeRef<Vivid::ModelComponent>();
 		modelComponent1->AddMesh(mesh);
 
-		pointLightComponent = new Vivid::PointLightComponent();
-		pointLightComponent->SetColor(Vivid::Maths::Vec3(1.0f, 0.5f, 1.0f));
-
-		directionalLightComponent = new Vivid::DirectionalLightComponent();
+		directionalLightComponent = MakeRef<Vivid::DirectionalLightComponent>();
 		directionalLightComponent->SetDirection(Vivid::Maths::Vec3(0.0f, -1.0f, 0.0f));
 		//
 
@@ -55,20 +50,21 @@ public:
 
 	void Draw() override
 	{
-		Vector<Vivid::DirectionalLightComponent*> directionalLights = Vivid::ECS::GetAllComponents<Vivid::DirectionalLightComponent>();
+		Vector<Vivid::DirectionalLightComponent*> directionalLights;
+		Vivid::ECS::GetAllComponents(Vivid::ComponentType::DirectionalLightComponent ,directionalLights);
 		Vivid::Maths::Vec3 lightDiffuseColor = directionalLights[0]->GetDiffuseColor();
 		Vivid::Maths::Vec3 lightSpecularColor = directionalLights[0]->GetSpecularColor();
 		float intensity = directionalLights[0]->GetIntensity();
 		Vivid::Maths::Vec3 lightDir = directionalLights[0]->GetDirection();
 
-		//		mesh->BindShader(shader);
-		//		shader->Bind();
-		//		shader->SetUniform3f("LightDiffuseColor", lightDiffuseColor);
-		//		shader->SetUniform3f("LightDir", lightDir);
-		//		shader->SetUniform1f("LightIntensity", intensity);
-		//		shader->SetUniform3f("LightSpecularColor", lightSpecularColor);
-		//		shader->SetUniform3f("LightColor", lightColor);
-		//		shader->SetUniform1f("shininess", shininess);
+		mesh->BindShader(shader);
+		shader->Bind();
+		shader->SetUniform3f("LightDiffuseColor", lightDiffuseColor);
+		shader->SetUniform3f("LightDir", lightDir);
+		shader->SetUniform1f("LightIntensity", intensity);
+		shader->SetUniform3f("LightSpecularColor", lightSpecularColor);
+		shader->SetUniform3f("LightColor", lightColor);
+		shader->SetUniform1f("shininess", shininess);
 	}
 
 	void ImGuiRender() override

@@ -78,6 +78,7 @@ namespace Vivid
 		}
 
 		String GetComponentName() override { return "Transform Component"; }
+		ComponentType GetComponentType() override { return ComponentType::TransformComponent; }
 
 		inline ImGuizmo::OPERATION GetCurrentGizmoOperation() const { return m_CurrentGizmoOperation; }
 

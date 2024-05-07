@@ -5,6 +5,14 @@
 
 namespace Vivid
 {
+	enum class ComponentType
+	{
+		TransformComponent,
+		ModelComponent,
+		PointLightComponent,
+		DirectionalLightComponent,
+	};
+
 	class Component
 	{
 	protected:
@@ -26,5 +34,6 @@ namespace Vivid
 		Vivid::Entity* GetEntity() const { return m_Entity; }
 
 		virtual String GetComponentName() = 0;
+		virtual ComponentType GetComponentType() = 0;
 	};
 }

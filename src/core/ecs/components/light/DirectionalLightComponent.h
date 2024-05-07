@@ -39,5 +39,6 @@ namespace Vivid
 		inline Maths::Vec3 GetDirection() const { return m_Direction; }
 
 		String GetComponentName() override { return "DirectionalLight Component"; }
+		ComponentType GetComponentType() override { return ComponentType::DirectionalLightComponent; }
 	};
 }

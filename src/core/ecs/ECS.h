@@ -9,32 +9,30 @@ namespace Vivid
 {
 	namespace ECS
 	{
-		extern Vector<Vivid::Component*> g_Components;
+		extern Vector<Ref<Vivid::Component>> g_Components;
 		extern Vector<Vivid::Entity*> g_Entities;
-		extern Vector<Vivid::Component*> g_AllComponents;
+		extern Vector<Ref<Vivid::Component>> g_AllComponents;
 		extern int s_EntityID;
 
-		bool AddComponent(Vivid::Component* component, Vivid::Entity* entity);
+		bool AddComponent(Ref<Vivid::Component> component, Vivid::Entity* entity);
 
-		bool RemoveComponent(Vivid::Component* component, Vivid::Entity* entity);
+		bool RemoveComponent(Ref<Vivid::Component> component, Vivid::Entity* entity);
 
 		void Draw(Camera* camera);
 
 		void ImGuiRender();
 
-		template <typename T>
-		Vector<T*> GetAllComponents()
+		template<typename T>
+		void GetAllComponents(ComponentType type, Vector<T*>& components)
 		{
-			Vector<T*> components;
 			components.reserve(g_Components.size());
 			for (auto& component : g_Components)
 			{
-				if (typeid(*component) == typeid(T))
+				if (component->GetComponentType() == type)
 				{
-					components.push_back(static_cast<T*>(component));
+					components.emplace_back(static_cast<T*>(component.get()));
 				}
 			}
-			return components;
 		}
 
 		Entity* CreateEntity(String name);
