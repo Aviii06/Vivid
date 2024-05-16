@@ -15,7 +15,7 @@ namespace Vivid
 	private:
 		int m_ID;
 		String m_Name = "";
-		Vector<Vivid::Component*> m_Components;
+		Vector<Ref<Vivid::Component>> m_Components;
 
 	public:
 		Entity() = default;
@@ -24,9 +24,10 @@ namespace Vivid
 
 		~Entity();
 
-		void AddComponent(Vivid::Component* component);
+		void AddComponent(Ref<Vivid::Component> component);
 
-		void RemoveComponent(Vivid::Component* component);
+		void RemoveComponent(int index);
+		void RemoveComponent(Ref<Vivid::Component> component);
 
 		void Draw(Camera* camera);
 
@@ -35,17 +36,18 @@ namespace Vivid
 		inline int GetID() const { return m_ID; }
 
 		inline String GetName() const { return m_Name; }
+		void SetName(String name) { m_Name = name; }
 
-		inline Vector<Vivid::Component*> GetAllComponents() const { return m_Components; }
+		inline Vector<Ref<Vivid::Component>> GetAllComponents() const { return m_Components; }
 
 		template <typename T>
 		T* GetComponent()
 		{
 			for (auto component : m_Components)
 			{
-				if (GetType(component) == typeid(T).name())
+				if (GetType(component.get()) == typeid(T).name())
 				{
-					return static_cast<T*>(component);
+					return static_cast<T*>(component.get());
 				}
 			}
 			return nullptr;
@@ -54,6 +56,8 @@ namespace Vivid
 		const char* GetType(Component* component);
 
 		void DrawGizmo(Camera* camera);
+
+		int HasComponent(const String& componentName);
 	};
 
 }

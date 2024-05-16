@@ -12,24 +12,31 @@ Vivid::Entity::Entity(int id, String name)
     : m_ID(id)
     , m_Name(std::move(name))
 {
+	ECS::s_EntityID++;
 	m_Components.reserve(MAX_COMPONENTS);
 	ECS::CreateEntity(this);
+	ECS::AddComponent(MakeRef<TransformComponent>(), this);
 }
 
 Vivid::Entity::~Entity()
 {
 }
 
-void Vivid::Entity::AddComponent(Vivid::Component* component)
+void Vivid::Entity::AddComponent(Ref<Vivid::Component> component)
 {
-	m_Components.push_back(component);
+	m_Components.emplace_back(component);
 }
 
-void Vivid::Entity::RemoveComponent(Vivid::Component* component)
+void Vivid::Entity::RemoveComponent(int index)
+{
+	m_Components.erase(m_Components.begin() + index);
+}
+
+void Vivid::Entity::RemoveComponent(Ref<Vivid::Component> component)
 {
 	for (auto it = m_Components.begin(); it != m_Components.end(); ++it)
 	{
-		if (*it == component)
+		if (it->get() == component.get())
 		{
 			m_Components.erase(it);
 			break;
@@ -57,7 +64,7 @@ void Vivid::Entity::Draw(Camera* camera)
 {
 	for (auto& component : m_Components)
 	{
-		component->Draw(Application::GetInstance()->GetCamera());
+		component->Draw(camera);
 	}
 }
 
@@ -73,4 +80,16 @@ void Vivid::Entity::DrawGizmo(Camera* camera)
 	{
 		transform->DrawGizmo(camera);
 	}
+}
+int Vivid::Entity::HasComponent(const String& componentName)
+{
+	for (int index = 0; index < m_Components.size(); index++)
+	{
+		if (m_Components[index]->GetComponentName() == componentName)
+		{
+			return index;
+		}
+	}
+
+	return -1;
 }

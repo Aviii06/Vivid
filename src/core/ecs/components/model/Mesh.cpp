@@ -4,6 +4,8 @@
 #include "editor/assets/Assets.h"
 #include "core/os/FileDialogue.h"
 
+#include <imgui_internal.h>
+
 namespace Vivid
 {
 	unsigned int Mesh::s_ID = 0;
@@ -44,6 +46,7 @@ namespace Vivid
 		m_Layout.AddFloat(2); // Texcoord
 		m_Layout.AddFloat(3); // Color
 		m_Layout.AddFloat(3); // Normal
+		m_Layout.AddFloat(3); // Tangent
 
 		m_ModelMatrix = glm::mat4(1.0f);
 
@@ -115,8 +118,8 @@ namespace Vivid
 		// Default Layout is of type Vertex
 		m_Layout.AddFloat(3); // Positions
 		m_Layout.AddFloat(2); // Tex coords
-		m_Layout.AddFloat(3); // Colors
 		m_Layout.AddFloat(3); // Normal
+		m_Layout.AddFloat(3); // Tangent
 
 		// Vertex portions
 		Vector<Maths::Vec3> vertex_positions;
@@ -209,7 +212,10 @@ namespace Vivid
 		m_Indices.resize(vertex_position_indicies.size(), GLint(0));
 
 		// TODO: Optimize this
-		for (size_t i = 0; i < m_Vertices.size(); ++i)
+		// TODO: Integrate Assimp
+
+		int size = m_Vertices.size();
+		for (size_t i = 0; i < size; i++)
 		{
 			if (vertex_texcoord_indicies[i] == 0)
 			{
@@ -229,8 +235,30 @@ namespace Vivid
 				m_Vertices[i].normal = vertex_normals[vertex_normal_indicies[i] - 1];
 			}
 			m_Vertices[i].position = vertex_positions[vertex_position_indicies[i] - 1];
-			m_Vertices[i].color = Maths::Vec3(0.0f, 0.0f, 1.0f);
 			m_Indices[i] = i;
+		}
+
+		for (size_t i = 0; i < size; i += 3)
+		{
+			Vivid::Maths::Vec3 pos1 = m_Vertices[i].position;
+			Vivid::Maths::Vec3 pos2 = m_Vertices[i + 1].position;
+			Vivid::Maths::Vec3 pos3 = m_Vertices[i + 2].position;
+
+			Vivid::Maths::Vec2 uv1 = m_Vertices[i].texcoord;
+			Vivid::Maths::Vec2 uv2 = m_Vertices[i + 1].texcoord;
+			Vivid::Maths::Vec2 uv3 = m_Vertices[i + 2].texcoord;
+
+			Vivid::Maths::Vec3 edge1 = pos2 - pos1;
+			Vivid::Maths::Vec3 edge2 = pos3 - pos1;
+			Vivid::Maths::Vec2 deltaUV1 = uv2 - uv1;
+			Vivid::Maths::Vec2 deltaUV2 = uv3 - uv1;
+
+			float f = 1.0f / (deltaUV1.x * deltaUV2.y - deltaUV2.x * deltaUV1.y);
+			Vivid::Maths::Vec3 tangent;
+			tangent = { f * (deltaUV2.y * edge1.x - deltaUV1.y * edge2.x), f * (deltaUV2.y * edge1.y - deltaUV1.y * edge2.y), f * (deltaUV2.y * edge1.z - deltaUV1.y * edge2.z) };
+			m_Vertices[i].tangent = tangent;
+			m_Vertices[i + 1].tangent = tangent;
+			m_Vertices[i + 2].tangent = tangent;
 		}
 
 		m_Ebo = new IndexBuffer(m_Indices);
@@ -278,6 +306,10 @@ namespace Vivid
 		m_Shader->SetUniformMat4f("u_Model", m_ModelMatrix);
 		m_Shader->SetUniformMat4f("u_View", camera->GetViewMatrix());
 		m_Shader->SetUniformMat4f("u_Proj", camera->GetProjectionMatrix());
+
+		m_Shader->SetUniform1f("Shininess", m_Shininess);
+		m_Shader->SetUniform1f("AmbientStrength", m_AmbientStrength);
+		m_Shader->SetUniform1f("SpecularStrength", m_SpecularStrength);
 
 		//		// Bind Textures
 		int slot = 0;
@@ -337,6 +369,15 @@ namespace Vivid
 			ImGui::InputFloat4("##ModelMatrix3", &m_ModelMatrix[2][0]);
 			ImGui::InputFloat4("##ModelMatrix4", &m_ModelMatrix[3][0]);
 
+			ImGui::Text("Tangents: %d", m_ID);
+			for (int i = 0; i < m_Vertices.size(); i++)
+			{
+				float x = m_Vertices[i].tangent.x;
+				float y = m_Vertices[i].tangent.y;
+				float z = m_Vertices[i].tangent.z;
+				ImGui::Text("Tangent %d = (%d, %d, %d)", i, x, y, z);
+			}
+
 			ImGui::SeparatorText("Shader");
 			ImGui::Text("Vertex Shader");
 			if (!m_VertexShaderPath.empty())
@@ -352,7 +393,11 @@ namespace Vivid
 			unsigned int texId = VividGui::Assets::GetInstance()->GetTexOpen()->GetRendererID();
 			if (ImGui::ImageButton((ImTextureID)texId,
 			        ImVec2(VividGui::Assets::GetInstance()->GetButtonWidth(), VividGui::Assets::GetInstance()->GetButtonWidth()),
-			        ImVec2(0.0, 0.0), ImVec2(1.0, 1.0), 2))
+			        {
+			            0,
+			            0,
+			        },
+			        { 1, 1 }, 2))
 			{
 				std::string file = FileDialogue::OpenFile({}, {});
 				if (!file.empty())
@@ -375,7 +420,7 @@ namespace Vivid
 			ImGui::PushID("PixelShader");
 			if (ImGui::ImageButton((ImTextureID)texId,
 			        ImVec2(VividGui::Assets::GetInstance()->GetButtonWidth(), VividGui::Assets::GetInstance()->GetButtonWidth()),
-			        ImVec2(0.0, 0.0), ImVec2(1.0, 1.0), 2))
+			        { 0, 0 }, { 1, 1 }, 2))
 			{
 				std::string file = FileDialogue::OpenFile({}, {});
 				if (!file.empty())
@@ -415,13 +460,14 @@ namespace Vivid
 				// Change the texture
 				if (ImGui::ImageButton((ImTextureID)VividGui::Assets::GetInstance()->GetTexOpen()->GetRendererID(),
 				        ImVec2(VividGui::Assets::GetInstance()->GetButtonWidth(), VividGui::Assets::GetInstance()->GetButtonWidth()),
-				        ImVec2(0.0, 1.0), ImVec2(1.0, 0.0), 2))
+				        { 0, 1 }, { 1, 0 }, 2))
 				{
 					std::string file = FileDialogue::OpenFile({}, {});
 					if (!file.empty())
 					{
+						String name = texture->GetName();
 						texture = Ref<Texture>(new Texture(file));
-						texture->SetName(texture->GetName());
+						texture->SetName(name);
 					}
 				}
 
@@ -430,7 +476,7 @@ namespace Vivid
 				ImGui::PushID(std::to_string(slot).c_str());
 				if (ImGui::ImageButton((ImTextureID)VividGui::Assets::GetInstance()->GetTexMinus()->GetRendererID(),
 				        ImVec2(VividGui::Assets::GetInstance()->GetButtonWidth(), VividGui::Assets::GetInstance()->GetButtonWidth()),
-				        ImVec2(0.25, 0.25), ImVec2(0.75, 0.75), 2))
+				        { 0.25, 0.75 }, { 0.75, 0.25 }, 2))
 				{
 					m_Textures.erase(m_Textures.begin() + slot);
 				}
@@ -473,22 +519,27 @@ namespace Vivid
 						ImGui::Text("Name already exists");
 					}
 				}
+
 				slot++;
 			}
 
 			ImGui::PushID("AddTexture" + m_ID);
 			if (ImGui::ImageButton((ImTextureID)VividGui::Assets::GetInstance()->GetTexPlus()->GetRendererID(),
 			        ImVec2(VividGui::Assets::GetInstance()->GetButtonWidth(), VividGui::Assets::GetInstance()->GetButtonWidth()),
-			        ImVec2(1.0, 0.0), ImVec2(0.0, 1.0), 2))
+			        { 1, 0 }, { 0, 1 }, 2))
 			{
 				std::string file = FileDialogue::OpenFile({}, {});
 				if (!file.empty())
 				{
-					m_Textures.push_back(Ref<Texture>(new Texture(file)));
+					AddTexture(file);
 				}
 			}
 			ImGui::PopID();
 
+			ImGui::SeparatorText("Object Properties");
+			ImGui::SliderFloat("Shininess", &m_Shininess, 0.0f, 32.0f);
+			ImGui::SliderFloat("Ambient Strength", &m_AmbientStrength, 0.0f, 1.0f);
+			ImGui::SliderFloat("Specular Strength", &m_SpecularStrength, 0.0f, 1.0f);
 			ImGui::End();
 		}
 	}

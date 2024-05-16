@@ -3,24 +3,16 @@
 class ExampleInterface : public RenderingInterface
 {
 private:
-	Vivid::Maths::Vec3 lightColor = Vivid::Maths::Vec3(1.0f, 0.5f, 1.0f);
-	Vivid::Maths::Vec3 lightPos = Vivid::Maths::Vec3(0.0f, 0.0f, -100.0f);
-
-	glm::vec3 suzannePosition = glm::vec3(0, 50, -200);
-	glm::vec3 lightPosition = glm::vec3(0, 0, 0);
-
 	Vivid::Mesh lightMesh;
 	Ref<Vivid::Shader> lightShader;
-	Vivid::Entity* suzanne = Vivid::ECS::CreateEntity("Suzanne");
+	Vivid::Entity* plane = Vivid::ECS::CreateEntity("plane");
 	Vivid::Entity* light = Vivid::ECS::CreateEntity("DirectionalLight");
-	Ref<Vivid::ModelComponent> modelComponent1;
-	Ref<Vivid::TransformComponent> sphereTransformComponent = MakeRef<Vivid::TransformComponent>();
-	Vivid::Mesh* mesh;
+	Ref<Vivid::ModelComponent> planeModelComponent;
+	Ref<Vivid::TransformComponent> planeTransformComponent = MakeRef<Vivid::TransformComponent>();
+	Vivid::Mesh* planeMesh;
 
 	Ref<Vivid::DirectionalLightComponent> directionalLightComponent;
 	Ref<Vivid::Shader> shader;
-
-	float shininess = 32.0f;
 
 public:
 	void Setup() override
@@ -31,36 +23,48 @@ public:
 		shader = MakeRef<Vivid::Shader>("./../assets/shaders/phong.vertexShader.glsl",
 		    "./../assets/shaders/phong.pixelShader.glsl");
 
-		mesh = new Vivid::Mesh("./../assets/obj/suzanne.obj", 1);
-		mesh->BindShader(shader);
+		planeMesh = new Vivid::Mesh("./../assets/obj/plane.obj");
+		planeMesh->BindShader(shader);
 
-		modelComponent1 = MakeRef<Vivid::ModelComponent>();
-		modelComponent1->AddMesh(mesh);
+		planeModelComponent = MakeRef<Vivid::ModelComponent>();
+		planeModelComponent->AddMesh(planeMesh);
 
 		directionalLightComponent = MakeRef<Vivid::DirectionalLightComponent>();
 		directionalLightComponent->SetDirection(Vivid::Maths::Vec3(0.0f, -1.0f, 0.0f));
-		//
 
-		sphereTransformComponent->SetScale(Vivid::Maths::Vec3(50.0f, 50.0f, 50.0f));
-		Vivid::ECS::AddComponent(modelComponent1, suzanne);
-		Vivid::ECS::AddComponent(sphereTransformComponent, suzanne);
+		planeTransformComponent->SetScale(Vivid::Maths::Vec3(50.0f, 50.0f, 50.0f));
+		planeTransformComponent->SetRotation(Vivid::Maths::Vec3(90, 0, 0));
+
+		Vivid::ECS::AddComponent(planeModelComponent, plane);
+		Vivid::ECS::AddComponent(planeTransformComponent, plane);
 
 		Vivid::ECS::AddComponent(directionalLightComponent, light);
+
+		MovableCamera* cam = static_cast<MovableCamera*>(Application::GetInstance()->GetCamera());
+		cam->SetPosition({ 0.0f, 0.0f, 100.0f });
+		cam->MoveBackward();
+
+		planeMesh->AddTexture("./../assets/textures/brick_wall/diffuse.jpg");
+		planeMesh->AddTexture("./../assets/textures/brick_wall/displacement.jpg");
+		planeMesh->AddTexture("./../assets/textures/brick_wall/normal.jpg");
+		planeMesh->GetTexture(0)->SetName("DiffuseTexture");
+		planeMesh->GetTexture(1)->SetName("DepthMap");
+		planeMesh->GetTexture(2)->SetName("NormalMap");
 	}
 
 	void Draw() override
 	{
 		Vector<Vivid::DirectionalLightComponent*> directionalLights;
 		Vivid::ECS::GetAllComponents(Vivid::ComponentType::DirectionalLightComponent, directionalLights);
+		Vivid::Maths::Vec3 lightColor = directionalLights[0]->GetLightColor();
 		float intensity = directionalLights[0]->GetIntensity();
 		Vivid::Maths::Vec3 lightDir = directionalLights[0]->GetDirection();
 
-		mesh->BindShader(shader);
+		planeMesh->BindShader(shader);
 		shader->Bind();
 		shader->SetUniform3f("LightDir", lightDir);
 		shader->SetUniform1f("LightIntensity", intensity);
 		shader->SetUniform3f("LightColor", lightColor);
-		shader->SetUniform1f("shininess", shininess);
 	}
 
 	void ImGuiRender() override
@@ -70,15 +74,13 @@ public:
 		ImGui::Text("Application average %.3f ms/frame (%.1f FPS)",
 		    1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
 
-		ImGui::SliderFloat("shininess", &shininess, 0.0f, 32.0f);
-
 		ImGui::End();
 	}
 };
 
 Application* Vivid::CreateApplication()
 {
-	Application* app = Application::GetInstance(1920, 1080, "Vivid: ECS TEST Example");
+	Application* app = Application::GetInstance(1920, 1080, "Vivid: Bump Map Example");
 
 	app->SetRenderingInterface(new ExampleInterface);
 

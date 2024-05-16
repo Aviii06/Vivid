@@ -14,6 +14,12 @@ Vivid::ModelComponent::ModelComponent()
 
 void Vivid::ModelComponent::Draw(Camera* camera)
 {
+	TransformComponent transformComponent;
+	if (m_Entity->HasComponent(transformComponent.GetComponentName()) == -1)
+	{
+		std::cerr << "Entity does not have a TransformComponent\n";
+		return;
+	}
 	glm::mat4 transform = m_Entity->GetComponent<Vivid::TransformComponent>()->GetTransform();
 
 	for (auto& mesh : m_Meshes)

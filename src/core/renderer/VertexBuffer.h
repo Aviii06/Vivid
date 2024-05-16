@@ -13,8 +13,8 @@ namespace Vivid
 	{
 		Maths::Vec3 position;
 		Maths::Vec2 texcoord;
-		Maths::Vec3 color;
 		Maths::Vec3 normal;
+		Maths::Vec3 tangent;
 	};
 
 	class VertexBuffer

@@ -33,5 +33,6 @@ namespace Vivid
 		inline float GetIntensity() const { return m_Intensity; }
 
 		String GetComponentName() override { return "PointLight Component"; }
+		ComponentType GetComponentType() override { return ComponentType::PointLightComponent; }
 	};
 }

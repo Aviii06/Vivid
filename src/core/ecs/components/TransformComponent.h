@@ -32,6 +32,8 @@ namespace Vivid
 		TransformComponent()
 		{
 			m_Scale = Maths::Vec3(1.0f, 1.0f, 1.0f);
+			m_Position = Maths::Vec3(0.0f, 0.0f, 0.0f);
+			m_Rotation = Maths::Vec3(0.0f, 0.0f, 0.0f);
 			ImGuizmo::RecomposeMatrixFromComponents(&m_Position.x, &m_Rotation.x, &m_Scale.x, &m_Transform[0][0]);
 		}
 
@@ -76,6 +78,7 @@ namespace Vivid
 		}
 
 		String GetComponentName() override { return "Transform Component"; }
+		ComponentType GetComponentType() override { return ComponentType::TransformComponent; }
 
 		inline ImGuizmo::OPERATION GetCurrentGizmoOperation() const { return m_CurrentGizmoOperation; }
 

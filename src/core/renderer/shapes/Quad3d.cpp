@@ -76,7 +76,7 @@ namespace Vivid
 		{
 			m_Pos[i].position = pos[i];
 			m_Pos[i].texcoord = tex[i];
-			m_Pos[i].color = color[i];
+			m_Pos[i].tangent = color[i];
 			m_Pos[i].normal = normal[i];
 		}
 

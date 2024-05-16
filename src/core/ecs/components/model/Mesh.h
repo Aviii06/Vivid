@@ -41,10 +41,6 @@ namespace Vivid
 		Vector<GLuint> m_Indices;
 		VertexBufferLayout m_Layout;
 		Vector<Ref<Texture>> m_Textures;
-		Ref<Texture> m_DiffuseTexture = nullptr;
-		Ref<Texture> m_NormalMapTexture = nullptr;
-		Ref<Texture> m_SpecularMapTexture = nullptr;
-		Ref<Texture> m_DisplacementMapTexture = nullptr;
 		Ref<VertexArray> m_Vao;
 		IndexBuffer* m_Ebo;
 		Ref<Shader> m_Shader;
@@ -52,6 +48,9 @@ namespace Vivid
 		String m_PixelShaderPath;
 
 		glm::mat4 m_ModelMatrix;
+		float m_Shininess = 1;
+		float m_AmbientStrength = 0.5f;
+		float m_SpecularStrength = 0.5f;
 
 		const unsigned int m_Instances;
 
@@ -95,6 +94,9 @@ namespace Vivid
 
 		void EditMesh();
 		void ImGuiRender();
+
+		void AddTexture(String file_name) { m_Textures.push_back(Ref<Texture>(new Texture(file_name))); }
+		Ref<Texture> GetTexture(int index) { return m_Textures[index]; }
 
 	private:
 		void recompileShader();
