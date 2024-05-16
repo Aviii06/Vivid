@@ -13,6 +13,9 @@ out vec3 v_CrntPos;
 out vec3 v_Normal;
 out vec3 v_VertPos;
 out mat3 v_TBN;
+//out vec3 v_TangentLightPos;
+//out vec3 v_TangentViewPos;
+out vec3 v_TangentFragPos;
 
 void main()
 {
@@ -32,6 +35,10 @@ void main()
   vec3 B = cross(N, T);
 
   v_TBN = transpose(mat3(T, B, N));
+//  v_TangentLightPos = v_TBN * lightPos;
+//  v_TangentViewPos  = v_TBN * viewPos;
+  v_TangentFragPos  = v_TBN * v_CrntPos;
+
 }
 
 //////////
