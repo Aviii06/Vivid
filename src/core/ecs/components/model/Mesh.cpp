@@ -238,15 +238,15 @@ namespace Vivid
 			m_Indices[i] = i;
 		}
 
-		for (size_t i = 0; i < size; i+=3)
+		for (size_t i = 0; i < size; i += 3)
 		{
 			Vivid::Maths::Vec3 pos1 = m_Vertices[i].position;
-			Vivid::Maths::Vec3 pos2 = m_Vertices[i+1].position;
-			Vivid::Maths::Vec3 pos3 = m_Vertices[i+2].position;
+			Vivid::Maths::Vec3 pos2 = m_Vertices[i + 1].position;
+			Vivid::Maths::Vec3 pos3 = m_Vertices[i + 2].position;
 
 			Vivid::Maths::Vec2 uv1 = m_Vertices[i].texcoord;
-			Vivid::Maths::Vec2 uv2 = m_Vertices[i+1].texcoord;
-			Vivid::Maths::Vec2 uv3 = m_Vertices[i+2].texcoord;
+			Vivid::Maths::Vec2 uv2 = m_Vertices[i + 1].texcoord;
+			Vivid::Maths::Vec2 uv3 = m_Vertices[i + 2].texcoord;
 
 			Vivid::Maths::Vec3 edge1 = pos2 - pos1;
 			Vivid::Maths::Vec3 edge2 = pos3 - pos1;
@@ -255,10 +255,10 @@ namespace Vivid
 
 			float f = 1.0f / (deltaUV1.x * deltaUV2.y - deltaUV2.x * deltaUV1.y);
 			Vivid::Maths::Vec3 tangent;
-			tangent = {f * (deltaUV2.y * edge1.x - deltaUV1.y * edge2.x), f * (deltaUV2.y * edge1.y - deltaUV1.y * edge2.y), f * (deltaUV2.y * edge1.z - deltaUV1.y * edge2.z)};
+			tangent = { f * (deltaUV2.y * edge1.x - deltaUV1.y * edge2.x), f * (deltaUV2.y * edge1.y - deltaUV1.y * edge2.y), f * (deltaUV2.y * edge1.z - deltaUV1.y * edge2.z) };
 			m_Vertices[i].tangent = tangent;
-			m_Vertices[i+1].tangent = tangent;
-			m_Vertices[i+2].tangent = tangent;
+			m_Vertices[i + 1].tangent = tangent;
+			m_Vertices[i + 2].tangent = tangent;
 		}
 
 		m_Ebo = new IndexBuffer(m_Indices);

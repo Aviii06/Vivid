@@ -46,6 +46,8 @@ void main()
 	vec3 viewDir = normalize(-v_VertPos);
 
 	vec2 texCoords = ParallaxMapping(v_TexCoord,  viewDir);
+	if(texCoords.x > 1.0 || texCoords.y > 1.0 || texCoords.x < 0.0 || texCoords.y < 0.0)
+		discard;
 	vec3 objectColor = texture(DiffuseTexture, texCoords).rgb;
 	vec3 normal = texture(NormalMap, texCoords).rgb;
 	normal = normalize(normal * 2.0 - 1.0);
