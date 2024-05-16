@@ -21,8 +21,8 @@ namespace VividGUI
 
 		unsigned int texId = VividGui::Assets::GetInstance()->GetTexPlus()->GetRendererID();
 		if (ImGui::ImageButton((ImTextureID)texId,
-							   ImVec2(VividGui::Assets::GetInstance()->GetButtonWidth(), VividGui::Assets::GetInstance()->GetButtonWidth()),
-							   { 0, 0 }, { 1, 1 }, 2))
+		        ImVec2(VividGui::Assets::GetInstance()->GetButtonWidth(), VividGui::Assets::GetInstance()->GetButtonWidth()),
+		        { 0, 0 }, { 1, 1 }, 2))
 		{
 			Vivid::ECS::CreateEntity("Entity" + std::to_string(Vivid::ECS::s_EntityID));
 		}
@@ -106,8 +106,6 @@ namespace VividGUI
 		ImGui::SetWindowPos(ImVec2(200, 50));
 		ImGui::End();
 	}
-
-
 
 	void SceneUI::DrawGizmo(Camera* camera)
 	{

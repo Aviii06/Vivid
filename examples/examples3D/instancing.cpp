@@ -7,6 +7,23 @@ float space_between_spheres = 150.0f;
 
 class ExampleInterface : public RenderingInterface
 {
+private:
+	Vivid::Maths::Vec3 lightColor = Vivid::Maths::Vec3(1.0f, 0.5f, 1.0f);
+	glm::vec3 suzannePosition = glm::vec3(0, 50, -200);
+	glm::vec3 lightPosition = glm::vec3(0, 0, 0);
+
+	Vivid::Mesh lightMesh;
+	Ref<Vivid::Shader> lightShader;
+	Vivid::Entity* suzanne = new Vivid::Entity(1, "Spheres");
+	Vivid::Entity* light = new Vivid::Entity(2, "DirectionalLight");
+	Ref<Vivid::ModelComponent> modelComponent1;
+	Ref<Vivid::TransformComponent> sphereTransformComponent = MakeRef<Vivid::TransformComponent>();
+	Vivid::Mesh* sphere;
+
+	Ref<Vivid::DirectionalLightComponent> directionalLightComponent;
+	Ref<Vivid::Shader> shader;
+
+	std::vector<Vivid::Maths::Vec3> translations;
 
 public:
 	void Setup() override
@@ -21,17 +38,13 @@ public:
 		sphere = new Vivid::Mesh("./../assets/obj/newIcoSphere.obj", number_of_sphere);
 		sphere->BindShader(shader);
 
-		modelComponent1 = new Vivid::ModelComponent();
+		modelComponent1 = MakeRef<Vivid::ModelComponent>();
 		modelComponent1->AddMesh(sphere);
 		sphereTransformComponent->SetScale(Vivid::Maths::Vec3(sphere_radius));
 
-		directionalLightComponent = new Vivid::DirectionalLightComponent();
+		directionalLightComponent = MakeRef<Vivid::DirectionalLightComponent>();
 		directionalLightComponent->SetDirection(
 		    Vivid::Maths::Vec3(-0.67f, 0.625f, 0.480f));
-		directionalLightComponent->SetDiffuseColor(
-		    Vivid::Maths::Vec3(1.0f, 33.0f / 255.0f, 33.0f / 255.0f));
-		directionalLightComponent->SetSpecularColor(
-		    Vivid::Maths::Vec3(1.0f, 220.0f / 255.0f, 42.0f / 255.0f));
 
 		Vivid::ECS::AddComponent(modelComponent1, suzanne);
 		Vivid::ECS::AddComponent(sphereTransformComponent, suzanne);
@@ -68,15 +81,12 @@ public:
 			translations[i] = translation;
 		}
 
-		Vector<Vivid::DirectionalLightComponent*> directionalLights = Vivid::ECS::GetAllComponents<Vivid::DirectionalLightComponent>();
-		Vivid::Maths::Vec3 lightDiffuseColor = directionalLights[0]->GetDiffuseColor();
-		Vivid::Maths::Vec3 lightSpecularColor = directionalLights[0]->GetSpecularColor();
+		Vector<Vivid::DirectionalLightComponent*> directionalLights;
+		Vivid::ECS::GetAllComponents(Vivid::ComponentType::DirectionalLightComponent, directionalLights);
 		Vivid::Maths::Vec3 lightDir = directionalLights[0]->GetDirection();
 
 		sphere->BindShader(shader);
-		shader->SetUniform3f("LightDiffuseColor", lightDiffuseColor);
 		shader->SetUniform3f("LightDir", lightDir);
-		shader->SetUniform3f("LightSpecularColor", lightSpecularColor);
 		shader->SetUniform3f("LightColor", lightColor);
 		for (unsigned int i = 0; i < number_of_sphere; i++)
 		{
@@ -135,25 +145,6 @@ public:
 		ImGui::SliderFloat("Space Between Spheres", &space_between_spheres, 0.0f, 500.0f);
 		ImGui::End();
 	}
-
-private:
-	Vivid::Maths::Vec3 lightColor = Vivid::Maths::Vec3(1.0f, 0.5f, 1.0f);
-	glm::vec3 suzannePosition = glm::vec3(0, 50, -200);
-	glm::vec3 lightPosition = glm::vec3(0, 0, 0);
-
-	Vivid::Mesh lightMesh;
-	Ref<Vivid::Shader> lightShader;
-	Vivid::Entity* suzanne = new Vivid::Entity(1, "Spheres");
-	Vivid::Entity* light = new Vivid::Entity(2, "DirectionalLight");
-	Vivid::ModelComponent* modelComponent1;
-	Vivid::TransformComponent* sphereTransformComponent = new Vivid::TransformComponent();
-	Vivid::Mesh* sphere;
-
-	Vivid::PointLightComponent* pointLightComponent;
-	Vivid::DirectionalLightComponent* directionalLightComponent;
-	Ref<Vivid::Shader> shader;
-
-	std::vector<Vivid::Maths::Vec3> translations;
 };
 
 Application* Vivid::CreateApplication()

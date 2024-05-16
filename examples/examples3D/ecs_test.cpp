@@ -51,18 +51,14 @@ public:
 	void Draw() override
 	{
 		Vector<Vivid::DirectionalLightComponent*> directionalLights;
-		Vivid::ECS::GetAllComponents(Vivid::ComponentType::DirectionalLightComponent ,directionalLights);
-		Vivid::Maths::Vec3 lightDiffuseColor = directionalLights[0]->GetDiffuseColor();
-		Vivid::Maths::Vec3 lightSpecularColor = directionalLights[0]->GetSpecularColor();
+		Vivid::ECS::GetAllComponents(Vivid::ComponentType::DirectionalLightComponent, directionalLights);
 		float intensity = directionalLights[0]->GetIntensity();
 		Vivid::Maths::Vec3 lightDir = directionalLights[0]->GetDirection();
 
 		mesh->BindShader(shader);
 		shader->Bind();
-		shader->SetUniform3f("LightDiffuseColor", lightDiffuseColor);
 		shader->SetUniform3f("LightDir", lightDir);
 		shader->SetUniform1f("LightIntensity", intensity);
-		shader->SetUniform3f("LightSpecularColor", lightSpecularColor);
 		shader->SetUniform3f("LightColor", lightColor);
 		shader->SetUniform1f("shininess", shininess);
 	}
