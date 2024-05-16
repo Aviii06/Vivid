@@ -6,7 +6,7 @@
 
 #define ASSERT(x) \
 	if (!(x))     \
-	std::cerr << "Assertion failed: " << #x << std::endl
+	std::cerr << "\nAssertion failed: " << #x << std::endl
 
 #define GLCall(x)   \
 	GLClearError(); \

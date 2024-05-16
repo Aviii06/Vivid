@@ -95,11 +95,11 @@ add_library(Vivid STATIC ${SOURCES} ${HEADERS})
 
 target_include_directories(Vivid PUBLIC
         ${PROJECT_SOURCE_DIR}/src
-        )
+)
 
 target_include_directories(Vivid PUBLIC
         ${PROJECT_SOURCE_DIR}/vendor
-        )
+)
 
 file(COPY editor/assets/ DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/editor/assets/)
 
@@ -112,4 +112,4 @@ target_link_libraries(Vivid
         glad
         imguizmo
         nfd
-        )
+)

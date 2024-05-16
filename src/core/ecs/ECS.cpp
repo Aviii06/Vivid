@@ -23,7 +23,8 @@ bool Vivid::ECS::AddComponent(Ref<Vivid::Component> component, Vivid::Entity* en
 	if (index != -1)
 	{
 
-		std::cerr << component->GetComponentName() << "already exists\n" << std::endl;
+		std::cerr << component->GetComponentName() << "already exists\n"
+		          << std::endl;
 		std::cout << "Updating component: " << component->GetComponentName() << std::endl;
 		entity->RemoveComponent(index);
 	}
@@ -39,7 +40,7 @@ bool Vivid::ECS::RemoveComponent(Ref<Vivid::Component> component, Vivid::Entity*
 {
 	component->SetEntity(entity);
 
-	for (int  i = 0; i < g_Components.size(); i++)
+	for (int i = 0; i < g_Components.size(); i++)
 	{
 		if (g_Components[i]->GetComponentName() == component->GetComponentName())
 		{

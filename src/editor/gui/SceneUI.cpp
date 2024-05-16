@@ -22,11 +22,7 @@ namespace VividGUI
 		unsigned int texId = VividGui::Assets::GetInstance()->GetTexPlus()->GetRendererID();
 		if (ImGui::ImageButton((ImTextureID)texId,
 							   ImVec2(VividGui::Assets::GetInstance()->GetButtonWidth(), VividGui::Assets::GetInstance()->GetButtonWidth()),
-							   {
-								   0,
-								   0,
-							   },
-							   { 1, 1 }, 2))
+							   { 0, 0 }, { 1, 1 }, 2))
 		{
 			Vivid::ECS::CreateEntity("Entity" + std::to_string(Vivid::ECS::s_EntityID));
 		}

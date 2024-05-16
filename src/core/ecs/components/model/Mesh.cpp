@@ -4,6 +4,8 @@
 #include "editor/assets/Assets.h"
 #include "core/os/FileDialogue.h"
 
+#include <imgui_internal.h>
+
 namespace Vivid
 {
 	unsigned int Mesh::s_ID = 0;
@@ -279,6 +281,10 @@ namespace Vivid
 		m_Shader->SetUniformMat4f("u_View", camera->GetViewMatrix());
 		m_Shader->SetUniformMat4f("u_Proj", camera->GetProjectionMatrix());
 
+		m_Shader->SetUniform1f("Shininess", m_Shininess);
+		m_Shader->SetUniform1f("AmbientStrength", m_AmbientStrength);
+		m_Shader->SetUniform1f("SpecularStrength", m_SpecularStrength);
+
 		//		// Bind Textures
 		int slot = 0;
 		for (auto texture : m_Textures)
@@ -424,8 +430,9 @@ namespace Vivid
 					std::string file = FileDialogue::OpenFile({}, {});
 					if (!file.empty())
 					{
+						String name = texture->GetName();
 						texture = Ref<Texture>(new Texture(file));
-						texture->SetName(texture->GetName());
+						texture->SetName(name);
 					}
 				}
 
@@ -489,11 +496,15 @@ namespace Vivid
 				std::string file = FileDialogue::OpenFile({}, {});
 				if (!file.empty())
 				{
-					m_Textures.push_back(Ref<Texture>(new Texture(file)));
+					AddTexture(file);
 				}
 			}
 			ImGui::PopID();
 
+			ImGui::SeparatorText("Object Properties");
+			ImGui::SliderFloat("Shininess", &m_Shininess, 0.0f, 32.0f);
+			ImGui::SliderFloat("Ambient Strength", &m_AmbientStrength, 0.0f, 1.0f);
+			ImGui::SliderFloat("Specular Strength", &m_SpecularStrength, 0.0f, 1.0f);
 			ImGui::End();
 		}
 	}
