@@ -46,6 +46,7 @@ namespace Vivid
 		m_Layout.AddFloat(2); // Texcoord
 		m_Layout.AddFloat(3); // Color
 		m_Layout.AddFloat(3); // Normal
+		m_Layout.AddFloat(3); // Tangent
 
 		m_ModelMatrix = glm::mat4(1.0f);
 
@@ -117,8 +118,8 @@ namespace Vivid
 		// Default Layout is of type Vertex
 		m_Layout.AddFloat(3); // Positions
 		m_Layout.AddFloat(2); // Tex coords
-		m_Layout.AddFloat(3); // Colors
 		m_Layout.AddFloat(3); // Normal
+		m_Layout.AddFloat(3); // Tangent
 
 		// Vertex portions
 		Vector<Maths::Vec3> vertex_positions;
@@ -211,7 +212,10 @@ namespace Vivid
 		m_Indices.resize(vertex_position_indicies.size(), GLint(0));
 
 		// TODO: Optimize this
-		for (size_t i = 0; i < m_Vertices.size(); ++i)
+		// TODO: Integrate Assimp
+
+		int size = m_Vertices.size();
+		for (size_t i = 0; i < size; i++)
 		{
 			if (vertex_texcoord_indicies[i] == 0)
 			{
@@ -231,8 +235,30 @@ namespace Vivid
 				m_Vertices[i].normal = vertex_normals[vertex_normal_indicies[i] - 1];
 			}
 			m_Vertices[i].position = vertex_positions[vertex_position_indicies[i] - 1];
-			m_Vertices[i].color = Maths::Vec3(0.0f, 0.0f, 1.0f);
 			m_Indices[i] = i;
+		}
+
+		for (size_t i = 0; i < size; i+=3)
+		{
+			Vivid::Maths::Vec3 pos1 = m_Vertices[i].position;
+			Vivid::Maths::Vec3 pos2 = m_Vertices[i+1].position;
+			Vivid::Maths::Vec3 pos3 = m_Vertices[i+2].position;
+
+			Vivid::Maths::Vec2 uv1 = m_Vertices[i].texcoord;
+			Vivid::Maths::Vec2 uv2 = m_Vertices[i+1].texcoord;
+			Vivid::Maths::Vec2 uv3 = m_Vertices[i+2].texcoord;
+
+			Vivid::Maths::Vec3 edge1 = pos2 - pos1;
+			Vivid::Maths::Vec3 edge2 = pos3 - pos1;
+			Vivid::Maths::Vec2 deltaUV1 = uv2 - uv1;
+			Vivid::Maths::Vec2 deltaUV2 = uv3 - uv1;
+
+			float f = 1.0f / (deltaUV1.x * deltaUV2.y - deltaUV2.x * deltaUV1.y);
+			Vivid::Maths::Vec3 tangent;
+			tangent = {f * (deltaUV2.y * edge1.x - deltaUV1.y * edge2.x), f * (deltaUV2.y * edge1.y - deltaUV1.y * edge2.y), f * (deltaUV2.y * edge1.z - deltaUV1.y * edge2.z)};
+			m_Vertices[i].tangent = tangent;
+			m_Vertices[i+1].tangent = tangent;
+			m_Vertices[i+2].tangent = tangent;
 		}
 
 		m_Ebo = new IndexBuffer(m_Indices);
@@ -342,6 +368,15 @@ namespace Vivid
 			ImGui::InputFloat4("##ModelMatrix2", &m_ModelMatrix[1][0]);
 			ImGui::InputFloat4("##ModelMatrix3", &m_ModelMatrix[2][0]);
 			ImGui::InputFloat4("##ModelMatrix4", &m_ModelMatrix[3][0]);
+
+			ImGui::Text("Tangents: %d", m_ID);
+			for (int i = 0; i < m_Vertices.size(); i++)
+			{
+				float x = m_Vertices[i].tangent.x;
+				float y = m_Vertices[i].tangent.y;
+				float z = m_Vertices[i].tangent.z;
+				ImGui::Text("Tangent %d = (%d, %d, %d)", i, x, y, z);
+			}
 
 			ImGui::SeparatorText("Shader");
 			ImGui::Text("Vertex Shader");
