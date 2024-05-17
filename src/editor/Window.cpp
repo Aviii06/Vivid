@@ -39,6 +39,7 @@ Window::Window(int width, int height, const char* title)
 #endif
 	m_Window = glfwCreateWindow(m_Width, m_Height, m_Title, NULL, NULL);
 	glfwSetInputMode(m_Window, GLFW_STICKY_KEYS, 1);
+	glfwSwapInterval(0);
 	if (!m_Window)
 	{
 		glfwTerminate();

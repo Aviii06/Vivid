@@ -27,7 +27,6 @@ namespace Vivid
 
 		inline Vector<Vivid::Mesh*> GetMeshes() { return m_Meshes; }
 
-		String GetComponentName() override { return "Model Component"; }
 		ComponentType GetComponentType() override { return ComponentType::ModelComponent; }
 	};
 }

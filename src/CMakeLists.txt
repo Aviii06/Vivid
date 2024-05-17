@@ -34,7 +34,8 @@ set(SOURCES
         ${CMAKE_CURRENT_SOURCE_DIR}/core/os/FileDialogue.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/editor/gui/menu/MenuUI.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/editor/gui/menu/FileMenu.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/editor/assets/Assets.cpp)
+        ${CMAKE_CURRENT_SOURCE_DIR}/editor/assets/Assets.cpp
+        core/ecs/Component.cpp)
 
 set(HEADERS
         ${CMAKE_CURRENT_SOURCE_DIR}/inputs/InputHandler.h
@@ -89,7 +90,9 @@ set(HEADERS
         ${CMAKE_CURRENT_SOURCE_DIR}/core/os/FileDialogue.h
         ${CMAKE_CURRENT_SOURCE_DIR}/editor/gui/menu/MenuUI.h
         ${CMAKE_CURRENT_SOURCE_DIR}/editor/gui/menu/FileMenu.h
-        ${CMAKE_CURRENT_SOURCE_DIR}/editor/assets/Assets.h)
+        ${CMAKE_CURRENT_SOURCE_DIR}/editor/assets/Assets.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/core/ecs/ComponentType.h
+        core/ecs/ComponentFactory.h)
 
 add_library(Vivid STATIC ${SOURCES} ${HEADERS})
 

@@ -4,6 +4,7 @@
 #include "core/os/FileDialogue.h"
 #include "core/renderer/Texture.h"
 #include "editor/assets/Assets.h"
+#include "core/ecs/ECS.h"
 
 #define MAX_MESHES 10
 
@@ -14,13 +15,16 @@ Vivid::ModelComponent::ModelComponent()
 
 void Vivid::ModelComponent::Draw(Camera* camera)
 {
-	TransformComponent transformComponent;
-	if (m_Entity->HasComponent(transformComponent.GetComponentName()) == -1)
+	auto component = ECS::GetComponent(ComponentType::TransformComponent, m_OwnerEntityID);
+	if (!component)
 	{
 		std::cerr << "Entity does not have a TransformComponent\n";
 		return;
 	}
-	glm::mat4 transform = m_Entity->GetComponent<Vivid::TransformComponent>()->GetTransform();
+
+	int componentID = component->GetComponentID();
+	auto transformComponent = dynamic_cast<TransformComponent*>(component.get());
+	glm::mat4 transform = transformComponent->GetTransform();
 
 	for (auto& mesh : m_Meshes)
 	{
