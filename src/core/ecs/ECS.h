@@ -23,7 +23,7 @@ namespace Vivid
 
 		void ImGuiRender();
 
-		template<typename T>
+		template <typename T>
 		void GetAllComponents(const ComponentType type, Vector<T*>& components)
 		{
 			components.reserve(g_Components.size());
@@ -41,7 +41,7 @@ namespace Vivid
 		Ref<Vivid::Component> GetComponent(ComponentType ct, int entityID);
 
 		template <typename T>
-		typename std::enable_if<std::is_base_of<Component,T>::value,Ref<T>>::type CreateComponent()
+		typename std::enable_if<std::is_base_of<Component, T>::value, Ref<T>>::type CreateComponent()
 		{
 			Ref<T> component = MakeRef<T>();
 			g_Components[component->GetComponentID()] = component;

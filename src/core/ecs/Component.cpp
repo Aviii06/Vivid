@@ -2,6 +2,6 @@
 #include "core/ecs/ECS.h"
 
 Vivid::Component::Component()
-	 :m_ID(ECS::s_EntityID++)
+    : m_ID(ECS::s_EntityID++)
 {
 }

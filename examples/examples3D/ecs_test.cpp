@@ -11,10 +11,10 @@ private:
 
 	Vivid::Mesh lightMesh;
 	Ref<Vivid::Shader> lightShader;
-	Vivid::Entity* suzanne = Vivid::ECS::CreateEntity("Suzanne");
-	Vivid::Entity* light = Vivid::ECS::CreateEntity("DirectionalLight");
+	Ref<Vivid::Entity> suzanne = Vivid::ECS::CreateEntity("Suzanne");
+	Ref<Vivid::Entity> light = Vivid::ECS::CreateEntity("DirectionalLight");
 	Ref<Vivid::ModelComponent> modelComponent1;
-	Ref<Vivid::TransformComponent> sphereTransformComponent = MakeRef<Vivid::TransformComponent>();
+	Ref<Vivid::TransformComponent> sphereTransformComponent = Vivid::ECS::CreateComponent<Vivid::TransformComponent>();
 	Vivid::Mesh* mesh;
 
 	Ref<Vivid::DirectionalLightComponent> directionalLightComponent;
@@ -34,18 +34,18 @@ public:
 		mesh = new Vivid::Mesh("./../assets/obj/suzanne.obj", 1);
 		mesh->BindShader(shader);
 
-		modelComponent1 = MakeRef<Vivid::ModelComponent>();
+		modelComponent1 = Vivid::ECS::CreateComponent<Vivid::ModelComponent>();
 		modelComponent1->AddMesh(mesh);
 
-		directionalLightComponent = MakeRef<Vivid::DirectionalLightComponent>();
+		directionalLightComponent = Vivid::ECS::CreateComponent<Vivid::DirectionalLightComponent>();
 		directionalLightComponent->SetDirection(Vivid::Maths::Vec3(0.0f, -1.0f, 0.0f));
 		//
 
 		sphereTransformComponent->SetScale(Vivid::Maths::Vec3(50.0f, 50.0f, 50.0f));
-		Vivid::ECS::AddComponent(modelComponent1, suzanne);
-		Vivid::ECS::AddComponent(sphereTransformComponent, suzanne);
+		Vivid::ECS::AddComponent(modelComponent1->GetComponentID(), suzanne->GetID());
+		Vivid::ECS::AddComponent(sphereTransformComponent->GetComponentID(), suzanne->GetID());
 
-		Vivid::ECS::AddComponent(directionalLightComponent, light);
+		Vivid::ECS::AddComponent(directionalLightComponent->GetComponentID(), light->GetID());
 	}
 
 	void Draw() override

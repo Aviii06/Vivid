@@ -9,6 +9,7 @@ namespace Vivid
 	{
 	private:
 		const int m_ID;
+
 	protected:
 		int m_OwnerEntityID = 0;
 

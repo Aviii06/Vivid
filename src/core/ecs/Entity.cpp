@@ -82,4 +82,3 @@ void Vivid::Entity::AddComponent(const int& componentID)
 {
 	m_Components.push_back(componentID);
 }
-

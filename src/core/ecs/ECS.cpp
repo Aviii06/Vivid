@@ -42,7 +42,7 @@ bool Vivid::ECS::RemoveComponent(int componentID, int entityID)
 	Ref<Entity> entity = g_Entities[index];
 	component->SetEntity(entity->GetID());
 
-	for (auto&& comp: g_Components)
+	for (auto&& comp : g_Components)
 	{
 		if (comp.second->GetComponentType() == component->GetComponentType())
 		{
@@ -97,4 +97,3 @@ Ref<Vivid::Component> Vivid::ECS::GetComponent(ComponentType ct, int entityID)
 	}
 	return g_Components[componentID];
 }
-

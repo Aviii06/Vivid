@@ -9,10 +9,10 @@
 namespace Vivid
 {
 	const Map<ComponentType, String> g_AllComponentStrings = {
-		{ComponentType::TransformComponent, "Transform Component"},
-		{ComponentType::ModelComponent, "Model Component"},
-		{ComponentType::PointLightComponent, "Point Light Component"},
-		{ComponentType::DirectionalLightComponent, "Directional Light Component"},
+		{ ComponentType::TransformComponent, "Transform Component" },
+		{ ComponentType::ModelComponent, "Model Component" },
+		{ ComponentType::PointLightComponent, "Point Light Component" },
+		{ ComponentType::DirectionalLightComponent, "Directional Light Component" },
 	};
 
 }

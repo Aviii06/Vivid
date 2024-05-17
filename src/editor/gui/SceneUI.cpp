@@ -53,7 +53,7 @@ namespace VividGUI
 				m_SelectedEntity->SetName(String(name));
 			}
 
-			for (auto& entity: Vivid::ECS::g_Entities)
+			for (auto& entity : Vivid::ECS::g_Entities)
 			{
 				if (entity.first == m_SelectedEntity->GetID())
 				{
@@ -72,7 +72,7 @@ namespace VividGUI
 			{
 				if (ImGui::BeginMenu("Add Component"))
 				{
-					for (auto ct: Vivid::g_AllComponentStrings)
+					for (auto ct : Vivid::g_AllComponentStrings)
 					{
 						bool doesComponentExist = false;
 						auto component = m_SelectedEntity->HasComponent(ct.first);
