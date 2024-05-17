@@ -66,21 +66,16 @@ int Vivid::Entity::HasComponent(ComponentType ct)
 
 void Vivid::Entity::RemoveComponent(const int& componentID)
 {
-	auto it = std::find(m_Components.begin(),
-			   m_Components.end(), componentID);
-
-	if (it == m_Components.end())
+	for (int i = 0; i < m_Components.size(); i++)
 	{
-		std::cerr << "Could not find compoment " << g_AllComponentStrings.at(ECS::g_Components[componentID]->GetComponentType())
-		<< " in entity " << m_Name << std::endl;
-		return;
+		int id = m_Components[i];
+		if (ECS::g_Components[id]->GetComponentType() == ECS::g_Components[componentID]->GetComponentType())
+		{
+			m_Components.erase(m_Components.begin() + i);
+			std::cout << "Component Removed\n";
+		}
 	}
-
-	m_Components.erase(it);
-	std::cout << "Deletion of compoment " << g_AllComponentStrings.at(ECS::g_Components[componentID]->GetComponentType())
-		<< " From entity " << m_Name << " Successfull" << std::endl;
-
-
+	std::cout << "Component Not found\n";
 }
 
 void Vivid::Entity::AddComponent(const int& componentID)
