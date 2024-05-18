@@ -8,7 +8,8 @@
 /*!
  * @class MovableCamera
  * @brief A class for the MovableCamera's.
- * @details MovableCamera is a camera that can be moved around in the scene. It can be moved forward, backward, left, right, and can be rotated using the mouse.
+ * @details MovableCamera is a camera that can be moved around in the scene.
+ * It can be moved forward, backward, left, right, and can be rotated using the mouse.
  */
 class MovableCamera : public Camera
 {
@@ -23,8 +24,8 @@ public:
 	glm::mat4 GetProjectionMatrix() { return m_ProjectionMatrix; };
 
 	void SetPosition(const Vivid::Maths::Vec3& position) { m_Position = position; };
-	void SetViewMatrix(const glm::mat4& view) { m_ViewMatrix = view; };
 	void SetPerspective(const glm::mat4& perspective) { m_ProjectionMatrix = perspective; };
+	void SetViewMatrix(const glm::mat4& view) { m_ViewMatrix = view; };
 
 	virtual void SetViewportSize(int width, int height) = 0;
 
