@@ -1,0 +1,58 @@
+\label{_e_c_s_a_p_i_md_docs_ECS}%
+\Hypertarget{_e_c_s_a_p_i_md_docs_ECS}%
+\hypertarget{_e_c_s_a_p_i_autotoc_md0}{}\doxysection{Introduction}\label{_e_c_s_a_p_i_autotoc_md0}
+The \mbox{\hyperlink{namespace_e_c_s}{ECS}} API is a way to create 3D scenes in Vivid. It is a way to create entities and components.
+
+{\bfseries{Do not create entities and components directly. Use the \mbox{\hyperlink{namespace_e_c_s}{ECS}} API to create them.}}\hypertarget{_e_c_s_a_p_i_autotoc_md1}{}\doxysection{Creation}\label{_e_c_s_a_p_i_autotoc_md1}
+\hypertarget{_e_c_s_a_p_i_autotoc_md2}{}\doxysubsection{Entity}\label{_e_c_s_a_p_i_autotoc_md2}
+Entites are the main objects in the \mbox{\hyperlink{namespace_e_c_s}{ECS}} API. They are the objects that are rendered in the scene. To create an entity you can use the {\ttfamily Entity} class.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Ref<Entity>\ entity\ =\ ECS::CreateEntity(\textcolor{stringliteral}{"{}Entity\ Name"{}});}
+
+\end{DoxyCode}
+
+
+\mbox{\hyperlink{namespace_e_c_s}{ECS}} is a namespace in the Vivid library, it contains all the helper functions to maintain all the entities and components.\hypertarget{_e_c_s_a_p_i_autotoc_md3}{}\doxysubsection{Component}\label{_e_c_s_a_p_i_autotoc_md3}
+Components are the objects that are attached to entities. They are the objects that define the properties of the entity.
+
+To create a component you can use the {\ttfamily Component} class.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Ref<Component>\ component\ =\ ECS::CreateComponent<ExampleComponent>();}
+
+\end{DoxyCode}
+
+
+Only components that inherit from the {\ttfamily Component} class can created using the {\ttfamily Create\+Component} function.\hypertarget{_e_c_s_a_p_i_autotoc_md4}{}\doxysection{Adding Components to Entities}\label{_e_c_s_a_p_i_autotoc_md4}
+To add a component to an entity you can use the {\ttfamily Add\+Component} function in the \mbox{\hyperlink{namespace_e_c_s}{ECS}} namespace.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ECS::AddComponent(entityID,\ componentID);}
+
+\end{DoxyCode}
+
+
+To get the entity\+ID you can use the {\ttfamily Get\+Entity\+ID} method in the entity class, and to get the component\+ID you can use the {\ttfamily Get\+Component\+ID} method in the component class.\hypertarget{_e_c_s_a_p_i_autotoc_md5}{}\doxysection{Getting Components}\label{_e_c_s_a_p_i_autotoc_md5}
+To get a component from an entity you can use the {\ttfamily Get\+Component} function in the \mbox{\hyperlink{namespace_e_c_s}{ECS}} namespace.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Ref<Component>\ component\ =\ ECS::GetComponent(componentType,\ entityID);}
+
+\end{DoxyCode}
+
+
+You can also get all the components of a certain type from the entity using the {\ttfamily Get\+Components} function.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Vector<Vivid::DirectionalLightComponent*>\ directionalLights;}
+\DoxyCodeLine{Vivid::ECS::GetAllComponents(Vivid::ComponentType::DirectionalLightComponent,\ directionalLights);}
+
+\end{DoxyCode}
+\hypertarget{_e_c_s_a_p_i_autotoc_md6}{}\doxysection{UI}\label{_e_c_s_a_p_i_autotoc_md6}
+All these tasks can also be done using the UI. 

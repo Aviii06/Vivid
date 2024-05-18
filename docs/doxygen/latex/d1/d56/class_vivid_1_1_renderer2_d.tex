@@ -1,0 +1,222 @@
+\hypertarget{class_vivid_1_1_renderer2_d}{}\doxysection{Vivid\+::Renderer2D Class Reference}
+\label{class_vivid_1_1_renderer2_d}\index{Vivid::Renderer2D@{Vivid::Renderer2D}}
+
+
+This class provides an interface to draw 2D shapes.  
+
+
+
+
+{\ttfamily \#include $<$Renderer2\+D.\+h$>$}
+
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_vivid_1_1_renderer2_d_a5fdeecbc6c3d8b341c24f3096e308a97}{Init}} (int reserve\+Vertices=10000)
+\begin{DoxyCompactList}\small\item\em Initializes the \mbox{\hyperlink{class_vivid_1_1_renderer2_d}{Renderer2D}}. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_vivid_1_1_renderer2_d_a1198ec2ca56dabd29346ddd58cb7f0cd}{Begin\+Scene}} ()
+\begin{DoxyCompactList}\small\item\em Begins the scene. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_vivid_1_1_renderer2_d_a653686fc23a3aa2f6e0a7ccad1ea6bb2}{End\+Scene}} ()
+\begin{DoxyCompactList}\small\item\em Ends the scene. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_vivid_1_1_renderer2_d_aa7598ad211bdf3fcf2cd3f2189504fd8}{Draw\+Quad}} (float x, float y, float width, float height, const \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Maths\+::\+Vec3}} \&color)
+\begin{DoxyCompactList}\small\item\em Draws a quad. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_vivid_1_1_renderer2_d_aefbe24a2e14b84df34bfe0f134e9cc80}{Draw\+Quad}} (const \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec2}{Maths\+::\+Vec2}} \&vertex1, const \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec2}{Maths\+::\+Vec2}} \&vertex2, const \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec2}{Maths\+::\+Vec2}} \&vertex3, const \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec2}{Maths\+::\+Vec2}} \&vertex4, const \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Maths\+::\+Vec3}} \&color)
+\begin{DoxyCompactList}\small\item\em Draws a quad. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_vivid_1_1_renderer2_d_a864d2afb72089512286e74c078667c90}{Draw\+Line}} (\mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec2}{Maths\+::\+Vec2}} start, \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec2}{Maths\+::\+Vec2}} end, float thickness, \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Maths\+::\+Vec3}} color)
+\begin{DoxyCompactList}\small\item\em Draws a line. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_vivid_1_1_renderer2_d_a38aa048867f998bcf444f84c13fca970}{Draw\+Ellipse}} (\mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec2}{Maths\+::\+Vec2}} center, float radiusX, float radiusY, \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Maths\+::\+Vec3}} color)
+\begin{DoxyCompactList}\small\item\em Draws an ellipse. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_vivid_1_1_renderer2_d_aeaba7a8bd211de0a350f23ab83031c03}{Draw\+Circle}} (\mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec2}{Maths\+::\+Vec2}} center, float radius, \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Maths\+::\+Vec3}} color)
+\begin{DoxyCompactList}\small\item\em Draws a circle. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class provides an interface to draw 2D shapes. 
+
+This class provides an interface to draw 2D shapes like quads, lines, ellipses, and circles. All the functions are static, so you don\textquotesingle{}t need to create an instance of this class to use it. It uses the 
+
+Definition at line \mbox{\hyperlink{_renderer2_d_8h_source_l00038}{38}} of file \mbox{\hyperlink{_renderer2_d_8h_source}{Renderer2\+D.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_vivid_1_1_renderer2_d_a1198ec2ca56dabd29346ddd58cb7f0cd}\label{class_vivid_1_1_renderer2_d_a1198ec2ca56dabd29346ddd58cb7f0cd}} 
+\index{Vivid::Renderer2D@{Vivid::Renderer2D}!BeginScene@{BeginScene}}
+\index{BeginScene@{BeginScene}!Vivid::Renderer2D@{Vivid::Renderer2D}}
+\doxysubsubsection{\texorpdfstring{BeginScene()}{BeginScene()}}
+{\footnotesize\ttfamily void Vivid\+::\+Renderer2\+D\+::\+Begin\+Scene (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Begins the scene. 
+
+Begins the scene by binding the \mbox{\hyperlink{class_vivid_1_1_vertex_array}{Vertex\+Array}} and the shaders. 
+
+Definition at line \mbox{\hyperlink{_renderer2_d_8cpp_source_l00067}{67}} of file \mbox{\hyperlink{_renderer2_d_8cpp_source}{Renderer2\+D.\+cpp}}.
+
+\mbox{\Hypertarget{class_vivid_1_1_renderer2_d_aeaba7a8bd211de0a350f23ab83031c03}\label{class_vivid_1_1_renderer2_d_aeaba7a8bd211de0a350f23ab83031c03}} 
+\index{Vivid::Renderer2D@{Vivid::Renderer2D}!DrawCircle@{DrawCircle}}
+\index{DrawCircle@{DrawCircle}!Vivid::Renderer2D@{Vivid::Renderer2D}}
+\doxysubsubsection{\texorpdfstring{DrawCircle()}{DrawCircle()}}
+{\footnotesize\ttfamily void Vivid\+::\+Renderer2\+D\+::\+Draw\+Circle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec2}{Maths\+::\+Vec2}}}]{center,  }\item[{float}]{radius,  }\item[{\mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Maths\+::\+Vec3}}}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Draws a circle. 
+
+Draws a circle with the specified center, radius, and color. This is also a quad and is draw using a shader that makes it look like a circle. 
+\begin{DoxyParams}{Parameters}
+{\em center} & The center of the circle. \\
+\hline
+{\em radius} & The radius of the circle. \\
+\hline
+{\em color} & The color of the circle. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_renderer2_d_8cpp_source_l00113}{113}} of file \mbox{\hyperlink{_renderer2_d_8cpp_source}{Renderer2\+D.\+cpp}}.
+
+\mbox{\Hypertarget{class_vivid_1_1_renderer2_d_a38aa048867f998bcf444f84c13fca970}\label{class_vivid_1_1_renderer2_d_a38aa048867f998bcf444f84c13fca970}} 
+\index{Vivid::Renderer2D@{Vivid::Renderer2D}!DrawEllipse@{DrawEllipse}}
+\index{DrawEllipse@{DrawEllipse}!Vivid::Renderer2D@{Vivid::Renderer2D}}
+\doxysubsubsection{\texorpdfstring{DrawEllipse()}{DrawEllipse()}}
+{\footnotesize\ttfamily void Vivid\+::\+Renderer2\+D\+::\+Draw\+Ellipse (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec2}{Maths\+::\+Vec2}}}]{center,  }\item[{float}]{radiusX,  }\item[{float}]{radiusY,  }\item[{\mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Maths\+::\+Vec3}}}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Draws an ellipse. 
+
+Draws an ellipse with the specified center, radiusX, radiusY, and color. This is also a quad and is draw using a shader that makes it look like an ellipse. 
+\begin{DoxyParams}{Parameters}
+{\em center} & The center of the ellipse. \\
+\hline
+{\em radiusX} & The radius of the ellipse in the x-\/axis. \\
+\hline
+{\em radiusY} & The radius of the ellipse in the y-\/axis. \\
+\hline
+{\em color} & The color of the ellipse. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_renderer2_d_8cpp_source_l00108}{108}} of file \mbox{\hyperlink{_renderer2_d_8cpp_source}{Renderer2\+D.\+cpp}}.
+
+\mbox{\Hypertarget{class_vivid_1_1_renderer2_d_a864d2afb72089512286e74c078667c90}\label{class_vivid_1_1_renderer2_d_a864d2afb72089512286e74c078667c90}} 
+\index{Vivid::Renderer2D@{Vivid::Renderer2D}!DrawLine@{DrawLine}}
+\index{DrawLine@{DrawLine}!Vivid::Renderer2D@{Vivid::Renderer2D}}
+\doxysubsubsection{\texorpdfstring{DrawLine()}{DrawLine()}}
+{\footnotesize\ttfamily void Vivid\+::\+Renderer2\+D\+::\+Draw\+Line (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec2}{Maths\+::\+Vec2}}}]{start,  }\item[{\mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec2}{Maths\+::\+Vec2}}}]{end,  }\item[{float}]{thickness,  }\item[{\mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Maths\+::\+Vec3}}}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Draws a line. 
+
+Draws a line with the specified vertices and color. The line is drawn using a line shader. Which is a essentially a small quad with anti aliasing, to make the line look smooth. 
+\begin{DoxyParams}{Parameters}
+{\em start} & The first vertex of the line. \\
+\hline
+{\em end} & The second vertex of the line. \\
+\hline
+{\em thickness} & The thickness of the line. \\
+\hline
+{\em color} & The color of the line. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_renderer2_d_8cpp_source_l00098}{98}} of file \mbox{\hyperlink{_renderer2_d_8cpp_source}{Renderer2\+D.\+cpp}}.
+
+\mbox{\Hypertarget{class_vivid_1_1_renderer2_d_aefbe24a2e14b84df34bfe0f134e9cc80}\label{class_vivid_1_1_renderer2_d_aefbe24a2e14b84df34bfe0f134e9cc80}} 
+\index{Vivid::Renderer2D@{Vivid::Renderer2D}!DrawQuad@{DrawQuad}}
+\index{DrawQuad@{DrawQuad}!Vivid::Renderer2D@{Vivid::Renderer2D}}
+\doxysubsubsection{\texorpdfstring{DrawQuad()}{DrawQuad()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Vivid\+::\+Renderer2\+D\+::\+Draw\+Quad (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec2}{Maths\+::\+Vec2}} \&}]{vertex1,  }\item[{const \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec2}{Maths\+::\+Vec2}} \&}]{vertex2,  }\item[{const \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec2}{Maths\+::\+Vec2}} \&}]{vertex3,  }\item[{const \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec2}{Maths\+::\+Vec2}} \&}]{vertex4,  }\item[{const \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Maths\+::\+Vec3}} \&}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Draws a quad. 
+
+Draws a quad with the specified vertices and color. The order of the vertices is important. The quad is drawn in the order vertex1, vertex2, vertex3, vertex4. 
+\begin{DoxyParams}{Parameters}
+{\em vertex1} & The first vertex of the quad. \\
+\hline
+{\em vertex2} & The second vertex of the quad. \\
+\hline
+{\em vertex3} & The third vertex of the quad. \\
+\hline
+{\em vertex4} & The fourth vertex of the quad. \\
+\hline
+{\em color} & The color of the quad. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_renderer2_d_8cpp_source_l00092}{92}} of file \mbox{\hyperlink{_renderer2_d_8cpp_source}{Renderer2\+D.\+cpp}}.
+
+\mbox{\Hypertarget{class_vivid_1_1_renderer2_d_aa7598ad211bdf3fcf2cd3f2189504fd8}\label{class_vivid_1_1_renderer2_d_aa7598ad211bdf3fcf2cd3f2189504fd8}} 
+\index{Vivid::Renderer2D@{Vivid::Renderer2D}!DrawQuad@{DrawQuad}}
+\index{DrawQuad@{DrawQuad}!Vivid::Renderer2D@{Vivid::Renderer2D}}
+\doxysubsubsection{\texorpdfstring{DrawQuad()}{DrawQuad()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Vivid\+::\+Renderer2\+D\+::\+Draw\+Quad (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{width,  }\item[{float}]{height,  }\item[{const \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Maths\+::\+Vec3}} \&}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Draws a quad. 
+
+Draws a quad with specified center-\/positon, size, and color. 
+\begin{DoxyParams}{Parameters}
+{\em x} & The x-\/coordinate of the center of the quad. \\
+\hline
+{\em y} & The y-\/coordinate of the center of the quad. \\
+\hline
+{\em width} & The width of the quad. \\
+\hline
+{\em height} & The height of the quad. \\
+\hline
+{\em color} & The color of the quad. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_renderer2_d_8cpp_source_l00087}{87}} of file \mbox{\hyperlink{_renderer2_d_8cpp_source}{Renderer2\+D.\+cpp}}.
+
+\mbox{\Hypertarget{class_vivid_1_1_renderer2_d_a653686fc23a3aa2f6e0a7ccad1ea6bb2}\label{class_vivid_1_1_renderer2_d_a653686fc23a3aa2f6e0a7ccad1ea6bb2}} 
+\index{Vivid::Renderer2D@{Vivid::Renderer2D}!EndScene@{EndScene}}
+\index{EndScene@{EndScene}!Vivid::Renderer2D@{Vivid::Renderer2D}}
+\doxysubsubsection{\texorpdfstring{EndScene()}{EndScene()}}
+{\footnotesize\ttfamily void Vivid\+::\+Renderer2\+D\+::\+End\+Scene (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Ends the scene. 
+
+Ends the scene by unbinding the \mbox{\hyperlink{class_vivid_1_1_vertex_array}{Vertex\+Array}} and the shaders. This is where the actual draw call is made. 
+
+Definition at line \mbox{\hyperlink{_renderer2_d_8cpp_source_l00119}{119}} of file \mbox{\hyperlink{_renderer2_d_8cpp_source}{Renderer2\+D.\+cpp}}.
+
+\mbox{\Hypertarget{class_vivid_1_1_renderer2_d_a5fdeecbc6c3d8b341c24f3096e308a97}\label{class_vivid_1_1_renderer2_d_a5fdeecbc6c3d8b341c24f3096e308a97}} 
+\index{Vivid::Renderer2D@{Vivid::Renderer2D}!Init@{Init}}
+\index{Init@{Init}!Vivid::Renderer2D@{Vivid::Renderer2D}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily void Vivid\+::\+Renderer2\+D\+::\+Init (\begin{DoxyParamCaption}\item[{int}]{reserve\+Vertices = {\ttfamily 10000} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Initializes the \mbox{\hyperlink{class_vivid_1_1_renderer2_d}{Renderer2D}}. 
+
+Initializes the \mbox{\hyperlink{class_vivid_1_1_renderer2_d}{Renderer2D}} by creating the \mbox{\hyperlink{class_vivid_1_1_vertex_array}{Vertex\+Array}}, the shaders, and the vertices and indices of the shapes. 
+\begin{DoxyParams}{Parameters}
+{\em reserve\+Vertices} & The number of vertices to reserve. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_renderer2_d_8cpp_source_l00009}{9}} of file \mbox{\hyperlink{_renderer2_d_8cpp_source}{Renderer2\+D.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/core/renderer/Renderer2\+D.\+h\item 
+src/core/renderer/Renderer2\+D.\+cpp\end{DoxyCompactItemize}

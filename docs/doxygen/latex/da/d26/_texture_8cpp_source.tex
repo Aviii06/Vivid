@@ -1,0 +1,79 @@
+\hypertarget{_texture_8cpp_source}{}\doxysection{Texture.\+cpp}
+\label{_texture_8cpp_source}\index{src/core/renderer/Texture.cpp@{src/core/renderer/Texture.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}Texture.h"{}}}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00003}00003\ \textcolor{keyword}{namespace\ }Vivid}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00004}00004\ \{}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00005}00005\ \ \ \ \ Texture::Texture(\textcolor{keyword}{const}\ std::string\&\ path)}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00006}00006\ \ \ \ \ \ \ \ \ :\ m\_RendererID(0)}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00007}00007\ \ \ \ \ \ \ \ \ ,\ m\_FilePath(path)}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00008}00008\ \ \ \ \ \ \ \ \ ,\ m\_LocalBuffer(nullptr)}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00009}00009\ \ \ \ \ \ \ \ \ ,\ m\_Width(0)}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00010}00010\ \ \ \ \ \ \ \ \ ,\ m\_Height(0)}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00011}00011\ \ \ \ \ \ \ \ \ ,\ m\_BPP(0)}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00012}00012\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00013}00013\ \ \ \ \ \ \ \ \ stbi\_set\_flip\_vertically\_on\_load(0);}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00014}00014\ \ \ \ \ \ \ \ \ stbi\_set\_flip\_vertically\_on\_load\_thread(0);}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00015}00015\ \ \ \ \ \ \ \ \ m\_LocalBuffer\ =\ stbi\_load(path.c\_str(),\ \&m\_Width,\ \&m\_Height,\ \&m\_BPP,\ 4);}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00017}00017\ \ \ \ \ \ \ \ \ GLCall(glGenTextures(1,\ \&m\_RendererID));}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00018}00018\ \ \ \ \ \ \ \ \ GLCall(glBindTexture(GL\_TEXTURE\_2D,\ m\_RendererID));}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00020}00020\ \ \ \ \ \ \ \ \ GLCall(glTexParameteri(GL\_TEXTURE\_2D,\ GL\_TEXTURE\_MIN\_FILTER,\ GL\_LINEAR));}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00021}00021\ \ \ \ \ \ \ \ \ GLCall(glTexParameteri(GL\_TEXTURE\_2D,\ GL\_TEXTURE\_MAG\_FILTER,\ GL\_LINEAR));}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00022}00022\ \ \ \ \ \ \ \ \ GLCall(glTexParameteri(GL\_TEXTURE\_2D,\ GL\_TEXTURE\_WRAP\_S,\ GL\_CLAMP\_TO\_EDGE));}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00023}00023\ \ \ \ \ \ \ \ \ GLCall(glTexParameteri(GL\_TEXTURE\_2D,\ GL\_TEXTURE\_WRAP\_T,\ GL\_CLAMP\_TO\_EDGE));}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ GLCall(glTexImage2D(GL\_TEXTURE\_2D,\ 0,\ GL\_RGBA8,\ m\_Width,\ m\_Height,\ 0,\ GL\_RGBA,\ GL\_UNSIGNED\_BYTE,}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ m\_LocalBuffer));}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ GLCall(glBindTexture(GL\_TEXTURE\_2D,\ 0));}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (m\_LocalBuffer)}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ stbi\_image\_free(m\_LocalBuffer);}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ m\_Name\ =\ \textcolor{stringliteral}{"{}Texture"{}}\ +\ std::to\_string(m\_RendererID);}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00035}00035\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00037}00037\ \ \ \ \ Texture::Texture()}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ :\ m\_RendererID(0)}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ ,\ m\_LocalBuffer(nullptr)}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ ,\ m\_Width(0)}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00041}00041\ \ \ \ \ \ \ \ \ ,\ m\_Height(0)}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ ,\ m\_BPP(0)}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00043}00043\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ GLCall(glGenTextures(1,\ \&m\_RendererID));}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ GLCall(glBindTexture(GL\_TEXTURE\_2D,\ m\_RendererID));}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ GLCall(glTexParameteri(GL\_TEXTURE\_2D,\ GL\_TEXTURE\_MIN\_FILTER,\ GL\_LINEAR));}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ GLCall(glTexParameteri(GL\_TEXTURE\_2D,\ GL\_TEXTURE\_MAG\_FILTER,\ GL\_LINEAR));}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ GLCall(glTexParameteri(GL\_TEXTURE\_2D,\ GL\_TEXTURE\_WRAP\_S,\ GL\_CLAMP\_TO\_EDGE));}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00050}00050\ \ \ \ \ \ \ \ \ GLCall(glTexParameteri(GL\_TEXTURE\_2D,\ GL\_TEXTURE\_WRAP\_T,\ GL\_CLAMP\_TO\_EDGE));}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ GLCall(glTexImage2D(GL\_TEXTURE\_2D,\ 0,\ GL\_RGBA8,\ m\_Width,\ m\_Height,\ 0,\ GL\_RGBA,\ GL\_UNSIGNED\_BYTE,}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ m\_LocalBuffer));}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ GLCall(glBindTexture(GL\_TEXTURE\_2D,\ 0));}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00055}00055\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00057}00057\ \ \ \ \ Texture::\string~Texture()}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00058}00058\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ GLCall(glDeleteTextures(1,\ \&m\_RendererID));}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00060}00060\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00062}00062\ \ \ \ \ \textcolor{keywordtype}{void}\ Texture::Bind(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ slot)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00063}00063\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00064}00064\ \ \ \ \ \ \ \ \ GLCall(glActiveTexture(GL\_TEXTURE0\ +\ slot));}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ GLCall(glBindTexture(GL\_TEXTURE\_2D,\ m\_RendererID));}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00066}00066\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00068}00068\ \ \ \ \ \textcolor{keywordtype}{void}\ Texture::Unbind()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00069}00069\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00070}00070\ \ \ \ \ \ \ \ \ GLCall(glBindTexture(GL\_TEXTURE\_2D,\ 0));}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00071}00071\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{_texture_8cpp_source_l00073}00073\ \}}
+
+\end{DoxyCode}

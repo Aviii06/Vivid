@@ -1,0 +1,172 @@
+\hypertarget{instancing_8cpp_source}{}\doxysection{instancing.\+cpp}
+\label{instancing_8cpp_source}\index{examples/examples3D/instancing.cpp@{examples/examples3D/instancing.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}Vivid.h"{}}}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}common/maths/Vec.h"{}}}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00004}00004\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ number\_of\_sphere\ =\ 36;}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00005}00005\ \textcolor{keywordtype}{float}\ sphere\_radius\ =\ 25.0f;}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00006}00006\ \textcolor{keywordtype}{float}\ space\_between\_spheres\ =\ 150.0f;}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00008}00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_example_interface}{ExampleInterface}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_rendering_interface}{RenderingInterface}}}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00009}00009\ \{}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00010}00010\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00011}00011\ \ \ \ \ \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Vivid::Maths::Vec3}}\ lightColor\ =\ \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Vivid::Maths::Vec3}}(1.0f,\ 0.5f,\ 1.0f);}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00012}00012\ \ \ \ \ glm::vec3\ suzannePosition\ =\ glm::vec3(0,\ 50,\ -\/200);}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00013}00013\ \ \ \ \ glm::vec3\ lightPosition\ =\ glm::vec3(0,\ 0,\ 0);}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00015}00015\ \ \ \ \ \mbox{\hyperlink{class_vivid_1_1_mesh}{Vivid::Mesh}}\ lightMesh;}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00016}00016\ \ \ \ \ Ref<Vivid::Shader>\ lightShader;}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00017}00017\ \ \ \ \ Ref<Vivid::Entity>\ suzanne\ =\ Vivid::ECS::CreateEntity(\textcolor{stringliteral}{"{}Sphere"{}});}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00018}00018\ \ \ \ \ Ref<Vivid::Entity>\ light\ =\ Vivid::ECS::CreateEntity(\textcolor{stringliteral}{"{}Light"{}});}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00019}00019\ \ \ \ \ Ref<Vivid::ModelComponent>\ modelComponent1;}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00020}00020\ \ \ \ \ Ref<Vivid::TransformComponent>\ sphereTransformComponent\ =\ Vivid::ECS::CreateComponent<Vivid::TransformComponent>();}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00021}00021\ \ \ \ \ \mbox{\hyperlink{class_vivid_1_1_mesh}{Vivid::Mesh}}*\ sphere;}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00023}00023\ \ \ \ \ Ref<Vivid::DirectionalLightComponent>\ directionalLightComponent;}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00024}00024\ \ \ \ \ Ref<Vivid::Shader>\ shader;}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00026}00026\ \ \ \ \ std::vector<Vivid::Maths::Vec3>\ translations;}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00028}00028\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00029}\mbox{\hyperlink{class_example_interface_a018399e1e0bb21e9edd270c224e2c559}{00029}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_example_interface_a018399e1e0bb21e9edd270c224e2c559}{Setup}}()\textcolor{keyword}{\ override}}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00030}00030\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Can\ write\ custom\ opengl\ confs\ here}}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ OPENGL\_CONFS}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ shader\ =\ MakeRef<Vivid::Shader>(}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}./../assets/shaders/instancing.vertexShader.glsl"{}},}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}./../assets/shaders/instancing.pixelShader.glsl"{}});}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ sphere\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_vivid_1_1_mesh}{Vivid::Mesh}}(\textcolor{stringliteral}{"{}./../assets/obj/newIcoSphere.obj"{}},\ number\_of\_sphere);}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ sphere-\/>BindShader(shader);}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00041}00041\ \ \ \ \ \ \ \ \ modelComponent1\ =\ Vivid::ECS::CreateComponent<Vivid::ModelComponent>();}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ modelComponent1-\/>AddMesh(sphere);}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ sphereTransformComponent-\/>SetScale(\mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Vivid::Maths::Vec3}}(sphere\_radius));}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ directionalLightComponent\ =\ Vivid::ECS::CreateComponent<Vivid::DirectionalLightComponent>();}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ directionalLightComponent-\/>SetDirection(\mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Vivid::Maths::Vec3}}(-\/0.67f,\ 0.625f,\ 0.480f));}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ Vivid::ECS::AddComponent(modelComponent1-\/>GetComponentID(),\ suzanne-\/>GetEntityID());}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ Vivid::ECS::AddComponent(sphereTransformComponent-\/>GetComponentID(),\ suzanne-\/>GetEntityID());}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ Vivid::ECS::AddComponent(directionalLightComponent-\/>GetComponentID(),\ light-\/>GetEntityID());}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Initialize\ the\ translations}}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ number\_of\_sphere;\ i++)}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Vivid::Maths::Vec3}}\ translation;}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Make\ a\ grid\ of\ sphere}}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ translation.x\ =\ (float)(i\ \%\ 6)\ *\ space\_between\_spheres\ +\ 200.0f;}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ translation.y\ =\ (float)(i\ /\ 6)\ *\ space\_between\_spheres\ +\ 200.0f;}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ translation.z\ =\ 0.0f;}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ translations.push\_back(translation);}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ translations[i]\ =\ translation;}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00066}00066\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00068}\mbox{\hyperlink{class_example_interface_a716f27ac6d8b23ddab2b612b32873a6a}{00068}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_example_interface_a716f27ac6d8b23ddab2b612b32873a6a}{Draw}}()\textcolor{keyword}{\ override}}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00069}00069\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00070}00070\ \ \ \ \ \ \ \ \ sphereTransformComponent-\/>SetScale(\mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Vivid::Maths::Vec3}}(sphere\_radius));}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ number\_of\_sphere;\ i++)}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00072}00072\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Vivid::Maths::Vec3}}\ translation;}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Make\ a\ grid\ of\ sphere}}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ translation.x\ =\ (float)(i\ \%\ 6)\ *\ space\_between\_spheres;}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ translation.y\ =\ (float)(i\ /\ 6)\ *\ space\_between\_spheres;}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ translation.z\ =\ 0.0f;}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ translations[i]\ =\ translation;}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00083}00083\ \ \ \ \ \ \ \ \ Vector<Vivid::DirectionalLightComponent*>\ directionalLights;}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00084}00084\ \ \ \ \ \ \ \ \ Vivid::ECS::GetAllComponents(Vivid::ComponentType::DirectionalLightComponent,\ directionalLights);}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00085}00085\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Vivid::Maths::Vec3}}\ lightDir\ =\ directionalLights[0]-\/>GetDirection();}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00087}00087\ \ \ \ \ \ \ \ \ sphere-\/>BindShader(shader);}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00088}00088\ \ \ \ \ \ \ \ \ shader-\/>SetUniform3f(\textcolor{stringliteral}{"{}LightDir"{}},\ lightDir);}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00089}00089\ \ \ \ \ \ \ \ \ shader-\/>SetUniform3f(\textcolor{stringliteral}{"{}LightColor"{}},\ lightColor);}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00090}00090\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ number\_of\_sphere;\ i++)}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00091}00091\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ shader-\/>SetUniform3f((\textcolor{stringliteral}{"{}offsets["{}}\ +\ std::to\_string(i)\ +\ \textcolor{stringliteral}{"{}]"{}}),}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ translations[i]);}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00094}00094\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00096}00096\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Ray\ Cast\ to\ a\ sphere}}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00097}00097\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ A\ Better\ approach\ would\ be\ to\ use\ a\ object\ based\ buffer}}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00098}00098\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ An\ object\ based\ buffer\ essentially\ renders\ objects\ with\ their\ color\ to\ a}}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00099}00099\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ hash\ of\ it's\ objectID.\ Using\ that\ we\ can\ get\ the\ objectID\ of\ the\ selected}}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00100}00100\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ pixel\ and\ get\ the\ object.\ But\ since\ it's\ just\ sphere,\ we\ can\ use\ ray\ cast}}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00101}00101\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ to\ get\ the\ object\ pretty\ easily\ without\ modifying\ the\ renderer\ by\ a\ lot.}}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00102}00102\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{namespace_input_handler_a65bedbfaf1a3876f8209885bf0ac182f}{InputHandler::IsMouseButtonPressed}}(GLFW\_MOUSE\_BUTTON\_LEFT))}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00103}00103\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec2}{Vivid::Maths::Vec2}}\ mousePos\ =\ \mbox{\hyperlink{namespace_input_handler_a8f1d7fffa606514bb4db9151c51b4e64}{InputHandler::GetMousePositionOnViewport}}();}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ortho_camera}{OrthoCamera}}*\ camera\ =\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{class_ortho_camera}{OrthoCamera}}*\textcolor{keyword}{>}(Application::GetInstance()-\/>GetCamera());}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ mousePos\ =\ camera-\/>ScreenToWorldCoords(mousePos.x,\ mousePos.y);}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Vivid::Maths::Vec3}}\ hitPos\ =\ \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Vivid::Maths::Vec3}}(mousePos.x,\ mousePos.y,\ 0.0f);}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00108}00108\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Mouse\ Pos:\ "{}}\ <<\ hitPos.x\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ hitPos.y\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Simply\ see\ if\ the\ ray\ intersects\ with\ the\ sphere\ by\ iterating\ through\ all\ the\ spheres}}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Better\ approach\ would\ be\ to\ use\ a\ bounding\ box\ to\ check\ if\ the\ ray\ intersects\ with\ the\ bounding\ box}}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ number\_of\_sphere;\ i++)}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Vivid::Maths::Vec3}}\ translation\ =\ translations[i];}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00115}00115\ }
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ x\string^2\ +\ y\string^2\ +\ z\string^2\ =\ r\string^2\ =>\ z\ =\ sqrt(r\string^2\ -\/\ x\string^2\ -\/\ y\string^2)}}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ z2\ =\ sphere\_radius\ *\ sphere\_radius\ -\/\ (hitPos.x\ -\/\ translation.x)\ *\ (hitPos.x\ -\/\ translation.x)\ -\/\ (hitPos.y\ -\/\ translation.y)\ *\ (hitPos.y\ -\/\ translation.y);}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (z2\ >=\ 0.0f)}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ shader-\/>SetUniform1f(\textcolor{stringliteral}{"{}isSelected["{}}\ +\ std::to\_string(i)\ +\ \textcolor{stringliteral}{"{}]"{}},\ 1.0f);}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00121}00121\ }
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00122}00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ x\string^2\ +\ y\string^2\ +\ z\string^2\ =\ r\string^2\ =>\ z\ =\ sqrt(r\string^2\ -\/\ x\string^2\ -\/\ y\string^2)}}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hitPos.z\ =\ sqrt(std::max(0.0f,\ z2));}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00124}00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Vivid::Maths::Vec3}}\ normal\ =\ hitPos\ -\/\ translation;}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00125}00125\ }
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00126}00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ mag\ =\ sqrt(normal.x\ *\ normal.x\ +\ normal.y\ *\ normal.y\ +\ normal.z\ *\ normal.z);}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ normal\ =\ normal\ *\ (1.0f\ /\ mag);}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ shader-\/>SetUniform3f(\textcolor{stringliteral}{"{}hitNormal"{}},\ normal);}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00129}00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00130}00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00131}00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ shader-\/>SetUniform1f(\textcolor{stringliteral}{"{}isSelected["{}}\ +\ std::to\_string(i)\ +\ \textcolor{stringliteral}{"{}]"{}},\ 0.0f);}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00135}00135\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00136}00136\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00137}00137\ }
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00138}\mbox{\hyperlink{class_example_interface_a0f11d490442eae550d0a939ad67cd1f9}{00138}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_example_interface_a0f11d490442eae550d0a939ad67cd1f9}{ImGuiRender}}()\textcolor{keyword}{\ override}}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00139}00139\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00140}00140\ \ \ \ \ \ \ \ \ ImGui::Begin(\textcolor{stringliteral}{"{}Debug"{}});}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00141}00141\ \ \ \ \ \ \ \ \ ImGui::Text(\textcolor{stringliteral}{"{}Application\ average\ \%.3f\ ms/frame\ (\%.1f\ FPS)"{}},}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ 1000.0f\ /\ ImGui::GetIO().Framerate,\ ImGui::GetIO().Framerate);}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00143}00143\ \ \ \ \ \ \ \ \ ImGui::SliderFloat(\textcolor{stringliteral}{"{}Sphere\ Radius"{}},\ \&sphere\_radius,\ 0.0f,\ 200.0f);}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00144}00144\ \ \ \ \ \ \ \ \ ImGui::SliderFloat(\textcolor{stringliteral}{"{}Space\ Between\ Spheres"{}},\ \&space\_between\_spheres,\ 0.0f,\ 500.0f);}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00145}00145\ \ \ \ \ \ \ \ \ ImGui::End();}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00146}00146\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00147}00147\ \};}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00148}00148\ }
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00149}00149\ \mbox{\hyperlink{class_application}{Application}}*\ Vivid::CreateApplication()}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00150}00150\ \{}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00151}00151\ \ \ \ \ \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Vivid::Maths::Vec3}}\ pos\ =\ \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Vivid::Maths::Vec3}}(0,\ 0,\ 0);}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00152}00152\ \ \ \ \ \textcolor{keywordtype}{float}\ rot\ =\ 0.0f;}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00153}00153\ \ \ \ \ \textcolor{keywordtype}{float}\ zoom\ =\ 1.0f;}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00154}00154\ }
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00155}00155\ \ \ \ \ \mbox{\hyperlink{class_ortho_camera}{OrthoCamera}}*\ camera\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_ortho_camera}{OrthoCamera}}(pos,\ rot,\ zoom,\ -\/1000.0f,\ 1000.0f);}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00156}00156\ \ \ \ \ \mbox{\hyperlink{class_application}{Application}}*\ app\ =\ Application::GetInstance(1920,\ 1080,\ \textcolor{stringliteral}{"{}Rendering\ Assignment"{}},\ camera);}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00157}00157\ }
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00158}00158\ \ \ \ \ app-\/>SetRenderingInterface(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_example_interface}{ExampleInterface}});}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00159}00159\ }
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00160}00160\ \ \ \ \ \textcolor{keywordflow}{return}\ app;}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00161}00161\ \}}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00162}00162\ }
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00163}00163\ \textcolor{keywordtype}{int}\ main()}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00164}00164\ \{}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00165}00165\ \ \ \ \ \textcolor{keywordflow}{return}\ Vivid::main(0,\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{\Hypertarget{instancing_8cpp_source_l00166}00166\ \}}
+
+\end{DoxyCode}

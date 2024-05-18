@@ -1,0 +1,65 @@
+\hypertarget{renderer__2_d__example_8cpp_source}{}\doxysection{renderer\+\_\+2\+D\+\_\+example.\+cpp}
+\label{renderer__2_d__example_8cpp_source}\index{examples/examples2D/renderer\_2D\_example.cpp@{examples/examples2D/renderer\_2D\_example.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{renderer__2_d__example_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}Vivid.h"{}}}
+\DoxyCodeLine{\Hypertarget{renderer__2_d__example_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{renderer__2_d__example_8cpp_source_l00003}00003\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_example_interface}{ExampleInterface}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_rendering_interface}{RenderingInterface}}}
+\DoxyCodeLine{\Hypertarget{renderer__2_d__example_8cpp_source_l00004}00004\ \{}
+\DoxyCodeLine{\Hypertarget{renderer__2_d__example_8cpp_source_l00005}00005\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{renderer__2_d__example_8cpp_source_l00006}\mbox{\hyperlink{class_example_interface_a018399e1e0bb21e9edd270c224e2c559}{00006}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_example_interface_a018399e1e0bb21e9edd270c224e2c559}{Setup}}()\textcolor{keyword}{\ override}}
+\DoxyCodeLine{\Hypertarget{renderer__2_d__example_8cpp_source_l00007}00007\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{renderer__2_d__example_8cpp_source_l00008}00008\ \ \ \ \ \ \ \ \ OPENGL\_2D\_CONFS}
+\DoxyCodeLine{\Hypertarget{renderer__2_d__example_8cpp_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{renderer__2_d__example_8cpp_source_l00010}00010\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_vivid_1_1_renderer2_d_a5fdeecbc6c3d8b341c24f3096e308a97}{Vivid::Renderer2D::Init}}();}
+\DoxyCodeLine{\Hypertarget{renderer__2_d__example_8cpp_source_l00011}00011\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{renderer__2_d__example_8cpp_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{renderer__2_d__example_8cpp_source_l00013}\mbox{\hyperlink{class_example_interface_a716f27ac6d8b23ddab2b612b32873a6a}{00013}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_example_interface_a716f27ac6d8b23ddab2b612b32873a6a}{Draw}}()\textcolor{keyword}{\ override}}
+\DoxyCodeLine{\Hypertarget{renderer__2_d__example_8cpp_source_l00014}00014\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{renderer__2_d__example_8cpp_source_l00015}00015\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_vivid_1_1_renderer2_d_a1198ec2ca56dabd29346ddd58cb7f0cd}{Vivid::Renderer2D::BeginScene}}();}
+\DoxyCodeLine{\Hypertarget{renderer__2_d__example_8cpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{renderer__2_d__example_8cpp_source_l00017}00017\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Draw\ using\ API}}
+\DoxyCodeLine{\Hypertarget{renderer__2_d__example_8cpp_source_l00018}00018\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_vivid_1_1_renderer2_d_aeaba7a8bd211de0a350f23ab83031c03}{Vivid::Renderer2D::DrawCircle}}(\mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec2}{Vivid::Maths::Vec2}}(0,\ 0),\ 150,\ \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Vivid::Maths::Vec3}}(0.0f,\ 1.0f,\ 0.0f));}
+\DoxyCodeLine{\Hypertarget{renderer__2_d__example_8cpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{renderer__2_d__example_8cpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_vivid_1_1_renderer2_d_a864d2afb72089512286e74c078667c90}{Vivid::Renderer2D::DrawLine}}(\mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec2}{Vivid::Maths::Vec2}}(-\/150,\ 0),\ \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec2}{Vivid::Maths::Vec2}}(150,\ 0),\ 2,}
+\DoxyCodeLine{\Hypertarget{renderer__2_d__example_8cpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Vivid::Maths::Vec3}}(1.0f,\ 0.5f,\ 0.0f));}
+\DoxyCodeLine{\Hypertarget{renderer__2_d__example_8cpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{renderer__2_d__example_8cpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_vivid_1_1_renderer2_d_aa7598ad211bdf3fcf2cd3f2189504fd8}{Vivid::Renderer2D::DrawQuad}}(-\/200,\ -\/200,\ 100,\ 100,\ \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Vivid::Maths::Vec3}}(1.0f,\ 1.0f,\ 0.0f));}
+\DoxyCodeLine{\Hypertarget{renderer__2_d__example_8cpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{renderer__2_d__example_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_vivid_1_1_renderer2_d_a653686fc23a3aa2f6e0a7ccad1ea6bb2}{Vivid::Renderer2D::EndScene}}();}
+\DoxyCodeLine{\Hypertarget{renderer__2_d__example_8cpp_source_l00026}00026\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{renderer__2_d__example_8cpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{renderer__2_d__example_8cpp_source_l00028}\mbox{\hyperlink{class_example_interface_a0f11d490442eae550d0a939ad67cd1f9}{00028}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_example_interface_a0f11d490442eae550d0a939ad67cd1f9}{ImGuiRender}}()\textcolor{keyword}{\ override}}
+\DoxyCodeLine{\Hypertarget{renderer__2_d__example_8cpp_source_l00029}00029\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{renderer__2_d__example_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ ImGui::Begin(\textcolor{stringliteral}{"{}Debug"{}});}
+\DoxyCodeLine{\Hypertarget{renderer__2_d__example_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ ImGui::SliderFloat3("{}Translation\ Model\ 1"{},\ \&suzannePosition.x,\ -\/500.0f,\ 500.0f);}}
+\DoxyCodeLine{\Hypertarget{renderer__2_d__example_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ //\ ImGui::SliderFloat3("{}Translation\ Model\ 2"{},\ \&lightPosition.x,\ -\/300.0f,\ 300.0f);}}
+\DoxyCodeLine{\Hypertarget{renderer__2_d__example_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ ImGui::SliderFloat3("{}Light\ Position"{},\ \&lightPos.x,\ -\/500.0f,\ 500.0f);}}
+\DoxyCodeLine{\Hypertarget{renderer__2_d__example_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ ImGui::Text(\textcolor{stringliteral}{"{}Application\ average\ \%.3f\ ms/frame\ (\%.1f\ FPS)"{}},}
+\DoxyCodeLine{\Hypertarget{renderer__2_d__example_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ 1000.0f\ /\ ImGui::GetIO().Framerate,\ ImGui::GetIO().Framerate);}
+\DoxyCodeLine{\Hypertarget{renderer__2_d__example_8cpp_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{renderer__2_d__example_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ ImGui::End();}
+\DoxyCodeLine{\Hypertarget{renderer__2_d__example_8cpp_source_l00038}00038\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{renderer__2_d__example_8cpp_source_l00039}00039\ \};}
+\DoxyCodeLine{\Hypertarget{renderer__2_d__example_8cpp_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{renderer__2_d__example_8cpp_source_l00041}00041\ \mbox{\hyperlink{class_application}{Application}}*\ Vivid::CreateApplication()}
+\DoxyCodeLine{\Hypertarget{renderer__2_d__example_8cpp_source_l00042}00042\ \{}
+\DoxyCodeLine{\Hypertarget{renderer__2_d__example_8cpp_source_l00043}00043\ \ \ \ \ \mbox{\hyperlink{class_application}{Application}}*\ app\ =\ Application::GetInstance(1920,\ 1080,\ \textcolor{stringliteral}{"{}Rendering2D"{}});}
+\DoxyCodeLine{\Hypertarget{renderer__2_d__example_8cpp_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{renderer__2_d__example_8cpp_source_l00045}00045\ \ \ \ \ \textcolor{comment}{//\ Important\ for\ 2D\ rendering,\ set\ the\ camera\ to\ OrthoCamera}}
+\DoxyCodeLine{\Hypertarget{renderer__2_d__example_8cpp_source_l00046}00046\ \ \ \ \ Maths::Vec3\ pos\ =\ Maths::Vec3(0,\ 0,\ 0);}
+\DoxyCodeLine{\Hypertarget{renderer__2_d__example_8cpp_source_l00047}00047\ \ \ \ \ \textcolor{keywordtype}{float}\ rot\ =\ 0.0f;}
+\DoxyCodeLine{\Hypertarget{renderer__2_d__example_8cpp_source_l00048}00048\ \ \ \ \ \textcolor{keywordtype}{float}\ zoom\ =\ 0.10f;}
+\DoxyCodeLine{\Hypertarget{renderer__2_d__example_8cpp_source_l00049}00049\ \ \ \ \ \mbox{\hyperlink{class_camera}{Camera}}*\ camera\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_ortho_camera}{OrthoCamera}}(pos,\ rot,\ zoom,\ -\/1000.0f,\ 1000.0f);}
+\DoxyCodeLine{\Hypertarget{renderer__2_d__example_8cpp_source_l00050}00050\ \ \ \ \ app-\/>SetCamera(camera);}
+\DoxyCodeLine{\Hypertarget{renderer__2_d__example_8cpp_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{renderer__2_d__example_8cpp_source_l00052}00052\ \ \ \ \ app-\/>SetRenderingInterface(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_example_interface}{ExampleInterface}});}
+\DoxyCodeLine{\Hypertarget{renderer__2_d__example_8cpp_source_l00053}00053\ \ \ \ \ \textcolor{keywordflow}{return}\ app;}
+\DoxyCodeLine{\Hypertarget{renderer__2_d__example_8cpp_source_l00054}00054\ \}}
+\DoxyCodeLine{\Hypertarget{renderer__2_d__example_8cpp_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{renderer__2_d__example_8cpp_source_l00056}00056\ \textcolor{keywordtype}{int}\ main()}
+\DoxyCodeLine{\Hypertarget{renderer__2_d__example_8cpp_source_l00057}00057\ \{}
+\DoxyCodeLine{\Hypertarget{renderer__2_d__example_8cpp_source_l00058}00058\ \ \ \ \ \textcolor{keywordflow}{return}\ Vivid::main(0,\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{\Hypertarget{renderer__2_d__example_8cpp_source_l00059}00059\ \}}
+
+\end{DoxyCode}

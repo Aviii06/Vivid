@@ -1,0 +1,104 @@
+\hypertarget{class_camera}{}\doxysection{Camera Class Reference}
+\label{class_camera}\index{Camera@{Camera}}
+
+
+A class that represents the camera.  
+
+
+
+
+{\ttfamily \#include $<$Camera.\+h$>$}
+
+
+
+Inheritance diagram for Camera\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_camera_a4890075ff407e59ce0996aef90d206a5}\label{class_camera_a4890075ff407e59ce0996aef90d206a5}} 
+virtual glm\+::mat4 {\bfseries Get\+View\+Matrix} ()=0
+\item 
+\mbox{\Hypertarget{class_camera_aeba7d2a2288e8eaa272d675eeb7872d7}\label{class_camera_aeba7d2a2288e8eaa272d675eeb7872d7}} 
+virtual glm\+::mat4 {\bfseries Get\+Projection\+Matrix} ()=0
+\item 
+\mbox{\Hypertarget{class_camera_a1be8566b360e054f622970a7f201c982}\label{class_camera_a1be8566b360e054f622970a7f201c982}} 
+virtual void {\bfseries Set\+Perspective} (const glm\+::mat4 \&perspective)=0
+\item 
+\mbox{\Hypertarget{class_camera_ac34b564344b5c160a345580330cc76e2}\label{class_camera_ac34b564344b5c160a345580330cc76e2}} 
+virtual void {\bfseries Set\+View\+Matrix} (const glm\+::mat4 \&view)=0
+\item 
+\mbox{\Hypertarget{class_camera_aae905d66a644d95e0e19a19fcd3d92a3}\label{class_camera_aae905d66a644d95e0e19a19fcd3d92a3}} 
+virtual void {\bfseries Set\+Viewport\+Size} (int width, int height)=0
+\item 
+int \mbox{\hyperlink{class_camera_acc055e418f536dd58239c29101759e18}{Get\+Viewport\+Width}} ()
+\item 
+int \mbox{\hyperlink{class_camera_a54235e2b3ae188c2e1576a54b319b9d6}{Get\+Viewport\+Height}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_camera_a871e9f504a885886552348249132c8cd}{m\+\_\+\+Viewport\+Width}} = 1920
+\item 
+int \mbox{\hyperlink{class_camera_a2fbbaa5fcf32be00a5f898769e3d92dd}{m\+\_\+\+Viewport\+Height}} = 1080
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class that represents the camera. 
+
+It contains functions to get the view matrix, get the projection matrix, set the perspective, set the view matrix, set the viewport size, get the viewport width, and get the viewport height. This is an abstract class. 
+
+Definition at line \mbox{\hyperlink{_camera_8h_source_l00024}{24}} of file \mbox{\hyperlink{_camera_8h_source}{Camera.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_camera_a54235e2b3ae188c2e1576a54b319b9d6}\label{class_camera_a54235e2b3ae188c2e1576a54b319b9d6}} 
+\index{Camera@{Camera}!GetViewportHeight@{GetViewportHeight}}
+\index{GetViewportHeight@{GetViewportHeight}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{GetViewportHeight()}{GetViewportHeight()}}
+{\footnotesize\ttfamily int Camera\+::\+Get\+Viewport\+Height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_camera_8h_source_l00039}{39}} of file \mbox{\hyperlink{_camera_8h_source}{Camera.\+h}}.
+
+\mbox{\Hypertarget{class_camera_acc055e418f536dd58239c29101759e18}\label{class_camera_acc055e418f536dd58239c29101759e18}} 
+\index{Camera@{Camera}!GetViewportWidth@{GetViewportWidth}}
+\index{GetViewportWidth@{GetViewportWidth}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{GetViewportWidth()}{GetViewportWidth()}}
+{\footnotesize\ttfamily int Camera\+::\+Get\+Viewport\+Width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_camera_8h_source_l00038}{38}} of file \mbox{\hyperlink{_camera_8h_source}{Camera.\+h}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_camera_a2fbbaa5fcf32be00a5f898769e3d92dd}\label{class_camera_a2fbbaa5fcf32be00a5f898769e3d92dd}} 
+\index{Camera@{Camera}!m\_ViewportHeight@{m\_ViewportHeight}}
+\index{m\_ViewportHeight@{m\_ViewportHeight}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{m\_ViewportHeight}{m\_ViewportHeight}}
+{\footnotesize\ttfamily int Camera\+::m\+\_\+\+Viewport\+Height = 1080\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_camera_8h_source_l00028}{28}} of file \mbox{\hyperlink{_camera_8h_source}{Camera.\+h}}.
+
+\mbox{\Hypertarget{class_camera_a871e9f504a885886552348249132c8cd}\label{class_camera_a871e9f504a885886552348249132c8cd}} 
+\index{Camera@{Camera}!m\_ViewportWidth@{m\_ViewportWidth}}
+\index{m\_ViewportWidth@{m\_ViewportWidth}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{m\_ViewportWidth}{m\_ViewportWidth}}
+{\footnotesize\ttfamily int Camera\+::m\+\_\+\+Viewport\+Width = 1920\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_camera_8h_source_l00027}{27}} of file \mbox{\hyperlink{_camera_8h_source}{Camera.\+h}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/editor/camera/Camera.\+h\end{DoxyCompactItemize}
