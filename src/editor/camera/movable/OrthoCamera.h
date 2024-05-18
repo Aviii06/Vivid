@@ -3,6 +3,11 @@
 #include "editor/camera/movable/MovableCamera.h"
 #include "common/maths/Vec.h"
 
+/*!
+ * @class OrthoCamera
+ * @brief A class for the OrthoCamera's.
+ * @details OrthoCamera is a camera that can be moved around in the scene. It can be moved forward, backward, left, right, and can be rotated using the mouse.
+ */
 class OrthoCamera : public MovableCamera
 {
 private:

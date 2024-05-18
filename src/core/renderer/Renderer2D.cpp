@@ -64,10 +64,6 @@ namespace Vivid
 		camera->SetPerspective(glm::ortho(-960.0f, 960.0f, -540.0f, 540.0f, 0.1f, 100.0f));
 	}
 
-	void Renderer2D::Shutdown()
-	{
-	}
-
 	void Renderer2D::BeginScene()
 	{
 		Camera* camera = Application::GetInstance()->GetCamera();

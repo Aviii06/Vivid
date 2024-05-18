@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['virtualfunc_0',['virtualfunc',['../class_my_library_1_1_subclass_example.html#a08668a9f16511ad37fb547c985d62764',1,'MyLibrary::SubclassExample']]]
+  ['getmouseposition_0',['GetMousePosition',['../dd/d0a/namespace_input_handler.html#ae3541936b82f3629fc7c7005ff0868ff',1,'InputHandler']]],
+  ['getmousepositiononviewport_1',['GetMousePositionOnViewport',['../dd/d0a/namespace_input_handler.html#a8f1d7fffa606514bb4db9151c51b4e64',1,'InputHandler']]]
 ];

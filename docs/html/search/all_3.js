@@ -1,6 +1,9 @@
 var searchData=
 [
-  ['editorcamera_0',['EditorCamera',['../class_editor_camera.html',1,'']]],
-  ['entity_1',['Entity',['../class_vivid_1_1_entity.html',1,'Vivid']]],
-  ['exampleinterface_2',['ExampleInterface',['../class_example_interface.html',1,'']]]
+  ['directionallightcomponent_0',['DirectionalLightComponent',['../db/d68/class_vivid_1_1_directional_light_component.html',1,'Vivid']]],
+  ['draw_1',['Draw',['../de/d90/class_example_interface.html#a716f27ac6d8b23ddab2b612b32873a6a',1,'ExampleInterface::Draw() override'],['../de/d90/class_example_interface.html#a716f27ac6d8b23ddab2b612b32873a6a',1,'ExampleInterface::Draw() override'],['../de/d90/class_example_interface.html#a716f27ac6d8b23ddab2b612b32873a6a',1,'ExampleInterface::Draw() override'],['../de/d90/class_example_interface.html#a716f27ac6d8b23ddab2b612b32873a6a',1,'ExampleInterface::Draw() override'],['../de/d90/class_example_interface.html#a716f27ac6d8b23ddab2b612b32873a6a',1,'ExampleInterface::Draw() override'],['../de/d90/class_example_interface.html#a716f27ac6d8b23ddab2b612b32873a6a',1,'ExampleInterface::Draw() override'],['../de/d90/class_example_interface.html#a716f27ac6d8b23ddab2b612b32873a6a',1,'ExampleInterface::Draw() override'],['../d4/dcc/class_vivid_1_1_renderer.html#abd2072a1a288837e185f428afc6b86ba',1,'Vivid::Renderer::Draw()'],['../d1/d90/class_rendering_interface.html#a5cb800ef6dfabb40990ebf48cadeaa93',1,'RenderingInterface::Draw()']]],
+  ['drawcircle_2',['DrawCircle',['../d1/d56/class_vivid_1_1_renderer2_d.html#aeaba7a8bd211de0a350f23ab83031c03',1,'Vivid::Renderer2D']]],
+  ['drawellipse_3',['DrawEllipse',['../d1/d56/class_vivid_1_1_renderer2_d.html#a38aa048867f998bcf444f84c13fca970',1,'Vivid::Renderer2D']]],
+  ['drawline_4',['DrawLine',['../d1/d56/class_vivid_1_1_renderer2_d.html#a864d2afb72089512286e74c078667c90',1,'Vivid::Renderer2D']]],
+  ['drawquad_5',['DrawQuad',['../d1/d56/class_vivid_1_1_renderer2_d.html#aa7598ad211bdf3fcf2cd3f2189504fd8',1,'Vivid::Renderer2D::DrawQuad(float x, float y, float width, float height, const Maths::Vec3 &amp;color)'],['../d1/d56/class_vivid_1_1_renderer2_d.html#aefbe24a2e14b84df34bfe0f134e9cc80',1,'Vivid::Renderer2D::DrawQuad(const Maths::Vec2 &amp;vertex1, const Maths::Vec2 &amp;vertex2, const Maths::Vec2 &amp;vertex3, const Maths::Vec2 &amp;vertex4, const Maths::Vec3 &amp;color)']]]
 ];

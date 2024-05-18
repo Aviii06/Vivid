@@ -9,6 +9,11 @@
 namespace Vivid
 {
 
+	/*!
+	 * @struct Vertex
+	 * @brief A struct for the Vertex.
+	 * @details Vertex is a struct that contains the position, texture coordinates, normal, and tangent of a vertex.
+	 */
 	struct Vertex
 	{
 		Maths::Vec3 position;
@@ -17,6 +22,11 @@ namespace Vivid
 		Maths::Vec3 tangent;
 	};
 
+	/*!
+	 * @class VertexBuffer
+	 * @brief A class for the VertexBuffer.
+	 * @details VertexBuffer is a class that contains the vertices of a mesh. For more information read the OpenGL documentation.
+	 */
 	class VertexBuffer
 	{
 	private:

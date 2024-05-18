@@ -5,6 +5,11 @@
 
 namespace Vivid
 {
+	/*!
+	 * @class Texture
+	 * @brief A class for the Texture.
+	 * @details Texture is a class that contains the texture. It can load all formats supported by stb_image library. The raw data of the texture is stored in the m_LocalBuffer variable.
+	 */
 	class Texture
 	{
 	private:
@@ -16,23 +21,18 @@ namespace Vivid
 
 	public:
 		Texture();
-
 		Texture(const std::string& path);
-
 		~Texture();
 
 		void Bind(unsigned int slot = 0) const;
-
 		void Unbind() const;
 
 		inline unsigned int GetRendererID() const { return m_RendererID; }
-
 		inline int GetWidth() const { return m_Width; }
-
 		inline int GetHeight() const { return m_Height; }
-
 		inline String GetFilePath() const { return m_FilePath; }
 		inline String GetName() const { return m_Name; }
+
 		inline void SetName(const String& name) { m_Name = name; }
 	};
 }

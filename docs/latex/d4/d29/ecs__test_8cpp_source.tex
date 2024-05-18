@@ -1,0 +1,97 @@
+\hypertarget{ecs__test_8cpp_source}{}\doxysection{ecs\+\_\+test.\+cpp}
+\label{ecs__test_8cpp_source}\index{examples/examples3D/ecs\_test.cpp@{examples/examples3D/ecs\_test.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}Vivid.h"{}}}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00003}00003\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_example_interface}{ExampleInterface}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_rendering_interface}{RenderingInterface}}}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00004}00004\ \{}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00005}00005\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00006}00006\ \ \ \ \ \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Vivid::Maths::Vec3}}\ lightColor\ =\ \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Vivid::Maths::Vec3}}(1.0f,\ 0.5f,\ 1.0f);}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00007}00007\ \ \ \ \ \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Vivid::Maths::Vec3}}\ lightPos\ =\ \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Vivid::Maths::Vec3}}(0.0f,\ 0.0f,\ -\/100.0f);}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00009}00009\ \ \ \ \ glm::vec3\ suzannePosition\ =\ glm::vec3(0,\ 50,\ -\/200);}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00010}00010\ \ \ \ \ glm::vec3\ lightPosition\ =\ glm::vec3(0,\ 0,\ 0);}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00012}00012\ \ \ \ \ \mbox{\hyperlink{class_vivid_1_1_mesh}{Vivid::Mesh}}\ lightMesh;}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00013}00013\ \ \ \ \ Ref<Vivid::Shader>\ lightShader;}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00014}00014\ \ \ \ \ Ref<Vivid::Entity>\ suzanne\ =\ Vivid::ECS::CreateEntity(\textcolor{stringliteral}{"{}Suzanne"{}});}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00015}00015\ \ \ \ \ Ref<Vivid::Entity>\ light\ =\ Vivid::ECS::CreateEntity(\textcolor{stringliteral}{"{}DirectionalLight"{}});}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00016}00016\ \ \ \ \ Ref<Vivid::ModelComponent>\ modelComponent1;}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00017}00017\ \ \ \ \ Ref<Vivid::TransformComponent>\ sphereTransformComponent\ =\ Vivid::ECS::CreateComponent<Vivid::TransformComponent>();}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00018}00018\ \ \ \ \ \mbox{\hyperlink{class_vivid_1_1_mesh}{Vivid::Mesh}}*\ mesh;}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00020}00020\ \ \ \ \ Ref<Vivid::DirectionalLightComponent>\ directionalLightComponent;}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00021}00021\ \ \ \ \ Ref<Vivid::Shader>\ shader;}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00023}00023\ \ \ \ \ \textcolor{keywordtype}{float}\ shininess\ =\ 32.0f;}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00025}00025\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00026}\mbox{\hyperlink{class_example_interface_a018399e1e0bb21e9edd270c224e2c559}{00026}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_example_interface_a018399e1e0bb21e9edd270c224e2c559}{Setup}}()\textcolor{keyword}{\ override}}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00027}00027\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Can\ write\ custom\ opengl\ confs\ here}}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00029}00029\ \ \ \ \ \ \ \ \ OPENGL\_CONFS}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ shader\ =\ MakeRef<Vivid::Shader>(\textcolor{stringliteral}{"{}./../assets/shaders/phong.vertexShader.glsl"{}},}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}./../assets/shaders/phong.pixelShader.glsl"{}});}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ mesh\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_vivid_1_1_mesh}{Vivid::Mesh}}(\textcolor{stringliteral}{"{}./../assets/obj/suzanne.obj"{}},\ 1);}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ mesh-\/>BindShader(shader);}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ modelComponent1\ =\ Vivid::ECS::CreateComponent<Vivid::ModelComponent>();}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ modelComponent1-\/>AddMesh(mesh);}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ directionalLightComponent\ =\ Vivid::ECS::CreateComponent<Vivid::DirectionalLightComponent>();}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00041}00041\ \ \ \ \ \ \ \ \ directionalLightComponent-\/>SetDirection(\mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Vivid::Maths::Vec3}}(0.0f,\ -\/1.0f,\ 0.0f));}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ sphereTransformComponent-\/>SetScale(\mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Vivid::Maths::Vec3}}(50.0f,\ 50.0f,\ 50.0f));}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ Vivid::ECS::AddComponent(modelComponent1-\/>GetComponentID(),\ suzanne-\/>GetID());}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ Vivid::ECS::AddComponent(sphereTransformComponent-\/>GetComponentID(),\ suzanne-\/>GetID());}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ Vivid::ECS::AddComponent(directionalLightComponent-\/>GetComponentID(),\ light-\/>GetID());}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00049}00049\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00051}\mbox{\hyperlink{class_example_interface_a716f27ac6d8b23ddab2b612b32873a6a}{00051}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_example_interface_a716f27ac6d8b23ddab2b612b32873a6a}{Draw}}()\textcolor{keyword}{\ override}}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00052}00052\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ Vector<Vivid::DirectionalLightComponent*>\ directionalLights;}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ Vivid::ECS::GetAllComponents(Vivid::ComponentType::DirectionalLightComponent,\ directionalLights);}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ intensity\ =\ directionalLights[0]-\/>GetIntensity();}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Vivid::Maths::Vec3}}\ lightDir\ =\ directionalLights[0]-\/>GetDirection();}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ mesh-\/>BindShader(shader);}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ shader-\/>Bind();}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ shader-\/>SetUniform3f(\textcolor{stringliteral}{"{}LightDir"{}},\ lightDir);}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ shader-\/>SetUniform1f(\textcolor{stringliteral}{"{}LightIntensity"{}},\ intensity);}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00062}00062\ \ \ \ \ \ \ \ \ shader-\/>SetUniform3f(\textcolor{stringliteral}{"{}LightColor"{}},\ lightColor);}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ shader-\/>SetUniform1f(\textcolor{stringliteral}{"{}shininess"{}},\ shininess);}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00064}00064\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00066}\mbox{\hyperlink{class_example_interface_a0f11d490442eae550d0a939ad67cd1f9}{00066}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_example_interface_a0f11d490442eae550d0a939ad67cd1f9}{ImGuiRender}}()\textcolor{keyword}{\ override}}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00067}00067\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ ImGui::Begin(\textcolor{stringliteral}{"{}Debug"{}});}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00070}00070\ \ \ \ \ \ \ \ \ ImGui::Text(\textcolor{stringliteral}{"{}Application\ average\ \%.3f\ ms/frame\ (\%.1f\ FPS)"{}},}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ 1000.0f\ /\ ImGui::GetIO().Framerate,\ ImGui::GetIO().Framerate);}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ ImGui::SliderFloat(\textcolor{stringliteral}{"{}shininess"{}},\ \&shininess,\ 0.0f,\ 32.0f);}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ ImGui::End();}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00076}00076\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00077}00077\ \};}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00079}00079\ \mbox{\hyperlink{class_application}{Application}}*\ Vivid::CreateApplication()}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00080}00080\ \{}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00081}00081\ \ \ \ \ \mbox{\hyperlink{class_application}{Application}}*\ app\ =\ Application::GetInstance(1920,\ 1080,\ \textcolor{stringliteral}{"{}Vivid:\ ECS\ TEST\ Example"{}});}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00083}00083\ \ \ \ \ app-\/>SetRenderingInterface(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_example_interface}{ExampleInterface}});}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00085}00085\ \ \ \ \ \textcolor{keywordflow}{return}\ app;}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00086}00086\ \}}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00088}00088\ \textcolor{keywordtype}{int}\ main()}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00089}00089\ \{}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00090}00090\ \ \ \ \ \textcolor{keywordflow}{return}\ Vivid::main(0,\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{\Hypertarget{ecs__test_8cpp_source_l00091}00091\ \}}
+
+\end{DoxyCode}
