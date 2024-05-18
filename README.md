@@ -104,7 +104,7 @@ You can initialise an entity and give it many components and they
 all get rendered automatically. 
 This is useful for creating complex scenes with many objects.
 
-For more information go to the [ECS API](src/core/ecs/ECS.md)
+For more information go to the [ECS API](docs/ECS.md)
 
 ![Screenshot 2023-08-29 at 8 57 21 PM](https://github.com/Aviii06/Vivid/assets/45993519/d674cba6-3b2b-421c-9a58-31ac616295e6)
 

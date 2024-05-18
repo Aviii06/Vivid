@@ -1,7 +1,0 @@
-<map id="Vivid::Component" name="Vivid::Component">
-<area shape="rect" id="node1" title="Contains a Component." alt="" coords="5,80,131,106"/>
-<area shape="rect" id="node2" href="$db/d68/class_vivid_1_1_directional_light_component.html" title=" " alt="" coords="179,5,394,31"/>
-<area shape="rect" id="node3" href="$d2/d9d/class_vivid_1_1_model_component.html" title="Contains a ModelComponent." alt="" coords="206,55,367,80"/>
-<area shape="rect" id="node4" href="$d7/d77/class_vivid_1_1_point_light_component.html" title="Contains a PointLightComponent." alt="" coords="195,104,378,130"/>
-<area shape="rect" id="node5" href="$d3/d74/class_vivid_1_1_transform_component.html" title="Contains the Transform Component." alt="" coords="194,153,379,179"/>
-</map>

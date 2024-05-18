@@ -1,6 +1,0 @@
-<map id="Camera" name="Camera">
-<area shape="rect" id="node1" title="A class that represents the camera." alt="" coords="84,5,151,31"/>
-<area shape="rect" id="node2" href="$d7/d29/class_movable_camera.html" title="A class for the MovableCamera&#39;s." alt="" coords="59,79,176,105"/>
-<area shape="rect" id="node3" href="$d2/d4c/class_editor_camera.html" title="A class for the EditorCamera." alt="" coords="5,153,107,178"/>
-<area shape="rect" id="node4" href="$da/de2/class_ortho_camera.html" title="A class for the OrthoCamera&#39;s." alt="" coords="130,153,230,178"/>
-</map>
