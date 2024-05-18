@@ -5,10 +5,10 @@ class ExampleInterface : public RenderingInterface
 private:
 	Vivid::Mesh lightMesh;
 	Ref<Vivid::Shader> lightShader;
-	Vivid::Entity* plane = Vivid::ECS::CreateEntity("plane");
-	Vivid::Entity* light = Vivid::ECS::CreateEntity("DirectionalLight");
+	Ref<Vivid::Entity> plane = Vivid::ECS::CreateEntity("plane");
+	Ref<Vivid::Entity> light = Vivid::ECS::CreateEntity("DirectionalLight");
 	Ref<Vivid::ModelComponent> planeModelComponent;
-	Ref<Vivid::TransformComponent> planeTransformComponent = MakeRef<Vivid::TransformComponent>();
+	Ref<Vivid::TransformComponent> planeTransformComponent = Vivid::ECS::CreateComponent<Vivid::TransformComponent>();
 	Vivid::Mesh* planeMesh;
 
 	Ref<Vivid::DirectionalLightComponent> directionalLightComponent;
@@ -26,19 +26,19 @@ public:
 		planeMesh = new Vivid::Mesh("./../assets/obj/plane.obj");
 		planeMesh->BindShader(shader);
 
-		planeModelComponent = MakeRef<Vivid::ModelComponent>();
+		planeModelComponent = Vivid::ECS::CreateComponent<Vivid::ModelComponent>();
 		planeModelComponent->AddMesh(planeMesh);
 
-		directionalLightComponent = MakeRef<Vivid::DirectionalLightComponent>();
+		directionalLightComponent = Vivid::ECS::CreateComponent<Vivid::DirectionalLightComponent>();
 		directionalLightComponent->SetDirection(Vivid::Maths::Vec3(0.0f, -1.0f, 0.0f));
 
 		planeTransformComponent->SetScale(Vivid::Maths::Vec3(50.0f, 50.0f, 50.0f));
 		planeTransformComponent->SetRotation(Vivid::Maths::Vec3(90, 0, 0));
 
-		Vivid::ECS::AddComponent(planeModelComponent, plane);
-		Vivid::ECS::AddComponent(planeTransformComponent, plane);
+		Vivid::ECS::AddComponent(planeModelComponent->GetComponentID(), plane->GetID());
+		Vivid::ECS::AddComponent(planeTransformComponent->GetComponentID(), plane->GetID());
 
-		Vivid::ECS::AddComponent(directionalLightComponent, light);
+		Vivid::ECS::AddComponent(directionalLightComponent->GetComponentID(), light->GetID());
 
 		MovableCamera* cam = static_cast<MovableCamera*>(Application::GetInstance()->GetCamera());
 		cam->SetPosition({ 0.0f, 0.0f, 100.0f });

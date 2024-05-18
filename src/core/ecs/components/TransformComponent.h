@@ -3,7 +3,6 @@
 #include "core/ecs/Component.h"
 #include "common/maths/Vec.h"
 #include "imguizmo/ImGuizmo.h"
-#include "common/maths/Vec.h"
 
 #include "glm/gtc/quaternion.hpp"
 
@@ -42,7 +41,7 @@ namespace Vivid
 		    , m_Rotation(rotation)
 		    , m_Scale(scale)
 		{
-			TransformComponent();
+			ImGuizmo::RecomposeMatrixFromComponents(&m_Position.x, &m_Rotation.x, &m_Scale.x, &m_Transform[0][0]);
 		}
 
 		virtual ~TransformComponent() = default;
@@ -77,7 +76,6 @@ namespace Vivid
 			ImGuizmo::RecomposeMatrixFromComponents(&m_Position.x, &m_Rotation.x, &m_Scale.x, &m_Transform[0][0]);
 		}
 
-		String GetComponentName() override { return "Transform Component"; }
 		ComponentType GetComponentType() override { return ComponentType::TransformComponent; }
 
 		inline ImGuizmo::OPERATION GetCurrentGizmoOperation() const { return m_CurrentGizmoOperation; }

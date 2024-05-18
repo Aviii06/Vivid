@@ -2,7 +2,7 @@
 #include "UIFlags.h"
 #include "editor/assets/Assets.h"
 #include "core/ecs/ECS.h"
-#include "core/ecs/components/TransformComponent.h"
+#include "core/ecs/ComponentFactory.h"
 
 namespace VividGUI
 {
@@ -13,9 +13,9 @@ namespace VividGUI
 		ImGui::Begin("Scene");
 		for (auto entity : Vivid::ECS::g_Entities)
 		{
-			if (ImGui::Selectable(entity->GetName().c_str(), m_SelectedEntity == entity))
+			if (ImGui::Selectable(entity.second->GetName().c_str(), m_SelectedEntity == entity.second.get()))
 			{
-				m_SelectedEntity = entity;
+				m_SelectedEntity = entity.second.get();
 			}
 		}
 
@@ -30,7 +30,7 @@ namespace VividGUI
 		if (m_SelectedEntity)
 		{
 			ImGui::Begin("Inspector");
-			m_SelectedEntity->DrawGUI();
+			m_SelectedEntity->ImguiRender();
 
 			char* name = m_SelectedEntity->GetName().data();
 			static const ImGuiInputTextFlags flags = ImGuiInputTextFlags_EnterReturnsTrue;
@@ -53,14 +53,14 @@ namespace VividGUI
 				m_SelectedEntity->SetName(String(name));
 			}
 
-			for (int i = 0; i < Vivid::ECS::g_Entities.size(); i++)
+			for (auto& entity : Vivid::ECS::g_Entities)
 			{
-				if (i == m_SelectedEntity->GetID())
+				if (entity.first == m_SelectedEntity->GetID())
 				{
 					continue;
 				}
 
-				if (m_SelectedEntity->GetName() == Vivid::ECS::g_Entities[i]->GetName())
+				if (m_SelectedEntity->GetName() == entity.second->GetName())
 				{
 					ImGui::Text("Name Already Exist");
 				}
@@ -72,28 +72,29 @@ namespace VividGUI
 			{
 				if (ImGui::BeginMenu("Add Component"))
 				{
-					for (auto& component : Vivid::ECS::g_AllComponents)
+					for (auto ct : Vivid::g_AllComponentStrings)
 					{
-						bool isComponentExist = false;
-						if (m_SelectedEntity->HasComponent(component->GetComponentName()) != -1)
+						bool doesComponentExist = false;
+						auto component = m_SelectedEntity->HasComponent(ct.first);
+						if (component)
 						{
-							isComponentExist = true;
+							doesComponentExist = true;
 						}
 
-						if (ImGui::MenuItem(component->GetComponentName().c_str(), NULL, isComponentExist))
+						if (ImGui::MenuItem(Vivid::g_AllComponentStrings.at(ct.first).c_str(), NULL, doesComponentExist))
 						{
-							if (isComponentExist)
+							if (doesComponentExist)
 							{
-								if (component->GetComponentName() == Vivid::TransformComponent().GetComponentName())
+								if (ct.first == Vivid::ComponentType::TransformComponent)
 								{
-									isComponentExist = true;
+									doesComponentExist = true;
 									continue;
 								}
-								Vivid::ECS::RemoveComponent(component, m_SelectedEntity);
+								Vivid::ECS::RemoveComponent(component, m_SelectedEntity->GetID());
 							}
 							else
 							{
-								Vivid::ECS::AddComponent(component, m_SelectedEntity);
+								Vivid::ECS::AddComponent(component, m_SelectedEntity->GetID());
 							}
 						}
 					}

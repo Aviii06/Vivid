@@ -1,39 +1,29 @@
 #pragma once
 
 #include "editor/camera/Camera.h"
-#include "Entity.h"
+#include "ComponentType.h"
 
 namespace Vivid
 {
-	enum class ComponentType
-	{
-		TransformComponent,
-		ModelComponent,
-		PointLightComponent,
-		DirectionalLightComponent,
-	};
-
 	class Component
 	{
-	protected:
-		friend class Entity;
+	private:
+		const int m_ID;
 
-		Vivid::Entity* m_Entity;
+	protected:
+		int m_OwnerEntityID = 0;
 
 	public:
-		Component() = default;
-
+		Component();
 		virtual ~Component() = default;
 
 		virtual void Draw(Camera* camera) = 0;
-
 		virtual void ImGuiRender() = 0;
 
-		void SetEntity(Vivid::Entity* entity) { m_Entity = entity; }
+		[[nodiscard]] int GetOwnerEntityID() const { return m_OwnerEntityID; }
+		void SetEntity(const int& entityID) { m_OwnerEntityID = entityID; }
 
-		Vivid::Entity* GetEntity() const { return m_Entity; }
-
-		virtual String GetComponentName() = 0;
 		virtual ComponentType GetComponentType() = 0;
+		int GetComponentID() const { return m_ID; }
 	};
 }

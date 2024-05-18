@@ -1,56 +1,60 @@
 #include "ECS.h"
-#include "core/ecs/components/TransformComponent.h"
-#include "core/ecs/components/model/ModelComponent.h"
-#include "core/ecs/components/light/PointLightComponent.h"
-#include "core/ecs/components/light/DirectionalLightComponent.h"
+#include "ComponentFactory.h"
 
-Vector<Ref<Vivid::Component>> Vivid::ECS::g_Components;
-Vector<Vivid::Entity*> Vivid::ECS::g_Entities;
-Vector<Ref<Vivid::Component>> Vivid::ECS::g_AllComponents = {
-	MakeRef<Vivid::TransformComponent>(),
-	MakeRef<Vivid::ModelComponent>(),
-	MakeRef<Vivid::PointLightComponent>(),
-	MakeRef<Vivid::DirectionalLightComponent>()
-};
+Map<int, Ref<Vivid::Component>> g_Components;
+Map<int, Ref<Vivid::Entity>> g_Entities;
 
 int Vivid::ECS::s_EntityID = 0;
+int Vivid::ECS::s_ComponentID = 0;
 
-bool Vivid::ECS::AddComponent(Ref<Vivid::Component> component, Vivid::Entity* entity)
+bool Vivid::ECS::AddComponent(int componentID, int entityID)
 {
 	// Check if the component already exists
 	// If So then just update the component
-	int index = entity->HasComponent(component->GetComponentName());
+	Ref<Component> component = g_Components[componentID];
+	const ComponentType ct = component->GetComponentType();
+
+	const int index = g_Entities[entityID]->HasComponent(ct);
+	Ref<Entity> entity = g_Entities[entityID];
 	if (index != -1)
 	{
-
-		std::cerr << component->GetComponentName() << "already exists\n"
+		const String& componentName = g_AllComponentStrings.at(ct);
+		std::cerr << componentName << " already exists\n"
 		          << std::endl;
-		std::cout << "Updating component: " << component->GetComponentName() << std::endl;
-		entity->RemoveComponent(index);
+		std::cout << "Updating component: " << componentName << std::endl;
+
+		entity->RemoveComponent(componentID);
 	}
 
-	component->SetEntity(entity);
+	component->SetEntity(entity->GetID());
 
-	g_Components.push_back(component);
-	entity->AddComponent(component);
+	g_Components[componentID] = component;
+	entity->AddComponent(componentID);
 	return true;
 }
 
-bool Vivid::ECS::RemoveComponent(Ref<Vivid::Component> component, Vivid::Entity* entity)
+bool Vivid::ECS::RemoveComponent(int componentID, int entityID)
 {
-	component->SetEntity(entity);
+	Ref<Component> component = g_Components[componentID];
+	const ComponentType ct = component->GetComponentType();
 
-	for (int i = 0; i < g_Components.size(); i++)
+	const int index = g_Entities[entityID]->HasComponent(ct);
+	Ref<Entity> entity = g_Entities[index];
+	component->SetEntity(entity->GetID());
+
+	for (auto&& comp : g_Components)
 	{
-		if (g_Components[i]->GetComponentName() == component->GetComponentName())
+		if (comp.second->GetComponentType() == component->GetComponentType())
 		{
-			g_Components.erase(g_Components.begin() + i);
-			entity->RemoveComponent(component);
+			entity->RemoveComponent(componentID);
+			auto it = g_Components.find(comp.first);
+			g_Components.erase(it);
 			return true;
 		}
 	}
 
-	std::cerr << "Failed to remove component: " << component->GetComponentName() << std::endl;
+	const String& componentName = g_AllComponentStrings.at(ct);
+	std::cerr << "Failed to remove component: " << componentName << std::endl;
 	return false;
 }
 
@@ -58,7 +62,7 @@ void Vivid::ECS::Draw(Camera* camera)
 {
 	for (auto& entity : g_Entities)
 	{
-		entity->Draw(camera);
+		entity.second->Draw(camera);
 	}
 }
 
@@ -66,18 +70,30 @@ void Vivid::ECS::ImGuiRender()
 {
 	for (auto& entity : g_Entities)
 	{
-		entity->DrawGUI();
+		entity.second->ImguiRender();
 	}
 }
 
-Vivid::Entity* Vivid::ECS::CreateEntity(String name)
+Ref<Vivid::Entity> Vivid::ECS::CreateEntity(const String& name)
 {
-	Entity* entity = new Entity(s_EntityID, name);
+	Ref<Entity> entity = MakeRef<Entity>(s_EntityID, name);
+	g_Entities[entity->GetID()] = entity;
+
+	// std::cout << g_Entities[entity->GetID()] << "\n";
+	// std::cout << entity << "\n";
+
+	auto tc = ECS::CreateComponent<TransformComponent>();
+	AddComponent(tc->GetComponentID(), entity->GetID());
 	return entity;
 }
 
-Vivid::Entity* Vivid::ECS::CreateEntity(Vivid::Entity* entity)
+Ref<Vivid::Component> Vivid::ECS::GetComponent(ComponentType ct, int entityID)
 {
-	g_Entities.emplace_back(entity);
-	return entity;
+	int componentID = g_Entities[entityID]->HasComponent(ct);
+
+	if (componentID == -1)
+	{
+		return nullptr;
+	}
+	return g_Components[componentID];
 }

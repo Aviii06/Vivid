@@ -14,10 +14,10 @@ private:
 
 	Vivid::Mesh lightMesh;
 	Ref<Vivid::Shader> lightShader;
-	Vivid::Entity* suzanne = new Vivid::Entity(1, "Spheres");
-	Vivid::Entity* light = new Vivid::Entity(2, "DirectionalLight");
+	Ref<Vivid::Entity> suzanne = Vivid::ECS::CreateEntity("Sphere");
+	Ref<Vivid::Entity> light = Vivid::ECS::CreateEntity("Light");
 	Ref<Vivid::ModelComponent> modelComponent1;
-	Ref<Vivid::TransformComponent> sphereTransformComponent = MakeRef<Vivid::TransformComponent>();
+	Ref<Vivid::TransformComponent> sphereTransformComponent = Vivid::ECS::CreateComponent<Vivid::TransformComponent>();
 	Vivid::Mesh* sphere;
 
 	Ref<Vivid::DirectionalLightComponent> directionalLightComponent;
@@ -38,18 +38,17 @@ public:
 		sphere = new Vivid::Mesh("./../assets/obj/newIcoSphere.obj", number_of_sphere);
 		sphere->BindShader(shader);
 
-		modelComponent1 = MakeRef<Vivid::ModelComponent>();
+		modelComponent1 = Vivid::ECS::CreateComponent<Vivid::ModelComponent>();
 		modelComponent1->AddMesh(sphere);
 		sphereTransformComponent->SetScale(Vivid::Maths::Vec3(sphere_radius));
 
-		directionalLightComponent = MakeRef<Vivid::DirectionalLightComponent>();
-		directionalLightComponent->SetDirection(
-		    Vivid::Maths::Vec3(-0.67f, 0.625f, 0.480f));
+		directionalLightComponent = Vivid::ECS::CreateComponent<Vivid::DirectionalLightComponent>();
+		directionalLightComponent->SetDirection(Vivid::Maths::Vec3(-0.67f, 0.625f, 0.480f));
 
-		Vivid::ECS::AddComponent(modelComponent1, suzanne);
-		Vivid::ECS::AddComponent(sphereTransformComponent, suzanne);
+		Vivid::ECS::AddComponent(modelComponent1->GetComponentID(), suzanne->GetID());
+		Vivid::ECS::AddComponent(sphereTransformComponent->GetComponentID(), suzanne->GetID());
 
-		Vivid::ECS::AddComponent(directionalLightComponent, light);
+		Vivid::ECS::AddComponent(directionalLightComponent->GetComponentID(), light->GetID());
 
 		// Initialize the translations
 		for (unsigned int i = 0; i < number_of_sphere; i++)

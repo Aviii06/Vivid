@@ -9,7 +9,7 @@
 namespace Vivid
 {
 
-	class DirectionalLightComponent : public Vivid::Component
+	class DirectionalLightComponent : public Component
 	{
 	private:
 		Maths::Vec3 m_LightColor = Maths::Vec3(1.0f, 1.0f, 1.0f);
@@ -33,7 +33,6 @@ namespace Vivid
 
 		inline Maths::Vec3 GetDirection() const { return m_Direction; }
 
-		String GetComponentName() override { return "DirectionalLight Component"; }
 		ComponentType GetComponentType() override { return ComponentType::DirectionalLightComponent; }
 	};
 }

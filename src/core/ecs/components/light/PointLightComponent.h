@@ -9,7 +9,7 @@
 namespace Vivid
 {
 
-	class PointLightComponent : public Vivid::Component
+	class PointLightComponent : public Component
 	{
 	private:
 		Maths::Vec3 m_Color;
@@ -32,7 +32,6 @@ namespace Vivid
 
 		inline float GetIntensity() const { return m_Intensity; }
 
-		String GetComponentName() override { return "PointLight Component"; }
 		ComponentType GetComponentType() override { return ComponentType::PointLightComponent; }
 	};
 }

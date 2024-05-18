@@ -3,6 +3,7 @@
 #include "core/renderer/shapes/Quad3d.h"
 #include "core/ecs/components/TransformComponent.h"
 #include "core/ecs/components/model/ModelComponent.h"
+#include "core/ecs/ECS.h"
 #include "common/maths/Vec.h"
 
 namespace Vivid
@@ -14,9 +15,11 @@ namespace Vivid
 
 	void PointLightComponent::Draw(Camera* camera)
 	{
-		float scale = m_Entity->GetComponent<TransformComponent>()->GetScale().x;
-		Vivid::Quad3d* quad = new Vivid::Quad3d(10.0f / scale, m_Color);
-		Vivid::ModelComponent* modelComponent = new Vivid::ModelComponent();
+		auto component = ECS::GetComponent(ComponentType::TransformComponent, m_OwnerEntityID);
+
+		float scale = dynamic_cast<TransformComponent*>(component.get())->GetScale().x;
+		Quad3d* quad = new Vivid::Quad3d(10.0f / scale, m_Color);
+		ModelComponent* modelComponent = new Vivid::ModelComponent();
 
 		if (m_Shader == nullptr)
 		{
@@ -28,7 +31,7 @@ namespace Vivid
 		m_Mesh->BindShader(m_Shader);
 
 		modelComponent->AddMesh(m_Mesh);
-		modelComponent->SetEntity(m_Entity);
+		modelComponent->SetEntity(m_OwnerEntityID);
 		modelComponent->Draw(camera);
 	}
 

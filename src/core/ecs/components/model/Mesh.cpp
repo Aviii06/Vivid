@@ -321,12 +321,11 @@ namespace Vivid
 			}
 			texture->Bind(texture->GetRendererID());
 			m_Shader->Bind();
-			String name = "Texture" + std::to_string(slot);
 			m_Shader->SetUniform1i(texture->GetName(), texture->GetRendererID());
 			slot++;
 		}
 
-		Vivid::Renderer::Draw(m_Vao, m_Ebo->GetCount(), m_Instances);
+		Renderer::Draw(m_Vao, m_Ebo->GetCount(), m_Instances);
 	}
 
 	void Mesh::normalizeVertices()
