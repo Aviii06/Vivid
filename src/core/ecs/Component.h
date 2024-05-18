@@ -5,6 +5,12 @@
 
 namespace Vivid
 {
+	/*!
+	 * @class Component
+	 * @brief Contains a Component.
+	 * @details Component is a class that contains a component. It is a base class for all the components.
+	 * It contains a unique ID for every component. It also contains the ID of the entity to which it belongs.
+	 */
 	class Component
 	{
 	private:
@@ -20,7 +26,8 @@ namespace Vivid
 		virtual void Draw(Camera* camera) = 0;
 		virtual void ImGuiRender() = 0;
 
-		[[nodiscard]] int GetOwnerEntityID() const { return m_OwnerEntityID; }
+		[[nodiscard]]
+		int GetOwnerEntityID() const { return m_OwnerEntityID; }
 		void SetEntity(const int& entityID) { m_OwnerEntityID = entityID; }
 
 		virtual ComponentType GetComponentType() = 0;

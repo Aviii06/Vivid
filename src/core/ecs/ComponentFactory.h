@@ -8,6 +8,9 @@
 
 namespace Vivid
 {
+	/*!
+	 * @brief Contains the strings of all the components.
+	 */
 	const Map<ComponentType, String> g_AllComponentStrings = {
 		{ ComponentType::TransformComponent, "Transform Component" },
 		{ ComponentType::ModelComponent, "Model Component" },

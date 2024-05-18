@@ -45,10 +45,10 @@ public:
 		directionalLightComponent = Vivid::ECS::CreateComponent<Vivid::DirectionalLightComponent>();
 		directionalLightComponent->SetDirection(Vivid::Maths::Vec3(-0.67f, 0.625f, 0.480f));
 
-		Vivid::ECS::AddComponent(modelComponent1->GetComponentID(), suzanne->GetID());
-		Vivid::ECS::AddComponent(sphereTransformComponent->GetComponentID(), suzanne->GetID());
+		Vivid::ECS::AddComponent(modelComponent1->GetComponentID(), suzanne->GetEntityID());
+		Vivid::ECS::AddComponent(sphereTransformComponent->GetComponentID(), suzanne->GetEntityID());
 
-		Vivid::ECS::AddComponent(directionalLightComponent->GetComponentID(), light->GetID());
+		Vivid::ECS::AddComponent(directionalLightComponent->GetComponentID(), light->GetEntityID());
 
 		// Initialize the translations
 		for (unsigned int i = 0; i < number_of_sphere; i++)

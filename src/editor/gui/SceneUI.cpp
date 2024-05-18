@@ -55,7 +55,7 @@ namespace VividGUI
 
 			for (auto& entity : Vivid::ECS::g_Entities)
 			{
-				if (entity.first == m_SelectedEntity->GetID())
+				if (entity.first == m_SelectedEntity->GetEntityID())
 				{
 					continue;
 				}
@@ -90,11 +90,11 @@ namespace VividGUI
 									doesComponentExist = true;
 									continue;
 								}
-								Vivid::ECS::RemoveComponent(component, m_SelectedEntity->GetID());
+								Vivid::ECS::RemoveComponent(component, m_SelectedEntity->GetEntityID());
 							}
 							else
 							{
-								Vivid::ECS::AddComponent(component, m_SelectedEntity->GetID());
+								Vivid::ECS::AddComponent(component, m_SelectedEntity->GetEntityID());
 							}
 						}
 					}

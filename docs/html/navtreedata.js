@@ -44,30 +44,35 @@ var NAVTREE =
           [ "File Dialog Boxes", "index.html#autotoc_md15", null ]
         ] ]
       ] ],
-      [ "Build the Project:", "index.html#autotoc_md16", null ],
-      [ "Running the project:", "index.html#autotoc_md17", null ],
-      [ "Explore and Experiment:", "index.html#autotoc_md18", null ]
+      [ "For Documentation", "index.html#autotoc_md16", null ],
+      [ "Build the Project:", "index.html#autotoc_md17", null ],
+      [ "Running the project:", "index.html#autotoc_md18", null ],
+      [ "Explore and Experiment:", "index.html#autotoc_md19", null ]
     ] ],
-    [ "API", "index.html#autotoc_md19", [
-      [ "Philosophy", "index.html#autotoc_md20", null ],
-      [ "Types of API", "index.html#autotoc_md21", [
-        [ "ECS API", "index.html#autotoc_md22", null ],
-        [ "Rendering 2D/3D APIs", "index.html#autotoc_md23", null ],
-        [ "Mesh API", "index.html#autotoc_md24", null ]
+    [ "API", "index.html#autotoc_md20", [
+      [ "Philosophy", "index.html#autotoc_md21", null ],
+      [ "Types of API", "index.html#autotoc_md22", [
+        [ "ECS API", "index.html#autotoc_md23", null ],
+        [ "Rendering 2D/3D APIs", "index.html#autotoc_md24", null ],
+        [ "Mesh API", "index.html#autotoc_md25", null ]
       ] ],
-      [ "Rendering Interface", "index.html#autotoc_md25", [
-        [ "Setup()", "index.html#autotoc_md26", null ],
-        [ "Draw()", "index.html#autotoc_md27", null ],
-        [ "ImGuiRender()", "index.html#autotoc_md28", null ]
+      [ "Rendering Interface", "index.html#autotoc_md26", [
+        [ "Setup()", "index.html#autotoc_md27", null ],
+        [ "Draw()", "index.html#autotoc_md28", null ],
+        [ "ImGuiRender()", "index.html#autotoc_md29", null ]
       ] ],
-      [ "2D", "index.html#autotoc_md29", null ],
-      [ "3D", "index.html#autotoc_md30", null ]
+      [ "2D", "index.html#autotoc_md30", null ],
+      [ "3D", "index.html#autotoc_md31", null ]
     ] ],
-    [ "Documentation", "index.html#autotoc_md31", null ],
-    [ "License", "index.html#autotoc_md32", null ],
-    [ "assets", "md_src_editor_assets_assets.html", null ],
+    [ "Documentation", "index.html#autotoc_md32", null ],
+    [ "License", "index.html#autotoc_md33", null ],
+    [ "assets", "d2/d54/md_src_editor_assets_assets.html", null ],
     [ "Namespaces", "namespaces.html", [
-      [ "Namespace List", "namespaces.html", null ]
+      [ "Namespace List", "namespaces.html", "namespaces_dup" ],
+      [ "Namespace Members", "namespacemembers.html", [
+        [ "All", "namespacemembers.html", null ],
+        [ "Functions", "namespacemembers_func.html", null ]
+      ] ]
     ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
@@ -86,7 +91,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_application_8cpp_source.html"
+"annotated.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -19,6 +19,7 @@ bool GLLogError(const char* function, const char* file, int line)
 	return true;
 }
 
+/// Standard Error Log
 void ERROR(const char* message)
 {
 	// Error Message in Red

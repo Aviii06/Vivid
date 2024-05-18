@@ -42,10 +42,10 @@ public:
 		//
 
 		sphereTransformComponent->SetScale(Vivid::Maths::Vec3(50.0f, 50.0f, 50.0f));
-		Vivid::ECS::AddComponent(modelComponent1->GetComponentID(), suzanne->GetID());
-		Vivid::ECS::AddComponent(sphereTransformComponent->GetComponentID(), suzanne->GetID());
+		Vivid::ECS::AddComponent(modelComponent1->GetComponentID(), suzanne->GetEntityID());
+		Vivid::ECS::AddComponent(sphereTransformComponent->GetComponentID(), suzanne->GetEntityID());
 
-		Vivid::ECS::AddComponent(directionalLightComponent->GetComponentID(), light->GetID());
+		Vivid::ECS::AddComponent(directionalLightComponent->GetComponentID(), light->GetEntityID());
 	}
 
 	void Draw() override

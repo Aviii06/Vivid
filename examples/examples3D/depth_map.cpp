@@ -39,10 +39,10 @@ public:
 		planeTransformComponent->SetScale(Vivid::Maths::Vec3(50.0f, 50.0f, 50.0f));
 		planeTransformComponent->SetRotation(Vivid::Maths::Vec3(90, 0, 0));
 
-		Vivid::ECS::AddComponent(planeModelComponent->GetComponentID(), plane->GetID());
-		Vivid::ECS::AddComponent(planeTransformComponent->GetComponentID(), plane->GetID());
+		Vivid::ECS::AddComponent(planeModelComponent->GetComponentID(), plane->GetEntityID());
+		Vivid::ECS::AddComponent(planeTransformComponent->GetComponentID(), plane->GetEntityID());
 
-		Vivid::ECS::AddComponent(directionalLightComponent->GetComponentID(), light->GetID());
+		Vivid::ECS::AddComponent(directionalLightComponent->GetComponentID(), light->GetEntityID());
 
 		MovableCamera* cam = static_cast<MovableCamera*>(Application::GetInstance()->GetCamera());
 		cam->SetPosition({ 0.0f, 0.0f, 100.0f });

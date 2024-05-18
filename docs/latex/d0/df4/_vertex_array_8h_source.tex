@@ -1,0 +1,32 @@
+\hypertarget{_vertex_array_8h_source}{}\doxysection{Vertex\+Array.\+h}
+\label{_vertex_array_8h_source}\index{src/core/renderer/VertexArray.h@{src/core/renderer/VertexArray.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_vertex_array_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_vertex_array_8h_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_vertex_array_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}IndexBuffer.h"{}}}
+\DoxyCodeLine{\Hypertarget{_vertex_array_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}VertexBuffer.h"{}}}
+\DoxyCodeLine{\Hypertarget{_vertex_array_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}VertexBufferLayout.h"{}}}
+\DoxyCodeLine{\Hypertarget{_vertex_array_8h_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{_vertex_array_8h_source_l00007}00007\ \textcolor{keyword}{namespace\ }Vivid}
+\DoxyCodeLine{\Hypertarget{_vertex_array_8h_source_l00008}00008\ \{}
+\DoxyCodeLine{\Hypertarget{_vertex_array_8h_source_l00014}\mbox{\hyperlink{class_vivid_1_1_vertex_array}{00014}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_vivid_1_1_vertex_array}{VertexArray}}}
+\DoxyCodeLine{\Hypertarget{_vertex_array_8h_source_l00015}00015\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_vertex_array_8h_source_l00016}00016\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_vertex_array_8h_source_l00017}00017\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ m\_RendererID;}
+\DoxyCodeLine{\Hypertarget{_vertex_array_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{_vertex_array_8h_source_l00019}00019\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_vertex_array_8h_source_l00020}00020\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_vivid_1_1_vertex_array}{VertexArray}}();}
+\DoxyCodeLine{\Hypertarget{_vertex_array_8h_source_l00021}00021\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_vivid_1_1_vertex_array}{\string~VertexArray}}();}
+\DoxyCodeLine{\Hypertarget{_vertex_array_8h_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{_vertex_array_8h_source_l00023}00023\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ Ref<VertexArray>\ Create();}
+\DoxyCodeLine{\Hypertarget{_vertex_array_8h_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{_vertex_array_8h_source_l00025}00025\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ AddVertexBuffer(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_vivid_1_1_vertex_buffer}{VertexBuffer}}\&\ vb,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_vivid_1_1_vertex_buffer_layout}{VertexBufferLayout}}\&\ layout,\ \textcolor{keyword}{const}\ Vector<Vertex>\&\ vertices);}
+\DoxyCodeLine{\Hypertarget{_vertex_array_8h_source_l00026}00026\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ AddIndexBuffer(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_vivid_1_1_index_buffer}{IndexBuffer}}\&\ ib);}
+\DoxyCodeLine{\Hypertarget{_vertex_array_8h_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{_vertex_array_8h_source_l00028}00028\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ Bind()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_vertex_array_8h_source_l00029}00029\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ Unbind()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_vertex_array_8h_source_l00030}00030\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_vertex_array_8h_source_l00031}00031\ \}}
+
+\end{DoxyCode}

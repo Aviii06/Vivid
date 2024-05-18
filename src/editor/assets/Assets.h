@@ -4,9 +4,15 @@
 
 namespace VividGui
 {
+	/*!
+	 * @class Assets
+	 * @brief A class that contains the assets used in the editor.
+	 * @details This class contains the textures used in the editor. The textures are loaded in the constructor. This is a singleton class, so you can get the instance of this class by calling the GetInstance() function.
+	 */
 	class Assets
 	{
 	private:
+		// TODO: Change all the raw pointers to smart pointers.
 		Vivid::Texture* texEdit;
 		Vivid::Texture* texMinus;
 		Vivid::Texture* texPlus;

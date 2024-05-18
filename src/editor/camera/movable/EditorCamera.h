@@ -3,7 +3,13 @@
 #include "editor/camera/movable/MovableCamera.h"
 #include "common/maths/Vec.h"
 
-/// Editor EditorCamera has the ability to move around the scene using WASD keys and mouse in an intuitive way.
+/*!
+ * @class EditorCamera
+ * @brief A class for the EditorCamera.
+ * @details EditorCamera is a camera that can be moved around in the scene.
+ * It can be moved forward, backward, left, right, and can be rotated using the mouse.
+ * It also has a perspective. EditorCamera works on perspective projection and is the default camera for rendering.
+ */
 class EditorCamera : public MovableCamera
 {
 private:
@@ -27,28 +33,20 @@ private:
 	glm::vec2 m_MousePosition = glm::vec2(0.0f, 0.0f);
 
 	void updateCameraVectors();
-
 	void updateProjectionMatrix();
-
 	void updateViewMatrix();
 
 public:
 	EditorCamera() = default;
-
 	EditorCamera(float fov, float aspect, float near, float far);
 
 	float GetYaw() { return m_Yaw; }
-
 	float GetPitch() { return m_Pitch; }
-
 	float GetMovementSpeed() { return m_MovementSpeed; }
-
 	float GetMouseSensitivity() { return m_MouseSensitivity; }
-
 	float GetZoom() { return m_ZoomSensitivity; }
 
 	void SetPerspective(float fov, float aspect, float near, float far);
-
 	void SetViewportSize(int width, int height) override;
 
 	void MoveForward() override;

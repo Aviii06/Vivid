@@ -26,7 +26,7 @@ bool Vivid::ECS::AddComponent(int componentID, int entityID)
 		entity->RemoveComponent(componentID);
 	}
 
-	component->SetEntity(entity->GetID());
+	component->SetEntity(entity->GetEntityID());
 
 	g_Components[componentID] = component;
 	entity->AddComponent(componentID);
@@ -40,7 +40,7 @@ bool Vivid::ECS::RemoveComponent(int componentID, int entityID)
 
 	const int index = g_Entities[entityID]->HasComponent(ct);
 	Ref<Entity> entity = g_Entities[index];
-	component->SetEntity(entity->GetID());
+	component->SetEntity(entity->GetEntityID());
 
 	for (auto&& comp : g_Components)
 	{
@@ -77,13 +77,13 @@ void Vivid::ECS::ImGuiRender()
 Ref<Vivid::Entity> Vivid::ECS::CreateEntity(const String& name)
 {
 	Ref<Entity> entity = MakeRef<Entity>(s_EntityID, name);
-	g_Entities[entity->GetID()] = entity;
+	g_Entities[entity->GetEntityID()] = entity;
 
 	// std::cout << g_Entities[entity->GetID()] << "\n";
 	// std::cout << entity << "\n";
 
 	auto tc = ECS::CreateComponent<TransformComponent>();
-	AddComponent(tc->GetComponentID(), entity->GetID());
+	AddComponent(tc->GetComponentID(), entity->GetEntityID());
 	return entity;
 }
 

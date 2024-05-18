@@ -1,0 +1,44 @@
+\hypertarget{_input_handler_8cpp_source}{}\doxysection{Input\+Handler.\+cpp}
+\label{_input_handler_8cpp_source}\index{src/inputs/InputHandler.cpp@{src/inputs/InputHandler.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_input_handler_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}../editor/Application.h"{}}}
+\DoxyCodeLine{\Hypertarget{_input_handler_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}InputHandler.h"{}}}
+\DoxyCodeLine{\Hypertarget{_input_handler_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}common/maths/Vec.h"{}}}
+\DoxyCodeLine{\Hypertarget{_input_handler_8cpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{_input_handler_8cpp_source_l00005}\mbox{\hyperlink{namespace_input_handler_ad3cab385b3c27bdf1a2697dfd28167d7}{00005}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespace_input_handler_ad3cab385b3c27bdf1a2697dfd28167d7}{InputHandler::IsKeyPressed}}(\textcolor{keywordtype}{int}\ key)}
+\DoxyCodeLine{\Hypertarget{_input_handler_8cpp_source_l00006}00006\ \{}
+\DoxyCodeLine{\Hypertarget{_input_handler_8cpp_source_l00007}00007\ \ \ \ \ GLFWwindow*\ window\ =\ Application::GetInstance()-\/>GetWindow().GetGLFWWindow();}
+\DoxyCodeLine{\Hypertarget{_input_handler_8cpp_source_l00008}00008\ \ \ \ \ \textcolor{keywordtype}{int}\ state\ =\ glfwGetKey(window,\ key);}
+\DoxyCodeLine{\Hypertarget{_input_handler_8cpp_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{_input_handler_8cpp_source_l00010}00010\ \ \ \ \ \textcolor{keywordflow}{return}\ state\ ==\ GLFW\_PRESS\ ||\ state\ ==\ GLFW\_REPEAT;}
+\DoxyCodeLine{\Hypertarget{_input_handler_8cpp_source_l00011}00011\ \}}
+\DoxyCodeLine{\Hypertarget{_input_handler_8cpp_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{_input_handler_8cpp_source_l00013}\mbox{\hyperlink{namespace_input_handler_ae3541936b82f3629fc7c7005ff0868ff}{00013}}\ \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec2}{Vivid::Maths::Vec2}}\ \mbox{\hyperlink{namespace_input_handler_ae3541936b82f3629fc7c7005ff0868ff}{InputHandler::GetMousePosition}}()}
+\DoxyCodeLine{\Hypertarget{_input_handler_8cpp_source_l00014}00014\ \{}
+\DoxyCodeLine{\Hypertarget{_input_handler_8cpp_source_l00015}00015\ \ \ \ \ GLFWwindow*\ window\ =\ Application::GetInstance()-\/>GetWindow().GetGLFWWindow();}
+\DoxyCodeLine{\Hypertarget{_input_handler_8cpp_source_l00016}00016\ \ \ \ \ \textcolor{keywordtype}{double}\ xpos,\ ypos;}
+\DoxyCodeLine{\Hypertarget{_input_handler_8cpp_source_l00017}00017\ \ \ \ \ glfwGetCursorPos(window,\ \&xpos,\ \&ypos);}
+\DoxyCodeLine{\Hypertarget{_input_handler_8cpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{_input_handler_8cpp_source_l00019}00019\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec2}{Vivid::Maths::Vec2}}((\textcolor{keywordtype}{float})xpos,\ (\textcolor{keywordtype}{float})ypos);}
+\DoxyCodeLine{\Hypertarget{_input_handler_8cpp_source_l00020}00020\ \}}
+\DoxyCodeLine{\Hypertarget{_input_handler_8cpp_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{_input_handler_8cpp_source_l00022}\mbox{\hyperlink{namespace_input_handler_a65bedbfaf1a3876f8209885bf0ac182f}{00022}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespace_input_handler_a65bedbfaf1a3876f8209885bf0ac182f}{InputHandler::IsMouseButtonPressed}}(\textcolor{keywordtype}{int}\ button)}
+\DoxyCodeLine{\Hypertarget{_input_handler_8cpp_source_l00023}00023\ \{}
+\DoxyCodeLine{\Hypertarget{_input_handler_8cpp_source_l00024}00024\ \ \ \ \ GLFWwindow*\ window\ =\ Application::GetInstance()-\/>GetWindow().GetGLFWWindow();}
+\DoxyCodeLine{\Hypertarget{_input_handler_8cpp_source_l00025}00025\ \ \ \ \ \textcolor{keywordtype}{int}\ state\ =\ glfwGetMouseButton(window,\ button);}
+\DoxyCodeLine{\Hypertarget{_input_handler_8cpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{_input_handler_8cpp_source_l00027}00027\ \ \ \ \ \textcolor{keywordflow}{return}\ state\ ==\ GLFW\_PRESS;}
+\DoxyCodeLine{\Hypertarget{_input_handler_8cpp_source_l00028}00028\ \}}
+\DoxyCodeLine{\Hypertarget{_input_handler_8cpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{_input_handler_8cpp_source_l00030}\mbox{\hyperlink{namespace_input_handler_a8f1d7fffa606514bb4db9151c51b4e64}{00030}}\ \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec2}{Vivid::Maths::Vec2}}\ \mbox{\hyperlink{namespace_input_handler_a8f1d7fffa606514bb4db9151c51b4e64}{InputHandler::GetMousePositionOnViewport}}()}
+\DoxyCodeLine{\Hypertarget{_input_handler_8cpp_source_l00031}00031\ \{}
+\DoxyCodeLine{\Hypertarget{_input_handler_8cpp_source_l00032}00032\ \ \ \ \ \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec2}{Vivid::Maths::Vec2}}\ mousePos\ =\ \mbox{\hyperlink{namespace_input_handler_ae3541936b82f3629fc7c7005ff0868ff}{GetMousePosition}}();}
+\DoxyCodeLine{\Hypertarget{_input_handler_8cpp_source_l00033}00033\ \ \ \ \ mousePos.x\ -\/=\ Application::GetInstance()-\/>GetWindow().GetViewportPosition().x;}
+\DoxyCodeLine{\Hypertarget{_input_handler_8cpp_source_l00034}00034\ \ \ \ \ mousePos.y\ -\/=\ Application::GetInstance()-\/>GetWindow().GetViewportPosition().y;}
+\DoxyCodeLine{\Hypertarget{_input_handler_8cpp_source_l00035}00035\ \ \ \ \ mousePos.y\ =\ Application::GetInstance()-\/>GetWindow().GetViewportHeight()\ -\/\ mousePos.y;}
+\DoxyCodeLine{\Hypertarget{_input_handler_8cpp_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{_input_handler_8cpp_source_l00037}00037\ \ \ \ \ \textcolor{keywordflow}{return}\ mousePos;}
+\DoxyCodeLine{\Hypertarget{_input_handler_8cpp_source_l00038}00038\ \}}
+
+\end{DoxyCode}
