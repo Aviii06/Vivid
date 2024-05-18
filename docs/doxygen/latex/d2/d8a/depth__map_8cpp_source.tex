@@ -1,0 +1,103 @@
+\hypertarget{depth__map_8cpp_source}{}\doxysection{depth\+\_\+map.\+cpp}
+\label{depth__map_8cpp_source}\index{examples/examples3D/depth\_map.cpp@{examples/examples3D/depth\_map.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}Vivid.h"{}}}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00003}00003\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_example_interface}{ExampleInterface}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_rendering_interface}{RenderingInterface}}}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00004}00004\ \{}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00005}00005\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00006}00006\ \ \ \ \ \mbox{\hyperlink{class_vivid_1_1_mesh}{Vivid::Mesh}}\ lightMesh;}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00007}00007\ \ \ \ \ Ref<Vivid::Shader>\ lightShader;}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00008}00008\ \ \ \ \ Ref<Vivid::Entity>\ plane;}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00009}00009\ \ \ \ \ Ref<Vivid::Entity>\ light;}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00010}00010\ \ \ \ \ Ref<Vivid::ModelComponent>\ planeModelComponent;}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00011}00011\ \ \ \ \ Ref<Vivid::TransformComponent>\ planeTransformComponent;}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00012}00012\ \ \ \ \ \mbox{\hyperlink{class_vivid_1_1_mesh}{Vivid::Mesh}}*\ planeMesh;}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00014}00014\ \ \ \ \ Ref<Vivid::DirectionalLightComponent>\ directionalLightComponent;}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00015}00015\ \ \ \ \ Ref<Vivid::Shader>\ shader;}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00017}00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00018}\mbox{\hyperlink{class_example_interface_a018399e1e0bb21e9edd270c224e2c559}{00018}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_example_interface_a018399e1e0bb21e9edd270c224e2c559}{Setup}}()\textcolor{keyword}{\ override}}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00019}00019\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00021}00021\ \ \ \ \ \ \ \ \ Ref<Vivid::Entity>\ plane\ =\ Vivid::ECS::CreateEntity(\textcolor{stringliteral}{"{}Plane"{}});}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00022}00022\ \ \ \ \ \ \ \ \ Ref<Vivid::Entity>\ light\ =\ Vivid::ECS::CreateEntity(\textcolor{stringliteral}{"{}DirectionalLight"{}});}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00023}00023\ \ \ \ \ \ \ \ \ planeModelComponent\ =\ Vivid::ECS::CreateComponent<Vivid::ModelComponent>();}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00024}00024\ \ \ \ \ \ \ \ \ planeTransformComponent\ =\ Vivid::ECS::CreateComponent<Vivid::TransformComponent>();}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Can\ write\ custom\ opengl\ confs\ here}}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00026}00026\ \ \ \ \ \ \ \ \ OPENGL\_CONFS}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ shader\ =\ MakeRef<Vivid::Shader>(\textcolor{stringliteral}{"{}./../assets/shaders/phong.vertexShader.glsl"{}},}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}./../assets/shaders/phong.pixelShader.glsl"{}});}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ planeMesh\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_vivid_1_1_mesh}{Vivid::Mesh}}(\textcolor{stringliteral}{"{}./../assets/obj/plane.obj"{}});}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ planeMesh-\/>BindShader(shader);}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ planeModelComponent-\/>AddMesh(planeMesh);}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ directionalLightComponent\ =\ Vivid::ECS::CreateComponent<Vivid::DirectionalLightComponent>();}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ directionalLightComponent-\/>SetDirection(\mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Vivid::Maths::Vec3}}(0.0f,\ -\/1.0f,\ 0.0f));}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ planeTransformComponent-\/>SetScale(\mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Vivid::Maths::Vec3}}(50.0f,\ 50.0f,\ 50.0f));}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ planeTransformComponent-\/>SetRotation(\mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Vivid::Maths::Vec3}}(90,\ 0,\ 0));}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ Vivid::ECS::AddComponent(planeModelComponent-\/>GetComponentID(),\ plane-\/>GetEntityID());}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ Vivid::ECS::AddComponent(planeTransformComponent-\/>GetComponentID(),\ plane-\/>GetEntityID());}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ Vivid::ECS::AddComponent(directionalLightComponent-\/>GetComponentID(),\ light-\/>GetEntityID());}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_movable_camera}{MovableCamera}}*\ cam\ =\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{class_movable_camera}{MovableCamera}}*\textcolor{keyword}{>}(Application::GetInstance()-\/>GetCamera());}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ cam-\/>SetPosition(\{\ 0.0f,\ 0.0f,\ 100.0f\ \});}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ cam-\/>MoveBackward();}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ planeMesh-\/>AddTexture(\textcolor{stringliteral}{"{}./../assets/textures/brick\_wall/diffuse.jpg"{}});}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ planeMesh-\/>AddTexture(\textcolor{stringliteral}{"{}./../assets/textures/brick\_wall/displacement.jpg"{}});}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ planeMesh-\/>AddTexture(\textcolor{stringliteral}{"{}./../assets/textures/brick\_wall/normal.jpg"{}});}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ planeMesh-\/>GetTexture(0)-\/>SetName(\textcolor{stringliteral}{"{}DiffuseTexture"{}});}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ planeMesh-\/>GetTexture(1)-\/>SetName(\textcolor{stringliteral}{"{}DepthMap"{}});}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ planeMesh-\/>GetTexture(2)-\/>SetName(\textcolor{stringliteral}{"{}NormalMap"{}});}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00057}00057\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00059}\mbox{\hyperlink{class_example_interface_a716f27ac6d8b23ddab2b612b32873a6a}{00059}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_example_interface_a716f27ac6d8b23ddab2b612b32873a6a}{Draw}}()\textcolor{keyword}{\ override}}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00060}00060\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ Vector<Vivid::DirectionalLightComponent*>\ directionalLights;}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00062}00062\ \ \ \ \ \ \ \ \ Vivid::ECS::GetAllComponents(Vivid::ComponentType::DirectionalLightComponent,\ directionalLights);}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Vivid::Maths::Vec3}}\ lightColor\ =\ directionalLights[0]-\/>GetLightColor();}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ intensity\ =\ directionalLights[0]-\/>GetIntensity();}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Vivid::Maths::Vec3}}\ lightDir\ =\ directionalLights[0]-\/>GetDirection();}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ planeMesh-\/>BindShader(shader);}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ shader-\/>Bind();}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ shader-\/>SetUniform3f(\textcolor{stringliteral}{"{}LightDir"{}},\ lightDir);}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00070}00070\ \ \ \ \ \ \ \ \ shader-\/>SetUniform1f(\textcolor{stringliteral}{"{}LightIntensity"{}},\ intensity);}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00071}00071\ \ \ \ \ \ \ \ \ shader-\/>SetUniform3f(\textcolor{stringliteral}{"{}LightColor"{}},\ lightColor);}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00072}00072\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00074}\mbox{\hyperlink{class_example_interface_a0f11d490442eae550d0a939ad67cd1f9}{00074}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_example_interface_a0f11d490442eae550d0a939ad67cd1f9}{ImGuiRender}}()\textcolor{keyword}{\ override}}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00075}00075\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00076}00076\ \ \ \ \ \ \ \ \ ImGui::Begin(\textcolor{stringliteral}{"{}Debug"{}});}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00078}00078\ \ \ \ \ \ \ \ \ ImGui::Text(\textcolor{stringliteral}{"{}Application\ average\ \%.3f\ ms/frame\ (\%.1f\ FPS)"{}},}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ 1000.0f\ /\ ImGui::GetIO().Framerate,\ ImGui::GetIO().Framerate);}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00081}00081\ \ \ \ \ \ \ \ \ ImGui::End();}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00082}00082\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00083}00083\ \};}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00085}00085\ \mbox{\hyperlink{class_application}{Application}}*\ Vivid::CreateApplication()}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00086}00086\ \{}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00087}00087\ \ \ \ \ \mbox{\hyperlink{class_application}{Application}}*\ app\ =\ Application::GetInstance(1920,\ 1080,\ \textcolor{stringliteral}{"{}Vivid:\ Bump\ Map\ Example"{}});}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00089}00089\ \ \ \ \ app-\/>SetRenderingInterface(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_example_interface}{ExampleInterface}});}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00091}00091\ \ \ \ \ \textcolor{keywordflow}{return}\ app;}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00092}00092\ \}}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00094}00094\ \textcolor{keywordtype}{int}\ main()}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00095}00095\ \{}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00096}00096\ \ \ \ \ \textcolor{keywordflow}{return}\ Vivid::main(0,\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{\Hypertarget{depth__map_8cpp_source_l00097}00097\ \}}
+
+\end{DoxyCode}

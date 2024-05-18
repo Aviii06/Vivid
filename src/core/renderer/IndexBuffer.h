@@ -5,6 +5,11 @@
 
 namespace Vivid
 {
+	/*!
+	 * @class IndexBuffer
+	 * @brief Manages the IndexBuffer. For more information on IndexBuffers, visit https://learnopengl.com/Getting-started/Hello-Triangle Element Buffer Objects.
+	 * @details To create an IndexBuffer use the Create function. It takes in a Vector of unsigned integers that contains the indices and allocates the buffer to the GPU.
+	 */
 	class IndexBuffer
 	{
 	public:
@@ -13,12 +18,10 @@ namespace Vivid
 
 	public:
 		IndexBuffer() = default;
-
 		IndexBuffer(Vector<unsigned int>& indices);
+		~IndexBuffer();
 
 		static Ref<IndexBuffer> Create(Vector<unsigned int>& indices);
-
-		~IndexBuffer();
 
 		void Bind() const;
 

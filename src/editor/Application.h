@@ -10,6 +10,11 @@
 
 #include "inputs/InputHandler.h"
 
+/*!
+ * @class Application
+ * @brief Application class
+ * @details A class that contains functions to create an application, run the application, get the window, get the camera, get the title, set the camera, terminate the application, and set the rendering interface.
+*/
 class VIVAPI Application
 {
 private:

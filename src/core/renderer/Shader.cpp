@@ -14,9 +14,9 @@ namespace Vivid
 	    , m_FilePathPS(filepathPixelShader)
 	    , m_RendererID(0)
 	{
-		ShaderProgramSource source = ParseShader(filepathVertexShader, filepathPixelShader);
+		ShaderProgramSource source = parseShader(filepathVertexShader, filepathPixelShader);
 
-		m_RendererID = CreateShader(source.VertexSource, source.PixelSource);
+		m_RendererID = createShader(source.VertexSource, source.PixelSource);
 
 		GLCall(glUseProgram(m_RendererID));
 
@@ -41,7 +41,7 @@ namespace Vivid
 		GLCall(glUseProgram(0));
 	}
 
-	int Shader::GetUniformLocation(const std::string& name)
+	int Shader::getUniformLocation(const std::string& name)
 	{
 		if (m_UniformLocationCache.find(name) != m_UniformLocationCache.end())
 			return m_UniformLocationCache[name];
@@ -57,32 +57,32 @@ namespace Vivid
 
 	void Shader::SetUniform1i(const std::string& name, int value)
 	{
-		GLCall(glUniform1i(GetUniformLocation(name), value));
+		GLCall(glUniform1i(getUniformLocation(name), value));
 	}
 
 	void Shader::SetUniform1f(const std::string& name, float value)
 	{
-		GLCall(glUniform1f(GetUniformLocation(name), value));
+		GLCall(glUniform1f(getUniformLocation(name), value));
 	}
 
 	void Shader::SetUniform3f(const std::string& name, Maths::Vec3& value)
 	{
-		GLCall(glUniform3f(GetUniformLocation(name), (GLfloat)value.x, (GLfloat)value.y, (GLfloat)value.z));
+		GLCall(glUniform3f(getUniformLocation(name), (GLfloat)value.x, (GLfloat)value.y, (GLfloat)value.z));
 	}
 
 	void Shader::SetUniform4f(const std::string& name, float f0, float f1, float f2, float f3)
 	{
-		GLCall(glUniform4f(GetUniformLocation(name), f0, f1, f2, f3));
+		GLCall(glUniform4f(getUniformLocation(name), f0, f1, f2, f3));
 	}
 
 	void Shader::SetUniform4f(const std::string& name, const glm::vec4& matrix)
 	{
-		GLCall(glUniform4f(GetUniformLocation(name), matrix.x, matrix.y, matrix.z, matrix.w));
+		GLCall(glUniform4f(getUniformLocation(name), matrix.x, matrix.y, matrix.z, matrix.w));
 	}
 
 	void Shader::SetUniformMat4f(const std::string& name, const glm::mat4& matrix)
 	{
-		GLCall(glUniformMatrix4fv(GetUniformLocation(name), 1, GL_FALSE, &matrix[0][0]));
+		GLCall(glUniformMatrix4fv(getUniformLocation(name), 1, GL_FALSE, &matrix[0][0]));
 	}
 
 	enum ShaderType
@@ -93,7 +93,7 @@ namespace Vivid
 	};
 
 	struct ShaderProgramSource
-	Shader::ParseShader(const std::string& filepathVertexShader, const std::string& filepathPixelShader)
+	Shader::parseShader(const std::string& filepathVertexShader, const std::string& filepathPixelShader)
 	{
 		std::ifstream streamVS(filepathVertexShader);
 		std::ifstream streamPS(filepathPixelShader);
@@ -113,7 +113,7 @@ namespace Vivid
 		return { ss[0].str(), ss[1].str() };
 	}
 
-	unsigned int Shader::CompileShader(unsigned int type, const std::string& source)
+	unsigned int Shader::compileShader(unsigned int type, const std::string& source)
 	{
 		GLCall(unsigned int id = glCreateShader(type));
 		const char* src = source.c_str();
@@ -144,11 +144,11 @@ namespace Vivid
 		return id;
 	}
 
-	unsigned int Shader::CreateShader(const std::string& vertexShader, const std::string& pixelShader)
+	unsigned int Shader::createShader(const std::string& vertexShader, const std::string& pixelShader)
 	{
 		unsigned int program = glCreateProgram();
-		unsigned int vs = CompileShader(GL_VERTEX_SHADER, vertexShader);
-		unsigned int ps = CompileShader(GL_FRAGMENT_SHADER, pixelShader);
+		unsigned int vs = compileShader(GL_VERTEX_SHADER, vertexShader);
+		unsigned int ps = compileShader(GL_FRAGMENT_SHADER, pixelShader);
 
 		if (vs == 0 || ps == 0)
 		{

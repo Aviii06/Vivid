@@ -3,10 +3,20 @@
 #include <cmath>
 #include <glm/glm.hpp>
 
-/// Structure to standardize the vertices used in the meshes
-
+/*!
+ * @namespace Maths
+ * @brief Contains many mathamatical quantities like vectors, matrices, etc.
+ * @details Maths is a namespace that contains many mathamatical quantities like vectors, matrices, etc.
+ * These quantities are used in many places in the engine.
+ */
 namespace Vivid::Maths
 {
+	/*!
+	 * @struct Vec4
+	 * @brief Contains a 4D vector.
+	 * @details Vec4 is a struct that contains a 4D vector. It contains x, y, z, and w values.
+	 * This can be used for many purposes like position, color, etc. And supports many operations like addition, multiplication, etc.
+	 */
 	struct Vec4
 	{
 		float x, y, z, w;
@@ -28,10 +38,15 @@ namespace Vivid::Maths
 		}
 
 		Vec4 operator*(float scalar) { return Vec4(x * scalar, y * scalar, z * scalar, w * scalar); }
-
 		Vec4 operator+(Vec4 other) { return Vec4(x + other.x, y + other.y, z + other.z, w + other.w); }
 	};
 
+	/*!
+	 * @struct Vec3
+	 * @brief Contains a 3D vector.
+	 * @details Vec3 is a struct that contains a 3D vector. It contains x, y, and z values.
+	 * This can be used for many purposes like position, color, etc. And supports many operations like addition, multiplication, etc.
+	 */
 	struct Vec3
 	{
 		float x, y, z;
@@ -83,6 +98,12 @@ namespace Vivid::Maths
 		glm::vec3 ToGLM() { return glm::vec3(x, y, z); }
 	};
 
+	/*!
+	 * @struct Vec2
+	 * @brief Contains a 2D vector.
+	 * @details Vec2 is a struct that contains a 2D vector. It contains x and y values.
+	 * This can be used for many purposes like texture coordinates, 2D coordinates etc. And supports many operations like addition, multiplication, etc.
+	 */
 	struct Vec2
 	{
 		float x, y;

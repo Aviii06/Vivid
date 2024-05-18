@@ -1,6 +1,7 @@
 # Vivid
 <img width="1080" alt="Screenshot 2023-02-03 at 4 12 49 PM" src="https://user-images.githubusercontent.com/45993519/218171952-624d8dda-5c49-4fe4-942f-301deaa502f4.png">
-Vivid is an OpenGL-based rendering framework providing an intuitive 2D and 3D rendering API.
+
+[Vivid](github.com/aviii06/vivid) is an OpenGL-based rendering framework providing an intuitive 2D and 3D rendering API.
 
 # Features
 **Shader-Based Rendering**: The renderer utilizes the power of shaders to achieve real-time rendering with support for vertex, fragment, and geometry shaders. This allows for flexible and efficient customization of the rendering pipeline.
@@ -70,6 +71,9 @@ Here is a checklist of dependencies for different operating systems:
 #### File Dialog Boxes
 - On Windows (both MSVC and MinGW), ensure you are building against ole32.lib, uuid.lib, and shell32.lib.
 
+## For Documentation
+`Doxygen` is used along with `graphviz` and `umlet`.
+
 ## Build the Project: 
 Use the provided build system (CMake, Makefile, etc.) to build the renderer. Make sure to configure the build with the appropriate settings for your system.
 ```bash
@@ -95,8 +99,16 @@ This provides a multitude of different rendering APIs all with different levels 
 ## Types of API
 
 ### ECS API
-This API provides a complete entity-component-based architecture. You can initialise an entity and give it many components and they all get rendered automatically.
+This API provides a complete entity-component-based architecture.
+You can initialise an entity and give it many components and they 
+all get rendered automatically. 
+This is useful for creating complex scenes with many objects.
+
+For more information go to the [ECS API](docs/ECS.md)
+
 ![Screenshot 2023-08-29 at 8 57 21 PM](https://github.com/Aviii06/Vivid/assets/45993519/d674cba6-3b2b-421c-9a58-31ac616295e6)
+
+
 
 
 ### Rendering 2D/3D APIs

@@ -6,12 +6,8 @@
 namespace VividGUI
 {
 	void InitUI();
-
 	void DockConfig();
-
 	void InitDock();
-
 	void Draw();
-
 	void EndUI();
 };

@@ -1,0 +1,38 @@
+\hypertarget{_movable_camera_8h_source}{}\doxysection{Movable\+Camera.\+h}
+\label{_movable_camera_8h_source}\index{src/editor/camera/movable/MovableCamera.h@{src/editor/camera/movable/MovableCamera.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_movable_camera_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_movable_camera_8h_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_movable_camera_8h_source_l00003}00003\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_movable_camera_8h_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{_movable_camera_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}editor/camera/Camera.h"{}}}
+\DoxyCodeLine{\Hypertarget{_movable_camera_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}common/maths/Vec.h"{}}}
+\DoxyCodeLine{\Hypertarget{_movable_camera_8h_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_movable_camera_8h_source_l00014}\mbox{\hyperlink{class_movable_camera}{00014}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_movable_camera}{MovableCamera}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_camera}{Camera}}}
+\DoxyCodeLine{\Hypertarget{_movable_camera_8h_source_l00015}00015\ \{}
+\DoxyCodeLine{\Hypertarget{_movable_camera_8h_source_l00016}00016\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{_movable_camera_8h_source_l00017}00017\ \ \ \ \ \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Vivid::Maths::Vec3}}\ m\_Position;}
+\DoxyCodeLine{\Hypertarget{_movable_camera_8h_source_l00018}00018\ \ \ \ \ glm::mat4\ m\_ProjectionMatrix;}
+\DoxyCodeLine{\Hypertarget{_movable_camera_8h_source_l00019}00019\ \ \ \ \ glm::mat4\ m\_ViewMatrix;}
+\DoxyCodeLine{\Hypertarget{_movable_camera_8h_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{_movable_camera_8h_source_l00021}00021\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_movable_camera_8h_source_l00022}00022\ \ \ \ \ glm::vec3\ GetPosition()\ \{\ \textcolor{keywordflow}{return}\ m\_Position.ToGLM();\ \}}
+\DoxyCodeLine{\Hypertarget{_movable_camera_8h_source_l00023}00023\ \ \ \ \ glm::mat4\ GetViewMatrix()\ \{\ \textcolor{keywordflow}{return}\ m\_ViewMatrix;\ \};}
+\DoxyCodeLine{\Hypertarget{_movable_camera_8h_source_l00024}00024\ \ \ \ \ glm::mat4\ GetProjectionMatrix()\ \{\ \textcolor{keywordflow}{return}\ m\_ProjectionMatrix;\ \};}
+\DoxyCodeLine{\Hypertarget{_movable_camera_8h_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{_movable_camera_8h_source_l00026}00026\ \ \ \ \ \textcolor{keywordtype}{void}\ SetPosition(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Vivid::Maths::Vec3}}\&\ position)\ \{\ m\_Position\ =\ position;\ \};}
+\DoxyCodeLine{\Hypertarget{_movable_camera_8h_source_l00027}00027\ \ \ \ \ \textcolor{keywordtype}{void}\ SetPerspective(\textcolor{keyword}{const}\ glm::mat4\&\ perspective)\ \{\ m\_ProjectionMatrix\ =\ perspective;\ \};}
+\DoxyCodeLine{\Hypertarget{_movable_camera_8h_source_l00028}00028\ \ \ \ \ \textcolor{keywordtype}{void}\ SetViewMatrix(\textcolor{keyword}{const}\ glm::mat4\&\ view)\ \{\ m\_ViewMatrix\ =\ view;\ \};}
+\DoxyCodeLine{\Hypertarget{_movable_camera_8h_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{_movable_camera_8h_source_l00030}00030\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ SetViewportSize(\textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height)\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_movable_camera_8h_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{_movable_camera_8h_source_l00032}00032\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ MoveForward()\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_movable_camera_8h_source_l00033}00033\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ MoveBackward()\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_movable_camera_8h_source_l00034}00034\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ MoveLeft()\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_movable_camera_8h_source_l00035}00035\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ MoveRight()\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_movable_camera_8h_source_l00036}00036\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ ProcessMouseScroll(\textcolor{keywordtype}{float}\ scrollOffset)\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_movable_camera_8h_source_l00037}00037\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ ProcessMouseMovement(\textcolor{keywordtype}{float}\ xOffset,\ \textcolor{keywordtype}{float}\ yOffset,\ \textcolor{keywordtype}{bool}\ constrainPitch\ =\ \textcolor{keyword}{true})\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_movable_camera_8h_source_l00038}00038\ \};}
+
+\end{DoxyCode}

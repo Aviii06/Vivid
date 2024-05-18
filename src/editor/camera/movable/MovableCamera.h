@@ -5,7 +5,12 @@
 #include "editor/camera/Camera.h"
 #include "common/maths/Vec.h"
 
-/// Editor EditorCamera has the ability to move around the scene using WASD keys and mouse in an intuitive way.
+/*!
+ * @class MovableCamera
+ * @brief A class for the MovableCamera's.
+ * @details MovableCamera is a camera that can be moved around in the scene.
+ * It can be moved forward, backward, left, right, and can be rotated using the mouse.
+ */
 class MovableCamera : public Camera
 {
 protected:
@@ -15,16 +20,12 @@ protected:
 
 public:
 	glm::vec3 GetPosition() { return m_Position.ToGLM(); }
-
 	glm::mat4 GetViewMatrix() { return m_ViewMatrix; };
-
 	glm::mat4 GetProjectionMatrix() { return m_ProjectionMatrix; };
 
-	void SetPerspective(glm::mat4 perspective) { m_ProjectionMatrix = perspective; };
-
-	void SetViewMatrix(glm::mat4 view) { m_ViewMatrix = view; };
-
 	void SetPosition(const Vivid::Maths::Vec3& position) { m_Position = position; };
+	void SetPerspective(const glm::mat4& perspective) { m_ProjectionMatrix = perspective; };
+	void SetViewMatrix(const glm::mat4& view) { m_ViewMatrix = view; };
 
 	virtual void SetViewportSize(int width, int height) = 0;
 

@@ -4,6 +4,11 @@
 #include "imgui/imgui/backends/imgui_impl_glfw.h"
 #include "imgui/imgui/backends/imgui_impl_opengl3.h"
 
+/*!
+ * @namespace VividGUI
+ * @brief VividGUI namespace
+ * @details A namespace that contains GUI related helper tools.
+*/
 namespace VividGUI
 {
 	static bool opt_fullscreen = true;

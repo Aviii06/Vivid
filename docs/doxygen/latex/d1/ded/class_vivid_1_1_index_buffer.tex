@@ -1,0 +1,138 @@
+\hypertarget{class_vivid_1_1_index_buffer}{}\doxysection{Vivid\+::Index\+Buffer Class Reference}
+\label{class_vivid_1_1_index_buffer}\index{Vivid::IndexBuffer@{Vivid::IndexBuffer}}
+
+
+Manages the \mbox{\hyperlink{class_vivid_1_1_index_buffer}{Index\+Buffer}}. For more information on Index\+Buffers, visit \href{https://learnopengl.com/Getting-started/Hello-Triangle}{\texttt{ https\+://learnopengl.\+com/\+Getting-\/started/\+Hello-\/\+Triangle}} Element Buffer Objects.  
+
+
+
+
+{\ttfamily \#include $<$Index\+Buffer.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_vivid_1_1_index_buffer_a89fb7fb954ff7d37d30a050180931de2}{Index\+Buffer}} (Vector$<$ unsigned int $>$ \&indices)
+\item 
+void \mbox{\hyperlink{class_vivid_1_1_index_buffer_a76f7cd6bbcc1ed6ded17ecfa6ebbb491}{Bind}} () const
+\item 
+void \mbox{\hyperlink{class_vivid_1_1_index_buffer_a110596952c86a964affb66e61fd71a80}{Unbind}} () const
+\item 
+unsigned int \mbox{\hyperlink{class_vivid_1_1_index_buffer_a0693d9c9e50393f36cf40efec45a9896}{Get\+Count}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static Ref$<$ \mbox{\hyperlink{class_vivid_1_1_index_buffer}{Index\+Buffer}} $>$ \mbox{\hyperlink{class_vivid_1_1_index_buffer_a742107c27ef19e06925c48700fd5e669}{Create}} (Vector$<$ unsigned int $>$ \&indices)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+unsigned int \mbox{\hyperlink{class_vivid_1_1_index_buffer_a410d18fb97c56ff32410fc7b1dab9cf6}{m\+\_\+\+Renderer\+ID}}
+\item 
+unsigned int \mbox{\hyperlink{class_vivid_1_1_index_buffer_a355f1947c98f148c4cec3b83e3feba16}{m\+\_\+\+Count}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manages the \mbox{\hyperlink{class_vivid_1_1_index_buffer}{Index\+Buffer}}. For more information on Index\+Buffers, visit \href{https://learnopengl.com/Getting-started/Hello-Triangle}{\texttt{ https\+://learnopengl.\+com/\+Getting-\/started/\+Hello-\/\+Triangle}} Element Buffer Objects. 
+
+To create an \mbox{\hyperlink{class_vivid_1_1_index_buffer}{Index\+Buffer}} use the Create function. It takes in a Vector of unsigned integers that contains the indices and allocates the buffer to the GPU. 
+
+Definition at line \mbox{\hyperlink{_index_buffer_8h_source_l00013}{13}} of file \mbox{\hyperlink{_index_buffer_8h_source}{Index\+Buffer.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_vivid_1_1_index_buffer_a89fb7fb954ff7d37d30a050180931de2}\label{class_vivid_1_1_index_buffer_a89fb7fb954ff7d37d30a050180931de2}} 
+\index{Vivid::IndexBuffer@{Vivid::IndexBuffer}!IndexBuffer@{IndexBuffer}}
+\index{IndexBuffer@{IndexBuffer}!Vivid::IndexBuffer@{Vivid::IndexBuffer}}
+\doxysubsubsection{\texorpdfstring{IndexBuffer()}{IndexBuffer()}}
+{\footnotesize\ttfamily Vivid\+::\+Index\+Buffer\+::\+Index\+Buffer (\begin{DoxyParamCaption}\item[{Vector$<$ unsigned int $>$ \&}]{indices }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_index_buffer_8cpp_source_l00006}{6}} of file \mbox{\hyperlink{_index_buffer_8cpp_source}{Index\+Buffer.\+cpp}}.
+
+\mbox{\Hypertarget{class_vivid_1_1_index_buffer_a324e9a4eef7c8cbe55693417f7a31252}\label{class_vivid_1_1_index_buffer_a324e9a4eef7c8cbe55693417f7a31252}} 
+\index{Vivid::IndexBuffer@{Vivid::IndexBuffer}!````~IndexBuffer@{$\sim$IndexBuffer}}
+\index{````~IndexBuffer@{$\sim$IndexBuffer}!Vivid::IndexBuffer@{Vivid::IndexBuffer}}
+\doxysubsubsection{\texorpdfstring{$\sim$IndexBuffer()}{~IndexBuffer()}}
+{\footnotesize\ttfamily Vivid\+::\+Index\+Buffer\+::$\sim$\+Index\+Buffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_index_buffer_8cpp_source_l00015}{15}} of file \mbox{\hyperlink{_index_buffer_8cpp_source}{Index\+Buffer.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_vivid_1_1_index_buffer_a76f7cd6bbcc1ed6ded17ecfa6ebbb491}\label{class_vivid_1_1_index_buffer_a76f7cd6bbcc1ed6ded17ecfa6ebbb491}} 
+\index{Vivid::IndexBuffer@{Vivid::IndexBuffer}!Bind@{Bind}}
+\index{Bind@{Bind}!Vivid::IndexBuffer@{Vivid::IndexBuffer}}
+\doxysubsubsection{\texorpdfstring{Bind()}{Bind()}}
+{\footnotesize\ttfamily void Vivid\+::\+Index\+Buffer\+::\+Bind (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{_index_buffer_8cpp_source_l00020}{20}} of file \mbox{\hyperlink{_index_buffer_8cpp_source}{Index\+Buffer.\+cpp}}.
+
+\mbox{\Hypertarget{class_vivid_1_1_index_buffer_a742107c27ef19e06925c48700fd5e669}\label{class_vivid_1_1_index_buffer_a742107c27ef19e06925c48700fd5e669}} 
+\index{Vivid::IndexBuffer@{Vivid::IndexBuffer}!Create@{Create}}
+\index{Create@{Create}!Vivid::IndexBuffer@{Vivid::IndexBuffer}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily Ref$<$ \mbox{\hyperlink{class_vivid_1_1_index_buffer}{Index\+Buffer}} $>$ Vivid\+::\+Index\+Buffer\+::\+Create (\begin{DoxyParamCaption}\item[{Vector$<$ unsigned int $>$ \&}]{indices }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_index_buffer_8cpp_source_l00030}{30}} of file \mbox{\hyperlink{_index_buffer_8cpp_source}{Index\+Buffer.\+cpp}}.
+
+\mbox{\Hypertarget{class_vivid_1_1_index_buffer_a0693d9c9e50393f36cf40efec45a9896}\label{class_vivid_1_1_index_buffer_a0693d9c9e50393f36cf40efec45a9896}} 
+\index{Vivid::IndexBuffer@{Vivid::IndexBuffer}!GetCount@{GetCount}}
+\index{GetCount@{GetCount}!Vivid::IndexBuffer@{Vivid::IndexBuffer}}
+\doxysubsubsection{\texorpdfstring{GetCount()}{GetCount()}}
+{\footnotesize\ttfamily unsigned int Vivid\+::\+Index\+Buffer\+::\+Get\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_index_buffer_8h_source_l00030}{30}} of file \mbox{\hyperlink{_index_buffer_8h_source}{Index\+Buffer.\+h}}.
+
+\mbox{\Hypertarget{class_vivid_1_1_index_buffer_a110596952c86a964affb66e61fd71a80}\label{class_vivid_1_1_index_buffer_a110596952c86a964affb66e61fd71a80}} 
+\index{Vivid::IndexBuffer@{Vivid::IndexBuffer}!Unbind@{Unbind}}
+\index{Unbind@{Unbind}!Vivid::IndexBuffer@{Vivid::IndexBuffer}}
+\doxysubsubsection{\texorpdfstring{Unbind()}{Unbind()}}
+{\footnotesize\ttfamily void Vivid\+::\+Index\+Buffer\+::\+Unbind (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{_index_buffer_8cpp_source_l00025}{25}} of file \mbox{\hyperlink{_index_buffer_8cpp_source}{Index\+Buffer.\+cpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_vivid_1_1_index_buffer_a355f1947c98f148c4cec3b83e3feba16}\label{class_vivid_1_1_index_buffer_a355f1947c98f148c4cec3b83e3feba16}} 
+\index{Vivid::IndexBuffer@{Vivid::IndexBuffer}!m\_Count@{m\_Count}}
+\index{m\_Count@{m\_Count}!Vivid::IndexBuffer@{Vivid::IndexBuffer}}
+\doxysubsubsection{\texorpdfstring{m\_Count}{m\_Count}}
+{\footnotesize\ttfamily unsigned int Vivid\+::\+Index\+Buffer\+::m\+\_\+\+Count}
+
+
+
+Definition at line \mbox{\hyperlink{_index_buffer_8h_source_l00017}{17}} of file \mbox{\hyperlink{_index_buffer_8h_source}{Index\+Buffer.\+h}}.
+
+\mbox{\Hypertarget{class_vivid_1_1_index_buffer_a410d18fb97c56ff32410fc7b1dab9cf6}\label{class_vivid_1_1_index_buffer_a410d18fb97c56ff32410fc7b1dab9cf6}} 
+\index{Vivid::IndexBuffer@{Vivid::IndexBuffer}!m\_RendererID@{m\_RendererID}}
+\index{m\_RendererID@{m\_RendererID}!Vivid::IndexBuffer@{Vivid::IndexBuffer}}
+\doxysubsubsection{\texorpdfstring{m\_RendererID}{m\_RendererID}}
+{\footnotesize\ttfamily unsigned int Vivid\+::\+Index\+Buffer\+::m\+\_\+\+Renderer\+ID}
+
+
+
+Definition at line \mbox{\hyperlink{_index_buffer_8h_source_l00016}{16}} of file \mbox{\hyperlink{_index_buffer_8h_source}{Index\+Buffer.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/core/renderer/Index\+Buffer.\+h\item 
+src/core/renderer/Index\+Buffer.\+cpp\end{DoxyCompactItemize}
