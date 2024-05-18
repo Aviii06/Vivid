@@ -7,6 +7,4 @@ digraph "Vivid::PointLightComponent"
   Node1 [label="Vivid::PointLightComponent",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
   Node2 -> Node1 [dir="back",color="steelblue1",style="solid"];
   Node2 [label="Vivid::Component",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",URL="$class_vivid_1_1_component.html",tooltip=" "];
-  Node3 -> Node2 [dir="back",color="darkorchid3",style="dashed",label=" m_Entity" ];
-  Node3 [label="Vivid::Entity",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",URL="$class_vivid_1_1_entity.html",tooltip=" "];
 }

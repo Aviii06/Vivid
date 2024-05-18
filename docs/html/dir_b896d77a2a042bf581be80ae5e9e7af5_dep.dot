@@ -7,6 +7,10 @@ digraph "src/editor/camera"
   compound=true
   subgraph clusterdir_a31afd56823c6335224242a3eb4525db {
     graph [ bgcolor="#daedff", pencolor="grey50", label="editor", fontname=Helvetica,fontsize=10 style="filled,dashed", URL="dir_a31afd56823c6335224242a3eb4525db.html",tooltip=""]
-  dir_b896d77a2a042bf581be80ae5e9e7af5 [label="camera", fillcolor="#daedff", color="grey25", style="filled,bold", URL="dir_b896d77a2a042bf581be80ae5e9e7af5.html",tooltip=""];
+  subgraph clusterdir_b896d77a2a042bf581be80ae5e9e7af5 {
+    graph [ bgcolor="#daedff", pencolor="grey25", label="", fontname=Helvetica,fontsize=10 style="filled,bold", URL="dir_b896d77a2a042bf581be80ae5e9e7af5.html",tooltip=""]
+    dir_b896d77a2a042bf581be80ae5e9e7af5 [shape=plaintext, label="camera"];
+  dir_a41fb81ee478df31df3b8ab589557ab7 [label="movable", fillcolor="#4ea9ff", color="grey25", style="filled", URL="dir_a41fb81ee478df31df3b8ab589557ab7.html",tooltip=""];
+  }
   }
 }

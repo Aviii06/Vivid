@@ -11,27 +11,66 @@ Collaboration diagram for Ortho\+Camera\+:
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_ortho_camera_a6ff0478f861c7120bbc206bbeed2b9e5}{Ortho\+Camera}} (float left, float right, float bottom, float top)
-\item 
-void \mbox{\hyperlink{class_ortho_camera_a61bc71417e0a62f1db9b5e661d0cc93f}{Set\+Position}} (const \mbox{\hyperlink{struct_vec3}{Vec3}} \&position)
+\mbox{\hyperlink{class_ortho_camera_a5045a1e888420f44a40a66c85d978e0d}{Ortho\+Camera}} (\mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Vivid\+::\+Maths\+::\+Vec3}} position, float rotation, float zoom\+Level, float near=-\/1.\+0f, float far=1.\+0f)
 \item 
 void \mbox{\hyperlink{class_ortho_camera_a63c8cd32c4dd2031aeb2abf54cd43c9a}{Set\+Rotation}} (float rotation)
-\item 
-\mbox{\hyperlink{struct_vec3}{Vec3}} \mbox{\hyperlink{class_ortho_camera_a561b0b10432926b4552b4f7b50664eeb}{Get\+Position}} () const
 \item 
 float \mbox{\hyperlink{class_ortho_camera_ad1c3c69d8c14d31ed9ee26526b766608}{Get\+Rotation}} () const
 \item 
 void \mbox{\hyperlink{class_ortho_camera_a703cc45265d921194d306ade0c167ebf}{Set\+Perspective}} (float left, float right, float bottom, float top)
 \item 
-glm\+::mat4 \mbox{\hyperlink{class_ortho_camera_a3bb1129902e59ad569b78c35084fc008}{Get\+View\+Matrix}} () override
-\item 
-glm\+::mat4 \mbox{\hyperlink{class_ortho_camera_a61071e3086ded66dab3dac618bccc5e6}{Get\+Projection\+Matrix}} () override
-\item 
-void \mbox{\hyperlink{class_ortho_camera_aad2e8164265ae0d8609043ceefe6d662}{Set\+Perspective}} (glm\+::mat4 perspective) override
-\item 
-void \mbox{\hyperlink{class_ortho_camera_a05ec2f3c5207ddd49a851a2e9fd9dce2}{Set\+View\+Matrix}} (glm\+::mat4 view) override
+\mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec4}{Vivid\+::\+Maths\+::\+Vec4}} \mbox{\hyperlink{class_ortho_camera_a2a56be6f33fc6b825d3cb792e66b9d85}{Get\+Bounds}} ()
 \item 
 void \mbox{\hyperlink{class_ortho_camera_a3558c72554765bb41a2d610ceb01a01a}{Set\+Viewport\+Size}} (int width, int height) override
+\item 
+void \mbox{\hyperlink{class_ortho_camera_a731777ccfbab6130a53711e974fbcc2d}{Move\+Forward}} () override
+\item 
+void \mbox{\hyperlink{class_ortho_camera_a8637b8debda9d8b47872b48cd540d250}{Move\+Backward}} () override
+\item 
+void \mbox{\hyperlink{class_ortho_camera_a0e0159efed2addeb39afda577f5a1c0d}{Move\+Left}} () override
+\item 
+void \mbox{\hyperlink{class_ortho_camera_adcbd2dd8d21a78eace8086940890706d}{Move\+Right}} () override
+\item 
+void \mbox{\hyperlink{class_ortho_camera_ace84242636f724a88c160d9d0a190555}{Process\+Mouse\+Scroll}} (float scroll\+Offset) override
+\item 
+void \mbox{\hyperlink{class_ortho_camera_adeb674f1f87ffe4ff81a172464f3b27a}{Process\+Mouse\+Movement}} (float x\+Offset, float y\+Offset, bool constrain\+Pitch) override
+\item 
+\mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec2}{Vivid\+::\+Maths\+::\+Vec2}} \mbox{\hyperlink{class_ortho_camera_ab648a2bc80e77da3bfe52fefaea47405}{Screen\+To\+World\+Coords}} (float x, float y)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_movable_camera}{Movable\+Camera}}}
+\begin{DoxyCompactItemize}
+\item 
+glm\+::vec3 \mbox{\hyperlink{class_movable_camera_a2bad3b5d729240c5f8630c95310c9296}{Get\+Position}} ()
+\item 
+glm\+::mat4 \mbox{\hyperlink{class_movable_camera_ad1ea90f2bb04dab95213d7bf990982dd}{Get\+View\+Matrix}} ()
+\item 
+glm\+::mat4 \mbox{\hyperlink{class_movable_camera_a9a8579d27e810369a628e8be63593618}{Get\+Projection\+Matrix}} ()
+\item 
+void \mbox{\hyperlink{class_movable_camera_a317b118a8f78904f7df1006ad26d909e}{Set\+Perspective}} (glm\+::mat4 perspective)
+\item 
+void \mbox{\hyperlink{class_movable_camera_ad180da003495f5c51fc12c2773fdf52e}{Set\+View\+Matrix}} (glm\+::mat4 view)
+\item 
+void \mbox{\hyperlink{class_movable_camera_a2c6f8f643b7ab8c5822ca873d5ef4baa}{Set\+Position}} (const \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Vivid\+::\+Maths\+::\+Vec3}} \&position)
+\item 
+virtual void \mbox{\hyperlink{class_movable_camera_a75d7880f026d3bc402aeb37101d6022a}{Set\+Viewport\+Size}} (int width, int height)=0
+\item 
+\mbox{\Hypertarget{class_movable_camera_a49adf1255f453fc5ba70089c49d872d3}\label{class_movable_camera_a49adf1255f453fc5ba70089c49d872d3}} 
+virtual void {\bfseries Move\+Forward} ()=0
+\item 
+\mbox{\Hypertarget{class_movable_camera_a1cf3971390aedaa1483dff3e5a036b1a}\label{class_movable_camera_a1cf3971390aedaa1483dff3e5a036b1a}} 
+virtual void {\bfseries Move\+Backward} ()=0
+\item 
+\mbox{\Hypertarget{class_movable_camera_a99b73e3be7759f1880c94820de97f54c}\label{class_movable_camera_a99b73e3be7759f1880c94820de97f54c}} 
+virtual void {\bfseries Move\+Left} ()=0
+\item 
+\mbox{\Hypertarget{class_movable_camera_a09bbf206a64a13c53da465adafa092c7}\label{class_movable_camera_a09bbf206a64a13c53da465adafa092c7}} 
+virtual void {\bfseries Move\+Right} ()=0
+\item 
+\mbox{\Hypertarget{class_movable_camera_a1f665c07a165f3b2ac68249f362dfa2d}\label{class_movable_camera_a1f665c07a165f3b2ac68249f362dfa2d}} 
+virtual void {\bfseries Process\+Mouse\+Scroll} (float scroll\+Offset)=0
+\item 
+\mbox{\Hypertarget{class_movable_camera_ae85a4ec4a76274e324bee946e9571d45}\label{class_movable_camera_ae85a4ec4a76274e324bee946e9571d45}} 
+virtual void {\bfseries Process\+Mouse\+Movement} (float x\+Offset, float y\+Offset, bool constrain\+Pitch=true)=0
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_camera}{Camera}}}
 \begin{DoxyCompactItemize}
@@ -56,12 +95,21 @@ int \mbox{\hyperlink{class_camera_acc055e418f536dd58239c29101759e18}{Get\+Viewpo
 int \mbox{\hyperlink{class_camera_a54235e2b3ae188c2e1576a54b319b9d6}{Get\+Viewport\+Height}} ()
 \end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
+\doxysubsubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_movable_camera}{Movable\+Camera}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Vivid\+::\+Maths\+::\+Vec3}} \mbox{\hyperlink{class_movable_camera_ac652a80f23db5ca9d4041dce5720153c}{m\+\_\+\+Position}}
+\item 
+glm\+::mat4 \mbox{\hyperlink{class_movable_camera_a24d94c7f84b96de3a55086853b32ade6}{m\+\_\+\+Projection\+Matrix}}
+\item 
+glm\+::mat4 \mbox{\hyperlink{class_movable_camera_a91e8cbb700654f80cb876e3e079e61cf}{m\+\_\+\+View\+Matrix}}
+\end{DoxyCompactItemize}
 \doxysubsubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_camera}{Camera}}}
 \begin{DoxyCompactItemize}
 \item 
-int \mbox{\hyperlink{class_camera_a871e9f504a885886552348249132c8cd}{m\+\_\+\+Viewport\+Width}}
+int \mbox{\hyperlink{class_camera_a871e9f504a885886552348249132c8cd}{m\+\_\+\+Viewport\+Width}} = 1920
 \item 
-int \mbox{\hyperlink{class_camera_a2fbbaa5fcf32be00a5f898769e3d92dd}{m\+\_\+\+Viewport\+Height}}
+int \mbox{\hyperlink{class_camera_a2fbbaa5fcf32be00a5f898769e3d92dd}{m\+\_\+\+Viewport\+Height}} = 1080
 \end{DoxyCompactItemize}
 
 
@@ -73,42 +121,28 @@ Definition at line \mbox{\hyperlink{_ortho_camera_8h_source_l00006}{6}} of file 
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{class_ortho_camera_a6ff0478f861c7120bbc206bbeed2b9e5}\label{class_ortho_camera_a6ff0478f861c7120bbc206bbeed2b9e5}} 
+\mbox{\Hypertarget{class_ortho_camera_a5045a1e888420f44a40a66c85d978e0d}\label{class_ortho_camera_a5045a1e888420f44a40a66c85d978e0d}} 
 \index{OrthoCamera@{OrthoCamera}!OrthoCamera@{OrthoCamera}}
 \index{OrthoCamera@{OrthoCamera}!OrthoCamera@{OrthoCamera}}
 \doxysubsubsection{\texorpdfstring{OrthoCamera()}{OrthoCamera()}}
-{\footnotesize\ttfamily Ortho\+Camera\+::\+Ortho\+Camera (\begin{DoxyParamCaption}\item[{float}]{left,  }\item[{float}]{right,  }\item[{float}]{bottom,  }\item[{float}]{top }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Ortho\+Camera\+::\+Ortho\+Camera (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Vivid\+::\+Maths\+::\+Vec3}}}]{position,  }\item[{float}]{rotation,  }\item[{float}]{zoom\+Level,  }\item[{float}]{near = {\ttfamily -\/1.0f},  }\item[{float}]{far = {\ttfamily 1.0f} }\end{DoxyParamCaption})}
 
 
 
-Definition at line \mbox{\hyperlink{_ortho_camera_8cpp_source_l00003}{3}} of file \mbox{\hyperlink{_ortho_camera_8cpp_source}{Ortho\+Camera.\+cpp}}.
+Definition at line \mbox{\hyperlink{_ortho_camera_8cpp_source_l00006}{6}} of file \mbox{\hyperlink{_ortho_camera_8cpp_source}{Ortho\+Camera.\+cpp}}.
 
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_ortho_camera_a561b0b10432926b4552b4f7b50664eeb}\label{class_ortho_camera_a561b0b10432926b4552b4f7b50664eeb}} 
-\index{OrthoCamera@{OrthoCamera}!GetPosition@{GetPosition}}
-\index{GetPosition@{GetPosition}!OrthoCamera@{OrthoCamera}}
-\doxysubsubsection{\texorpdfstring{GetPosition()}{GetPosition()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_vec3}{Vec3}} Ortho\+Camera\+::\+Get\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+\mbox{\Hypertarget{class_ortho_camera_a2a56be6f33fc6b825d3cb792e66b9d85}\label{class_ortho_camera_a2a56be6f33fc6b825d3cb792e66b9d85}} 
+\index{OrthoCamera@{OrthoCamera}!GetBounds@{GetBounds}}
+\index{GetBounds@{GetBounds}!OrthoCamera@{OrthoCamera}}
+\doxysubsubsection{\texorpdfstring{GetBounds()}{GetBounds()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec4}{Vivid\+::\+Maths\+::\+Vec4}} Ortho\+Camera\+::\+Get\+Bounds (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Definition at line \mbox{\hyperlink{_ortho_camera_8h_source_l00026}{26}} of file \mbox{\hyperlink{_ortho_camera_8h_source}{Ortho\+Camera.\+h}}.
-
-\mbox{\Hypertarget{class_ortho_camera_a61071e3086ded66dab3dac618bccc5e6}\label{class_ortho_camera_a61071e3086ded66dab3dac618bccc5e6}} 
-\index{OrthoCamera@{OrthoCamera}!GetProjectionMatrix@{GetProjectionMatrix}}
-\index{GetProjectionMatrix@{GetProjectionMatrix}!OrthoCamera@{OrthoCamera}}
-\doxysubsubsection{\texorpdfstring{GetProjectionMatrix()}{GetProjectionMatrix()}}
-{\footnotesize\ttfamily glm\+::mat4 Ortho\+Camera\+::\+Get\+Projection\+Matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
-
-
-
-Implements \mbox{\hyperlink{class_camera}{Camera}}.
-
-
-
-Definition at line \mbox{\hyperlink{_ortho_camera_8h_source_l00034}{34}} of file \mbox{\hyperlink{_ortho_camera_8h_source}{Ortho\+Camera.\+h}}.
+Definition at line \mbox{\hyperlink{_ortho_camera_8h_source_l00037}{37}} of file \mbox{\hyperlink{_ortho_camera_8h_source}{Ortho\+Camera.\+h}}.
 
 \mbox{\Hypertarget{class_ortho_camera_ad1c3c69d8c14d31ed9ee26526b766608}\label{class_ortho_camera_ad1c3c69d8c14d31ed9ee26526b766608}} 
 \index{OrthoCamera@{OrthoCamera}!GetRotation@{GetRotation}}
@@ -118,55 +152,111 @@ Definition at line \mbox{\hyperlink{_ortho_camera_8h_source_l00034}{34}} of file
 
 
 
-Definition at line \mbox{\hyperlink{_ortho_camera_8h_source_l00028}{28}} of file \mbox{\hyperlink{_ortho_camera_8h_source}{Ortho\+Camera.\+h}}.
+Definition at line \mbox{\hyperlink{_ortho_camera_8h_source_l00031}{31}} of file \mbox{\hyperlink{_ortho_camera_8h_source}{Ortho\+Camera.\+h}}.
 
-\mbox{\Hypertarget{class_ortho_camera_a3bb1129902e59ad569b78c35084fc008}\label{class_ortho_camera_a3bb1129902e59ad569b78c35084fc008}} 
-\index{OrthoCamera@{OrthoCamera}!GetViewMatrix@{GetViewMatrix}}
-\index{GetViewMatrix@{GetViewMatrix}!OrthoCamera@{OrthoCamera}}
-\doxysubsubsection{\texorpdfstring{GetViewMatrix()}{GetViewMatrix()}}
-{\footnotesize\ttfamily glm\+::mat4 Ortho\+Camera\+::\+Get\+View\+Matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
-
-
-
-Implements \mbox{\hyperlink{class_camera}{Camera}}.
+\mbox{\Hypertarget{class_ortho_camera_a8637b8debda9d8b47872b48cd540d250}\label{class_ortho_camera_a8637b8debda9d8b47872b48cd540d250}} 
+\index{OrthoCamera@{OrthoCamera}!MoveBackward@{MoveBackward}}
+\index{MoveBackward@{MoveBackward}!OrthoCamera@{OrthoCamera}}
+\doxysubsubsection{\texorpdfstring{MoveBackward()}{MoveBackward()}}
+{\footnotesize\ttfamily void Ortho\+Camera\+::\+Move\+Backward (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Definition at line \mbox{\hyperlink{_ortho_camera_8h_source_l00032}{32}} of file \mbox{\hyperlink{_ortho_camera_8h_source}{Ortho\+Camera.\+h}}.
+Implements \mbox{\hyperlink{class_movable_camera}{Movable\+Camera}}.
+
+
+
+Definition at line \mbox{\hyperlink{_ortho_camera_8cpp_source_l00067}{67}} of file \mbox{\hyperlink{_ortho_camera_8cpp_source}{Ortho\+Camera.\+cpp}}.
+
+\mbox{\Hypertarget{class_ortho_camera_a731777ccfbab6130a53711e974fbcc2d}\label{class_ortho_camera_a731777ccfbab6130a53711e974fbcc2d}} 
+\index{OrthoCamera@{OrthoCamera}!MoveForward@{MoveForward}}
+\index{MoveForward@{MoveForward}!OrthoCamera@{OrthoCamera}}
+\doxysubsubsection{\texorpdfstring{MoveForward()}{MoveForward()}}
+{\footnotesize\ttfamily void Ortho\+Camera\+::\+Move\+Forward (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_movable_camera}{Movable\+Camera}}.
+
+
+
+Definition at line \mbox{\hyperlink{_ortho_camera_8cpp_source_l00060}{60}} of file \mbox{\hyperlink{_ortho_camera_8cpp_source}{Ortho\+Camera.\+cpp}}.
+
+\mbox{\Hypertarget{class_ortho_camera_a0e0159efed2addeb39afda577f5a1c0d}\label{class_ortho_camera_a0e0159efed2addeb39afda577f5a1c0d}} 
+\index{OrthoCamera@{OrthoCamera}!MoveLeft@{MoveLeft}}
+\index{MoveLeft@{MoveLeft}!OrthoCamera@{OrthoCamera}}
+\doxysubsubsection{\texorpdfstring{MoveLeft()}{MoveLeft()}}
+{\footnotesize\ttfamily void Ortho\+Camera\+::\+Move\+Left (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_movable_camera}{Movable\+Camera}}.
+
+
+
+Definition at line \mbox{\hyperlink{_ortho_camera_8cpp_source_l00074}{74}} of file \mbox{\hyperlink{_ortho_camera_8cpp_source}{Ortho\+Camera.\+cpp}}.
+
+\mbox{\Hypertarget{class_ortho_camera_adcbd2dd8d21a78eace8086940890706d}\label{class_ortho_camera_adcbd2dd8d21a78eace8086940890706d}} 
+\index{OrthoCamera@{OrthoCamera}!MoveRight@{MoveRight}}
+\index{MoveRight@{MoveRight}!OrthoCamera@{OrthoCamera}}
+\doxysubsubsection{\texorpdfstring{MoveRight()}{MoveRight()}}
+{\footnotesize\ttfamily void Ortho\+Camera\+::\+Move\+Right (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_movable_camera}{Movable\+Camera}}.
+
+
+
+Definition at line \mbox{\hyperlink{_ortho_camera_8cpp_source_l00080}{80}} of file \mbox{\hyperlink{_ortho_camera_8cpp_source}{Ortho\+Camera.\+cpp}}.
+
+\mbox{\Hypertarget{class_ortho_camera_adeb674f1f87ffe4ff81a172464f3b27a}\label{class_ortho_camera_adeb674f1f87ffe4ff81a172464f3b27a}} 
+\index{OrthoCamera@{OrthoCamera}!ProcessMouseMovement@{ProcessMouseMovement}}
+\index{ProcessMouseMovement@{ProcessMouseMovement}!OrthoCamera@{OrthoCamera}}
+\doxysubsubsection{\texorpdfstring{ProcessMouseMovement()}{ProcessMouseMovement()}}
+{\footnotesize\ttfamily void Ortho\+Camera\+::\+Process\+Mouse\+Movement (\begin{DoxyParamCaption}\item[{float}]{x\+Offset,  }\item[{float}]{y\+Offset,  }\item[{bool}]{constrain\+Pitch }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_movable_camera}{Movable\+Camera}}.
+
+
+
+Definition at line \mbox{\hyperlink{_ortho_camera_8cpp_source_l00093}{93}} of file \mbox{\hyperlink{_ortho_camera_8cpp_source}{Ortho\+Camera.\+cpp}}.
+
+\mbox{\Hypertarget{class_ortho_camera_ace84242636f724a88c160d9d0a190555}\label{class_ortho_camera_ace84242636f724a88c160d9d0a190555}} 
+\index{OrthoCamera@{OrthoCamera}!ProcessMouseScroll@{ProcessMouseScroll}}
+\index{ProcessMouseScroll@{ProcessMouseScroll}!OrthoCamera@{OrthoCamera}}
+\doxysubsubsection{\texorpdfstring{ProcessMouseScroll()}{ProcessMouseScroll()}}
+{\footnotesize\ttfamily void Ortho\+Camera\+::\+Process\+Mouse\+Scroll (\begin{DoxyParamCaption}\item[{float}]{scroll\+Offset }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_movable_camera}{Movable\+Camera}}.
+
+
+
+Definition at line \mbox{\hyperlink{_ortho_camera_8cpp_source_l00086}{86}} of file \mbox{\hyperlink{_ortho_camera_8cpp_source}{Ortho\+Camera.\+cpp}}.
+
+\mbox{\Hypertarget{class_ortho_camera_ab648a2bc80e77da3bfe52fefaea47405}\label{class_ortho_camera_ab648a2bc80e77da3bfe52fefaea47405}} 
+\index{OrthoCamera@{OrthoCamera}!ScreenToWorldCoords@{ScreenToWorldCoords}}
+\index{ScreenToWorldCoords@{ScreenToWorldCoords}!OrthoCamera@{OrthoCamera}}
+\doxysubsubsection{\texorpdfstring{ScreenToWorldCoords()}{ScreenToWorldCoords()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec2}{Vivid\+::\+Maths\+::\+Vec2}} Ortho\+Camera\+::\+Screen\+To\+World\+Coords (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_ortho_camera_8cpp_source_l00100}{100}} of file \mbox{\hyperlink{_ortho_camera_8cpp_source}{Ortho\+Camera.\+cpp}}.
 
 \mbox{\Hypertarget{class_ortho_camera_a703cc45265d921194d306ade0c167ebf}\label{class_ortho_camera_a703cc45265d921194d306ade0c167ebf}} 
 \index{OrthoCamera@{OrthoCamera}!SetPerspective@{SetPerspective}}
 \index{SetPerspective@{SetPerspective}!OrthoCamera@{OrthoCamera}}
-\doxysubsubsection{\texorpdfstring{SetPerspective()}{SetPerspective()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+\doxysubsubsection{\texorpdfstring{SetPerspective()}{SetPerspective()}}
 {\footnotesize\ttfamily void Ortho\+Camera\+::\+Set\+Perspective (\begin{DoxyParamCaption}\item[{float}]{left,  }\item[{float}]{right,  }\item[{float}]{bottom,  }\item[{float}]{top }\end{DoxyParamCaption})}
 
 
 
-Definition at line \mbox{\hyperlink{_ortho_camera_8cpp_source_l00022}{22}} of file \mbox{\hyperlink{_ortho_camera_8cpp_source}{Ortho\+Camera.\+cpp}}.
-
-\mbox{\Hypertarget{class_ortho_camera_aad2e8164265ae0d8609043ceefe6d662}\label{class_ortho_camera_aad2e8164265ae0d8609043ceefe6d662}} 
-\index{OrthoCamera@{OrthoCamera}!SetPerspective@{SetPerspective}}
-\index{SetPerspective@{SetPerspective}!OrthoCamera@{OrthoCamera}}
-\doxysubsubsection{\texorpdfstring{SetPerspective()}{SetPerspective()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily void Ortho\+Camera\+::\+Set\+Perspective (\begin{DoxyParamCaption}\item[{glm\+::mat4}]{perspective }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
-
-
-
-Implements \mbox{\hyperlink{class_camera}{Camera}}.
-
-
-
-Definition at line \mbox{\hyperlink{_ortho_camera_8cpp_source_l00027}{27}} of file \mbox{\hyperlink{_ortho_camera_8cpp_source}{Ortho\+Camera.\+cpp}}.
-
-\mbox{\Hypertarget{class_ortho_camera_a61bc71417e0a62f1db9b5e661d0cc93f}\label{class_ortho_camera_a61bc71417e0a62f1db9b5e661d0cc93f}} 
-\index{OrthoCamera@{OrthoCamera}!SetPosition@{SetPosition}}
-\index{SetPosition@{SetPosition}!OrthoCamera@{OrthoCamera}}
-\doxysubsubsection{\texorpdfstring{SetPosition()}{SetPosition()}}
-{\footnotesize\ttfamily void Ortho\+Camera\+::\+Set\+Position (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_vec3}{Vec3}} \&}]{position }\end{DoxyParamCaption})}
-
-
-
-Definition at line \mbox{\hyperlink{_ortho_camera_8cpp_source_l00012}{12}} of file \mbox{\hyperlink{_ortho_camera_8cpp_source}{Ortho\+Camera.\+cpp}}.
+Definition at line \mbox{\hyperlink{_ortho_camera_8cpp_source_l00043}{43}} of file \mbox{\hyperlink{_ortho_camera_8cpp_source}{Ortho\+Camera.\+cpp}}.
 
 \mbox{\Hypertarget{class_ortho_camera_a63c8cd32c4dd2031aeb2abf54cd43c9a}\label{class_ortho_camera_a63c8cd32c4dd2031aeb2abf54cd43c9a}} 
 \index{OrthoCamera@{OrthoCamera}!SetRotation@{SetRotation}}
@@ -176,21 +266,7 @@ Definition at line \mbox{\hyperlink{_ortho_camera_8cpp_source_l00012}{12}} of fi
 
 
 
-Definition at line \mbox{\hyperlink{_ortho_camera_8cpp_source_l00017}{17}} of file \mbox{\hyperlink{_ortho_camera_8cpp_source}{Ortho\+Camera.\+cpp}}.
-
-\mbox{\Hypertarget{class_ortho_camera_a05ec2f3c5207ddd49a851a2e9fd9dce2}\label{class_ortho_camera_a05ec2f3c5207ddd49a851a2e9fd9dce2}} 
-\index{OrthoCamera@{OrthoCamera}!SetViewMatrix@{SetViewMatrix}}
-\index{SetViewMatrix@{SetViewMatrix}!OrthoCamera@{OrthoCamera}}
-\doxysubsubsection{\texorpdfstring{SetViewMatrix()}{SetViewMatrix()}}
-{\footnotesize\ttfamily void Ortho\+Camera\+::\+Set\+View\+Matrix (\begin{DoxyParamCaption}\item[{glm\+::mat4}]{view }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
-
-
-
-Implements \mbox{\hyperlink{class_camera}{Camera}}.
-
-
-
-Definition at line \mbox{\hyperlink{_ortho_camera_8cpp_source_l00032}{32}} of file \mbox{\hyperlink{_ortho_camera_8cpp_source}{Ortho\+Camera.\+cpp}}.
+Definition at line \mbox{\hyperlink{_ortho_camera_8cpp_source_l00038}{38}} of file \mbox{\hyperlink{_ortho_camera_8cpp_source}{Ortho\+Camera.\+cpp}}.
 
 \mbox{\Hypertarget{class_ortho_camera_a3558c72554765bb41a2d610ceb01a01a}\label{class_ortho_camera_a3558c72554765bb41a2d610ceb01a01a}} 
 \index{OrthoCamera@{OrthoCamera}!SetViewportSize@{SetViewportSize}}
@@ -200,15 +276,15 @@ Definition at line \mbox{\hyperlink{_ortho_camera_8cpp_source_l00032}{32}} of fi
 
 
 
-Implements \mbox{\hyperlink{class_camera}{Camera}}.
+Implements \mbox{\hyperlink{class_movable_camera}{Movable\+Camera}}.
 
 
 
-Definition at line \mbox{\hyperlink{_ortho_camera_8cpp_source_l00037}{37}} of file \mbox{\hyperlink{_ortho_camera_8cpp_source}{Ortho\+Camera.\+cpp}}.
+Definition at line \mbox{\hyperlink{_ortho_camera_8cpp_source_l00048}{48}} of file \mbox{\hyperlink{_ortho_camera_8cpp_source}{Ortho\+Camera.\+cpp}}.
 
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-src/editor/camera/Ortho\+Camera.\+h\item 
-src/editor/camera/Ortho\+Camera.\+cpp\end{DoxyCompactItemize}
+src/editor/camera/movable/Ortho\+Camera.\+h\item 
+src/editor/camera/movable/Ortho\+Camera.\+cpp\end{DoxyCompactItemize}

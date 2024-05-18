@@ -18,23 +18,19 @@
 \DoxyCodeLine{\Hypertarget{_camera_8h_source_l00015}\mbox{\hyperlink{class_camera}{00015}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_camera}{Camera}}}
 \DoxyCodeLine{\Hypertarget{_camera_8h_source_l00016}00016\ \{}
 \DoxyCodeLine{\Hypertarget{_camera_8h_source_l00017}00017\ \textcolor{keyword}{protected}:}
-\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00018}00018\ \ \ \ \ \textcolor{keywordtype}{int}\ m\_ViewportWidth;}
-\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00019}00019\ \ \ \ \ \textcolor{keywordtype}{int}\ m\_ViewportHeight;}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00018}00018\ \ \ \ \ \textcolor{keywordtype}{int}\ m\_ViewportWidth\ =\ 1920;}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00019}00019\ \ \ \ \ \textcolor{keywordtype}{int}\ m\_ViewportHeight\ =\ 1080;}
 \DoxyCodeLine{\Hypertarget{_camera_8h_source_l00020}00020\ }
 \DoxyCodeLine{\Hypertarget{_camera_8h_source_l00021}00021\ \textcolor{keyword}{public}:}
 \DoxyCodeLine{\Hypertarget{_camera_8h_source_l00022}00022\ \ \ \ \ \textcolor{keyword}{virtual}\ glm::mat4\ GetViewMatrix()\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00023}00023\ }
-\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00024}00024\ \ \ \ \ \textcolor{keyword}{virtual}\ glm::mat4\ GetProjectionMatrix()\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00025}00025\ }
-\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00026}00026\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ SetPerspective(glm::mat4\ perspective)\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00023}00023\ \ \ \ \ \textcolor{keyword}{virtual}\ glm::mat4\ GetProjectionMatrix()\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00025}00025\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ SetPerspective(glm::mat4\ perspective)\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00026}00026\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ SetViewMatrix(glm::mat4\ view)\ =\ 0;}
 \DoxyCodeLine{\Hypertarget{_camera_8h_source_l00027}00027\ }
-\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00028}00028\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ SetViewMatrix(glm::mat4\ view)\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00029}00029\ }
-\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00030}00030\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ SetViewportSize(\textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height)\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00031}00031\ }
-\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00032}00032\ \ \ \ \ \textcolor{keywordtype}{int}\ GetViewportWidth()\ \{\ \textcolor{keywordflow}{return}\ m\_ViewportWidth;\ \}}
-\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00033}00033\ }
-\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00034}00034\ \ \ \ \ \textcolor{keywordtype}{int}\ GetViewportHeight()\ \{\ \textcolor{keywordflow}{return}\ m\_ViewportHeight;\ \}}
-\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00035}00035\ \};}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00028}00028\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ SetViewportSize(\textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height)\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00029}00029\ \ \ \ \ \textcolor{keywordtype}{int}\ GetViewportWidth()\ \{\ \textcolor{keywordflow}{return}\ m\_ViewportWidth;\ \}}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00030}00030\ \ \ \ \ \textcolor{keywordtype}{int}\ GetViewportHeight()\ \{\ \textcolor{keywordflow}{return}\ m\_ViewportHeight;\ \}}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00031}00031\ \};}
 
 \end{DoxyCode}

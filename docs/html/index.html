@@ -120,51 +120,102 @@ Clone repo</h2>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md5"></a>
 Dependencies:</h2>
 <p>Before running the renderer, ensure you have the necessary dependencies installed. This includes an OpenGL driver, a C++ compiler, and the necessary libraries (GLEW, GLFW, etc.).</p>
-<h2><a class="anchor" id="autotoc_md6"></a>
+<p>Here is a checklist of dependencies for different operating systems: </p>
+<h3><a class="anchor" id="autotoc_md6"></a>
+Linux</h3>
+<h4><a class="anchor" id="autotoc_md7"></a>
+OpenGL</h4>
+<ul>
+<li>OpenGL </li>
+</ul>
+<h4><a class="anchor" id="autotoc_md8"></a>
+CPP Tools</h4>
+<ul>
+<li>CMake</li>
+<li>xorg-dev</li>
+<li>libglu1-mesa-dev</li>
+<li>freeglut3-dev</li>
+<li>mesa-common-dev</li>
+<li>libgl1-mesa-dev</li>
+<li>libglew-dev</li>
+<li>mesa-utils</li>
+<li>freeglut3-dev </li>
+</ul>
+<h4><a class="anchor" id="autotoc_md9"></a>
+File Dialog Boxes</h4>
+<ul>
+<li>GTK (default)</li>
+<li>Make sure libgtk-3-dev is installed on your system. <code>build-essential</code> and <code>libgtk-3-dev</code></li>
+</ul>
+<h3><a class="anchor" id="autotoc_md10"></a>
+MacOS</h3>
+<h4><a class="anchor" id="autotoc_md11"></a>
+OpenGL</h4>
+<ul>
+<li>OpenGL </li>
+</ul>
+<h4><a class="anchor" id="autotoc_md12"></a>
+File Dialog Boxes</h4>
+<ul>
+<li>On MacOS, add AppKit and UniformTypeIdentifiers to the list of frameworks.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md13"></a>
+Windows</h3>
+<h4><a class="anchor" id="autotoc_md14"></a>
+OpenGL</h4>
+<ul>
+<li>OpenGL </li>
+</ul>
+<h4><a class="anchor" id="autotoc_md15"></a>
+File Dialog Boxes</h4>
+<ul>
+<li>On Windows (both MSVC and MinGW), ensure you are building against ole32.lib, uuid.lib, and shell32.lib.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md16"></a>
 Build the Project:</h2>
 <p>Use the provided build system (CMake, Makefile, etc.) to build the renderer. Make sure to configure the build with the appropriate settings for your system. </p><div class="fragment"><div class="line">mkdir build &amp;&amp; cd build</div>
 <div class="line">cmake .. -G Ninja</div>
 <div class="line">ninja -j8</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md7"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md17"></a>
 Running the project:</h2>
 <p>The project comes with many example executables, like marchingSquare and ecs_test. You can directly run these binaries.</p>
-<h2><a class="anchor" id="autotoc_md8"></a>
+<h2><a class="anchor" id="autotoc_md18"></a>
 Explore and Experiment:</h2>
 <p>Once the renderer is running, feel free to explore the various features it offers. Modify shaders, adjust camera settings, load different models, and experiment with lighting configurations.</p>
-<h1><a class="anchor" id="autotoc_md9"></a>
+<h1><a class="anchor" id="autotoc_md19"></a>
 API</h1>
-<h2><a class="anchor" id="autotoc_md10"></a>
+<h2><a class="anchor" id="autotoc_md20"></a>
 Philosophy</h2>
 <p>The API is inspired primarily by <a href="https://github.com/processing">processing foundation</a>.</p>
 <p>You have a Rendering Interface which comes with 3 main functions: <code>Setup()</code>, <code>Draw()</code>, and <code>ImGuiRender()</code>. You can create a new class which extends to <a class="el" href="class_rendering_interface.html">RenderingInterface</a> and override these functions. This provides a multitude of different rendering APIs all with different levels of control to ease.</p>
-<h2><a class="anchor" id="autotoc_md11"></a>
+<h2><a class="anchor" id="autotoc_md21"></a>
 Types of API</h2>
-<h3><a class="anchor" id="autotoc_md12"></a>
+<h3><a class="anchor" id="autotoc_md22"></a>
 ECS API</h3>
 <p>This API provides a complete entity-component-based architecture. You can initialise an entity and give it many components and they all get rendered automatically. <img src="https://github.com/Aviii06/Vivid/assets/45993519/d674cba6-3b2b-421c-9a58-31ac616295e6" alt="Screenshot 2023-08-29 at 8 57 21 PM" class="inline"/></p>
-<h3><a class="anchor" id="autotoc_md13"></a>
+<h3><a class="anchor" id="autotoc_md23"></a>
 Rendering 2D/3D APIs</h3>
 <p>These APIs create a more processing-like feel to rendering. You call a <code>Vivid::Renderer2D::Init();</code> or <code>Vivid::Renderer3D::Init();</code> and can call many functions like <code>Vivid::Renderer2D::DrawLine(point1, point2, thickness, color);</code> and more. This makes it easy to create a small simulation which is not overly complicated.</p>
 <p><img src="https://github.com/Aviii06/Vivid/assets/45993519/726871f7-9659-4c40-9173-f0861f736d38" alt="Screenshot 2023-08-29 at 9 02 14 PM" class="inline"/></p>
-<h3><a class="anchor" id="autotoc_md14"></a>
+<h3><a class="anchor" id="autotoc_md24"></a>
 Mesh API</h3>
 <p>This is useful for small renders. You can simply create a Mesh object from an Obj file and then render it out by calling the <code>Draw(camera)</code> method. <br  />
  <img src="https://github.com/Aviii06/Vivid/assets/45993519/138684c3-d278-4c90-ab44-55c664923f09" alt="Screenshot 2023-08-29 at 9 21 26 PM" class="inline"/></p>
-<h2><a class="anchor" id="autotoc_md15"></a>
+<h2><a class="anchor" id="autotoc_md25"></a>
 Rendering Interface</h2>
 <p>This is an interface which is provided by Vivid to ease the rendering process. </p><div class="fragment"><div class="line"><span class="keyword">class </span><a class="code hl_class" href="class_example_interface.html">ExampleInterface</a> : <span class="keyword">public</span> Rendering</div>
 <div class="ttc" id="aclass_example_interface_html"><div class="ttname"><a href="class_example_interface.html">ExampleInterface</a></div><div class="ttdef"><b>Definition:</b> <a href="marching__squares_8cpp_source.html#l00104">marching_squares.cpp:105</a></div></div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md16"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md26"></a>
 Setup()</h3>
 <p>The <code>Setup()</code> function runs once and is useful for initializing your variables. The first line of the setup is reserved for your openGL configs. You can write your own configs or use one of the premade configs. For 3D it is recommended to use: <code>OPENGL_CONFS</code> And for 2D: <code>OPENGL_2D_CONFS</code></p>
-<h3><a class="anchor" id="autotoc_md17"></a>
+<h3><a class="anchor" id="autotoc_md27"></a>
 Draw()</h3>
 <p>This function is called every frame. And is not inside the ImGUI context.</p>
-<h3><a class="anchor" id="autotoc_md18"></a>
+<h3><a class="anchor" id="autotoc_md28"></a>
 ImGuiRender()</h3>
 <p>This function is similar to <code>Draw()</code> but is inside ImGUI context so this could be used to create custom UI elements.</p>
 <p>To see examples using these APIs you can look in the examples folder in the root directory of the repo.</p>
-<h2><a class="anchor" id="autotoc_md19"></a>
+<h2><a class="anchor" id="autotoc_md29"></a>
 2D</h2>
 <p>First in your <code>Setup()</code> function use the macro <code>OPENGL_2D_CONFS</code>. To get started with 2D API you need to call <code>Vivid::Renderer2D::Init();</code> in your <code>Setup()</code> function. This initializes the 2D renderer.</p>
 <p>In your <code>Draw()</code> loop call <code>Vivid::Renderer2D::BeginScene();</code> and once all the DrawCalls have been made call <code>Vivid::Renderer2D::EndScene();</code> In between these two functions, you can use the Renderer2D API to render anything. This all gets BatchRendered for optimal performance.</p>
@@ -183,7 +234,7 @@ ImGuiRender()</h3>
 <div class="ttc" id="aclass_ortho_camera_html"><div class="ttname"><a href="class_ortho_camera.html">OrthoCamera</a></div><div class="ttdef"><b>Definition:</b> <a href="_ortho_camera_8h_source.html#l00006">OrthoCamera.h:7</a></div></div>
 </div><!-- fragment --><p> It is advised to have <code><a class="el" href="class_ortho_camera.html">OrthoCamera</a></code> for 2D scenes. This is a client-side function which is used in the library to create an <a class="el" href="class_application.html">Application</a>.</p>
 <p>After the in your main function simply call: <code>return Vivid::main(0, nullptr);</code> This calls Vivid's main function.</p>
-<h2><a class="anchor" id="autotoc_md20"></a>
+<h2><a class="anchor" id="autotoc_md30"></a>
 3D</h2>
 <p>First in your <code>Setup()</code> function use the macro <code>OPENGL_CONFS</code>. The 3D rendering API is still WIP.</p>
 <p>Currently for 3D rendering it is advised to use the ECS based approach.</p>
@@ -199,10 +250,10 @@ ImGuiRender()</h3>
 </div><!-- fragment --><p>By Default it uses <code><a class="el" href="class_editor_camera.html" title="Editor EditorCamera has the ability to move around the scene using WASD keys and mouse in an intuitiv...">EditorCamera</a></code> which provides WASD movements and mouse control.</p>
 <p>After the in your main function simply call: <code>return Vivid::main(0, nullptr);</code> This calls Vivid's main function.</p>
 <p>#Contribute If you find issues or want to contribute enhancements, fork the repository, make your changes, and submit a pull request. We welcome contributions from the community.</p>
-<h1><a class="anchor" id="autotoc_md21"></a>
+<h1><a class="anchor" id="autotoc_md31"></a>
 Documentation</h1>
 <p>For more detailed information on how to use the renderer, including API documentation and usage examples, refer to the <a href="https://aviii06.github.io/Vivid/">Documentation</a> of this repository.</p>
-<h1><a class="anchor" id="autotoc_md22"></a>
+<h1><a class="anchor" id="autotoc_md32"></a>
 License</h1>
 <p>This project is licensed under the MIT License, which means you are free to use, modify, and distribute the code as long as you include the original license text. </p>
 </div></div><!-- PageDoc -->

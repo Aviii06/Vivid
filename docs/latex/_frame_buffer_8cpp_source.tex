@@ -44,25 +44,30 @@
 \DoxyCodeLine{\Hypertarget{_frame_buffer_8cpp_source_l00040}00040\ }
 \DoxyCodeLine{\Hypertarget{_frame_buffer_8cpp_source_l00041}00041\ \textcolor{keywordtype}{void}\ FrameBuffer::RescaleFrameBuffer(\textcolor{keywordtype}{float}\ width,\ \textcolor{keywordtype}{float}\ height)}
 \DoxyCodeLine{\Hypertarget{_frame_buffer_8cpp_source_l00042}00042\ \{}
-\DoxyCodeLine{\Hypertarget{_frame_buffer_8cpp_source_l00043}00043\ \ \ \ \ glBindTexture(GL\_TEXTURE\_2D,\ texture);}
-\DoxyCodeLine{\Hypertarget{_frame_buffer_8cpp_source_l00044}00044\ \ \ \ \ glTexImage2D(GL\_TEXTURE\_2D,\ 0,\ GL\_RGB,\ width,\ height,\ 0,\ GL\_RGB,\ GL\_UNSIGNED\_BYTE,\ NULL);}
-\DoxyCodeLine{\Hypertarget{_frame_buffer_8cpp_source_l00045}00045\ \ \ \ \ glTexParameteri(GL\_TEXTURE\_2D,\ GL\_TEXTURE\_MIN\_FILTER,\ GL\_LINEAR);}
-\DoxyCodeLine{\Hypertarget{_frame_buffer_8cpp_source_l00046}00046\ \ \ \ \ glTexParameteri(GL\_TEXTURE\_2D,\ GL\_TEXTURE\_MAG\_FILTER,\ GL\_LINEAR);}
-\DoxyCodeLine{\Hypertarget{_frame_buffer_8cpp_source_l00047}00047\ \ \ \ \ glFramebufferTexture2D(GL\_FRAMEBUFFER,\ GL\_COLOR\_ATTACHMENT0,\ GL\_TEXTURE\_2D,\ texture,\ 0);}
-\DoxyCodeLine{\Hypertarget{_frame_buffer_8cpp_source_l00048}00048\ }
-\DoxyCodeLine{\Hypertarget{_frame_buffer_8cpp_source_l00049}00049\ \ \ \ \ glBindRenderbuffer(GL\_RENDERBUFFER,\ rbo);}
-\DoxyCodeLine{\Hypertarget{_frame_buffer_8cpp_source_l00050}00050\ \ \ \ \ glRenderbufferStorage(GL\_RENDERBUFFER,\ GL\_DEPTH24\_STENCIL8,\ width,\ height);}
-\DoxyCodeLine{\Hypertarget{_frame_buffer_8cpp_source_l00051}00051\ \ \ \ \ glFramebufferRenderbuffer(GL\_FRAMEBUFFER,\ GL\_DEPTH\_STENCIL\_ATTACHMENT,\ GL\_RENDERBUFFER,\ rbo);}
-\DoxyCodeLine{\Hypertarget{_frame_buffer_8cpp_source_l00052}00052\ \}}
+\DoxyCodeLine{\Hypertarget{_frame_buffer_8cpp_source_l00043}00043\ \ \ \ \ glViewport(0,\ 0,\ width,\ height);}
+\DoxyCodeLine{\Hypertarget{_frame_buffer_8cpp_source_l00044}00044\ \ \ \ \ glBindTexture(GL\_TEXTURE\_2D,\ texture);}
+\DoxyCodeLine{\Hypertarget{_frame_buffer_8cpp_source_l00045}00045\ \ \ \ \ glTexImage2D(GL\_TEXTURE\_2D,\ 0,\ GL\_RGBA,\ width,\ height,\ 0,\ GL\_RGBA,\ GL\_UNSIGNED\_BYTE,\ NULL);}
+\DoxyCodeLine{\Hypertarget{_frame_buffer_8cpp_source_l00046}00046\ \ \ \ \ glTexParameteri(GL\_TEXTURE\_2D,\ GL\_TEXTURE\_MIN\_FILTER,\ GL\_LINEAR);}
+\DoxyCodeLine{\Hypertarget{_frame_buffer_8cpp_source_l00047}00047\ \ \ \ \ glTexParameteri(GL\_TEXTURE\_2D,\ GL\_TEXTURE\_MAG\_FILTER,\ GL\_LINEAR);}
+\DoxyCodeLine{\Hypertarget{_frame_buffer_8cpp_source_l00048}00048\ \ \ \ \ glFramebufferTexture2D(GL\_FRAMEBUFFER,\ GL\_COLOR\_ATTACHMENT0,\ GL\_TEXTURE\_2D,\ texture,\ 0);}
+\DoxyCodeLine{\Hypertarget{_frame_buffer_8cpp_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{_frame_buffer_8cpp_source_l00050}00050\ \ \ \ \ glBindRenderbuffer(GL\_RENDERBUFFER,\ rbo);}
+\DoxyCodeLine{\Hypertarget{_frame_buffer_8cpp_source_l00051}00051\ \ \ \ \ glRenderbufferStorage(GL\_RENDERBUFFER,\ GL\_DEPTH24\_STENCIL8,\ width,\ height);}
+\DoxyCodeLine{\Hypertarget{_frame_buffer_8cpp_source_l00052}00052\ \ \ \ \ glFramebufferRenderbuffer(GL\_FRAMEBUFFER,\ GL\_DEPTH\_STENCIL\_ATTACHMENT,\ GL\_RENDERBUFFER,\ rbo);}
 \DoxyCodeLine{\Hypertarget{_frame_buffer_8cpp_source_l00053}00053\ }
-\DoxyCodeLine{\Hypertarget{_frame_buffer_8cpp_source_l00054}00054\ \textcolor{keywordtype}{void}\ FrameBuffer::Bind()\textcolor{keyword}{\ const}}
-\DoxyCodeLine{\Hypertarget{_frame_buffer_8cpp_source_l00055}00055\ \textcolor{keyword}{}\{}
-\DoxyCodeLine{\Hypertarget{_frame_buffer_8cpp_source_l00056}00056\ \ \ \ \ glBindFramebuffer(GL\_FRAMEBUFFER,\ fbo);}
+\DoxyCodeLine{\Hypertarget{_frame_buffer_8cpp_source_l00054}00054\ \ \ \ \ glBindFramebuffer(GL\_FRAMEBUFFER,\ 0);}
+\DoxyCodeLine{\Hypertarget{_frame_buffer_8cpp_source_l00055}00055\ \ \ \ \ glBindTexture(GL\_TEXTURE\_2D,\ 0);}
+\DoxyCodeLine{\Hypertarget{_frame_buffer_8cpp_source_l00056}00056\ \ \ \ \ glBindRenderbuffer(GL\_RENDERBUFFER,\ 0);}
 \DoxyCodeLine{\Hypertarget{_frame_buffer_8cpp_source_l00057}00057\ \}}
 \DoxyCodeLine{\Hypertarget{_frame_buffer_8cpp_source_l00058}00058\ }
-\DoxyCodeLine{\Hypertarget{_frame_buffer_8cpp_source_l00059}00059\ \textcolor{keywordtype}{void}\ FrameBuffer::Unbind()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_frame_buffer_8cpp_source_l00059}00059\ \textcolor{keywordtype}{void}\ FrameBuffer::Bind()\textcolor{keyword}{\ const}}
 \DoxyCodeLine{\Hypertarget{_frame_buffer_8cpp_source_l00060}00060\ \textcolor{keyword}{}\{}
-\DoxyCodeLine{\Hypertarget{_frame_buffer_8cpp_source_l00061}00061\ \ \ \ \ glBindFramebuffer(GL\_FRAMEBUFFER,\ 0);}
+\DoxyCodeLine{\Hypertarget{_frame_buffer_8cpp_source_l00061}00061\ \ \ \ \ glBindFramebuffer(GL\_FRAMEBUFFER,\ fbo);}
 \DoxyCodeLine{\Hypertarget{_frame_buffer_8cpp_source_l00062}00062\ \}}
+\DoxyCodeLine{\Hypertarget{_frame_buffer_8cpp_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{_frame_buffer_8cpp_source_l00064}00064\ \textcolor{keywordtype}{void}\ FrameBuffer::Unbind()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_frame_buffer_8cpp_source_l00065}00065\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_frame_buffer_8cpp_source_l00066}00066\ \ \ \ \ glBindFramebuffer(GL\_FRAMEBUFFER,\ 0);}
+\DoxyCodeLine{\Hypertarget{_frame_buffer_8cpp_source_l00067}00067\ \}}
 
 \end{DoxyCode}

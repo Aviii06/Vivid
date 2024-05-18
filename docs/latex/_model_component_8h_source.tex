@@ -14,7 +14,7 @@
 \DoxyCodeLine{\Hypertarget{_model_component_8h_source_l00010}\mbox{\hyperlink{class_vivid_1_1_model_component}{00010}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_vivid_1_1_model_component}{ModelComponent}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_vivid_1_1_component}{Component}}}
 \DoxyCodeLine{\Hypertarget{_model_component_8h_source_l00011}00011\ \ \ \ \ \{}
 \DoxyCodeLine{\Hypertarget{_model_component_8h_source_l00012}00012\ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{\Hypertarget{_model_component_8h_source_l00013}00013\ \ \ \ \ \ \ \ \ Vector<Vivid::Mesh*>\ m\_Meshes;}
+\DoxyCodeLine{\Hypertarget{_model_component_8h_source_l00013}00013\ \ \ \ \ \ \ \ \ Vector<Mesh*>\ m\_Meshes;}
 \DoxyCodeLine{\Hypertarget{_model_component_8h_source_l00014}00014\ }
 \DoxyCodeLine{\Hypertarget{_model_component_8h_source_l00015}00015\ \ \ \ \ \textcolor{keyword}{public}:}
 \DoxyCodeLine{\Hypertarget{_model_component_8h_source_l00016}00016\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_vivid_1_1_model_component}{ModelComponent}}();}
@@ -31,9 +31,8 @@
 \DoxyCodeLine{\Hypertarget{_model_component_8h_source_l00027}00027\ }
 \DoxyCodeLine{\Hypertarget{_model_component_8h_source_l00028}00028\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ Vector<Vivid::Mesh*>\ GetMeshes()\ \{\ \textcolor{keywordflow}{return}\ m\_Meshes;\ \}}
 \DoxyCodeLine{\Hypertarget{_model_component_8h_source_l00029}00029\ }
-\DoxyCodeLine{\Hypertarget{_model_component_8h_source_l00030}00030\ \ \ \ \ \ \ \ \ String\ GetComponentName()\textcolor{keyword}{\ override\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Model\ Component"{}};\ \}}
+\DoxyCodeLine{\Hypertarget{_model_component_8h_source_l00030}00030\ \ \ \ \ \ \ \ \ ComponentType\ GetComponentType()\textcolor{keyword}{\ override\ }\{\ \textcolor{keywordflow}{return}\ ComponentType::ModelComponent;\ \}}
 \DoxyCodeLine{\Hypertarget{_model_component_8h_source_l00031}00031\ \ \ \ \ \};}
-\DoxyCodeLine{\Hypertarget{_model_component_8h_source_l00032}00032\ }
-\DoxyCodeLine{\Hypertarget{_model_component_8h_source_l00033}00033\ \}}
+\DoxyCodeLine{\Hypertarget{_model_component_8h_source_l00032}00032\ \}}
 
 \end{DoxyCode}

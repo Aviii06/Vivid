@@ -110,12 +110,12 @@ $(document).ready(function(){initNavTree('renderer__2_d__example_8cpp_source.htm
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        Vivid::Renderer2D::BeginScene();</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        <span class="comment">// Draw using API</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        Vivid::Renderer2D::DrawCircle(<a class="code hl_struct" href="struct_vec2.html">Vec2</a>(0, 0), 150, <a class="code hl_struct" href="struct_vec3.html">Vec3</a>(0.0f, 1.0f, 0.0f));</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        Vivid::Renderer2D::DrawCircle(<a class="code hl_struct" href="struct_vivid_1_1_maths_1_1_vec2.html">Vivid::Maths::Vec2</a>(0, 0), 150, <a class="code hl_struct" href="struct_vivid_1_1_maths_1_1_vec3.html">Vivid::Maths::Vec3</a>(0.0f, 1.0f, 0.0f));</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        Vivid::Renderer2D::DrawLine(<a class="code hl_struct" href="struct_vec2.html">Vec2</a>(-150, 0), <a class="code hl_struct" href="struct_vec2.html">Vec2</a>(150, 0), 2,</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>            <a class="code hl_struct" href="struct_vec3.html">Vec3</a>(1.0f, 0.5f, 0.0f));</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        Vivid::Renderer2D::DrawLine(<a class="code hl_struct" href="struct_vivid_1_1_maths_1_1_vec2.html">Vivid::Maths::Vec2</a>(-150, 0), <a class="code hl_struct" href="struct_vivid_1_1_maths_1_1_vec2.html">Vivid::Maths::Vec2</a>(150, 0), 2,</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>            <a class="code hl_struct" href="struct_vivid_1_1_maths_1_1_vec3.html">Vivid::Maths::Vec3</a>(1.0f, 0.5f, 0.0f));</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        Vivid::Renderer2D::DrawQuad(-200, -200, 100, 100, <a class="code hl_struct" href="struct_vec3.html">Vec3</a>(1.0f, 1.0f, 0.0f));</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        Vivid::Renderer2D::DrawQuad(-200, -200, 100, 100, <a class="code hl_struct" href="struct_vivid_1_1_maths_1_1_vec3.html">Vivid::Maths::Vec3</a>(1.0f, 1.0f, 0.0f));</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        Vivid::Renderer2D::EndScene();</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    }</div>
@@ -137,22 +137,28 @@ $(document).ready(function(){initNavTree('renderer__2_d__example_8cpp_source.htm
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>{</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <a class="code hl_class" href="class_application.html">Application</a>* app = Application::GetInstance(1920, 1080, <span class="stringliteral">&quot;Rendering2D&quot;</span>);</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <a class="code hl_class" href="class_ortho_camera.html">OrthoCamera</a>* orthoCamera = <span class="keyword">new</span> <a class="code hl_class" href="class_ortho_camera.html">OrthoCamera</a>(0, 1920, 0, 1080);</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    app-&gt;SetCamera(orthoCamera);</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    app-&gt;SetRenderingInterface(<span class="keyword">new</span> <a class="code hl_class" href="class_example_interface.html">ExampleInterface</a>);</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keywordflow">return</span> app;</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>}</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="keywordtype">int</span> main()</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>{</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordflow">return</span> Vivid::main(0, <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="comment">// Important for 2D rendering, set the camera to OrthoCamera</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    Maths::Vec3 pos = Maths::Vec3(0, 0, 0);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordtype">float</span> rot = 0.0f;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keywordtype">float</span> zoom = 0.10f;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <a class="code hl_class" href="class_camera.html">Camera</a>* camera = <span class="keyword">new</span> <a class="code hl_class" href="class_ortho_camera.html">OrthoCamera</a>(pos, rot, zoom, -1000.0f, 1000.0f);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    app-&gt;SetCamera(camera);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    app-&gt;SetRenderingInterface(<span class="keyword">new</span> <a class="code hl_class" href="class_example_interface.html">ExampleInterface</a>);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordflow">return</span> app;</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>}</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="keywordtype">int</span> main()</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>{</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordflow">return</span> Vivid::main(0, <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>}</div>
 <div class="ttc" id="aclass_application_html"><div class="ttname"><a href="class_application.html">Application</a></div><div class="ttdef"><b>Definition:</b> <a href="_application_8h_source.html#l00013">Application.h:14</a></div></div>
+<div class="ttc" id="aclass_camera_html"><div class="ttname"><a href="class_camera.html">Camera</a></div><div class="ttdoc">It is an abstract class that represents a camera.</div><div class="ttdef"><b>Definition:</b> <a href="_camera_8h_source.html#l00015">Camera.h:16</a></div></div>
 <div class="ttc" id="aclass_example_interface_html"><div class="ttname"><a href="class_example_interface.html">ExampleInterface</a></div><div class="ttdef"><b>Definition:</b> <a href="marching__squares_8cpp_source.html#l00104">marching_squares.cpp:105</a></div></div>
 <div class="ttc" id="aclass_ortho_camera_html"><div class="ttname"><a href="class_ortho_camera.html">OrthoCamera</a></div><div class="ttdef"><b>Definition:</b> <a href="_ortho_camera_8h_source.html#l00006">OrthoCamera.h:7</a></div></div>
 <div class="ttc" id="aclass_rendering_interface_html"><div class="ttname"><a href="class_rendering_interface.html">RenderingInterface</a></div><div class="ttdef"><b>Definition:</b> <a href="_rendering_interface_8h_source.html#l00005">RenderingInterface.h:6</a></div></div>
-<div class="ttc" id="astruct_vec2_html"><div class="ttname"><a href="struct_vec2.html">Vec2</a></div><div class="ttdef"><b>Definition:</b> <a href="_vec_8h_source.html#l00063">Vec.h:64</a></div></div>
-<div class="ttc" id="astruct_vec3_html"><div class="ttname"><a href="struct_vec3.html">Vec3</a></div><div class="ttdef"><b>Definition:</b> <a href="_vec_8h_source.html#l00031">Vec.h:32</a></div></div>
+<div class="ttc" id="astruct_vivid_1_1_maths_1_1_vec2_html"><div class="ttname"><a href="struct_vivid_1_1_maths_1_1_vec2.html">Vivid::Maths::Vec2</a></div><div class="ttdef"><b>Definition:</b> <a href="_vec_8h_source.html#l00086">Vec.h:87</a></div></div>
+<div class="ttc" id="astruct_vivid_1_1_maths_1_1_vec3_html"><div class="ttname"><a href="struct_vivid_1_1_maths_1_1_vec3.html">Vivid::Maths::Vec3</a></div><div class="ttdef"><b>Definition:</b> <a href="_vec_8h_source.html#l00035">Vec.h:36</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

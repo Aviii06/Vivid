@@ -164,22 +164,22 @@
 \DoxyCodeLine{\Hypertarget{marching__squares_8cpp_source_l00160}00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ x\ =\ i\ *\ g\_Dim;}
 \DoxyCodeLine{\Hypertarget{marching__squares_8cpp_source_l00161}00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ y\ =\ j\ *\ g\_Dim;}
 \DoxyCodeLine{\Hypertarget{marching__squares_8cpp_source_l00162}00162\ }
-\DoxyCodeLine{\Hypertarget{marching__squares_8cpp_source_l00163}00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vec2}{Vec2}}\ x1\ =\ \mbox{\hyperlink{struct_vec2}{Vec2}}(x,\ y);}
-\DoxyCodeLine{\Hypertarget{marching__squares_8cpp_source_l00164}00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vec2}{Vec2}}\ x2\ =\ \mbox{\hyperlink{struct_vec2}{Vec2}}(x\ +\ g\_Dim,\ y);}
-\DoxyCodeLine{\Hypertarget{marching__squares_8cpp_source_l00165}00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vec2}{Vec2}}\ x3\ =\ \mbox{\hyperlink{struct_vec2}{Vec2}}(x\ +\ g\_Dim,\ y\ +\ g\_Dim);}
-\DoxyCodeLine{\Hypertarget{marching__squares_8cpp_source_l00166}00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vec2}{Vec2}}\ x4\ =\ \mbox{\hyperlink{struct_vec2}{Vec2}}(x,\ y\ +\ g\_Dim);}
+\DoxyCodeLine{\Hypertarget{marching__squares_8cpp_source_l00163}00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec2}{Vivid::Maths::Vec2}}\ x1\ =\ \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec2}{Vivid::Maths::Vec2}}(x,\ y);}
+\DoxyCodeLine{\Hypertarget{marching__squares_8cpp_source_l00164}00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec2}{Vivid::Maths::Vec2}}\ x2\ =\ \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec2}{Vivid::Maths::Vec2}}(x\ +\ g\_Dim,\ y);}
+\DoxyCodeLine{\Hypertarget{marching__squares_8cpp_source_l00165}00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec2}{Vivid::Maths::Vec2}}\ x3\ =\ \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec2}{Vivid::Maths::Vec2}}(x\ +\ g\_Dim,\ y\ +\ g\_Dim);}
+\DoxyCodeLine{\Hypertarget{marching__squares_8cpp_source_l00166}00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec2}{Vivid::Maths::Vec2}}\ x4\ =\ \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec2}{Vivid::Maths::Vec2}}(x,\ y\ +\ g\_Dim);}
 \DoxyCodeLine{\Hypertarget{marching__squares_8cpp_source_l00167}00167\ }
 \DoxyCodeLine{\Hypertarget{marching__squares_8cpp_source_l00168}00168\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (g\_RenderQuad)}
 \DoxyCodeLine{\Hypertarget{marching__squares_8cpp_source_l00169}00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{marching__squares_8cpp_source_l00170}00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Vivid::Renderer2D::DrawQuad(x1.x,\ x1.y,\ g\_Dim,\ g\_Dim,\ \mbox{\hyperlink{struct_vec3}{Vec3}}(v1,\ v1,\ v1));}
+\DoxyCodeLine{\Hypertarget{marching__squares_8cpp_source_l00170}00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Vivid::Renderer2D::DrawQuad(x1.x,\ x1.y,\ g\_Dim,\ g\_Dim,\ \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Vivid::Maths::Vec3}}(v1,\ v1,\ v1));}
 \DoxyCodeLine{\Hypertarget{marching__squares_8cpp_source_l00171}00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{marching__squares_8cpp_source_l00172}00172\ }
-\DoxyCodeLine{\Hypertarget{marching__squares_8cpp_source_l00173}00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vec2}{Vec2}}\ a\ =\ x1\ +\ (x2\ -\/\ x1)\ *\ (\textcolor{keywordtype}{float})(v1\ /\ (v1\ +\ v2));}
-\DoxyCodeLine{\Hypertarget{marching__squares_8cpp_source_l00174}00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vec2}{Vec2}}\ b\ =\ x2\ +\ (x3\ -\/\ x2)\ *\ (\textcolor{keywordtype}{float})(v2\ /\ (v2\ +\ v3));}
-\DoxyCodeLine{\Hypertarget{marching__squares_8cpp_source_l00175}00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vec2}{Vec2}}\ c\ =\ x3\ +\ (x4\ -\/\ x3)\ *\ (\textcolor{keywordtype}{float})(v3\ /\ (v3\ +\ v4));}
-\DoxyCodeLine{\Hypertarget{marching__squares_8cpp_source_l00176}00176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vec2}{Vec2}}\ d\ =\ x4\ +\ (x1\ -\/\ x4)\ *\ (\textcolor{keywordtype}{float})(v4\ /\ (v4\ +\ v1));}
+\DoxyCodeLine{\Hypertarget{marching__squares_8cpp_source_l00173}00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec2}{Vivid::Maths::Vec2}}\ a\ =\ x1\ +\ (x2\ -\/\ x1)\ *\ (\textcolor{keywordtype}{float})(v1\ /\ (v1\ +\ v2));}
+\DoxyCodeLine{\Hypertarget{marching__squares_8cpp_source_l00174}00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec2}{Vivid::Maths::Vec2}}\ b\ =\ x2\ +\ (x3\ -\/\ x2)\ *\ (\textcolor{keywordtype}{float})(v2\ /\ (v2\ +\ v3));}
+\DoxyCodeLine{\Hypertarget{marching__squares_8cpp_source_l00175}00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec2}{Vivid::Maths::Vec2}}\ c\ =\ x3\ +\ (x4\ -\/\ x3)\ *\ (\textcolor{keywordtype}{float})(v3\ /\ (v3\ +\ v4));}
+\DoxyCodeLine{\Hypertarget{marching__squares_8cpp_source_l00176}00176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec2}{Vivid::Maths::Vec2}}\ d\ =\ x4\ +\ (x1\ -\/\ x4)\ *\ (\textcolor{keywordtype}{float})(v4\ /\ (v4\ +\ v1));}
 \DoxyCodeLine{\Hypertarget{marching__squares_8cpp_source_l00177}00177\ }
-\DoxyCodeLine{\Hypertarget{marching__squares_8cpp_source_l00178}00178\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vec3}{Vec3}}\ col\ =\ \mbox{\hyperlink{struct_vec3}{Vec3}}(g\_Color[0],\ g\_Color[1],\ g\_Color[2]);}
+\DoxyCodeLine{\Hypertarget{marching__squares_8cpp_source_l00178}00178\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Vivid::Maths::Vec3}}\ col\ =\ \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Vivid::Maths::Vec3}}(g\_Color[0],\ g\_Color[1],\ g\_Color[2]);}
 \DoxyCodeLine{\Hypertarget{marching__squares_8cpp_source_l00179}00179\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ thickness\ =\ g\_Thickness;}
 \DoxyCodeLine{\Hypertarget{marching__squares_8cpp_source_l00180}00180\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (GetState(v1,\ v2,\ v3,\ v4))}
 \DoxyCodeLine{\Hypertarget{marching__squares_8cpp_source_l00181}00181\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
@@ -261,16 +261,19 @@
 \DoxyCodeLine{\Hypertarget{marching__squares_8cpp_source_l00257}00257\ \mbox{\hyperlink{class_application}{Application}}*\ Vivid::CreateApplication()}
 \DoxyCodeLine{\Hypertarget{marching__squares_8cpp_source_l00258}00258\ \{}
 \DoxyCodeLine{\Hypertarget{marching__squares_8cpp_source_l00259}00259\ \ \ \ \ \mbox{\hyperlink{class_application}{Application}}*\ app\ =\ Application::GetInstance(1920,\ 1080,\ \textcolor{stringliteral}{"{}Marching\ Squares"{}});}
-\DoxyCodeLine{\Hypertarget{marching__squares_8cpp_source_l00260}00260\ }
-\DoxyCodeLine{\Hypertarget{marching__squares_8cpp_source_l00261}00261\ \ \ \ \ \mbox{\hyperlink{class_ortho_camera}{OrthoCamera}}*\ orthoCamera\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_ortho_camera}{OrthoCamera}}(0,\ 1920,\ 0,\ 1080);}
-\DoxyCodeLine{\Hypertarget{marching__squares_8cpp_source_l00262}00262\ \ \ \ \ app-\/>SetCamera(orthoCamera);}
-\DoxyCodeLine{\Hypertarget{marching__squares_8cpp_source_l00263}00263\ \ \ \ \ app-\/>SetRenderingInterface(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_example_interface}{ExampleInterface}});}
-\DoxyCodeLine{\Hypertarget{marching__squares_8cpp_source_l00264}00264\ \ \ \ \ \textcolor{keywordflow}{return}\ app;}
-\DoxyCodeLine{\Hypertarget{marching__squares_8cpp_source_l00265}00265\ \}}
-\DoxyCodeLine{\Hypertarget{marching__squares_8cpp_source_l00266}00266\ }
-\DoxyCodeLine{\Hypertarget{marching__squares_8cpp_source_l00267}00267\ \textcolor{keywordtype}{int}\ main()}
-\DoxyCodeLine{\Hypertarget{marching__squares_8cpp_source_l00268}00268\ \{}
-\DoxyCodeLine{\Hypertarget{marching__squares_8cpp_source_l00269}00269\ \ \ \ \ \textcolor{keywordflow}{return}\ Vivid::main(0,\ \textcolor{keyword}{nullptr});}
-\DoxyCodeLine{\Hypertarget{marching__squares_8cpp_source_l00270}00270\ \}}
+\DoxyCodeLine{\Hypertarget{marching__squares_8cpp_source_l00260}00260\ \ \ \ \ Maths::Vec3\ pos\ =\ Maths::Vec3(0,\ 0,\ 0);}
+\DoxyCodeLine{\Hypertarget{marching__squares_8cpp_source_l00261}00261\ \ \ \ \ \textcolor{keywordtype}{float}\ rot\ =\ 0.0f;}
+\DoxyCodeLine{\Hypertarget{marching__squares_8cpp_source_l00262}00262\ \ \ \ \ \textcolor{keywordtype}{float}\ zoom\ =\ 0.10f;}
+\DoxyCodeLine{\Hypertarget{marching__squares_8cpp_source_l00263}00263\ }
+\DoxyCodeLine{\Hypertarget{marching__squares_8cpp_source_l00264}00264\ \ \ \ \ \mbox{\hyperlink{class_camera}{Camera}}*\ camera\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_ortho_camera}{OrthoCamera}}(pos,\ rot,\ zoom,\ -\/1000.0f,\ 1000.0f);}
+\DoxyCodeLine{\Hypertarget{marching__squares_8cpp_source_l00265}00265\ \ \ \ \ app-\/>SetCamera(camera);}
+\DoxyCodeLine{\Hypertarget{marching__squares_8cpp_source_l00266}00266\ \ \ \ \ app-\/>SetRenderingInterface(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_example_interface}{ExampleInterface}});}
+\DoxyCodeLine{\Hypertarget{marching__squares_8cpp_source_l00267}00267\ \ \ \ \ \textcolor{keywordflow}{return}\ app;}
+\DoxyCodeLine{\Hypertarget{marching__squares_8cpp_source_l00268}00268\ \}}
+\DoxyCodeLine{\Hypertarget{marching__squares_8cpp_source_l00269}00269\ }
+\DoxyCodeLine{\Hypertarget{marching__squares_8cpp_source_l00270}00270\ \textcolor{keywordtype}{int}\ main()}
+\DoxyCodeLine{\Hypertarget{marching__squares_8cpp_source_l00271}00271\ \{}
+\DoxyCodeLine{\Hypertarget{marching__squares_8cpp_source_l00272}00272\ \ \ \ \ \textcolor{keywordflow}{return}\ Vivid::main(0,\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{\Hypertarget{marching__squares_8cpp_source_l00273}00273\ \}}
 
 \end{DoxyCode}

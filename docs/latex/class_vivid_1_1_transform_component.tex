@@ -11,27 +11,27 @@ Collaboration diagram for Vivid\+::Transform\+Component\+:
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_vivid_1_1_transform_component_a555497d627f36f338cb2468fd5770722}{Transform\+Component}} (\mbox{\hyperlink{struct_vec3}{Vec3}} position, \mbox{\hyperlink{struct_vec3}{Vec3}} rotation, \mbox{\hyperlink{struct_vec3}{Vec3}} scale)
+\mbox{\hyperlink{class_vivid_1_1_transform_component_a1298d087a7dd41da59ebb0f655d24668}{Transform\+Component}} (\mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Maths\+::\+Vec3}} position, \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Maths\+::\+Vec3}} rotation, \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Maths\+::\+Vec3}} scale)
 \item 
 void \mbox{\hyperlink{class_vivid_1_1_transform_component_a5bb7220a98ec69ec2d11bd7e4be5b452}{Draw}} (\mbox{\hyperlink{class_camera}{Camera}} $\ast$camera) override
 \item 
 void \mbox{\hyperlink{class_vivid_1_1_transform_component_ae307541eb60ec3f990c1f5f1008fbcb8}{Im\+Gui\+Render}} () override
 \item 
-\mbox{\hyperlink{struct_vec3}{Vec3}} \mbox{\hyperlink{class_vivid_1_1_transform_component_a2fb36f3e58d7e797313c12f412649dc4}{Get\+Position}} () const
+\mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Maths\+::\+Vec3}} \mbox{\hyperlink{class_vivid_1_1_transform_component_aeefe6d7b2b28a662438e2645dbb69e45}{Get\+Position}} () const
 \item 
-\mbox{\hyperlink{struct_vec3}{Vec3}} \mbox{\hyperlink{class_vivid_1_1_transform_component_ab141a5b9749899cb915805d15f2ed789}{Get\+Rotation}} () const
+\mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Maths\+::\+Vec3}} \mbox{\hyperlink{class_vivid_1_1_transform_component_af62d9c5196e61bf1eb58b4ca25edc2c2}{Get\+Rotation}} () const
 \item 
-\mbox{\hyperlink{struct_vec3}{Vec3}} \mbox{\hyperlink{class_vivid_1_1_transform_component_a160b3bcf062a932135730b9b6197396d}{Get\+Scale}} () const
+\mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Maths\+::\+Vec3}} \mbox{\hyperlink{class_vivid_1_1_transform_component_a6c1d1a66268b9cd5e1f50adbe4577dde}{Get\+Scale}} () const
 \item 
-glm\+::mat4 \mbox{\hyperlink{class_vivid_1_1_transform_component_a95caf8eb9666b05cfafc896ede945f29}{Get\+Transform}} () const
+glm\+::mat4 \mbox{\hyperlink{class_vivid_1_1_transform_component_a0c22754de20780ae929ffd6046351b68}{Get\+Transform}} ()
 \item 
-void \mbox{\hyperlink{class_vivid_1_1_transform_component_a35a2180bb670dcdcdc4976113e58bd93}{Set\+Position}} (\mbox{\hyperlink{struct_vec3}{Vec3}} position)
+void \mbox{\hyperlink{class_vivid_1_1_transform_component_ad644565fe47ab0e02e7312c9468caf70}{Set\+Position}} (\mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Maths\+::\+Vec3}} position)
 \item 
-void \mbox{\hyperlink{class_vivid_1_1_transform_component_af1fbf179a57cae6bf286b037706a81b4}{Set\+Rotation}} (\mbox{\hyperlink{struct_vec3}{Vec3}} rotation)
+void \mbox{\hyperlink{class_vivid_1_1_transform_component_ad39a4a0d0025de2983b9695319fea628}{Set\+Rotation}} (\mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Maths\+::\+Vec3}} rotation)
 \item 
-void \mbox{\hyperlink{class_vivid_1_1_transform_component_aaedd83bbeb99fd103ec6e27cf468122a}{Set\+Scale}} (\mbox{\hyperlink{struct_vec3}{Vec3}} scale)
+void \mbox{\hyperlink{class_vivid_1_1_transform_component_a5c79fb75533375e37a40801b56ef5188}{Set\+Scale}} (\mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Maths\+::\+Vec3}} scale)
 \item 
-String \mbox{\hyperlink{class_vivid_1_1_transform_component_aaaae2548f0ecb9a2ee6f72ec6e948989}{Get\+Component\+Name}} () override
+Component\+Type \mbox{\hyperlink{class_vivid_1_1_transform_component_a2a191a23dbf03fd438add3a8adbe6734}{Get\+Component\+Type}} () override
 \item 
 Im\+Guizmo\+::\+OPERATION \mbox{\hyperlink{class_vivid_1_1_transform_component_a2e22c85ee723b51df05bbab8556c5ac9}{Get\+Current\+Gizmo\+Operation}} () const
 \item 
@@ -52,38 +52,50 @@ virtual void {\bfseries Draw} (\mbox{\hyperlink{class_camera}{Camera}} $\ast$cam
 \mbox{\Hypertarget{class_vivid_1_1_component_a600cef327b7fe5b9b5628ec28261a6bc}\label{class_vivid_1_1_component_a600cef327b7fe5b9b5628ec28261a6bc}} 
 virtual void {\bfseries Im\+Gui\+Render} ()=0
 \item 
-void \mbox{\hyperlink{class_vivid_1_1_component_a3a260c023f353dd0d31ca139ef26d60c}{Set\+Entity}} (\mbox{\hyperlink{class_vivid_1_1_entity}{Vivid\+::\+Entity}} $\ast$entity)
+int \mbox{\hyperlink{class_vivid_1_1_component_af020a603a5d2de4ec7b22be3ebd42c44}{Get\+Owner\+Entity\+ID}} () const
 \item 
-\mbox{\hyperlink{class_vivid_1_1_entity}{Vivid\+::\+Entity}} $\ast$ \mbox{\hyperlink{class_vivid_1_1_component_a8d46ad6052d123982d63b369f2520435}{Get\+Entity}} () const
+void \mbox{\hyperlink{class_vivid_1_1_component_ac4620e2f98880f8c3e0baadf02b95f6d}{Set\+Entity}} (const int \&entity\+ID)
 \item 
-\mbox{\Hypertarget{class_vivid_1_1_component_a4098ad385ce7cfaf955f11feeb3dca52}\label{class_vivid_1_1_component_a4098ad385ce7cfaf955f11feeb3dca52}} 
-virtual String {\bfseries Get\+Component\+Name} ()=0
+\mbox{\Hypertarget{class_vivid_1_1_component_a6108914313a93b75b206a68992b07802}\label{class_vivid_1_1_component_a6108914313a93b75b206a68992b07802}} 
+virtual Component\+Type {\bfseries Get\+Component\+Type} ()=0
+\item 
+int \mbox{\hyperlink{class_vivid_1_1_component_a6e278de2bcac5810ae37ce0c243f508d}{Get\+Component\+ID}} () const
 \end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 \doxysubsubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_vivid_1_1_component}{Vivid\+::\+Component}}}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_vivid_1_1_entity}{Vivid\+::\+Entity}} $\ast$ \mbox{\hyperlink{class_vivid_1_1_component_ad05da5a84e69598037eb85826794c80c}{m\+\_\+\+Entity}}
+int \mbox{\hyperlink{class_vivid_1_1_component_a6e8f2beb515d64609aecddf3736d5f7c}{m\+\_\+\+Owner\+Entity\+ID}} = 0
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 
 
-Definition at line \mbox{\hyperlink{_transform_component_8h_source_l00010}{10}} of file \mbox{\hyperlink{_transform_component_8h_source}{Transform\+Component.\+h}}.
+Definition at line \mbox{\hyperlink{_transform_component_8h_source_l00012}{12}} of file \mbox{\hyperlink{_transform_component_8h_source}{Transform\+Component.\+h}}.
 
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{class_vivid_1_1_transform_component_a555497d627f36f338cb2468fd5770722}\label{class_vivid_1_1_transform_component_a555497d627f36f338cb2468fd5770722}} 
+\mbox{\Hypertarget{class_vivid_1_1_transform_component_ab007173466109cd89cfa4d31fc47c2c1}\label{class_vivid_1_1_transform_component_ab007173466109cd89cfa4d31fc47c2c1}} 
 \index{Vivid::TransformComponent@{Vivid::TransformComponent}!TransformComponent@{TransformComponent}}
 \index{TransformComponent@{TransformComponent}!Vivid::TransformComponent@{Vivid::TransformComponent}}
-\doxysubsubsection{\texorpdfstring{TransformComponent()}{TransformComponent()}}
-{\footnotesize\ttfamily Vivid\+::\+Transform\+Component\+::\+Transform\+Component (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vec3}{Vec3}}}]{position,  }\item[{\mbox{\hyperlink{struct_vec3}{Vec3}}}]{rotation,  }\item[{\mbox{\hyperlink{struct_vec3}{Vec3}}}]{scale }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+\doxysubsubsection{\texorpdfstring{TransformComponent()}{TransformComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Vivid\+::\+Transform\+Component\+::\+Transform\+Component (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Definition at line \mbox{\hyperlink{_transform_component_8h_source_l00030}{30}} of file \mbox{\hyperlink{_transform_component_8h_source}{Transform\+Component.\+h}}.
+Definition at line \mbox{\hyperlink{_transform_component_8h_source_l00031}{31}} of file \mbox{\hyperlink{_transform_component_8h_source}{Transform\+Component.\+h}}.
+
+\mbox{\Hypertarget{class_vivid_1_1_transform_component_a1298d087a7dd41da59ebb0f655d24668}\label{class_vivid_1_1_transform_component_a1298d087a7dd41da59ebb0f655d24668}} 
+\index{Vivid::TransformComponent@{Vivid::TransformComponent}!TransformComponent@{TransformComponent}}
+\index{TransformComponent@{TransformComponent}!Vivid::TransformComponent@{Vivid::TransformComponent}}
+\doxysubsubsection{\texorpdfstring{TransformComponent()}{TransformComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Vivid\+::\+Transform\+Component\+::\+Transform\+Component (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Maths\+::\+Vec3}}}]{position,  }\item[{\mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Maths\+::\+Vec3}}}]{rotation,  }\item[{\mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Maths\+::\+Vec3}}}]{scale }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_transform_component_8h_source_l00039}{39}} of file \mbox{\hyperlink{_transform_component_8h_source}{Transform\+Component.\+h}}.
 
 
 
@@ -100,7 +112,7 @@ Implements \mbox{\hyperlink{class_vivid_1_1_component}{Vivid\+::\+Component}}.
 
 
 
-Definition at line \mbox{\hyperlink{_transform_component_8cpp_source_l00112}{112}} of file \mbox{\hyperlink{_transform_component_8cpp_source}{Transform\+Component.\+cpp}}.
+Definition at line \mbox{\hyperlink{_transform_component_8cpp_source_l00113}{113}} of file \mbox{\hyperlink{_transform_component_8cpp_source}{Transform\+Component.\+cpp}}.
 
 \mbox{\Hypertarget{class_vivid_1_1_transform_component_a572f932dd359bf362ece37d05eea15ef}\label{class_vivid_1_1_transform_component_a572f932dd359bf362ece37d05eea15ef}} 
 \index{Vivid::TransformComponent@{Vivid::TransformComponent}!DrawGizmo@{DrawGizmo}}
@@ -110,13 +122,13 @@ Definition at line \mbox{\hyperlink{_transform_component_8cpp_source_l00112}{112
 
 
 
-Definition at line \mbox{\hyperlink{_transform_component_8cpp_source_l00116}{116}} of file \mbox{\hyperlink{_transform_component_8cpp_source}{Transform\+Component.\+cpp}}.
+Definition at line \mbox{\hyperlink{_transform_component_8cpp_source_l00117}{117}} of file \mbox{\hyperlink{_transform_component_8cpp_source}{Transform\+Component.\+cpp}}.
 
-\mbox{\Hypertarget{class_vivid_1_1_transform_component_aaaae2548f0ecb9a2ee6f72ec6e948989}\label{class_vivid_1_1_transform_component_aaaae2548f0ecb9a2ee6f72ec6e948989}} 
-\index{Vivid::TransformComponent@{Vivid::TransformComponent}!GetComponentName@{GetComponentName}}
-\index{GetComponentName@{GetComponentName}!Vivid::TransformComponent@{Vivid::TransformComponent}}
-\doxysubsubsection{\texorpdfstring{GetComponentName()}{GetComponentName()}}
-{\footnotesize\ttfamily String Vivid\+::\+Transform\+Component\+::\+Get\+Component\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+\mbox{\Hypertarget{class_vivid_1_1_transform_component_a2a191a23dbf03fd438add3a8adbe6734}\label{class_vivid_1_1_transform_component_a2a191a23dbf03fd438add3a8adbe6734}} 
+\index{Vivid::TransformComponent@{Vivid::TransformComponent}!GetComponentType@{GetComponentType}}
+\index{GetComponentType@{GetComponentType}!Vivid::TransformComponent@{Vivid::TransformComponent}}
+\doxysubsubsection{\texorpdfstring{GetComponentType()}{GetComponentType()}}
+{\footnotesize\ttfamily Component\+Type Vivid\+::\+Transform\+Component\+::\+Get\+Component\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -124,7 +136,7 @@ Implements \mbox{\hyperlink{class_vivid_1_1_component}{Vivid\+::\+Component}}.
 
 
 
-Definition at line \mbox{\hyperlink{_transform_component_8h_source_l00058}{58}} of file \mbox{\hyperlink{_transform_component_8h_source}{Transform\+Component.\+h}}.
+Definition at line \mbox{\hyperlink{_transform_component_8h_source_l00079}{79}} of file \mbox{\hyperlink{_transform_component_8h_source}{Transform\+Component.\+h}}.
 
 \mbox{\Hypertarget{class_vivid_1_1_transform_component_ab2e72684c04d6cce59e785dba9fd43ce}\label{class_vivid_1_1_transform_component_ab2e72684c04d6cce59e785dba9fd43ce}} 
 \index{Vivid::TransformComponent@{Vivid::TransformComponent}!GetCurrentGizmoMode@{GetCurrentGizmoMode}}
@@ -134,7 +146,7 @@ Definition at line \mbox{\hyperlink{_transform_component_8h_source_l00058}{58}} 
 
 
 
-Definition at line \mbox{\hyperlink{_transform_component_8h_source_l00062}{62}} of file \mbox{\hyperlink{_transform_component_8h_source}{Transform\+Component.\+h}}.
+Definition at line \mbox{\hyperlink{_transform_component_8h_source_l00083}{83}} of file \mbox{\hyperlink{_transform_component_8h_source}{Transform\+Component.\+h}}.
 
 \mbox{\Hypertarget{class_vivid_1_1_transform_component_a2e22c85ee723b51df05bbab8556c5ac9}\label{class_vivid_1_1_transform_component_a2e22c85ee723b51df05bbab8556c5ac9}} 
 \index{Vivid::TransformComponent@{Vivid::TransformComponent}!GetCurrentGizmoOperation@{GetCurrentGizmoOperation}}
@@ -144,37 +156,37 @@ Definition at line \mbox{\hyperlink{_transform_component_8h_source_l00062}{62}} 
 
 
 
-Definition at line \mbox{\hyperlink{_transform_component_8h_source_l00060}{60}} of file \mbox{\hyperlink{_transform_component_8h_source}{Transform\+Component.\+h}}.
+Definition at line \mbox{\hyperlink{_transform_component_8h_source_l00081}{81}} of file \mbox{\hyperlink{_transform_component_8h_source}{Transform\+Component.\+h}}.
 
-\mbox{\Hypertarget{class_vivid_1_1_transform_component_a2fb36f3e58d7e797313c12f412649dc4}\label{class_vivid_1_1_transform_component_a2fb36f3e58d7e797313c12f412649dc4}} 
+\mbox{\Hypertarget{class_vivid_1_1_transform_component_aeefe6d7b2b28a662438e2645dbb69e45}\label{class_vivid_1_1_transform_component_aeefe6d7b2b28a662438e2645dbb69e45}} 
 \index{Vivid::TransformComponent@{Vivid::TransformComponent}!GetPosition@{GetPosition}}
 \index{GetPosition@{GetPosition}!Vivid::TransformComponent@{Vivid::TransformComponent}}
 \doxysubsubsection{\texorpdfstring{GetPosition()}{GetPosition()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_vec3}{Vec3}} Vivid\+::\+Transform\+Component\+::\+Get\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Maths\+::\+Vec3}} Vivid\+::\+Transform\+Component\+::\+Get\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Definition at line \mbox{\hyperlink{_transform_component_8h_source_l00044}{44}} of file \mbox{\hyperlink{_transform_component_8h_source}{Transform\+Component.\+h}}.
+Definition at line \mbox{\hyperlink{_transform_component_8h_source_l00053}{53}} of file \mbox{\hyperlink{_transform_component_8h_source}{Transform\+Component.\+h}}.
 
-\mbox{\Hypertarget{class_vivid_1_1_transform_component_ab141a5b9749899cb915805d15f2ed789}\label{class_vivid_1_1_transform_component_ab141a5b9749899cb915805d15f2ed789}} 
+\mbox{\Hypertarget{class_vivid_1_1_transform_component_af62d9c5196e61bf1eb58b4ca25edc2c2}\label{class_vivid_1_1_transform_component_af62d9c5196e61bf1eb58b4ca25edc2c2}} 
 \index{Vivid::TransformComponent@{Vivid::TransformComponent}!GetRotation@{GetRotation}}
 \index{GetRotation@{GetRotation}!Vivid::TransformComponent@{Vivid::TransformComponent}}
 \doxysubsubsection{\texorpdfstring{GetRotation()}{GetRotation()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_vec3}{Vec3}} Vivid\+::\+Transform\+Component\+::\+Get\+Rotation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Maths\+::\+Vec3}} Vivid\+::\+Transform\+Component\+::\+Get\+Rotation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Definition at line \mbox{\hyperlink{_transform_component_8h_source_l00046}{46}} of file \mbox{\hyperlink{_transform_component_8h_source}{Transform\+Component.\+h}}.
+Definition at line \mbox{\hyperlink{_transform_component_8h_source_l00055}{55}} of file \mbox{\hyperlink{_transform_component_8h_source}{Transform\+Component.\+h}}.
 
-\mbox{\Hypertarget{class_vivid_1_1_transform_component_a160b3bcf062a932135730b9b6197396d}\label{class_vivid_1_1_transform_component_a160b3bcf062a932135730b9b6197396d}} 
+\mbox{\Hypertarget{class_vivid_1_1_transform_component_a6c1d1a66268b9cd5e1f50adbe4577dde}\label{class_vivid_1_1_transform_component_a6c1d1a66268b9cd5e1f50adbe4577dde}} 
 \index{Vivid::TransformComponent@{Vivid::TransformComponent}!GetScale@{GetScale}}
 \index{GetScale@{GetScale}!Vivid::TransformComponent@{Vivid::TransformComponent}}
 \doxysubsubsection{\texorpdfstring{GetScale()}{GetScale()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_vec3}{Vec3}} Vivid\+::\+Transform\+Component\+::\+Get\+Scale (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Maths\+::\+Vec3}} Vivid\+::\+Transform\+Component\+::\+Get\+Scale (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Definition at line \mbox{\hyperlink{_transform_component_8h_source_l00048}{48}} of file \mbox{\hyperlink{_transform_component_8h_source}{Transform\+Component.\+h}}.
+Definition at line \mbox{\hyperlink{_transform_component_8h_source_l00057}{57}} of file \mbox{\hyperlink{_transform_component_8h_source}{Transform\+Component.\+h}}.
 
 \mbox{\Hypertarget{class_vivid_1_1_transform_component_a7d9b58e1d9dfc13358a7a91d7e2c7633}\label{class_vivid_1_1_transform_component_a7d9b58e1d9dfc13358a7a91d7e2c7633}} 
 \index{Vivid::TransformComponent@{Vivid::TransformComponent}!GetSnap@{GetSnap}}
@@ -184,17 +196,17 @@ Definition at line \mbox{\hyperlink{_transform_component_8h_source_l00048}{48}} 
 
 
 
-Definition at line \mbox{\hyperlink{_transform_component_8h_source_l00066}{66}} of file \mbox{\hyperlink{_transform_component_8h_source}{Transform\+Component.\+h}}.
+Definition at line \mbox{\hyperlink{_transform_component_8h_source_l00087}{87}} of file \mbox{\hyperlink{_transform_component_8h_source}{Transform\+Component.\+h}}.
 
-\mbox{\Hypertarget{class_vivid_1_1_transform_component_a95caf8eb9666b05cfafc896ede945f29}\label{class_vivid_1_1_transform_component_a95caf8eb9666b05cfafc896ede945f29}} 
+\mbox{\Hypertarget{class_vivid_1_1_transform_component_a0c22754de20780ae929ffd6046351b68}\label{class_vivid_1_1_transform_component_a0c22754de20780ae929ffd6046351b68}} 
 \index{Vivid::TransformComponent@{Vivid::TransformComponent}!GetTransform@{GetTransform}}
 \index{GetTransform@{GetTransform}!Vivid::TransformComponent@{Vivid::TransformComponent}}
 \doxysubsubsection{\texorpdfstring{GetTransform()}{GetTransform()}}
-{\footnotesize\ttfamily glm\+::mat4 Vivid\+::\+Transform\+Component\+::\+Get\+Transform (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily glm\+::mat4 Vivid\+::\+Transform\+Component\+::\+Get\+Transform (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Definition at line \mbox{\hyperlink{_transform_component_8h_source_l00050}{50}} of file \mbox{\hyperlink{_transform_component_8h_source}{Transform\+Component.\+h}}.
+Definition at line \mbox{\hyperlink{_transform_component_8h_source_l00059}{59}} of file \mbox{\hyperlink{_transform_component_8h_source}{Transform\+Component.\+h}}.
 
 \mbox{\Hypertarget{class_vivid_1_1_transform_component_ae307541eb60ec3f990c1f5f1008fbcb8}\label{class_vivid_1_1_transform_component_ae307541eb60ec3f990c1f5f1008fbcb8}} 
 \index{Vivid::TransformComponent@{Vivid::TransformComponent}!ImGuiRender@{ImGuiRender}}
@@ -208,7 +220,7 @@ Implements \mbox{\hyperlink{class_vivid_1_1_component}{Vivid\+::\+Component}}.
 
 
 
-Definition at line \mbox{\hyperlink{_transform_component_8cpp_source_l00075}{75}} of file \mbox{\hyperlink{_transform_component_8cpp_source}{Transform\+Component.\+cpp}}.
+Definition at line \mbox{\hyperlink{_transform_component_8cpp_source_l00076}{76}} of file \mbox{\hyperlink{_transform_component_8cpp_source}{Transform\+Component.\+cpp}}.
 
 \mbox{\Hypertarget{class_vivid_1_1_transform_component_a8d8d23e79e40b549bda2e73661f56174}\label{class_vivid_1_1_transform_component_a8d8d23e79e40b549bda2e73661f56174}} 
 \index{Vivid::TransformComponent@{Vivid::TransformComponent}!IsUsingSnap@{IsUsingSnap}}
@@ -218,37 +230,37 @@ Definition at line \mbox{\hyperlink{_transform_component_8cpp_source_l00075}{75}
 
 
 
-Definition at line \mbox{\hyperlink{_transform_component_8h_source_l00064}{64}} of file \mbox{\hyperlink{_transform_component_8h_source}{Transform\+Component.\+h}}.
+Definition at line \mbox{\hyperlink{_transform_component_8h_source_l00085}{85}} of file \mbox{\hyperlink{_transform_component_8h_source}{Transform\+Component.\+h}}.
 
-\mbox{\Hypertarget{class_vivid_1_1_transform_component_a35a2180bb670dcdcdc4976113e58bd93}\label{class_vivid_1_1_transform_component_a35a2180bb670dcdcdc4976113e58bd93}} 
+\mbox{\Hypertarget{class_vivid_1_1_transform_component_ad644565fe47ab0e02e7312c9468caf70}\label{class_vivid_1_1_transform_component_ad644565fe47ab0e02e7312c9468caf70}} 
 \index{Vivid::TransformComponent@{Vivid::TransformComponent}!SetPosition@{SetPosition}}
 \index{SetPosition@{SetPosition}!Vivid::TransformComponent@{Vivid::TransformComponent}}
 \doxysubsubsection{\texorpdfstring{SetPosition()}{SetPosition()}}
-{\footnotesize\ttfamily void Vivid\+::\+Transform\+Component\+::\+Set\+Position (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vec3}{Vec3}}}]{position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily void Vivid\+::\+Transform\+Component\+::\+Set\+Position (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Maths\+::\+Vec3}}}]{position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Definition at line \mbox{\hyperlink{_transform_component_8h_source_l00052}{52}} of file \mbox{\hyperlink{_transform_component_8h_source}{Transform\+Component.\+h}}.
+Definition at line \mbox{\hyperlink{_transform_component_8h_source_l00061}{61}} of file \mbox{\hyperlink{_transform_component_8h_source}{Transform\+Component.\+h}}.
 
-\mbox{\Hypertarget{class_vivid_1_1_transform_component_af1fbf179a57cae6bf286b037706a81b4}\label{class_vivid_1_1_transform_component_af1fbf179a57cae6bf286b037706a81b4}} 
+\mbox{\Hypertarget{class_vivid_1_1_transform_component_ad39a4a0d0025de2983b9695319fea628}\label{class_vivid_1_1_transform_component_ad39a4a0d0025de2983b9695319fea628}} 
 \index{Vivid::TransformComponent@{Vivid::TransformComponent}!SetRotation@{SetRotation}}
 \index{SetRotation@{SetRotation}!Vivid::TransformComponent@{Vivid::TransformComponent}}
 \doxysubsubsection{\texorpdfstring{SetRotation()}{SetRotation()}}
-{\footnotesize\ttfamily void Vivid\+::\+Transform\+Component\+::\+Set\+Rotation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vec3}{Vec3}}}]{rotation }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily void Vivid\+::\+Transform\+Component\+::\+Set\+Rotation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Maths\+::\+Vec3}}}]{rotation }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Definition at line \mbox{\hyperlink{_transform_component_8h_source_l00054}{54}} of file \mbox{\hyperlink{_transform_component_8h_source}{Transform\+Component.\+h}}.
+Definition at line \mbox{\hyperlink{_transform_component_8h_source_l00067}{67}} of file \mbox{\hyperlink{_transform_component_8h_source}{Transform\+Component.\+h}}.
 
-\mbox{\Hypertarget{class_vivid_1_1_transform_component_aaedd83bbeb99fd103ec6e27cf468122a}\label{class_vivid_1_1_transform_component_aaedd83bbeb99fd103ec6e27cf468122a}} 
+\mbox{\Hypertarget{class_vivid_1_1_transform_component_a5c79fb75533375e37a40801b56ef5188}\label{class_vivid_1_1_transform_component_a5c79fb75533375e37a40801b56ef5188}} 
 \index{Vivid::TransformComponent@{Vivid::TransformComponent}!SetScale@{SetScale}}
 \index{SetScale@{SetScale}!Vivid::TransformComponent@{Vivid::TransformComponent}}
 \doxysubsubsection{\texorpdfstring{SetScale()}{SetScale()}}
-{\footnotesize\ttfamily void Vivid\+::\+Transform\+Component\+::\+Set\+Scale (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vec3}{Vec3}}}]{scale }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily void Vivid\+::\+Transform\+Component\+::\+Set\+Scale (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Maths\+::\+Vec3}}}]{scale }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Definition at line \mbox{\hyperlink{_transform_component_8h_source_l00056}{56}} of file \mbox{\hyperlink{_transform_component_8h_source}{Transform\+Component.\+h}}.
+Definition at line \mbox{\hyperlink{_transform_component_8h_source_l00073}{73}} of file \mbox{\hyperlink{_transform_component_8h_source}{Transform\+Component.\+h}}.
 
 
 

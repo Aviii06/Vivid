@@ -1,36 +1,40 @@
 \hypertarget{class_vivid_1_1_entity}{}\doxysection{Vivid\+::Entity Class Reference}
 \label{class_vivid_1_1_entity}\index{Vivid::Entity@{Vivid::Entity}}
+
+
+{\ttfamily \#include $<$Entity.\+h$>$}
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{class_vivid_1_1_entity_aa0e383e4359ff3b6085fa0af14e41ac6}{Entity}} (int id, String name)
 \item 
-void \mbox{\hyperlink{class_vivid_1_1_entity_a930dd9134f4ddeec3245cf7b12523f85}{Add\+Component}} (\mbox{\hyperlink{class_vivid_1_1_component}{Vivid\+::\+Component}} $\ast$component)
-\item 
-void \mbox{\hyperlink{class_vivid_1_1_entity_a15c69afc93cd523fede9c7198b12853d}{Remove\+Component}} (\mbox{\hyperlink{class_vivid_1_1_component}{Vivid\+::\+Component}} $\ast$component)
-\item 
 void \mbox{\hyperlink{class_vivid_1_1_entity_a36ff8ac4074d784900e25d2cdf5b7279}{Draw}} (\mbox{\hyperlink{class_camera}{Camera}} $\ast$camera)
 \item 
-void \mbox{\hyperlink{class_vivid_1_1_entity_a71bb995ca1b4c7e20f90c34e1caffc3e}{Draw\+GUI}} ()
+void \mbox{\hyperlink{class_vivid_1_1_entity_a819a4a6cd2147136cf6dc0f35ab9b948}{Imgui\+Render}} ()
+\item 
+void \mbox{\hyperlink{class_vivid_1_1_entity_adb58214a410196f96c37283a9d195d31}{Draw\+Gizmo}} (\mbox{\hyperlink{class_camera}{Camera}} $\ast$camera)
 \item 
 int \mbox{\hyperlink{class_vivid_1_1_entity_abbf1286b410811ce2db63d290635ec6e}{Get\+ID}} () const
 \item 
 String \mbox{\hyperlink{class_vivid_1_1_entity_af1a486fbce18c7fe71bb575095f720e4}{Get\+Name}} () const
 \item 
-Vector$<$ \mbox{\hyperlink{class_vivid_1_1_component}{Vivid\+::\+Component}} $\ast$ $>$ \mbox{\hyperlink{class_vivid_1_1_entity_a4365b64c5ef1775a81adbae23a0aea5d}{Get\+All\+Components}} () const
+void \mbox{\hyperlink{class_vivid_1_1_entity_a1a32eba2f4e9eaed1f0013228e8b9c49}{Set\+Name}} (String \&name)
 \item 
-{\footnotesize template$<$typename T $>$ }\\T $\ast$ \mbox{\hyperlink{class_vivid_1_1_entity_aec027bf997e43f05b6c679b6fd926475}{Get\+Component}} ()
+void \mbox{\hyperlink{class_vivid_1_1_entity_a635d0b8516b10490d9739d16fa79d8ee}{Set\+Name}} (String \&\&name)
 \item 
-const char $\ast$ \mbox{\hyperlink{class_vivid_1_1_entity_ace56bbdeda25594afbefa24db05bcfab}{Get\+Type}} (\mbox{\hyperlink{class_vivid_1_1_component}{Component}} $\ast$component)
+int \mbox{\hyperlink{class_vivid_1_1_entity_a973d911dd52e9e37d0af78d82ee8af9a}{Has\+Component}} (Component\+Type ct)
+\begin{DoxyCompactList}\small\item\em Return -\/1 if no component found. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_vivid_1_1_entity_a8c74025506fb7256bbc5e0b73fd2eb78}{Remove\+Component}} (const int \&component\+ID)
 \item 
-void \mbox{\hyperlink{class_vivid_1_1_entity_adb58214a410196f96c37283a9d195d31}{Draw\+Gizmo}} (\mbox{\hyperlink{class_camera}{Camera}} $\ast$camera)
+void \mbox{\hyperlink{class_vivid_1_1_entity_a5784c3334b7a817e60cd89ff57667cc1}{Add\+Component}} (const int \&component\+ID)
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
+Contains an \mbox{\hyperlink{class_vivid_1_1_entity}{Entity}} Every \mbox{\hyperlink{class_vivid_1_1_entity}{Entity}} contains a vector of components which can further be Added and Removed 
 
-
-Definition at line \mbox{\hyperlink{_entity_8h_source_l00013}{13}} of file \mbox{\hyperlink{_entity_8h_source}{Entity.\+h}}.
+Definition at line \mbox{\hyperlink{_entity_8h_source_l00011}{11}} of file \mbox{\hyperlink{_entity_8h_source}{Entity.\+h}}.
 
 
 
@@ -45,28 +49,18 @@ Definition at line \mbox{\hyperlink{_entity_8h_source_l00013}{13}} of file \mbox
 
 Definition at line \mbox{\hyperlink{_entity_8cpp_source_l00011}{11}} of file \mbox{\hyperlink{_entity_8cpp_source}{Entity.\+cpp}}.
 
-\mbox{\Hypertarget{class_vivid_1_1_entity_acdb3096bb5e274f2e60042c52837b78c}\label{class_vivid_1_1_entity_acdb3096bb5e274f2e60042c52837b78c}} 
-\index{Vivid::Entity@{Vivid::Entity}!````~Entity@{$\sim$Entity}}
-\index{````~Entity@{$\sim$Entity}!Vivid::Entity@{Vivid::Entity}}
-\doxysubsubsection{\texorpdfstring{$\sim$Entity()}{~Entity()}}
-{\footnotesize\ttfamily Vivid\+::\+Entity\+::$\sim$\+Entity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Definition at line \mbox{\hyperlink{_entity_8cpp_source_l00019}{19}} of file \mbox{\hyperlink{_entity_8cpp_source}{Entity.\+cpp}}.
-
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_vivid_1_1_entity_a930dd9134f4ddeec3245cf7b12523f85}\label{class_vivid_1_1_entity_a930dd9134f4ddeec3245cf7b12523f85}} 
+\mbox{\Hypertarget{class_vivid_1_1_entity_a5784c3334b7a817e60cd89ff57667cc1}\label{class_vivid_1_1_entity_a5784c3334b7a817e60cd89ff57667cc1}} 
 \index{Vivid::Entity@{Vivid::Entity}!AddComponent@{AddComponent}}
 \index{AddComponent@{AddComponent}!Vivid::Entity@{Vivid::Entity}}
 \doxysubsubsection{\texorpdfstring{AddComponent()}{AddComponent()}}
-{\footnotesize\ttfamily void Vivid\+::\+Entity\+::\+Add\+Component (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vivid_1_1_component}{Vivid\+::\+Component}} $\ast$}]{component }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Vivid\+::\+Entity\+::\+Add\+Component (\begin{DoxyParamCaption}\item[{const int \&}]{component\+ID }\end{DoxyParamCaption})}
 
 
 
-Definition at line \mbox{\hyperlink{_entity_8cpp_source_l00023}{23}} of file \mbox{\hyperlink{_entity_8cpp_source}{Entity.\+cpp}}.
+Definition at line \mbox{\hyperlink{_entity_8cpp_source_l00081}{81}} of file \mbox{\hyperlink{_entity_8cpp_source}{Entity.\+cpp}}.
 
 \mbox{\Hypertarget{class_vivid_1_1_entity_a36ff8ac4074d784900e25d2cdf5b7279}\label{class_vivid_1_1_entity_a36ff8ac4074d784900e25d2cdf5b7279}} 
 \index{Vivid::Entity@{Vivid::Entity}!Draw@{Draw}}
@@ -76,7 +70,7 @@ Definition at line \mbox{\hyperlink{_entity_8cpp_source_l00023}{23}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{_entity_8cpp_source_l00056}{56}} of file \mbox{\hyperlink{_entity_8cpp_source}{Entity.\+cpp}}.
+Definition at line \mbox{\hyperlink{_entity_8cpp_source_l00036}{36}} of file \mbox{\hyperlink{_entity_8cpp_source}{Entity.\+cpp}}.
 
 \mbox{\Hypertarget{class_vivid_1_1_entity_adb58214a410196f96c37283a9d195d31}\label{class_vivid_1_1_entity_adb58214a410196f96c37283a9d195d31}} 
 \index{Vivid::Entity@{Vivid::Entity}!DrawGizmo@{DrawGizmo}}
@@ -86,38 +80,7 @@ Definition at line \mbox{\hyperlink{_entity_8cpp_source_l00056}{56}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{_entity_8cpp_source_l00069}{69}} of file \mbox{\hyperlink{_entity_8cpp_source}{Entity.\+cpp}}.
-
-\mbox{\Hypertarget{class_vivid_1_1_entity_a71bb995ca1b4c7e20f90c34e1caffc3e}\label{class_vivid_1_1_entity_a71bb995ca1b4c7e20f90c34e1caffc3e}} 
-\index{Vivid::Entity@{Vivid::Entity}!DrawGUI@{DrawGUI}}
-\index{DrawGUI@{DrawGUI}!Vivid::Entity@{Vivid::Entity}}
-\doxysubsubsection{\texorpdfstring{DrawGUI()}{DrawGUI()}}
-{\footnotesize\ttfamily void Vivid\+::\+Entity\+::\+Draw\+GUI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Definition at line \mbox{\hyperlink{_entity_8cpp_source_l00040}{40}} of file \mbox{\hyperlink{_entity_8cpp_source}{Entity.\+cpp}}.
-
-\mbox{\Hypertarget{class_vivid_1_1_entity_a4365b64c5ef1775a81adbae23a0aea5d}\label{class_vivid_1_1_entity_a4365b64c5ef1775a81adbae23a0aea5d}} 
-\index{Vivid::Entity@{Vivid::Entity}!GetAllComponents@{GetAllComponents}}
-\index{GetAllComponents@{GetAllComponents}!Vivid::Entity@{Vivid::Entity}}
-\doxysubsubsection{\texorpdfstring{GetAllComponents()}{GetAllComponents()}}
-{\footnotesize\ttfamily Vector$<$ \mbox{\hyperlink{class_vivid_1_1_component}{Vivid\+::\+Component}} $\ast$ $>$ Vivid\+::\+Entity\+::\+Get\+All\+Components (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Definition at line \mbox{\hyperlink{_entity_8h_source_l00039}{39}} of file \mbox{\hyperlink{_entity_8h_source}{Entity.\+h}}.
-
-\mbox{\Hypertarget{class_vivid_1_1_entity_aec027bf997e43f05b6c679b6fd926475}\label{class_vivid_1_1_entity_aec027bf997e43f05b6c679b6fd926475}} 
-\index{Vivid::Entity@{Vivid::Entity}!GetComponent@{GetComponent}}
-\index{GetComponent@{GetComponent}!Vivid::Entity@{Vivid::Entity}}
-\doxysubsubsection{\texorpdfstring{GetComponent()}{GetComponent()}}
-{\footnotesize\ttfamily template$<$typename T $>$ \\
-T $\ast$ Vivid\+::\+Entity\+::\+Get\+Component (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Definition at line \mbox{\hyperlink{_entity_8h_source_l00042}{42}} of file \mbox{\hyperlink{_entity_8h_source}{Entity.\+h}}.
+Definition at line \mbox{\hyperlink{_entity_8cpp_source_l00044}{44}} of file \mbox{\hyperlink{_entity_8cpp_source}{Entity.\+cpp}}.
 
 \mbox{\Hypertarget{class_vivid_1_1_entity_abbf1286b410811ce2db63d290635ec6e}\label{class_vivid_1_1_entity_abbf1286b410811ce2db63d290635ec6e}} 
 \index{Vivid::Entity@{Vivid::Entity}!GetID@{GetID}}
@@ -127,7 +90,7 @@ Definition at line \mbox{\hyperlink{_entity_8h_source_l00042}{42}} of file \mbox
 
 
 
-Definition at line \mbox{\hyperlink{_entity_8h_source_l00035}{35}} of file \mbox{\hyperlink{_entity_8h_source}{Entity.\+h}}.
+Definition at line \mbox{\hyperlink{_entity_8h_source_l00027}{27}} of file \mbox{\hyperlink{_entity_8h_source}{Entity.\+h}}.
 
 \mbox{\Hypertarget{class_vivid_1_1_entity_af1a486fbce18c7fe71bb575095f720e4}\label{class_vivid_1_1_entity_af1a486fbce18c7fe71bb575095f720e4}} 
 \index{Vivid::Entity@{Vivid::Entity}!GetName@{GetName}}
@@ -137,27 +100,61 @@ Definition at line \mbox{\hyperlink{_entity_8h_source_l00035}{35}} of file \mbox
 
 
 
-Definition at line \mbox{\hyperlink{_entity_8h_source_l00037}{37}} of file \mbox{\hyperlink{_entity_8h_source}{Entity.\+h}}.
+Definition at line \mbox{\hyperlink{_entity_8h_source_l00028}{28}} of file \mbox{\hyperlink{_entity_8h_source}{Entity.\+h}}.
 
-\mbox{\Hypertarget{class_vivid_1_1_entity_ace56bbdeda25594afbefa24db05bcfab}\label{class_vivid_1_1_entity_ace56bbdeda25594afbefa24db05bcfab}} 
-\index{Vivid::Entity@{Vivid::Entity}!GetType@{GetType}}
-\index{GetType@{GetType}!Vivid::Entity@{Vivid::Entity}}
-\doxysubsubsection{\texorpdfstring{GetType()}{GetType()}}
-{\footnotesize\ttfamily const char $\ast$ Vivid\+::\+Entity\+::\+Get\+Type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vivid_1_1_component}{Vivid\+::\+Component}} $\ast$}]{component }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{class_vivid_1_1_entity_a973d911dd52e9e37d0af78d82ee8af9a}\label{class_vivid_1_1_entity_a973d911dd52e9e37d0af78d82ee8af9a}} 
+\index{Vivid::Entity@{Vivid::Entity}!HasComponent@{HasComponent}}
+\index{HasComponent@{HasComponent}!Vivid::Entity@{Vivid::Entity}}
+\doxysubsubsection{\texorpdfstring{HasComponent()}{HasComponent()}}
+{\footnotesize\ttfamily int Vivid\+::\+Entity\+::\+Has\+Component (\begin{DoxyParamCaption}\item[{Component\+Type}]{ct }\end{DoxyParamCaption})}
 
 
 
-Definition at line \mbox{\hyperlink{_entity_8cpp_source_l00064}{64}} of file \mbox{\hyperlink{_entity_8cpp_source}{Entity.\+cpp}}.
+Return -\/1 if no component found. 
 
-\mbox{\Hypertarget{class_vivid_1_1_entity_a15c69afc93cd523fede9c7198b12853d}\label{class_vivid_1_1_entity_a15c69afc93cd523fede9c7198b12853d}} 
+
+
+Definition at line \mbox{\hyperlink{_entity_8cpp_source_l00054}{54}} of file \mbox{\hyperlink{_entity_8cpp_source}{Entity.\+cpp}}.
+
+\mbox{\Hypertarget{class_vivid_1_1_entity_a819a4a6cd2147136cf6dc0f35ab9b948}\label{class_vivid_1_1_entity_a819a4a6cd2147136cf6dc0f35ab9b948}} 
+\index{Vivid::Entity@{Vivid::Entity}!ImguiRender@{ImguiRender}}
+\index{ImguiRender@{ImguiRender}!Vivid::Entity@{Vivid::Entity}}
+\doxysubsubsection{\texorpdfstring{ImguiRender()}{ImguiRender()}}
+{\footnotesize\ttfamily void Vivid\+::\+Entity\+::\+Imgui\+Render (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_entity_8cpp_source_l00019}{19}} of file \mbox{\hyperlink{_entity_8cpp_source}{Entity.\+cpp}}.
+
+\mbox{\Hypertarget{class_vivid_1_1_entity_a8c74025506fb7256bbc5e0b73fd2eb78}\label{class_vivid_1_1_entity_a8c74025506fb7256bbc5e0b73fd2eb78}} 
 \index{Vivid::Entity@{Vivid::Entity}!RemoveComponent@{RemoveComponent}}
 \index{RemoveComponent@{RemoveComponent}!Vivid::Entity@{Vivid::Entity}}
 \doxysubsubsection{\texorpdfstring{RemoveComponent()}{RemoveComponent()}}
-{\footnotesize\ttfamily void Vivid\+::\+Entity\+::\+Remove\+Component (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vivid_1_1_component}{Vivid\+::\+Component}} $\ast$}]{component }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Vivid\+::\+Entity\+::\+Remove\+Component (\begin{DoxyParamCaption}\item[{const int \&}]{component\+ID }\end{DoxyParamCaption})}
 
 
 
-Definition at line \mbox{\hyperlink{_entity_8cpp_source_l00028}{28}} of file \mbox{\hyperlink{_entity_8cpp_source}{Entity.\+cpp}}.
+Definition at line \mbox{\hyperlink{_entity_8cpp_source_l00067}{67}} of file \mbox{\hyperlink{_entity_8cpp_source}{Entity.\+cpp}}.
+
+\mbox{\Hypertarget{class_vivid_1_1_entity_a635d0b8516b10490d9739d16fa79d8ee}\label{class_vivid_1_1_entity_a635d0b8516b10490d9739d16fa79d8ee}} 
+\index{Vivid::Entity@{Vivid::Entity}!SetName@{SetName}}
+\index{SetName@{SetName}!Vivid::Entity@{Vivid::Entity}}
+\doxysubsubsection{\texorpdfstring{SetName()}{SetName()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Vivid\+::\+Entity\+::\+Set\+Name (\begin{DoxyParamCaption}\item[{String \&\&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_entity_8h_source_l00030}{30}} of file \mbox{\hyperlink{_entity_8h_source}{Entity.\+h}}.
+
+\mbox{\Hypertarget{class_vivid_1_1_entity_a1a32eba2f4e9eaed1f0013228e8b9c49}\label{class_vivid_1_1_entity_a1a32eba2f4e9eaed1f0013228e8b9c49}} 
+\index{Vivid::Entity@{Vivid::Entity}!SetName@{SetName}}
+\index{SetName@{SetName}!Vivid::Entity@{Vivid::Entity}}
+\doxysubsubsection{\texorpdfstring{SetName()}{SetName()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Vivid\+::\+Entity\+::\+Set\+Name (\begin{DoxyParamCaption}\item[{String \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_entity_8h_source_l00029}{29}} of file \mbox{\hyperlink{_entity_8h_source}{Entity.\+h}}.
 
 
 

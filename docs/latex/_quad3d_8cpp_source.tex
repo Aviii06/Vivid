@@ -3,40 +3,40 @@
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}Quad3d.h"{}}}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00002}00002\ }
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00003}00003\ \textcolor{keyword}{namespace\ }Vivid}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00004}00004\ \{}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00005}00005\ \ \ \ \ \textcolor{comment}{//\ TODO:\ Use\ multiple\ vertices\ to\ have\ correct\ normals\ for\ each\ vertex}}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00006}00006\ \ \ \ \ Quad3d::Quad3d(\textcolor{keywordtype}{int}\ size,\ \mbox{\hyperlink{struct_vec3}{Vec3}}\ col)}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00007}00007\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00008}00008\ \ \ \ \ \ \ \ \ m\_Size\ =\ (float)size;}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00009}00009\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ const\_Size\ =\ m\_Size;}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00010}00010\ }
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00011}00011\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO:\ Correct\ culling}}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00012}00012\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vec3}{Vec3}}\ pos[8]\ =\ \{}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00013}00013\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vec3}{Vec3}}(-\/const\_Size,\ const\_Size,\ -\/const\_Size),}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00014}00014\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vec3}{Vec3}}(const\_Size,\ const\_Size,\ -\/const\_Size),}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00015}00015\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vec3}{Vec3}}(-\/const\_Size,\ -\/const\_Size,\ -\/const\_Size),}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00016}00016\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vec3}{Vec3}}(const\_Size,\ -\/const\_Size,\ -\/const\_Size),}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00017}00017\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vec3}{Vec3}}(-\/const\_Size,\ const\_Size,\ const\_Size),}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00018}00018\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vec3}{Vec3}}(const\_Size,\ const\_Size,\ const\_Size),}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vec3}{Vec3}}(-\/const\_Size,\ -\/const\_Size,\ const\_Size),}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vec3}{Vec3}}(const\_Size,\ -\/const\_Size,\ const\_Size),}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \};}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00022}00022\ }
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vec2}{Vec2}}\ tex[8]\ =\ \{}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vec2}{Vec2}}(0.0,\ 0.0),}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vec2}{Vec2}}(1.0,\ 0.0),}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vec2}{Vec2}}(1.0,\ 1.0),}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vec2}{Vec2}}(0.0,\ 1.0),}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vec2}{Vec2}}(0.0,\ 0.0),}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vec2}{Vec2}}(1.0,\ 0.0),}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vec2}{Vec2}}(1.0,\ 1.0),}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vec2}{Vec2}}(0.0,\ 1.0),}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \};}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00033}00033\ }
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vec3}{Vec3}}\ color[8]\ =\ \{}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ col,}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}common/maths/Vec.h"{}}}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00004}00004\ \textcolor{keyword}{namespace\ }Vivid}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00005}00005\ \{}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00006}00006\ \ \ \ \ \textcolor{comment}{//\ TODO:\ Use\ multiple\ vertices\ to\ have\ correct\ normals\ for\ each\ vertex}}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00007}00007\ \ \ \ \ Quad3d::Quad3d(\textcolor{keywordtype}{float}\ size,\ Maths::Vec3\ col)}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00008}00008\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00009}00009\ \ \ \ \ \ \ \ \ m\_Size\ =\ (float)size;}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00010}00010\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ const\_Size\ =\ m\_Size;}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00012}00012\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO:\ Correct\ culling}}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00013}00013\ \ \ \ \ \ \ \ \ Maths::Vec3\ pos[8]\ =\ \{}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00014}00014\ \ \ \ \ \ \ \ \ \ \ \ \ Maths::Vec3(-\/const\_Size,\ const\_Size,\ -\/const\_Size),}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00015}00015\ \ \ \ \ \ \ \ \ \ \ \ \ Maths::Vec3(const\_Size,\ const\_Size,\ -\/const\_Size),}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00016}00016\ \ \ \ \ \ \ \ \ \ \ \ \ Maths::Vec3(-\/const\_Size,\ -\/const\_Size,\ -\/const\_Size),}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00017}00017\ \ \ \ \ \ \ \ \ \ \ \ \ Maths::Vec3(const\_Size,\ -\/const\_Size,\ -\/const\_Size),}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00018}00018\ \ \ \ \ \ \ \ \ \ \ \ \ Maths::Vec3(-\/const\_Size,\ const\_Size,\ const\_Size),}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \ \ \ \ Maths::Vec3(const\_Size,\ const\_Size,\ const\_Size),}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \ \ \ \ Maths::Vec3(-\/const\_Size,\ -\/const\_Size,\ const\_Size),}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \ \ \ \ Maths::Vec3(const\_Size,\ -\/const\_Size,\ const\_Size),}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00024}00024\ \ \ \ \ \ \ \ \ Maths::Vec2\ tex[8]\ =\ \{}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ Maths::Vec2(0.0,\ 0.0),}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ Maths::Vec2(1.0,\ 0.0),}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ Maths::Vec2(1.0,\ 1.0),}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ Maths::Vec2(0.0,\ 1.0),}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ Maths::Vec2(0.0,\ 0.0),}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ Maths::Vec2(1.0,\ 0.0),}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ Maths::Vec2(1.0,\ 1.0),}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ Maths::Vec2(0.0,\ 1.0),}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ Maths::Vec3\ color[8]\ =\ \{}
 \DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ col,}
 \DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ col,}
 \DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ col,}
@@ -44,52 +44,53 @@
 \DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ col,}
 \DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ col,}
 \DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ col,}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \};}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00044}00044\ }
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vec3}{Vec3}}\ normal[8]\ =\ \{}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vec3}{Vec3}}(1.0,\ 1.0,\ 1.0),}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vec3}{Vec3}}(1.0,\ 1.0,\ 1.0),}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vec3}{Vec3}}(1.0,\ 1.0,\ 1.0),}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vec3}{Vec3}}(1.0,\ 1.0,\ 1.0),}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vec3}{Vec3}}(1.0,\ 1.0,\ 1.0),}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vec3}{Vec3}}(1.0,\ 1.0,\ 1.0),}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vec3}{Vec3}}(1.0,\ 1.0,\ 1.0),}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vec3}{Vec3}}(1.0,\ 1.0,\ 1.0),}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \};}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00055}00055\ }
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ ind[12\ *\ 3]\ =\ \{}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ 1,\ 2,\ \textcolor{comment}{//\ Side\ 0}}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ 2,\ 1,\ 3,}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ 4,\ 0,\ 6,\ \textcolor{comment}{//\ Side\ 1}}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ 6,\ 0,\ 2,}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ 7,\ 5,\ 6,\ \textcolor{comment}{//\ Side\ 2}}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ 6,\ 5,\ 4,}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ 3,\ 1,\ 7,\ \textcolor{comment}{//\ Side\ 3}}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ 7,\ 1,\ 5,}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ 4,\ 5,\ 0,\ \textcolor{comment}{//\ Side\ 4}}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ 5,\ 1,}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ 3,\ 7,\ 2,\ \textcolor{comment}{//\ Side\ 5}}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ 2,\ 7,\ 6}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \};}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00070}00070\ }
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00071}00071\ \ \ \ \ \ \ \ \ m\_Pos.resize(8,\ Vertex());}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00072}00072\ \ \ \ \ \ \ \ \ m\_Ind.resize(12\ *\ 3,\ \textcolor{keywordtype}{int}());}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00073}00073\ }
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00074}00074\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 8;\ i++)}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ m\_Pos[i].position\ =\ pos[i];}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ m\_Pos[i].texcoord\ =\ tex[i];}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ m\_Pos[i].color\ =\ color[i];}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ m\_Pos[i].normal\ =\ normal[i];}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00081}00081\ }
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00082}00082\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ x\ :\ ind)}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ m\_Ind[i]\ =\ x;}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ i++;}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00087}00087\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00088}00088\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00089}00089\ \}}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ col,}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ Maths::Vec3\ normal[8]\ =\ \{}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ Maths::Vec3(1.0,\ 1.0,\ 1.0),}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ Maths::Vec3(1.0,\ 1.0,\ 1.0),}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ Maths::Vec3(1.0,\ 1.0,\ 1.0),}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ Maths::Vec3(1.0,\ 1.0,\ 1.0),}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ Maths::Vec3(1.0,\ 1.0,\ 1.0),}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ Maths::Vec3(1.0,\ 1.0,\ 1.0),}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ Maths::Vec3(1.0,\ 1.0,\ 1.0),}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ Maths::Vec3(1.0,\ 1.0,\ 1.0),}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ ind[12\ *\ 3]\ =\ \{}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ 1,\ 2,\ \textcolor{comment}{//\ Side\ 0}}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ 2,\ 1,\ 3,}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ 4,\ 0,\ 6,\ \textcolor{comment}{//\ Side\ 1}}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ 6,\ 0,\ 2,}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ 7,\ 5,\ 6,\ \textcolor{comment}{//\ Side\ 2}}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ 6,\ 5,\ 4,}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ 3,\ 1,\ 7,\ \textcolor{comment}{//\ Side\ 3}}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ 7,\ 1,\ 5,}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ 4,\ 5,\ 0,\ \textcolor{comment}{//\ Side\ 4}}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ 5,\ 1,}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ 3,\ 7,\ 2,\ \textcolor{comment}{//\ Side\ 5}}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ 2,\ 7,\ 6}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00072}00072\ \ \ \ \ \ \ \ \ m\_Pos.resize(8,\ Vertex());}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ m\_Ind.resize(12\ *\ 3,\ \textcolor{keywordtype}{int}());}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 8;\ i++)}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00076}00076\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ m\_Pos[i].position\ =\ pos[i];}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ m\_Pos[i].texcoord\ =\ tex[i];}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ m\_Pos[i].tangent\ =\ color[i];}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ m\_Pos[i].normal\ =\ normal[i];}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ x\ :\ ind)}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00085}00085\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ m\_Ind[i]\ =\ x;}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ i++;}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00088}00088\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00089}00089\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_quad3d_8cpp_source_l00090}00090\ \}}
 
 \end{DoxyCode}

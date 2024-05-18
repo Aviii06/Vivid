@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['orthocamera_0',['OrthoCamera',['../class_ortho_camera.html',1,'']]]
+  ['keycode_0',['KeyCode',['../struct_key_code.html',1,'']]]
 ];

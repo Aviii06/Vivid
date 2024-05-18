@@ -6,5 +6,7 @@ digraph "EditorCamera"
   node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
   Node1 [label="EditorCamera",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Editor EditorCamera has the ability to move around the scene using WASD keys and mouse in an intuitiv..."];
   Node2 -> Node1 [dir="back",color="steelblue1",style="solid"];
-  Node2 [label="Camera",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$class_camera.html",tooltip="It is an abstract class that represents a camera."];
+  Node2 [label="MovableCamera",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$class_movable_camera.html",tooltip="Editor EditorCamera has the ability to move around the scene using WASD keys and mouse in an intuitiv..."];
+  Node3 -> Node2 [dir="back",color="steelblue1",style="solid"];
+  Node3 [label="Camera",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$class_camera.html",tooltip="It is an abstract class that represents a camera."];
 }

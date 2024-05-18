@@ -5,32 +5,31 @@
 \DoxyCodeLine{\Hypertarget{_component_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{\Hypertarget{_component_8h_source_l00002}00002\ }
 \DoxyCodeLine{\Hypertarget{_component_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}editor/camera/Camera.h"{}}}
-\DoxyCodeLine{\Hypertarget{_component_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}Entity.h"{}}}
+\DoxyCodeLine{\Hypertarget{_component_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}ComponentType.h"{}}}
 \DoxyCodeLine{\Hypertarget{_component_8h_source_l00005}00005\ }
 \DoxyCodeLine{\Hypertarget{_component_8h_source_l00006}00006\ \textcolor{keyword}{namespace\ }Vivid}
 \DoxyCodeLine{\Hypertarget{_component_8h_source_l00007}00007\ \{}
 \DoxyCodeLine{\Hypertarget{_component_8h_source_l00008}\mbox{\hyperlink{class_vivid_1_1_component}{00008}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_vivid_1_1_component}{Component}}}
 \DoxyCodeLine{\Hypertarget{_component_8h_source_l00009}00009\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_component_8h_source_l00010}00010\ \ \ \ \ \textcolor{keyword}{protected}:}
-\DoxyCodeLine{\Hypertarget{_component_8h_source_l00011}00011\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_vivid_1_1_entity}{Entity}};}
+\DoxyCodeLine{\Hypertarget{_component_8h_source_l00010}00010\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_component_8h_source_l00011}00011\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ m\_ID;}
 \DoxyCodeLine{\Hypertarget{_component_8h_source_l00012}00012\ }
-\DoxyCodeLine{\Hypertarget{_component_8h_source_l00013}00013\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_vivid_1_1_entity}{Vivid::Entity}}*\ m\_Entity;}
-\DoxyCodeLine{\Hypertarget{_component_8h_source_l00014}00014\ }
-\DoxyCodeLine{\Hypertarget{_component_8h_source_l00015}00015\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{_component_8h_source_l00016}00016\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_vivid_1_1_component}{Component}}()\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{\Hypertarget{_component_8h_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{_component_8h_source_l00013}00013\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{_component_8h_source_l00014}00014\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ m\_OwnerEntityID\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_component_8h_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{_component_8h_source_l00016}00016\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_component_8h_source_l00017}00017\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_vivid_1_1_component}{Component}}();}
 \DoxyCodeLine{\Hypertarget{_component_8h_source_l00018}00018\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_vivid_1_1_component}{\string~Component}}()\ =\ \textcolor{keywordflow}{default};}
 \DoxyCodeLine{\Hypertarget{_component_8h_source_l00019}00019\ }
 \DoxyCodeLine{\Hypertarget{_component_8h_source_l00020}00020\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ Draw(\mbox{\hyperlink{class_camera}{Camera}}*\ camera)\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{_component_8h_source_l00021}00021\ }
-\DoxyCodeLine{\Hypertarget{_component_8h_source_l00022}00022\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ ImGuiRender()\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{_component_8h_source_l00023}00023\ }
-\DoxyCodeLine{\Hypertarget{_component_8h_source_l00024}00024\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetEntity(\mbox{\hyperlink{class_vivid_1_1_entity}{Vivid::Entity}}*\ entity)\ \{\ m\_Entity\ =\ entity;\ \}}
+\DoxyCodeLine{\Hypertarget{_component_8h_source_l00021}00021\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ ImGuiRender()\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_component_8h_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{_component_8h_source_l00023}00023\ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{int}\ GetOwnerEntityID()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_OwnerEntityID;\ \}}
+\DoxyCodeLine{\Hypertarget{_component_8h_source_l00024}00024\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetEntity(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\&\ entityID)\ \{\ m\_OwnerEntityID\ =\ entityID;\ \}}
 \DoxyCodeLine{\Hypertarget{_component_8h_source_l00025}00025\ }
-\DoxyCodeLine{\Hypertarget{_component_8h_source_l00026}00026\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_vivid_1_1_entity}{Vivid::Entity}}*\ GetEntity()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_Entity;\ \}}
-\DoxyCodeLine{\Hypertarget{_component_8h_source_l00027}00027\ }
-\DoxyCodeLine{\Hypertarget{_component_8h_source_l00028}00028\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ String\ GetComponentName()\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{_component_8h_source_l00029}00029\ \ \ \ \ \};}
-\DoxyCodeLine{\Hypertarget{_component_8h_source_l00030}00030\ \}}
+\DoxyCodeLine{\Hypertarget{_component_8h_source_l00026}00026\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ ComponentType\ GetComponentType()\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_component_8h_source_l00027}00027\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ GetComponentID()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_ID;\ \}}
+\DoxyCodeLine{\Hypertarget{_component_8h_source_l00028}00028\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_component_8h_source_l00029}00029\ \}}
 
 \end{DoxyCode}

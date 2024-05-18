@@ -11,6 +11,7 @@ digraph "src/core"
     graph [ bgcolor="#daedff", pencolor="grey25", label="", fontname=Helvetica,fontsize=10 style="filled,bold", URL="dir_aebb8dcc11953d78e620bbef0b9e2183.html",tooltip=""]
     dir_aebb8dcc11953d78e620bbef0b9e2183 [shape=plaintext, label="core"];
   dir_e78882e66d927567aea45da26daad3d2 [label="ecs", fillcolor="#4ea9ff", color="grey25", style="filled", URL="dir_e78882e66d927567aea45da26daad3d2.html",tooltip=""];
+  dir_edc293472eb92afef45520a5c5fa6bbc [label="os", fillcolor="#4ea9ff", color="grey25", style="filled", URL="dir_edc293472eb92afef45520a5c5fa6bbc.html",tooltip=""];
   dir_01aa78ce2fe93d6383726aeb6438a860 [label="renderer", fillcolor="#4ea9ff", color="grey25", style="filled", URL="dir_01aa78ce2fe93d6383726aeb6438a860.html",tooltip=""];
   }
   }

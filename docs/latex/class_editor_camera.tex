@@ -22,18 +22,6 @@ Collaboration diagram for Editor\+Camera\+:
 \item 
 \mbox{\hyperlink{class_editor_camera_aa5b87c7f26c2de0c1a1a8c5bfaa48548}{Editor\+Camera}} (float fov, float aspect, float near, float far)
 \item 
-void \mbox{\hyperlink{class_editor_camera_a49450b0455b84ce4822d8918e18212cd}{Process\+Keyboard}} (Camera\+Movement direction)
-\item 
-void \mbox{\hyperlink{class_editor_camera_a6815af6e354e376e05b4814156f54a13}{Process\+Mouse\+Movement}} (float x\+Offset, float y\+Offset, bool constrain\+Pitch=true)
-\item 
-void \mbox{\hyperlink{class_editor_camera_ac08c7515ea0f512484dbf344229d8a1b}{Process\+Mouse\+Scroll}} (float scroll\+Offset)
-\item 
-glm\+::vec3 \mbox{\hyperlink{class_editor_camera_ae59302fb08ed42d2182211772a56fc55}{Get\+Position}} ()
-\item 
-glm\+::mat4 \mbox{\hyperlink{class_editor_camera_a7e9f3b31e0744bf02a2b1f97babd228c}{Get\+View\+Matrix}} ()
-\item 
-glm\+::mat4 \mbox{\hyperlink{class_editor_camera_a5fd2d0fd50c5105d82e5feb44e0e8df1}{Get\+Projection\+Matrix}} ()
-\item 
 float \mbox{\hyperlink{class_editor_camera_a03eee7a228224880d659230c6fb6a6da}{Get\+Yaw}} ()
 \item 
 float \mbox{\hyperlink{class_editor_camera_ab7f717c0937b2aae90105f999c17b863}{Get\+Pitch}} ()
@@ -44,21 +32,56 @@ float \mbox{\hyperlink{class_editor_camera_a5841f8dccb2080688a1802e855a0d0ba}{Ge
 \item 
 float \mbox{\hyperlink{class_editor_camera_ac8e9df617f5fe9163e3d0e81e93187e7}{Get\+Zoom}} ()
 \item 
-void \mbox{\hyperlink{class_editor_camera_a3dcf9ff1832af5e5f802f7edd7d9130d}{Set\+Perspective}} (glm\+::mat4 perspective)
-\item 
 void \mbox{\hyperlink{class_editor_camera_a9abbe4f8ce1fe7f6737d96c1d7a9bd3a}{Set\+Perspective}} (float fov, float aspect, float near, float far)
 \item 
-void \mbox{\hyperlink{class_editor_camera_a1302fd4c622f3222b113c50299d77acc}{Set\+View\+Matrix}} (glm\+::mat4 view)
+void \mbox{\hyperlink{class_editor_camera_a0db6d48a7412ae5bc3b1ff1d4291a774}{Set\+Viewport\+Size}} (int width, int height) override
 \item 
-void \mbox{\hyperlink{class_editor_camera_af482b644954ee7b739d293fd2bfa39b2}{Set\+Viewport\+Size}} (int width, int height)
+void \mbox{\hyperlink{class_editor_camera_ae3d98be03474dc70eb0ee17c2de88cfd}{Move\+Forward}} () override
 \item 
-void \mbox{\hyperlink{class_editor_camera_a976ecaaced6fc1174bf1cc05663666cb}{Move\+Forward}} ()
+void \mbox{\hyperlink{class_editor_camera_a903a493d89f953967ba934d116a37ea9}{Move\+Backward}} () override
 \item 
-void \mbox{\hyperlink{class_editor_camera_a882f6954efbe75c0563a04a22acfe207}{Move\+Backward}} ()
+void \mbox{\hyperlink{class_editor_camera_aa38e2deff17cd464442ac6cbc73228ab}{Move\+Left}} () override
 \item 
-void \mbox{\hyperlink{class_editor_camera_a48e80c6e678cc5099fae32250d6ec474}{Move\+Left}} ()
+void \mbox{\hyperlink{class_editor_camera_add05bb442d65b9537277538f989e1e90}{Move\+Right}} () override
 \item 
-void \mbox{\hyperlink{class_editor_camera_a215f36a7284d25541f3f7824d2954e6b}{Move\+Right}} ()
+void \mbox{\hyperlink{class_editor_camera_a885055681230c951b0a90555a38c88a6}{Process\+Mouse\+Scroll}} (float scroll\+Offset) override
+\item 
+void \mbox{\hyperlink{class_editor_camera_aa688324317cd3ed61c51779fc9bec41d}{Process\+Mouse\+Movement}} (float x\+Offset, float y\+Offset, bool constrain\+Pitch) override
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_movable_camera}{Movable\+Camera}}}
+\begin{DoxyCompactItemize}
+\item 
+glm\+::vec3 \mbox{\hyperlink{class_movable_camera_a2bad3b5d729240c5f8630c95310c9296}{Get\+Position}} ()
+\item 
+glm\+::mat4 \mbox{\hyperlink{class_movable_camera_ad1ea90f2bb04dab95213d7bf990982dd}{Get\+View\+Matrix}} ()
+\item 
+glm\+::mat4 \mbox{\hyperlink{class_movable_camera_a9a8579d27e810369a628e8be63593618}{Get\+Projection\+Matrix}} ()
+\item 
+void \mbox{\hyperlink{class_movable_camera_a317b118a8f78904f7df1006ad26d909e}{Set\+Perspective}} (glm\+::mat4 perspective)
+\item 
+void \mbox{\hyperlink{class_movable_camera_ad180da003495f5c51fc12c2773fdf52e}{Set\+View\+Matrix}} (glm\+::mat4 view)
+\item 
+void \mbox{\hyperlink{class_movable_camera_a2c6f8f643b7ab8c5822ca873d5ef4baa}{Set\+Position}} (const \mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Vivid\+::\+Maths\+::\+Vec3}} \&position)
+\item 
+virtual void \mbox{\hyperlink{class_movable_camera_a75d7880f026d3bc402aeb37101d6022a}{Set\+Viewport\+Size}} (int width, int height)=0
+\item 
+\mbox{\Hypertarget{class_movable_camera_a49adf1255f453fc5ba70089c49d872d3}\label{class_movable_camera_a49adf1255f453fc5ba70089c49d872d3}} 
+virtual void {\bfseries Move\+Forward} ()=0
+\item 
+\mbox{\Hypertarget{class_movable_camera_a1cf3971390aedaa1483dff3e5a036b1a}\label{class_movable_camera_a1cf3971390aedaa1483dff3e5a036b1a}} 
+virtual void {\bfseries Move\+Backward} ()=0
+\item 
+\mbox{\Hypertarget{class_movable_camera_a99b73e3be7759f1880c94820de97f54c}\label{class_movable_camera_a99b73e3be7759f1880c94820de97f54c}} 
+virtual void {\bfseries Move\+Left} ()=0
+\item 
+\mbox{\Hypertarget{class_movable_camera_a09bbf206a64a13c53da465adafa092c7}\label{class_movable_camera_a09bbf206a64a13c53da465adafa092c7}} 
+virtual void {\bfseries Move\+Right} ()=0
+\item 
+\mbox{\Hypertarget{class_movable_camera_a1f665c07a165f3b2ac68249f362dfa2d}\label{class_movable_camera_a1f665c07a165f3b2ac68249f362dfa2d}} 
+virtual void {\bfseries Process\+Mouse\+Scroll} (float scroll\+Offset)=0
+\item 
+\mbox{\Hypertarget{class_movable_camera_ae85a4ec4a76274e324bee946e9571d45}\label{class_movable_camera_ae85a4ec4a76274e324bee946e9571d45}} 
+virtual void {\bfseries Process\+Mouse\+Movement} (float x\+Offset, float y\+Offset, bool constrain\+Pitch=true)=0
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_camera}{Camera}}}
 \begin{DoxyCompactItemize}
@@ -83,19 +106,28 @@ int \mbox{\hyperlink{class_camera_acc055e418f536dd58239c29101759e18}{Get\+Viewpo
 int \mbox{\hyperlink{class_camera_a54235e2b3ae188c2e1576a54b319b9d6}{Get\+Viewport\+Height}} ()
 \end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
+\doxysubsubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_movable_camera}{Movable\+Camera}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_vivid_1_1_maths_1_1_vec3}{Vivid\+::\+Maths\+::\+Vec3}} \mbox{\hyperlink{class_movable_camera_ac652a80f23db5ca9d4041dce5720153c}{m\+\_\+\+Position}}
+\item 
+glm\+::mat4 \mbox{\hyperlink{class_movable_camera_a24d94c7f84b96de3a55086853b32ade6}{m\+\_\+\+Projection\+Matrix}}
+\item 
+glm\+::mat4 \mbox{\hyperlink{class_movable_camera_a91e8cbb700654f80cb876e3e079e61cf}{m\+\_\+\+View\+Matrix}}
+\end{DoxyCompactItemize}
 \doxysubsubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_camera}{Camera}}}
 \begin{DoxyCompactItemize}
 \item 
-int \mbox{\hyperlink{class_camera_a871e9f504a885886552348249132c8cd}{m\+\_\+\+Viewport\+Width}}
+int \mbox{\hyperlink{class_camera_a871e9f504a885886552348249132c8cd}{m\+\_\+\+Viewport\+Width}} = 1920
 \item 
-int \mbox{\hyperlink{class_camera_a2fbbaa5fcf32be00a5f898769e3d92dd}{m\+\_\+\+Viewport\+Height}}
+int \mbox{\hyperlink{class_camera_a2fbbaa5fcf32be00a5f898769e3d92dd}{m\+\_\+\+Viewport\+Height}} = 1080
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 Editor \mbox{\hyperlink{class_editor_camera}{Editor\+Camera}} has the ability to move around the scene using WASD keys and mouse in an intuitive way. 
 
-Definition at line \mbox{\hyperlink{_editor_camera_8h_source_l00006}{6}} of file \mbox{\hyperlink{_editor_camera_8h_source}{Editor\+Camera.\+h}}.
+Definition at line \mbox{\hyperlink{_editor_camera_8h_source_l00007}{7}} of file \mbox{\hyperlink{_editor_camera_8h_source}{Editor\+Camera.\+h}}.
 
 
 
@@ -108,7 +140,7 @@ Definition at line \mbox{\hyperlink{_editor_camera_8h_source_l00006}{6}} of file
 
 
 
-Definition at line \mbox{\hyperlink{_editor_camera_8cpp_source_l00003}{3}} of file \mbox{\hyperlink{_editor_camera_8cpp_source}{Editor\+Camera.\+cpp}}.
+Definition at line \mbox{\hyperlink{_editor_camera_8cpp_source_l00004}{4}} of file \mbox{\hyperlink{_editor_camera_8cpp_source}{Editor\+Camera.\+cpp}}.
 
 
 
@@ -121,7 +153,7 @@ Definition at line \mbox{\hyperlink{_editor_camera_8cpp_source_l00003}{3}} of fi
 
 
 
-Definition at line \mbox{\hyperlink{_editor_camera_8h_source_l00064}{64}} of file \mbox{\hyperlink{_editor_camera_8h_source}{Editor\+Camera.\+h}}.
+Definition at line \mbox{\hyperlink{_editor_camera_8h_source_l00046}{46}} of file \mbox{\hyperlink{_editor_camera_8h_source}{Editor\+Camera.\+h}}.
 
 \mbox{\Hypertarget{class_editor_camera_a6e097006b4b9000245e4bd15c6f2b812}\label{class_editor_camera_a6e097006b4b9000245e4bd15c6f2b812}} 
 \index{EditorCamera@{EditorCamera}!GetMovementSpeed@{GetMovementSpeed}}
@@ -131,7 +163,7 @@ Definition at line \mbox{\hyperlink{_editor_camera_8h_source_l00064}{64}} of fil
 
 
 
-Definition at line \mbox{\hyperlink{_editor_camera_8h_source_l00062}{62}} of file \mbox{\hyperlink{_editor_camera_8h_source}{Editor\+Camera.\+h}}.
+Definition at line \mbox{\hyperlink{_editor_camera_8h_source_l00044}{44}} of file \mbox{\hyperlink{_editor_camera_8h_source}{Editor\+Camera.\+h}}.
 
 \mbox{\Hypertarget{class_editor_camera_ab7f717c0937b2aae90105f999c17b863}\label{class_editor_camera_ab7f717c0937b2aae90105f999c17b863}} 
 \index{EditorCamera@{EditorCamera}!GetPitch@{GetPitch}}
@@ -141,45 +173,7 @@ Definition at line \mbox{\hyperlink{_editor_camera_8h_source_l00062}{62}} of fil
 
 
 
-Definition at line \mbox{\hyperlink{_editor_camera_8h_source_l00060}{60}} of file \mbox{\hyperlink{_editor_camera_8h_source}{Editor\+Camera.\+h}}.
-
-\mbox{\Hypertarget{class_editor_camera_ae59302fb08ed42d2182211772a56fc55}\label{class_editor_camera_ae59302fb08ed42d2182211772a56fc55}} 
-\index{EditorCamera@{EditorCamera}!GetPosition@{GetPosition}}
-\index{GetPosition@{GetPosition}!EditorCamera@{EditorCamera}}
-\doxysubsubsection{\texorpdfstring{GetPosition()}{GetPosition()}}
-{\footnotesize\ttfamily glm\+::vec3 Editor\+Camera\+::\+Get\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Definition at line \mbox{\hyperlink{_editor_camera_8h_source_l00052}{52}} of file \mbox{\hyperlink{_editor_camera_8h_source}{Editor\+Camera.\+h}}.
-
-\mbox{\Hypertarget{class_editor_camera_a5fd2d0fd50c5105d82e5feb44e0e8df1}\label{class_editor_camera_a5fd2d0fd50c5105d82e5feb44e0e8df1}} 
-\index{EditorCamera@{EditorCamera}!GetProjectionMatrix@{GetProjectionMatrix}}
-\index{GetProjectionMatrix@{GetProjectionMatrix}!EditorCamera@{EditorCamera}}
-\doxysubsubsection{\texorpdfstring{GetProjectionMatrix()}{GetProjectionMatrix()}}
-{\footnotesize\ttfamily glm\+::mat4 Editor\+Camera\+::\+Get\+Projection\+Matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
-
-
-
-Implements \mbox{\hyperlink{class_camera}{Camera}}.
-
-
-
-Definition at line \mbox{\hyperlink{_editor_camera_8h_source_l00056}{56}} of file \mbox{\hyperlink{_editor_camera_8h_source}{Editor\+Camera.\+h}}.
-
-\mbox{\Hypertarget{class_editor_camera_a7e9f3b31e0744bf02a2b1f97babd228c}\label{class_editor_camera_a7e9f3b31e0744bf02a2b1f97babd228c}} 
-\index{EditorCamera@{EditorCamera}!GetViewMatrix@{GetViewMatrix}}
-\index{GetViewMatrix@{GetViewMatrix}!EditorCamera@{EditorCamera}}
-\doxysubsubsection{\texorpdfstring{GetViewMatrix()}{GetViewMatrix()}}
-{\footnotesize\ttfamily glm\+::mat4 Editor\+Camera\+::\+Get\+View\+Matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
-
-
-
-Implements \mbox{\hyperlink{class_camera}{Camera}}.
-
-
-
-Definition at line \mbox{\hyperlink{_editor_camera_8h_source_l00054}{54}} of file \mbox{\hyperlink{_editor_camera_8h_source}{Editor\+Camera.\+h}}.
+Definition at line \mbox{\hyperlink{_editor_camera_8h_source_l00042}{42}} of file \mbox{\hyperlink{_editor_camera_8h_source}{Editor\+Camera.\+h}}.
 
 \mbox{\Hypertarget{class_editor_camera_a03eee7a228224880d659230c6fb6a6da}\label{class_editor_camera_a03eee7a228224880d659230c6fb6a6da}} 
 \index{EditorCamera@{EditorCamera}!GetYaw@{GetYaw}}
@@ -189,7 +183,7 @@ Definition at line \mbox{\hyperlink{_editor_camera_8h_source_l00054}{54}} of fil
 
 
 
-Definition at line \mbox{\hyperlink{_editor_camera_8h_source_l00058}{58}} of file \mbox{\hyperlink{_editor_camera_8h_source}{Editor\+Camera.\+h}}.
+Definition at line \mbox{\hyperlink{_editor_camera_8h_source_l00040}{40}} of file \mbox{\hyperlink{_editor_camera_8h_source}{Editor\+Camera.\+h}}.
 
 \mbox{\Hypertarget{class_editor_camera_ac8e9df617f5fe9163e3d0e81e93187e7}\label{class_editor_camera_ac8e9df617f5fe9163e3d0e81e93187e7}} 
 \index{EditorCamera@{EditorCamera}!GetZoom@{GetZoom}}
@@ -199,133 +193,119 @@ Definition at line \mbox{\hyperlink{_editor_camera_8h_source_l00058}{58}} of fil
 
 
 
-Definition at line \mbox{\hyperlink{_editor_camera_8h_source_l00066}{66}} of file \mbox{\hyperlink{_editor_camera_8h_source}{Editor\+Camera.\+h}}.
+Definition at line \mbox{\hyperlink{_editor_camera_8h_source_l00048}{48}} of file \mbox{\hyperlink{_editor_camera_8h_source}{Editor\+Camera.\+h}}.
 
-\mbox{\Hypertarget{class_editor_camera_a882f6954efbe75c0563a04a22acfe207}\label{class_editor_camera_a882f6954efbe75c0563a04a22acfe207}} 
+\mbox{\Hypertarget{class_editor_camera_a903a493d89f953967ba934d116a37ea9}\label{class_editor_camera_a903a493d89f953967ba934d116a37ea9}} 
 \index{EditorCamera@{EditorCamera}!MoveBackward@{MoveBackward}}
 \index{MoveBackward@{MoveBackward}!EditorCamera@{EditorCamera}}
 \doxysubsubsection{\texorpdfstring{MoveBackward()}{MoveBackward()}}
-{\footnotesize\ttfamily void Editor\+Camera\+::\+Move\+Backward (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Editor\+Camera\+::\+Move\+Backward (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Definition at line \mbox{\hyperlink{_editor_camera_8cpp_source_l00120}{120}} of file \mbox{\hyperlink{_editor_camera_8cpp_source}{Editor\+Camera.\+cpp}}.
+Implements \mbox{\hyperlink{class_movable_camera}{Movable\+Camera}}.
 
-\mbox{\Hypertarget{class_editor_camera_a976ecaaced6fc1174bf1cc05663666cb}\label{class_editor_camera_a976ecaaced6fc1174bf1cc05663666cb}} 
+
+
+Definition at line \mbox{\hyperlink{_editor_camera_8cpp_source_l00099}{99}} of file \mbox{\hyperlink{_editor_camera_8cpp_source}{Editor\+Camera.\+cpp}}.
+
+\mbox{\Hypertarget{class_editor_camera_ae3d98be03474dc70eb0ee17c2de88cfd}\label{class_editor_camera_ae3d98be03474dc70eb0ee17c2de88cfd}} 
 \index{EditorCamera@{EditorCamera}!MoveForward@{MoveForward}}
 \index{MoveForward@{MoveForward}!EditorCamera@{EditorCamera}}
 \doxysubsubsection{\texorpdfstring{MoveForward()}{MoveForward()}}
-{\footnotesize\ttfamily void Editor\+Camera\+::\+Move\+Forward (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Editor\+Camera\+::\+Move\+Forward (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Definition at line \mbox{\hyperlink{_editor_camera_8cpp_source_l00114}{114}} of file \mbox{\hyperlink{_editor_camera_8cpp_source}{Editor\+Camera.\+cpp}}.
+Implements \mbox{\hyperlink{class_movable_camera}{Movable\+Camera}}.
 
-\mbox{\Hypertarget{class_editor_camera_a48e80c6e678cc5099fae32250d6ec474}\label{class_editor_camera_a48e80c6e678cc5099fae32250d6ec474}} 
+
+
+Definition at line \mbox{\hyperlink{_editor_camera_8cpp_source_l00093}{93}} of file \mbox{\hyperlink{_editor_camera_8cpp_source}{Editor\+Camera.\+cpp}}.
+
+\mbox{\Hypertarget{class_editor_camera_aa38e2deff17cd464442ac6cbc73228ab}\label{class_editor_camera_aa38e2deff17cd464442ac6cbc73228ab}} 
 \index{EditorCamera@{EditorCamera}!MoveLeft@{MoveLeft}}
 \index{MoveLeft@{MoveLeft}!EditorCamera@{EditorCamera}}
 \doxysubsubsection{\texorpdfstring{MoveLeft()}{MoveLeft()}}
-{\footnotesize\ttfamily void Editor\+Camera\+::\+Move\+Left (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Editor\+Camera\+::\+Move\+Left (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Definition at line \mbox{\hyperlink{_editor_camera_8cpp_source_l00126}{126}} of file \mbox{\hyperlink{_editor_camera_8cpp_source}{Editor\+Camera.\+cpp}}.
+Implements \mbox{\hyperlink{class_movable_camera}{Movable\+Camera}}.
 
-\mbox{\Hypertarget{class_editor_camera_a215f36a7284d25541f3f7824d2954e6b}\label{class_editor_camera_a215f36a7284d25541f3f7824d2954e6b}} 
+
+
+Definition at line \mbox{\hyperlink{_editor_camera_8cpp_source_l00105}{105}} of file \mbox{\hyperlink{_editor_camera_8cpp_source}{Editor\+Camera.\+cpp}}.
+
+\mbox{\Hypertarget{class_editor_camera_add05bb442d65b9537277538f989e1e90}\label{class_editor_camera_add05bb442d65b9537277538f989e1e90}} 
 \index{EditorCamera@{EditorCamera}!MoveRight@{MoveRight}}
 \index{MoveRight@{MoveRight}!EditorCamera@{EditorCamera}}
 \doxysubsubsection{\texorpdfstring{MoveRight()}{MoveRight()}}
-{\footnotesize\ttfamily void Editor\+Camera\+::\+Move\+Right (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Editor\+Camera\+::\+Move\+Right (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Definition at line \mbox{\hyperlink{_editor_camera_8cpp_source_l00132}{132}} of file \mbox{\hyperlink{_editor_camera_8cpp_source}{Editor\+Camera.\+cpp}}.
-
-\mbox{\Hypertarget{class_editor_camera_a49450b0455b84ce4822d8918e18212cd}\label{class_editor_camera_a49450b0455b84ce4822d8918e18212cd}} 
-\index{EditorCamera@{EditorCamera}!ProcessKeyboard@{ProcessKeyboard}}
-\index{ProcessKeyboard@{ProcessKeyboard}!EditorCamera@{EditorCamera}}
-\doxysubsubsection{\texorpdfstring{ProcessKeyboard()}{ProcessKeyboard()}}
-{\footnotesize\ttfamily void Editor\+Camera\+::\+Process\+Keyboard (\begin{DoxyParamCaption}\item[{Camera\+Movement}]{direction }\end{DoxyParamCaption})}
+Implements \mbox{\hyperlink{class_movable_camera}{Movable\+Camera}}.
 
 
 
-Definition at line \mbox{\hyperlink{_editor_camera_8cpp_source_l00013}{13}} of file \mbox{\hyperlink{_editor_camera_8cpp_source}{Editor\+Camera.\+cpp}}.
+Definition at line \mbox{\hyperlink{_editor_camera_8cpp_source_l00111}{111}} of file \mbox{\hyperlink{_editor_camera_8cpp_source}{Editor\+Camera.\+cpp}}.
 
-\mbox{\Hypertarget{class_editor_camera_a6815af6e354e376e05b4814156f54a13}\label{class_editor_camera_a6815af6e354e376e05b4814156f54a13}} 
+\mbox{\Hypertarget{class_editor_camera_aa688324317cd3ed61c51779fc9bec41d}\label{class_editor_camera_aa688324317cd3ed61c51779fc9bec41d}} 
 \index{EditorCamera@{EditorCamera}!ProcessMouseMovement@{ProcessMouseMovement}}
 \index{ProcessMouseMovement@{ProcessMouseMovement}!EditorCamera@{EditorCamera}}
 \doxysubsubsection{\texorpdfstring{ProcessMouseMovement()}{ProcessMouseMovement()}}
-{\footnotesize\ttfamily void Editor\+Camera\+::\+Process\+Mouse\+Movement (\begin{DoxyParamCaption}\item[{float}]{x\+Offset,  }\item[{float}]{y\+Offset,  }\item[{bool}]{constrain\+Pitch = {\ttfamily true} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Editor\+Camera\+::\+Process\+Mouse\+Movement (\begin{DoxyParamCaption}\item[{float}]{x\+Offset,  }\item[{float}]{y\+Offset,  }\item[{bool}]{constrain\+Pitch }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Definition at line \mbox{\hyperlink{_editor_camera_8cpp_source_l00037}{37}} of file \mbox{\hyperlink{_editor_camera_8cpp_source}{Editor\+Camera.\+cpp}}.
+Implements \mbox{\hyperlink{class_movable_camera}{Movable\+Camera}}.
 
-\mbox{\Hypertarget{class_editor_camera_ac08c7515ea0f512484dbf344229d8a1b}\label{class_editor_camera_ac08c7515ea0f512484dbf344229d8a1b}} 
+
+
+Definition at line \mbox{\hyperlink{_editor_camera_8cpp_source_l00016}{16}} of file \mbox{\hyperlink{_editor_camera_8cpp_source}{Editor\+Camera.\+cpp}}.
+
+\mbox{\Hypertarget{class_editor_camera_a885055681230c951b0a90555a38c88a6}\label{class_editor_camera_a885055681230c951b0a90555a38c88a6}} 
 \index{EditorCamera@{EditorCamera}!ProcessMouseScroll@{ProcessMouseScroll}}
 \index{ProcessMouseScroll@{ProcessMouseScroll}!EditorCamera@{EditorCamera}}
 \doxysubsubsection{\texorpdfstring{ProcessMouseScroll()}{ProcessMouseScroll()}}
-{\footnotesize\ttfamily void Editor\+Camera\+::\+Process\+Mouse\+Scroll (\begin{DoxyParamCaption}\item[{float}]{scroll\+Offset }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Editor\+Camera\+::\+Process\+Mouse\+Scroll (\begin{DoxyParamCaption}\item[{float}]{scroll\+Offset }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Definition at line \mbox{\hyperlink{_editor_camera_8cpp_source_l00059}{59}} of file \mbox{\hyperlink{_editor_camera_8cpp_source}{Editor\+Camera.\+cpp}}.
+Implements \mbox{\hyperlink{class_movable_camera}{Movable\+Camera}}.
+
+
+
+Definition at line \mbox{\hyperlink{_editor_camera_8cpp_source_l00038}{38}} of file \mbox{\hyperlink{_editor_camera_8cpp_source}{Editor\+Camera.\+cpp}}.
 
 \mbox{\Hypertarget{class_editor_camera_a9abbe4f8ce1fe7f6737d96c1d7a9bd3a}\label{class_editor_camera_a9abbe4f8ce1fe7f6737d96c1d7a9bd3a}} 
 \index{EditorCamera@{EditorCamera}!SetPerspective@{SetPerspective}}
 \index{SetPerspective@{SetPerspective}!EditorCamera@{EditorCamera}}
-\doxysubsubsection{\texorpdfstring{SetPerspective()}{SetPerspective()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+\doxysubsubsection{\texorpdfstring{SetPerspective()}{SetPerspective()}}
 {\footnotesize\ttfamily void Editor\+Camera\+::\+Set\+Perspective (\begin{DoxyParamCaption}\item[{float}]{fov,  }\item[{float}]{aspect,  }\item[{float}]{near,  }\item[{float}]{far }\end{DoxyParamCaption})}
 
 
 
-Definition at line \mbox{\hyperlink{_editor_camera_8cpp_source_l00097}{97}} of file \mbox{\hyperlink{_editor_camera_8cpp_source}{Editor\+Camera.\+cpp}}.
+Definition at line \mbox{\hyperlink{_editor_camera_8cpp_source_l00076}{76}} of file \mbox{\hyperlink{_editor_camera_8cpp_source}{Editor\+Camera.\+cpp}}.
 
-\mbox{\Hypertarget{class_editor_camera_a3dcf9ff1832af5e5f802f7edd7d9130d}\label{class_editor_camera_a3dcf9ff1832af5e5f802f7edd7d9130d}} 
-\index{EditorCamera@{EditorCamera}!SetPerspective@{SetPerspective}}
-\index{SetPerspective@{SetPerspective}!EditorCamera@{EditorCamera}}
-\doxysubsubsection{\texorpdfstring{SetPerspective()}{SetPerspective()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily void Editor\+Camera\+::\+Set\+Perspective (\begin{DoxyParamCaption}\item[{glm\+::mat4}]{perspective }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
-
-
-
-Implements \mbox{\hyperlink{class_camera}{Camera}}.
-
-
-
-Definition at line \mbox{\hyperlink{_editor_camera_8cpp_source_l00143}{143}} of file \mbox{\hyperlink{_editor_camera_8cpp_source}{Editor\+Camera.\+cpp}}.
-
-\mbox{\Hypertarget{class_editor_camera_a1302fd4c622f3222b113c50299d77acc}\label{class_editor_camera_a1302fd4c622f3222b113c50299d77acc}} 
-\index{EditorCamera@{EditorCamera}!SetViewMatrix@{SetViewMatrix}}
-\index{SetViewMatrix@{SetViewMatrix}!EditorCamera@{EditorCamera}}
-\doxysubsubsection{\texorpdfstring{SetViewMatrix()}{SetViewMatrix()}}
-{\footnotesize\ttfamily void Editor\+Camera\+::\+Set\+View\+Matrix (\begin{DoxyParamCaption}\item[{glm\+::mat4}]{view }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
-
-
-
-Implements \mbox{\hyperlink{class_camera}{Camera}}.
-
-
-
-Definition at line \mbox{\hyperlink{_editor_camera_8cpp_source_l00138}{138}} of file \mbox{\hyperlink{_editor_camera_8cpp_source}{Editor\+Camera.\+cpp}}.
-
-\mbox{\Hypertarget{class_editor_camera_af482b644954ee7b739d293fd2bfa39b2}\label{class_editor_camera_af482b644954ee7b739d293fd2bfa39b2}} 
+\mbox{\Hypertarget{class_editor_camera_a0db6d48a7412ae5bc3b1ff1d4291a774}\label{class_editor_camera_a0db6d48a7412ae5bc3b1ff1d4291a774}} 
 \index{EditorCamera@{EditorCamera}!SetViewportSize@{SetViewportSize}}
 \index{SetViewportSize@{SetViewportSize}!EditorCamera@{EditorCamera}}
 \doxysubsubsection{\texorpdfstring{SetViewportSize()}{SetViewportSize()}}
-{\footnotesize\ttfamily void Editor\+Camera\+::\+Set\+Viewport\+Size (\begin{DoxyParamCaption}\item[{int}]{width,  }\item[{int}]{height }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily void Editor\+Camera\+::\+Set\+Viewport\+Size (\begin{DoxyParamCaption}\item[{int}]{width,  }\item[{int}]{height }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Implements \mbox{\hyperlink{class_camera}{Camera}}.
+Implements \mbox{\hyperlink{class_movable_camera}{Movable\+Camera}}.
 
 
 
-Definition at line \mbox{\hyperlink{_editor_camera_8cpp_source_l00106}{106}} of file \mbox{\hyperlink{_editor_camera_8cpp_source}{Editor\+Camera.\+cpp}}.
+Definition at line \mbox{\hyperlink{_editor_camera_8cpp_source_l00085}{85}} of file \mbox{\hyperlink{_editor_camera_8cpp_source}{Editor\+Camera.\+cpp}}.
 
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-src/editor/camera/Editor\+Camera.\+h\item 
-src/editor/camera/Editor\+Camera.\+cpp\end{DoxyCompactItemize}
+src/editor/camera/movable/Editor\+Camera.\+h\item 
+src/editor/camera/movable/Editor\+Camera.\+cpp\end{DoxyCompactItemize}

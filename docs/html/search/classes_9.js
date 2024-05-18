@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['quad3d_0',['Quad3d',['../class_vivid_1_1_quad3d.html',1,'Vivid']]]
+  ['pointlightcomponent_0',['PointLightComponent',['../class_vivid_1_1_point_light_component.html',1,'Vivid']]]
 ];

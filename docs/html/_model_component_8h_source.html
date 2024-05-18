@@ -105,7 +105,7 @@ $(document).ready(function(){initNavTree('_model_component_8h_source.html',''); 
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="class_vivid_1_1_model_component.html">   10</a></span>    <span class="keyword">class </span><a class="code hl_class" href="class_vivid_1_1_model_component.html">ModelComponent</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_vivid_1_1_component.html">Component</a></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    {</div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>        Vector&lt;Vivid::Mesh*&gt; m_Meshes;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>        Vector&lt;Mesh*&gt; m_Meshes;</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        <a class="code hl_class" href="class_vivid_1_1_model_component.html">ModelComponent</a>();</div>
@@ -122,13 +122,12 @@ $(document).ready(function(){initNavTree('_model_component_8h_source.html',''); 
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        <span class="keyword">inline</span> Vector&lt;Vivid::Mesh*&gt; GetMeshes() { <span class="keywordflow">return</span> m_Meshes; }</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        String GetComponentName()<span class="keyword"> override </span>{ <span class="keywordflow">return</span> <span class="stringliteral">&quot;Model Component&quot;</span>; }</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        ComponentType GetComponentType()<span class="keyword"> override </span>{ <span class="keywordflow">return</span> ComponentType::ModelComponent; }</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    };</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>}</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>}</div>
 <div class="ttc" id="aclass_camera_html"><div class="ttname"><a href="class_camera.html">Camera</a></div><div class="ttdoc">It is an abstract class that represents a camera.</div><div class="ttdef"><b>Definition:</b> <a href="_camera_8h_source.html#l00015">Camera.h:16</a></div></div>
 <div class="ttc" id="aclass_vivid_1_1_component_html"><div class="ttname"><a href="class_vivid_1_1_component.html">Vivid::Component</a></div><div class="ttdef"><b>Definition:</b> <a href="_component_8h_source.html#l00008">Component.h:9</a></div></div>
-<div class="ttc" id="aclass_vivid_1_1_mesh_html"><div class="ttname"><a href="class_vivid_1_1_mesh.html">Vivid::Mesh</a></div><div class="ttdef"><b>Definition:</b> <a href="_mesh_8h_source.html#l00023">Mesh.h:24</a></div></div>
+<div class="ttc" id="aclass_vivid_1_1_mesh_html"><div class="ttname"><a href="class_vivid_1_1_mesh.html">Vivid::Mesh</a></div><div class="ttdef"><b>Definition:</b> <a href="_mesh_8h_source.html#l00034">Mesh.h:35</a></div></div>
 <div class="ttc" id="aclass_vivid_1_1_model_component_html"><div class="ttname"><a href="class_vivid_1_1_model_component.html">Vivid::ModelComponent</a></div><div class="ttdef"><b>Definition:</b> <a href="_model_component_8h_source.html#l00010">ModelComponent.h:11</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
