@@ -45,3 +45,13 @@ To get a component from an entity you can use the `GetComponent` function in the
 ```cpp
 Ref<Component> component = ECS::GetComponent(componentType, entityID);
 ```
+
+You can also get all the components of a certain type from the entity using the `GetComponents` function.
+
+```cpp
+Vector<Vivid::DirectionalLightComponent*> directionalLights;
+Vivid::ECS::GetAllComponents(Vivid::ComponentType::DirectionalLightComponent, directionalLights);
+```
+
+## UI
+All these tasks can also be done using the UI.
