@@ -1,5 +1,5 @@
 #include "DockUI.h"
-#include "menu/MenuUI.h"
+#include "../menu/MenuUI.h"
 
 void VividGUI::InitUI()
 {

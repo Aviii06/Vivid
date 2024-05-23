@@ -22,7 +22,6 @@ void Vivid::ModelComponent::Draw(Camera* camera)
 		return;
 	}
 
-	int componentID = component->GetComponentID();
 	auto transformComponent = dynamic_cast<TransformComponent*>(component.get());
 	glm::mat4 transform = transformComponent->GetTransform();
 
@@ -64,8 +63,6 @@ void Vivid::ModelComponent::ImGuiRender()
 				if (row_n >= m_Meshes.size())
 					break;
 				Mesh* item = m_Meshes[row_n];
-				// if (!filter.PassFilter(item->Name))
-				//     continue;
 
 				ImGui::PushID(item->GetID());
 				ImGui::TableNextRow(ImGuiTableRowFlags_None, row_minimum_height);

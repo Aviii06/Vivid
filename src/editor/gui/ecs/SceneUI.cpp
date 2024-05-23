@@ -1,5 +1,5 @@
 #include "SceneUI.h"
-#include "UIFlags.h"
+#include "editor/gui/configs/UIFlags.h"
 #include "editor/assets/Assets.h"
 #include "core/ecs/ECS.h"
 #include "core/ecs/ComponentFactory.h"

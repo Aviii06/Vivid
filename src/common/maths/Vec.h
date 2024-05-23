@@ -2,6 +2,7 @@
 
 #include <cmath>
 #include <glm/glm.hpp>
+#include "VectorOperatorMixin.h"
 
 /*!
  * @namespace Maths
@@ -15,17 +16,23 @@ namespace Vivid::Maths
 	 * @struct Vec4
 	 * @brief Contains a 4D vector.
 	 * @details Vec4 is a struct that contains a 4D vector. It contains x, y, z, and w values.
+	 * @tparam T the type of the data stored. T should have a scalar multiplication and addition defined with float.
 	 * This can be used for many purposes like position, color, etc. And supports many operations like addition, multiplication, etc.
 	 */
-	struct Vec4
+	struct Vec4 : VectorOperationMixin<Vec4>
 	{
 		float x, y, z, w;
 
 		Vec4()
-		    : x(0.0f)
-		    , y(0.0f)
-		    , z(0.0f)
-		    , w(0.0f)
+		{
+			Vec4(0.0);
+		}
+
+		Vec4(float x)
+			: x(x)
+			, y(x)
+			, z(x)
+			, w(x)
 		{
 		}
 
@@ -37,8 +44,8 @@ namespace Vivid::Maths
 		{
 		}
 
-		Vec4 operator*(float scalar) { return Vec4(x * scalar, y * scalar, z * scalar, w * scalar); }
-		Vec4 operator+(Vec4 other) { return Vec4(x + other.x, y + other.y, z + other.z, w + other.w); }
+		friend Vec4 operator*(const Vec4& a, float scalar) { return Vec4(a.x * scalar, a.y * scalar, a.z * scalar, a.w * scalar); }
+		friend Vec4 operator+(const Vec4& a, const Vec4& other) { return Vec4(a.x + other.x, a.y + other.y, a.z + other.z, a.w + other.w); }
 	};
 
 	/*!
@@ -47,22 +54,20 @@ namespace Vivid::Maths
 	 * @details Vec3 is a struct that contains a 3D vector. It contains x, y, and z values.
 	 * This can be used for many purposes like position, color, etc. And supports many operations like addition, multiplication, etc.
 	 */
-	struct Vec3
+	struct Vec3 : VectorOperationMixin<Vec3>
 	{
 		float x, y, z;
 
 		Vec3()
-		    : x(0.0f)
-		    , y(0.0f)
-		    , z(0.0f)
 		{
+			Vec3(0.0f);
 		}
 
 		Vec3(float x)
+			: x(x)
+			, y(x)
+			, z(x)
 		{
-			this->x = x;
-			this->y = x;
-			this->z = x;
 		}
 
 		Vec3(float x, float y, float z)
@@ -79,21 +84,8 @@ namespace Vivid::Maths
 		{
 		}
 
-		Vec3 operator*(float scalar) { return Vec3(x * scalar, y * scalar, z * scalar); }
-		Vec3 operator+(Vec3 other) { return Vec3(x + other.x, y + other.y, z + other.z); }
-		Vec3 operator-(Vec3 other) { return Vec3(x - other.x, y - other.y, z - other.z); }
-		void operator+=(Vec3 other)
-		{
-			x += other.x;
-			y += other.y;
-			z += other.z;
-		}
-		void operator-=(Vec3 other)
-		{
-			x -= other.x;
-			y -= other.y;
-			z -= other.z;
-		}
+		friend Vec3 operator*(const Vec3& a, float scalar) { return Vec3(a.x * scalar, a.y * scalar, a.z * scalar); }
+		friend Vec3 operator+(const Vec3& a, const Vec3& other) { return Vec3(a.x + other.x, a.y + other.y, a.z + other.z); }
 
 		glm::vec3 ToGLM() { return glm::vec3(x, y, z); }
 	};
@@ -104,7 +96,7 @@ namespace Vivid::Maths
 	 * @details Vec2 is a struct that contains a 2D vector. It contains x and y values.
 	 * This can be used for many purposes like texture coordinates, 2D coordinates etc. And supports many operations like addition, multiplication, etc.
 	 */
-	struct Vec2
+	struct Vec2 : VectorOperationMixin<Vec2>
 	{
 		float x, y;
 
@@ -120,13 +112,8 @@ namespace Vivid::Maths
 		{
 		}
 
-		Vec2 operator*(float scalar) { return Vec2(x * scalar, y * scalar); }
-
-		Vec2 operator*(double scalar) { return Vec2(x * scalar, y * scalar); }
-
-		Vec2 operator+(Vec2 other) { return Vec2(x + other.x, y + other.y); }
-
-		Vec2 operator-(Vec2 other) { return Vec2(x - other.x, y - other.y); }
+		friend Vec2 operator*(const Vec2& curr, float scalar) { return Vec2(curr.x * scalar, curr.y * scalar); }
+		friend Vec2 operator+(const Vec2& curr , const Vec2& other) { return Vec2(curr.x + other.x, curr.y + other.y); }
 
 		Vec2 Perpendicular() { return Vec2(-y, x); }
 

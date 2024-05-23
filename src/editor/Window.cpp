@@ -9,10 +9,10 @@
 #include "imgui/imgui/backends/imgui_impl_opengl3.h"
 #include "imgui/imgui/imgui.h"
 #include "core/renderer/Renderer.h"
-#include "editor/gui/DockUI.h"
+#include "editor/gui/configs/DockUI.h"
 #include "editor/Application.h"
 #include "core/ecs/ECS.h"
-#include "gui/SceneUI.h"
+#include "gui/ecs/SceneUI.h"
 
 #include "imguizmo/ImGuizmo.h"
 #include "common/maths/Vec.h"
