@@ -11,7 +11,6 @@
 #include "core/ecs/Entity.h"
 #include "core/ecs/Component.h"
 #include "core/ecs/ECS.h"
-#include "core/ecs/ComponentFactory.h"
 #include "core/ecs/ComponentType.h"
 
 #include "core/renderer/IndexBuffer.h"
@@ -47,6 +46,3 @@
 #include "imgui/imgui/backends/imgui_impl_opengl3.h"
 
 Application* Application::s_Instance = nullptr;
-
-Map<int, Ref<Vivid::Component>> Vivid::ECS::g_Components;
-Map<int, Ref<Vivid::Entity>> Vivid::ECS::g_Entities;

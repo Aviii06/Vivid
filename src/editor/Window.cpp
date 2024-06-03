@@ -163,7 +163,7 @@ void Window::Update()
 			m_RenderingInterface->Draw();
 		}
 
-		Vivid::ECS::Draw(camera);
+		// Vivid::ECS::Draw(camera);
 		m_FrameBuffer->Unbind();
 
 		m_ViewportWidth = ImGui::GetContentRegionAvail().x;
@@ -180,7 +180,7 @@ void Window::Update()
 
 		if (typeid(*camera) == typeid(EditorCamera))
 		{
-			VividGUI::SceneUI::DrawGizmo(camera);
+			// VividGUI::SceneUI::DrawGizmo(camera);
 		}
 		ImGui::End();
 	}

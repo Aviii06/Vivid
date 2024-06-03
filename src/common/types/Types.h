@@ -5,6 +5,8 @@
 #include <algorithm>
 #include <any>
 #include <map>
+#include <cstdint>
+#include <bitset>
 
 template <class T>
 using Vector = std::vector<T>;

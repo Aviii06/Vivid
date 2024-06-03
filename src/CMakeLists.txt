@@ -35,7 +35,13 @@ set(SOURCES
         ${CMAKE_CURRENT_SOURCE_DIR}/editor/gui/menu/MenuUI.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/editor/gui/menu/FileMenu.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/editor/assets/Assets.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/core/ecs/Component.cpp)
+        ${CMAKE_CURRENT_SOURCE_DIR}/core/ecs/Component.cpp
+        core/ecs/ComponentArray.cpp
+        core/ecs/ComponentArray.cpp
+        common/logger.cpp
+        core/ecs/EntityManager.cpp
+        core/ecs/SystemManager.cpp
+        core/ecs/systems/RenderSystem.cpp)
 
 set(HEADERS
         ${CMAKE_CURRENT_SOURCE_DIR}/inputs/InputHandler.h
@@ -92,9 +98,16 @@ set(HEADERS
         ${CMAKE_CURRENT_SOURCE_DIR}/editor/gui/menu/FileMenu.h
         ${CMAKE_CURRENT_SOURCE_DIR}/editor/assets/Assets.h
         ${CMAKE_CURRENT_SOURCE_DIR}/core/ecs/ComponentType.h
-        ${CMAKE_CURRENT_SOURCE_DIR}/core/ecs/ComponentFactory.h
         ${CMAKE_CURRENT_SOURCE_DIR}/common/maths/VectorOperatorMixin.h
-        ${CMAKE_CURRENT_SOURCE_DIR}/common/types/SingletonMixin.h)
+        ${CMAKE_CURRENT_SOURCE_DIR}/common/types/SingletonMixin.h
+        core/ecs/EntityManager.h
+        core/ecs/ComponentArray.h
+        common/logger.h
+        core/ecs/ComponentManager.h
+        core/ecs/System.h
+        core/ecs/SystemManager.h
+        core/ecs/SystemType.h
+        core/ecs/systems/RenderSystem.h)
 
 add_library(Vivid STATIC ${SOURCES} ${HEADERS})
 
