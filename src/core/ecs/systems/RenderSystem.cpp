@@ -13,7 +13,7 @@ namespace Vivid
 			auto& mc = ECS::g_component_manager->GetComponent<ModelComponent>(entity);
 			for (auto& x : mc.m_meshes)
 			{
-				x->Draw(camera);
+				x.Draw(camera);
 			}
 		}
 	}

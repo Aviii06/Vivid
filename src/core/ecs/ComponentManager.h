@@ -11,23 +11,24 @@ namespace Vivid
 	{
 	private:
 		Map<ComponentType, Ref<IComponentArray>> m_componentArrays;
+
+	public:
 		template<typename T>
-		std::shared_ptr<ComponentArray<T>> GetComponentArray()
+		Ref<ComponentArray<T>> GetComponentArray()
 		{
 			return std::static_pointer_cast<ComponentArray<T>>(m_componentArrays[T::GetComponentType()]);
 		}
 
-	public:
 		template <typename T>
 		void AddComponent(Entity entity, T component)
 		{
-			GetComponentArray<T>()->InsertData(entity, component);
+			GetComponentArray<T>()->Insert(entity, component);
 		}
 
 		template <typename T>
 		void RemoveComponent(Entity entity, T component)
 		{
-			GetComponentArray<T>()->RemoveData(entity);
+			GetComponentArray<T>()->Remove(entity);
 		}
 
 		template <typename T>

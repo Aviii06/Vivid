@@ -25,10 +25,16 @@ namespace Vivid
 			g_component_manager->AddComponent<T>(entity, component);
 
 			Signature signature = entity.GetSignature();
-			signature.set(T::GetComponentType());
+			signature.set((size_t)T::GetComponentType());
 			entity.SetSignature(signature);
 
 			g_system_manager->EntitySignatureChanged(entity);
+		}
+
+		template <typename T>
+		Vector<T> GetComponents()
+		{
+			return g_component_manager->GetComponentArray<T>()->GetComponents();
 		}
 
 		template <typename T>

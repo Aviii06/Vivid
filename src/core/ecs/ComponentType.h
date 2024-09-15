@@ -5,11 +5,11 @@ namespace Vivid
 {
 	enum class ComponentType
 	{
-		TransformComponent,
-		ModelComponent,
+		TransformComponent = 1,
+		ModelComponent = 2,
 		// PointLightComponent,
-		DirectionalLightComponent,
-		_size
+		DirectionalLightComponent = 3,
+		_size = 4,
 	};
 	constexpr size_t MAX_COMPONENTS = 32;
 

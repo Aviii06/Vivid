@@ -9,7 +9,7 @@ namespace Vivid
 {
 	struct ModelComponent : public Component<ComponentType::ModelComponent>
 	{
-		Vector<Ref<Mesh>> m_meshes;
+		Vector<Mesh> m_meshes;
 	};
 
 	// /*!

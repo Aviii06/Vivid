@@ -8,8 +8,8 @@ namespace Vivid
 {
 	class IComponentArray
 	{
-
 	};
+
 	template <typename T>
 	class ComponentArray : public IComponentArray
 	{
@@ -25,6 +25,8 @@ namespace Vivid
 			m_components.reserve(MAX_ENTITIES);
 			m_size = 0;
 		}
+
+		Vector<T> GetComponents() { return m_components; }
 
 		void Insert(Entity entity, T component)
 		{

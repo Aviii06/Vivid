@@ -7,21 +7,21 @@ private:
 	Ref<Vivid::Shader> lightShader;
 	Ref<Vivid::Entity> plane;
 	Ref<Vivid::Entity> light;
-	Ref<Vivid::ModelComponent> planeModelComponent;
-	Ref<Vivid::TransformComponent> planeTransformComponent;
+	Vivid::ModelComponent planeModelComponent;
+	Vivid::TransformComponent planeTransformComponent;
 	Vivid::Mesh* planeMesh;
 
-	Ref<Vivid::DirectionalLightComponent> directionalLightComponent;
+	Vivid::DirectionalLightComponent directionalLightComponent;
 	Ref<Vivid::Shader> shader;
 
 public:
 	void Setup() override
 	{
 
-		Ref<Vivid::Entity> plane = Vivid::ECS::CreateEntity("Plane");
-		Ref<Vivid::Entity> light = Vivid::ECS::CreateEntity("DirectionalLight");
-		planeModelComponent = Vivid::ECS::CreateComponent<Vivid::ModelComponent>();
-		planeTransformComponent = Vivid::ECS::CreateComponent<Vivid::TransformComponent>();
+		Vivid::Entity plane = Vivid::ECS::CreateEntity();
+		Vivid::Entity light = Vivid::ECS::CreateEntity();
+		planeModelComponent = Vivid::ModelComponent();
+		planeTransformComponent = Vivid::TransformComponent();
 		// Can write custom opengl confs here
 		OPENGL_CONFS
 
@@ -31,18 +31,18 @@ public:
 		planeMesh = new Vivid::Mesh("./../assets/obj/plane.obj");
 		planeMesh->BindShader(shader);
 
-		planeModelComponent->AddMesh(planeMesh);
+		planeModelComponent.m_meshes.push_back(*planeMesh);
 
-		directionalLightComponent = Vivid::ECS::CreateComponent<Vivid::DirectionalLightComponent>();
-		directionalLightComponent->SetDirection(Vivid::Maths::Vec3(0.0f, -1.0f, 0.0f));
+		directionalLightComponent = Vivid::DirectionalLightComponent();
+		directionalLightComponent.m_lightDirection = Vivid::Maths::Vec3(0.0f, -1.0f, 0.0f);
 
-		planeTransformComponent->SetScale(Vivid::Maths::Vec3(50.0f, 50.0f, 50.0f));
-		planeTransformComponent->SetRotation(Vivid::Maths::Vec3(90, 0, 0));
+		planeTransformComponent.m_scale = Vivid::Maths::Vec3(50.0f, 50.0f, 50.0f);
+		planeTransformComponent.m_rotation = Vivid::Maths::Vec3(90, 0, 0);
 
-		Vivid::ECS::AddComponent(planeModelComponent->GetComponentID(), plane->GetEntityID());
-		Vivid::ECS::AddComponent(planeTransformComponent->GetComponentID(), plane->GetEntityID());
+		Vivid::ECS::AddComponent(plane, planeModelComponent);
+		Vivid::ECS::AddComponent(plane, planeTransformComponent);
 
-		Vivid::ECS::AddComponent(directionalLightComponent->GetComponentID(), light->GetEntityID());
+		Vivid::ECS::AddComponent(light, directionalLightComponent);
 
 		MovableCamera* cam = static_cast<MovableCamera*>(Application::GetInstance()->GetCamera());
 		cam->SetPosition({ 0.0f, 0.0f, 100.0f });
@@ -58,11 +58,10 @@ public:
 
 	void Draw() override
 	{
-		Vector<Vivid::DirectionalLightComponent*> directionalLights;
-		Vivid::ECS::GetAllComponents(Vivid::ComponentType::DirectionalLightComponent, directionalLights);
-		Vivid::Maths::Vec3 lightColor = directionalLights[0]->GetLightColor();
-		float intensity = directionalLights[0]->GetIntensity();
-		Vivid::Maths::Vec3 lightDir = directionalLights[0]->GetDirection();
+		Vector<Vivid::DirectionalLightComponent> directionalLights = Vivid::ECS::GetComponents<Vivid::DirectionalLightComponent>();
+		Vivid::Maths::Vec3 lightColor = directionalLights[0].m_lightColor;
+		float intensity = directionalLights[0].m_intensity;
+		Vivid::Maths::Vec3 lightDir = directionalLights[0].m_lightDirection;
 
 		planeMesh->BindShader(shader);
 		shader->Bind();
