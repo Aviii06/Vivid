@@ -1,20 +1,19 @@
 #pragma once
-
+#include <common/types/Types.h>
 
 namespace Vivid
 {
-	/*!
-	 * @enum ComponentType
-	 * @brief Contains the types of components.
-	 * @details ComponentType is an enum class that contains the types of components that can be added to an entity.
-	 */
 	enum class ComponentType
 	{
-		TransformComponent,
-		ModelComponent,
-		PointLightComponent,
-		DirectionalLightComponent,
-		_size,
+		TransformComponent = 1,
+		ModelComponent = 2,
+		// PointLightComponent,
+		DirectionalLightComponent = 3,
+		_size = 4,
 	};
+	constexpr size_t MAX_COMPONENTS = 32;
+
+	using Signature = std::bitset<MAX_COMPONENTS>;
+
 
 }

@@ -22,20 +22,26 @@ set(SOURCES
         ${CMAKE_CURRENT_SOURCE_DIR}/core/renderer/Renderer2D.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/core/renderer/Renderer3D.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/core/ecs/components/light/DirectionalLightComponent.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/editor/gui/DockUI.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/editor/gui/configs/DockUI.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/core/renderer/FrameBuffer.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/core/ecs/components/TransformComponent.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/core/ecs/Entity.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/core/ecs/components/model/ModelComponent.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/editor/camera/movable/OrthoCamera.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/core/ecs/ECS.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/editor/gui/SceneUI.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/editor/gui/UIFlags.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/editor/gui/ecs/SceneUI.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/editor/gui/configs/UIFlags.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/core/os/FileDialogue.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/editor/gui/menu/MenuUI.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/editor/gui/menu/FileMenu.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/editor/assets/Assets.cpp
-        core/ecs/Component.cpp)
+        ${CMAKE_CURRENT_SOURCE_DIR}/core/ecs/Component.cpp
+        core/ecs/ComponentArray.cpp
+        core/ecs/ComponentArray.cpp
+        common/logger.cpp
+        core/ecs/EntityManager.cpp
+        core/ecs/SystemManager.cpp
+        core/ecs/systems/RenderSystem.cpp)
 
 set(HEADERS
         ${CMAKE_CURRENT_SOURCE_DIR}/inputs/InputHandler.h
@@ -71,8 +77,8 @@ set(HEADERS
         ${CMAKE_CURRENT_SOURCE_DIR}/confs/DynamicExportingMacros.h
         ${CMAKE_CURRENT_SOURCE_DIR}/editor/RenderingInterface.h
         ${CMAKE_CURRENT_SOURCE_DIR}/editor/EntryPoint.h
-        ${CMAKE_CURRENT_SOURCE_DIR}/editor/gui/UIFlags.h
-        ${CMAKE_CURRENT_SOURCE_DIR}/editor/gui/DockUI.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/editor/gui/configs/UIFlags.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/editor/gui/configs/DockUI.h
         ${CMAKE_CURRENT_SOURCE_DIR}/core/renderer/FrameBuffer.h
         ${CMAKE_CURRENT_SOURCE_DIR}/core/ecs/Component.h
         ${CMAKE_CURRENT_SOURCE_DIR}/core/ecs/components/TransformComponent.h
@@ -83,7 +89,7 @@ set(HEADERS
         ${CMAKE_CURRENT_SOURCE_DIR}/core/ecs/components/model/ModelComponent.h
         ${CMAKE_CURRENT_SOURCE_DIR}/editor/camera/movable/OrthoCamera.h
         ${CMAKE_CURRENT_SOURCE_DIR}/core/ecs/ECS.h
-        ${CMAKE_CURRENT_SOURCE_DIR}/editor/gui/SceneUI.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/editor/gui/ecs/SceneUI.h
         ${CMAKE_CURRENT_SOURCE_DIR}/core/ecs/components/light/DirectionalLightComponent.h
         ${CMAKE_CURRENT_SOURCE_DIR}/editor/camera/movable/MovableCamera.h
         ${CMAKE_CURRENT_SOURCE_DIR}/common/maths/VectorHelper.h
@@ -92,7 +98,16 @@ set(HEADERS
         ${CMAKE_CURRENT_SOURCE_DIR}/editor/gui/menu/FileMenu.h
         ${CMAKE_CURRENT_SOURCE_DIR}/editor/assets/Assets.h
         ${CMAKE_CURRENT_SOURCE_DIR}/core/ecs/ComponentType.h
-        core/ecs/ComponentFactory.h)
+        ${CMAKE_CURRENT_SOURCE_DIR}/common/maths/VectorOperatorMixin.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/common/types/SingletonMixin.h
+        core/ecs/EntityManager.h
+        core/ecs/ComponentArray.h
+        common/logger.h
+        core/ecs/ComponentManager.h
+        core/ecs/System.h
+        core/ecs/SystemManager.h
+        core/ecs/SystemType.h
+        core/ecs/systems/RenderSystem.h)
 
 add_library(Vivid STATIC ${SOURCES} ${HEADERS})
 
