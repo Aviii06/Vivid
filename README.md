@@ -3,6 +3,11 @@
 
 [Vivid](github.com/aviii06/vivid) is an OpenGL-based rendering framework providing an intuitive 2D and 3D rendering API.
 
+# Examples
+![Screenshot 2025-06-14 at 5 20 48 PM](https://github.com/user-attachments/assets/a81a487c-2b9a-4d39-bbb6-52c39dfaa0e6)
+![Screenshot 2023-08-29 at 8 57 21 PM](https://github.com/Aviii06/Vivid/assets/45993519/d674cba6-3b2b-421c-9a58-31ac616295e6)
+
+
 # Features
 **Shader-Based Rendering**: The renderer utilizes the power of shaders to achieve real-time rendering with support for vertex, fragment, and geometry shaders. This allows for flexible and efficient customization of the rendering pipeline.
 
